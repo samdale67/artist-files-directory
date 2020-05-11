@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="00caeb6b-957e-444f-8302-7a5f9b0b5b4a" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1bHAaqfSR6hsW6WvTPhLPQylpt9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/collections_app" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="artist-files-directory" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/institutions_app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/institutions_app/models.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.models" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="00caeb6b-957e-444f-8302-7a5f9b0b5b4a" name="Default Changelist" comment="" />
+      <created>1588278711603</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588278711603</updated>
+      <workItem from="1588278715521" duration="4024000" />
+      <workItem from="1588342523343" duration="10691000" />
+      <workItem from="1588363943643" duration="1364000" />
+      <workItem from="1588366752727" duration="17000" />
+      <workItem from="1588366976221" duration="1000" />
+      <workItem from="1588366979096" duration="21832000" />
+      <workItem from="1588528388689" duration="27351000" />
+      <workItem from="1588812432706" duration="9118000" />
+      <workItem from="1588878866217" duration="2738000" />
+      <workItem from="1588946958498" duration="13724000" />
+      <workItem from="1589036172323" duration="926000" />
+      <workItem from="1589049429471" duration="11682000" />
+      <workItem from="1589221947466" duration="332000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1166" y="359" width="1140" height="1022" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588447286398">
+      <screen x="0" y="23" width="2880" height="1597" />
+    </state>
+    <state x="1166" y="359" width="1140" height="1022" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2880.1597@0.23.2880.1597" timestamp="1588447286398" />
+    <state width="1547" height="342" key="GridCell.Tab.0.bottom" timestamp="1588363233799">
+      <screen x="0" y="23" width="2880" height="1597" />
+    </state>
+    <state width="1547" height="342" key="GridCell.Tab.0.bottom/0.23.2880.1597@0.23.2880.1597" timestamp="1588363233799" />
+    <state width="1547" height="342" key="GridCell.Tab.0.center" timestamp="1588363233798">
+      <screen x="0" y="23" width="2880" height="1597" />
+    </state>
+    <state width="1547" height="342" key="GridCell.Tab.0.center/0.23.2880.1597@0.23.2880.1597" timestamp="1588363233798" />
+    <state width="1547" height="342" key="GridCell.Tab.0.left" timestamp="1588363233798">
+      <screen x="0" y="23" width="2880" height="1597" />
+    </state>
+    <state width="1547" height="342" key="GridCell.Tab.0.left/0.23.2880.1597@0.23.2880.1597" timestamp="1588363233798" />
+    <state width="1547" height="342" key="GridCell.Tab.0.right" timestamp="1588363233798">
+      <screen x="0" y="23" width="2880" height="1597" />
+    </state>
+    <state width="1547" height="342" key="GridCell.Tab.0.right/0.23.2880.1597@0.23.2880.1597" timestamp="1588363233798" />
+    <state x="1614" y="505" key="SettingsEditor" timestamp="1589222280591">
+      <screen x="0" y="23" width="2880" height="1597" />
+    </state>
+    <state x="1614" y="505" key="SettingsEditor/0.23.2880.1597@0.23.2880.1597" timestamp="1589222280591" />
+    <state x="59" y="42" width="1145" height="1552" key="dock-window-1" timestamp="1588813415931">
+      <screen x="0" y="23" width="2880" height="1597" />
+    </state>
+    <state x="59" y="42" width="1145" height="1552" key="dock-window-1/0.23.2880.1597@0.23.2880.1597" timestamp="1588813415931" />
+    <state x="1496" y="561" width="596" height="522" key="find.popup" timestamp="1588375080982">
+      <screen x="0" y="23" width="2880" height="1597" />
+    </state>
+    <state x="1496" y="561" width="596" height="522" key="find.popup/0.23.2880.1597@0.23.2880.1597" timestamp="1588375080982" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/artist_files_directory$models.coverage" NAME="models Coverage Results" MODIFIED="1588363071866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/institutions_app" />
+  </component>
+</project>
