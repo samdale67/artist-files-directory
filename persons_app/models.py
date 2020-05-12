@@ -17,7 +17,8 @@ class Person(models.Model):
                                       help_text='Choose all roles that are relevant. Create new role if '
                                                 'there '
                                                 'is not a fit.')
-    per_collection = models.ForeignKey('collections_app.Collection', on_delete=models.CASCADE,
+    per_collection = models.ForeignKey('collections_app.Collection',
+                                       on_delete=models.CASCADE,
                                        help_text="Create an artist files collection and provide details. "
                                                  "Multiple "
                                                  "collections allowed and encouraged. Create a separate "
@@ -37,13 +38,12 @@ class Person(models.Model):
 class PersonType(models.Model):
     type_name = models.CharField(max_length=100,
                                  blank=False)
-    definition = models.TextField(max_length=500,
-                                  default='',
-                                  blank=True)
+    notes = models.TextField(max_length=500,
+                             default='',
+                             blank=True)
 
     def __str__(self):
         return self.type_name
 
     class Meta:
         ordering = ['type_name']
-

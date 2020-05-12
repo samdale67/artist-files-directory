@@ -11,6 +11,7 @@ from .models import CollectionSubjectName
 from .models import CollectionSubjectGeoArea
 from .models import CollectionSubjectTopic
 from .models import CollectionSubjectStateProv
+from .models import CollectionImage
 
 
 admin.site.register(Collection)
@@ -25,5 +26,6 @@ admin.site.register(CollectionSubjectName)
 admin.site.register(CollectionSubjectGeoArea)
 admin.site.register(CollectionSubjectTopic)
 admin.site.register(CollectionSubjectStateProv)
+admin.site.register(CollectionImage)
 
 
