@@ -6,11 +6,9 @@ class Collection(models.Model):
                                  blank=False,
                                  help_text='Use "General Collection" if describing all files as one '
                                            'combined entry; otherwise, create a separate entry '
-                                           'for each '
-                                           'formally named collection or collection '
+                                           'for each formally named collection or collection '
                                            'with special characteristics, for example "The Nettie '
-                                           'Wheeler '
-                                           'Artist Files on Native American Artists."',
+                                           'Wheeler Artist Files on Native American Artists."',
                                  default='General Collection')
     coll_description = models.TextField(max_length=1000,
                                         blank=False,

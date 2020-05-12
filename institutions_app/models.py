@@ -7,7 +7,7 @@ class Institution(models.Model):
                                       blank=False)
     inst_sub_name = models.CharField(max_length=255,
                                      help_text='Provide name of department, division, etc., responsible for '
-                                               'artist files collections.',
+                                               'artist files.',
                                      blank=True)
     inst_website = models.URLField(max_length=255,
                                    help_text='Provide website address related to main institution or '
@@ -16,7 +16,7 @@ class Institution(models.Model):
                                    blank=False)
     inst_email = models.EmailField(max_length=255,
                                    help_text='Provide best email for answering questions about artist '
-                                             'files collections. Prefer general email such as '
+                                             'files. Prefer general email such as '
                                              '"library@cartermuseum.org"',
                                    blank=False)
     inst_tel = models.CharField(max_length=50,
