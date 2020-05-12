@@ -19,12 +19,13 @@ class Person(models.Model):
                                                 'is not a fit.')
     per_collection = models.ForeignKey('collections_app.Collection',
                                        on_delete=models.CASCADE,
-                                       help_text="Create an artist files collection and provide details. "
-                                                 "Multiple "
-                                                 "collections allowed and encouraged. Create a separate "
-                                                 "entry for each formally named collection or collection "
-                                                 "with special characteristics, for example \"The Nettie "
-                                                 "Wheeler Artist Files on Native American Artists.\"")
+                                       help_text='Create an artist files collection and provide details. '
+                                                 'Use "General Collection" if describing all files as one '
+                                                 'combined entry. Create a separate entry for each '
+                                                 'formally named collection or collection with special '
+                                                 'characteristics, for example \"The Nettie Wheeler Artist '
+                                                 'Files on Native American Artists.\" Multiple collections '
+                                                 'allowed and encouraged.')
     per_date_created = models.DateField(auto_now_add=True)
     per_date_saved = models.DateField(auto_now=True)
 
