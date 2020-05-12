@@ -37,6 +37,18 @@ class Collection(models.Model):
                                                        'collection. Create a new system if there is '
                                                        'not a fit.',
                                              blank=False)
+    coll_size = models.TextField(max_length=1000,
+                                 help_text='Provide a statement about the size of the collection, '
+                                           'including growth rate, etc. Use whatever measurement terms are '
+                                           'relevant.',
+                                 default='',
+                                 blank=False)
+    coll_spec_format = models.ManyToManyField(to='CollectionSpecialFormat',
+                                              related_name='Collection',
+                                              help_text='Add special formats contained in the '
+                                                        'collection, either analog or digital. Create a new '
+                                                        'type if there is not a fit.',
+                                              blank=True)
     coll_dig_projects = models.TextField(max_length=1000,
                                          blank=True,
                                          help_text='Describe digital projects, either completed '
@@ -44,11 +56,6 @@ class Collection(models.Model):
     coll_dig_access = models.URLField(max_length=255,
                                       blank=True,
                                       help_text='Provide URL for accessing digital collection.')
-    coll_size = models.TextField(max_length=1000,
-                                 help_text='Provide, in whatever terms relevant, a statement about the '
-                                           'size of the collection, including growth rate, etc.',
-                                 default='',
-                                 blank=False)
     # Need to work on way for user to choose a featured image below
     coll_image = models.ForeignKey('CollectionImage',
                                    on_delete=models.CASCADE,
@@ -56,12 +63,6 @@ class Collection(models.Model):
                                              'and/or storage systems in use.',
                                    blank=True,
                                    null=True)
-    coll_spec_format = models.ManyToManyField(to='CollectionSpecialFormat',
-                                              related_name='Collection',
-                                              help_text='Add special formats contained in the '
-                                                        'collection, either analog or digital. Create a new '
-                                                        'type if there is not a fit.',
-                                              blank=True)
     coll_subject_name = models.ManyToManyField(to='CollectionSubjectName',
                                                related_name='Collection',
                                                blank=True,
