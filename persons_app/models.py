@@ -2,22 +2,29 @@ from django.db import models
 
 
 class Person(models.Model):
-    per_last_name = models.CharField(max_length=255,
+    per_last_name = models.CharField('Last Name',
+                                     max_length=255,
                                      blank=False)
-    per_first_name = models.CharField(max_length=255,
+    per_first_name = models.CharField('First Name',
+                                      max_length=255,
                                       blank=False)
-    per_email = models.EmailField(max_length=255,
+    per_email = models.EmailField('Email',
+                                  max_length=255,
                                   blank=True)
-    per_tel = models.CharField(max_length=50,
+    per_tel = models.CharField('Telephone',
+                               max_length=50,
                                blank=True)
-    per_website = models.URLField(max_length=255,
+    per_website = models.URLField('Website',
+                                  max_length=255,
                                   blank=True)
-    per_type = models.ManyToManyField(to='persons_app.PersonType',
+    per_type = models.ManyToManyField(to='PersonType',
+                                      verbose_name=u'Types',
                                       related_name='Person',
                                       help_text='Choose all roles that are relevant. Create new role if '
                                                 'there '
                                                 'is not a fit.')
     per_collection = models.ForeignKey('collections_app.Collection',
+                                       verbose_name=u'Collections',
                                        on_delete=models.CASCADE,
                                        help_text='Create an artist files collection and provide details. '
                                                  'Use "General Collection" if describing all files as one '
@@ -37,7 +44,8 @@ class Person(models.Model):
 
 
 class PersonType(models.Model):
-    type_name = models.CharField(max_length=100,
+    type_name = models.CharField('Type',
+                                 max_length=100,
                                  blank=False)
     notes = models.TextField(max_length=500,
                              default='',
