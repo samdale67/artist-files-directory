@@ -52,6 +52,8 @@ class Institution(models.Model):
         return self.inst_main_name + ", " + self.inst_sub_name
 
     class Meta:
+        verbose_name = 'Institution'
+        verbose_name_plural = 'Institutions'
         ordering = ['inst_main_name']
 
 
@@ -64,4 +66,6 @@ class InstitutionType(models.Model):
         return self.type_name
 
     class Meta:
+        verbose_name = 'Institution Type'
+        verbose_name_plural = 'Institution Types'
         ordering = ['type_name']

@@ -40,6 +40,8 @@ class Person(models.Model):
         return self.per_last_name + ", " + self.per_first_name
 
     class Meta:
+        verbose_name = 'Person'
+        verbose_name_plural = 'Persons'
         ordering = ['per_last_name']
 
 
@@ -55,4 +57,6 @@ class PersonType(models.Model):
         return self.type_name
 
     class Meta:
+        verbose_name = 'Person Type'
+        verbose_name_plural = 'Person Types'
         ordering = ['type_name']

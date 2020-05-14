@@ -2,19 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00caeb6b-957e-444f-8302-7a5f9b0b5b4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0010_auto_20200513_1434.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0011_auto_20200513_1457.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0012_auto_20200513_1500.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0013_auto_20200513_1501.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/institutions_app/migrations/0005_auto_20200513_1505.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/institutions_app/migrations/0006_auto_20200513_1506.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/institutions_app/migrations/0007_auto_20200513_1507.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/institutions_app/migrations/0008_auto_20200513_1511.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/institutions_app/migrations/0009_auto_20200513_1515.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/institutions_app/migrations/0010_auto_20200513_1515.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/persons_app/migrations/0003_auto_20200513_1510.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/persons_app/migrations/0004_auto_20200513_1511.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/persons_app/migrations/0005_auto_20200513_1515.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0015_auto_20200513_1551.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0016_auto_20200513_1552.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0017_auto_20200513_1609.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0018_auto_20200513_1612.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0019_auto_20200513_1613.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0020_auto_20200513_1615.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0021_auto_20200513_1622.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0022_auto_20200513_1626.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0023_auto_20200514_0022.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/institutions_app/migrations/0011_auto_20200514_0024.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/institutions_app/migrations/0012_auto_20200514_0025.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/persons_app/migrations/0006_auto_20200514_0026.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/institutions_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/institutions_app/models.py" afterDir="false" />
@@ -136,7 +135,8 @@
       <workItem from="1589233587911" duration="1390000" />
       <workItem from="1589235017756" duration="1591000" />
       <workItem from="1589237267184" duration="2598000" />
-      <workItem from="1589240264853" duration="10782000" />
+      <workItem from="1589240264853" duration="17477000" />
+      <workItem from="1589416761513" duration="564000" />
     </task>
     <task id="LOCAL-00001" summary="None.">
       <created>1589247969075</created>
@@ -180,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589305606952</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="None.">
+      <created>1589383162560</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1589383162560</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,10 +215,10 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="909" y="631" key="#com.intellij.fileTypes.FileTypeChooser/0.23.2880.1597@0.23.2880.1597" timestamp="1589240272466" />
-    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2" timestamp="1589305606819">
+    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2" timestamp="1589383162443">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
-    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2/0.23.2880.1597@0.23.2880.1597" timestamp="1589305606819" />
+    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2/0.23.2880.1597@0.23.2880.1597" timestamp="1589383162443" />
     <state x="953" y="229" width="1401" height="1264" key="DiffContextDialog" timestamp="1589248165754">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
@@ -252,10 +259,10 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="1286" y="373" key="SettingsEditor/0.23.2880.1597@0.23.2880.1597" timestamp="1589247816077" />
-    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2" timestamp="1589305743607">
+    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2" timestamp="1589383171430">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
-    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2/0.23.2880.1597@0.23.2880.1597" timestamp="1589305743607" />
+    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2/0.23.2880.1597@0.23.2880.1597" timestamp="1589383171430" />
     <state x="931" y="159" width="1458" height="1263" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589238753759">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
