@@ -23,7 +23,7 @@ class Collection(models.Model):
                                    blank=False,
                                    help_text='Add policies and procedures relating to how '
                                              'researchers access and use the collection.')
-    coll_website = models.URLField('Website',
+    coll_website = models.URLField('Website',z
                                    max_length=255,
                                    blank=True,
                                    help_text='Add website describing or providing access to the collection.')
@@ -329,7 +329,7 @@ class CollectionSubjectCountry(models.Model):
     coll_sub_country = models.CharField('Subject - Country',
                                         max_length=100,
                                         help_text='Use preferred VIAF form of name.')
-    coll_sub_country_url = models.URLField('Thesauras Website',
+    coll_sub_country_url = models.URLField('Thesaurus Website',
                                            max_length=255,
                                            help_text='Provide VIAF permalink.')
     notes = models.TextField(max_length=500,
