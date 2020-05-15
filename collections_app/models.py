@@ -66,11 +66,11 @@ class Collection(models.Model):
     # Need to work on way for user to choose a featured image below
     coll_image = models.ForeignKey('CollectionImage',
                                    verbose_name=u'Collection Images',
-                                   on_delete=models.CASCADE,
                                    help_text='Upload images showing example material from files '
                                              'and/or storage systems in use.',
                                    blank=True,
-                                   null=True)
+                                   null=True,
+                                   on_delete=models.CASCADE)
     coll_subject_name = models.ManyToManyField(verbose_name=u'Subject - Names',
                                                to='CollectionSubjectName',
                                                related_name='Collection',
@@ -145,11 +145,34 @@ class Collection(models.Model):
         ordering = ['coll_name']
 
 
-class CollectionImage(models.Model):
-    coll_image = models.ImageField('Add Image',
-                                   upload_to='collection/images/',
-                                   help_text='Upload images showing example material from files '
-                                             'and/or storage systems in use.')
+class CollectionService(models.Model):
+    coll_serv_name = models.CharField('Services',
+                                      max_length=100)
+    notes = models.TextField(max_length=500,
+                             blank=True)
+
+    def __str__(self):
+        return self.coll_serv_name
+
+    class Meta:
+        verbose_name = 'Service'
+        verbose_name_plural = 'Services'
+        ordering = ['coll_serv_name']
+
+
+class CollectionCatSystem(models.Model):
+    coll_cat_name = models.CharField('Cataloging Systems',
+                                     max_length=100)
+    notes = models.TextField(max_length=500,
+                             blank=True)
+
+    def __str__(self):
+        return self.coll_cat_name
+
+    class Meta:
+        verbose_name = 'Cataloging System'
+        verbose_name_plural = 'Cataloging Systems'
+        ordering = ['coll_cat_name']
 
 
 class CollectionSpecialFormat(models.Model):
@@ -183,34 +206,11 @@ class CollectionSpecialFormat(models.Model):
         ordering = ['coll_special_format']
 
 
-class CollectionCatSystem(models.Model):
-    coll_cat_name = models.CharField('Cataloging Systems',
-                                     max_length=100)
-    notes = models.TextField(max_length=500,
-                             blank=True)
-
-    def __str__(self):
-        return self.coll_cat_name
-
-    class Meta:
-        verbose_name = 'Cataloging System'
-        verbose_name_plural = 'Cataloging Systems'
-        ordering = ['coll_cat_name']
-
-
-class CollectionService(models.Model):
-    coll_serv_name = models.CharField('Services',
-                                      max_length=100)
-    notes = models.TextField(max_length=500,
-                             blank=True)
-
-    def __str__(self):
-        return self.coll_serv_name
-
-    class Meta:
-        verbose_name = 'Service'
-        verbose_name_plural = 'Services'
-        ordering = ['coll_serv_name']
+class CollectionImage(models.Model):
+    coll_image = models.ImageField('Add Image',
+                                   upload_to='collection/images/',
+                                   help_text='Upload images showing example material from files '
+                                             'and/or storage systems in use.')
 
 
 class CollectionSubjectName(models.Model):
