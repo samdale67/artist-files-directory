@@ -46,7 +46,7 @@ class Person(models.Model):
 
 
 class PersonType(models.Model):
-    type_name = models.CharField('Type',
+    type_name = models.CharField('Person Type',
                                  max_length=100,
                                  blank=False)
     notes = models.TextField(max_length=500,

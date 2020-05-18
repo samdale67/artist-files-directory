@@ -58,9 +58,11 @@ class Institution(models.Model):
 
 
 class InstitutionType(models.Model):
-    type_name = models.CharField('Type',
-                                 max_length=100)
-    notes = models.TextField(max_length=500, default='', null=True, blank=True)
+    type_name = models.CharField('Institution Type',
+                                 max_length=100,
+                                 blank=False)
+    notes = models.TextField(max_length=500,
+                             blank=True)
 
     def __str__(self):
         return self.type_name

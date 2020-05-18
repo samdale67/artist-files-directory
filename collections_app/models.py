@@ -144,9 +144,10 @@ class Collection(models.Model):
 
 
 class CollectionService(models.Model):
-    coll_serv_name = models.CharField('Reference Services',
+    coll_serv_name = models.CharField('Reference Service',
                                       max_length=100,
-                                      help_text='Add a new reference service.')
+                                      blank=False,
+                                      help_text='')
     notes = models.TextField(max_length=500,
                              blank=True)
 
@@ -160,9 +161,9 @@ class CollectionService(models.Model):
 
 
 class CollectionCatSystem(models.Model):
-    coll_cat_name = models.CharField('Cataloging Systems',
+    coll_cat_name = models.CharField('Cataloging System',
                                      max_length=100,
-                                     help_text='Add a new cataloging system.')
+                                     help_text='')
     notes = models.TextField(max_length=500,
                              blank=True)
 
@@ -177,9 +178,9 @@ class CollectionCatSystem(models.Model):
 
 class CollectionSpecialFormat(models.Model):
     # Use id.loc.gov
-    coll_special_format = models.CharField('Special Format Name',
+    coll_special_format = models.CharField('Special Format',
                                            max_length=100,
-                                           help_text='Add a new special format.')
+                                           help_text='')
     coll_special_format_url = models.URLField('Term Reference',
                                               max_length=255,
                                               help_text='Provide URI from <a '
@@ -221,7 +222,8 @@ class CollectionSubjectName(models.Model):
     coll_sub_name = models.CharField('Subject: Name',
                                      max_length=100,
                                      blank="False",
-                                     help_text='Use preferred <a href="http://www.viaf.org" '
+                                     help_text='Use preferred <a '
+                                               'href="http://www.viaf.org" '
                                                'target="_blank">VIAF</a> form '
                                                'of '
                                                'name.')
