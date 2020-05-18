@@ -5,12 +5,12 @@ class Collection(models.Model):
     coll_name = models.CharField('Name',
                                  max_length=255,
                                  blank=False,
+                                 default='General Collection',
                                  help_text='Use "General Collection" if describing all files as one '
                                            'combined entry; otherwise, create a separate entry '
                                            'for each formally named collection or collection '
                                            'with special characteristics, for example "The Nettie '
-                                           'Wheeler Artist Files on Native American Artists."',
-                                 default='General Collection')
+                                           'Wheeler Artist Files on Native American Artists."')
     coll_description = models.TextField('Description',
                                         max_length=1000,
                                         blank=False,
@@ -23,37 +23,37 @@ class Collection(models.Model):
                                    blank=False,
                                    help_text='Add policies and procedures relating to how '
                                              'researchers access and use the collection.')
-    coll_website = models.URLField('Website',z
+    coll_website = models.URLField('Website',
                                    max_length=255,
                                    blank=True,
                                    help_text='Add website describing or providing access to the collection.')
-    coll_services = models.ManyToManyField(verbose_name=u'Services',
-                                           to='CollectionService',
+    coll_services = models.ManyToManyField(to='CollectionService',
                                            related_name='Collection',
+                                           verbose_name=u'Reference Services',
+                                           blank=False,
                                            help_text='Add reference services offered. Create a new service '
-                                                     'if there is not a fit.',
-                                           blank=False)
-    coll_cat_system = models.ManyToManyField(verbose_name=u'Cataloging Systems',
-                                             to='CollectionCatSystem',
+                                                     'if there is not a fit.')
+    coll_cat_system = models.ManyToManyField(to='CollectionCatSystem',
                                              related_name='Collection',
+                                             verbose_name=u'Cataloging Systems',
+                                             blank=False,
                                              help_text='Add systems used for cataloging artist files '
                                                        'collection. Create a new system if there is '
-                                                       'not a fit.',
-                                             blank=False)
+                                                       'not a fit.')
     coll_size = models.TextField('Size',
                                  max_length=1000,
+                                 default='',
+                                 blank=False,
                                  help_text='Provide a statement about the size of the collection, '
                                            'including growth rate, etc. Use whatever measurement terms are '
-                                           'relevant.',
-                                 default='',
-                                 blank=False)
-    coll_spec_format = models.ManyToManyField(verbose_name=u'Special Formats',
-                                              to='CollectionSpecialFormat',
+                                           'relevant.')
+    coll_spec_format = models.ManyToManyField(to='CollectionSpecialFormat',
                                               related_name='Collection',
+                                              verbose_name=u'Special Formats',
+                                              blank=True,
                                               help_text='Add special formats contained in the '
                                                         'collection, either analog or digital. Create a new '
-                                                        'type if there is not a fit.',
-                                              blank=True)
+                                                        'type if there is not a fit.')
     coll_dig_projects = models.TextField('Digital Projects',
                                          max_length=1000,
                                          blank=True,
@@ -66,51 +66,50 @@ class Collection(models.Model):
     # Need to work on way for user to choose a featured image below
     coll_image = models.ForeignKey('CollectionImage',
                                    verbose_name=u'Collection Images',
-                                   help_text='Upload images showing example material from files '
-                                             'and/or storage systems in use.',
+                                   on_delete=models.CASCADE,
                                    blank=True,
                                    null=True,
-                                   on_delete=models.CASCADE)
-    coll_subject_name = models.ManyToManyField(verbose_name=u'Subject - Names',
-                                               to='CollectionSubjectName',
+                                   help_text='Upload images showing example material from files '
+                                             'and/or storage systems in use.')
+    coll_subject_name = models.ManyToManyField(to='CollectionSubjectName',
                                                related_name='Collection',
+                                               verbose_name=u'Subject - Names',
                                                blank=True,
                                                help_text='Add personal and institutional names that '
-                                                         'are '
-                                                         'subjects of the collection.')
-    coll_subject_topic = models.ManyToManyField(verbose_name=u'Subject - Topics',
-                                                to='CollectionSubjectTopic',
+                                                         'are subjects of the collection.')
+    coll_subject_topic = models.ManyToManyField(to='CollectionSubjectTopic',
                                                 related_name='Collection',
+                                                verbose_name=u'Subject - Topics',
                                                 blank=True,
                                                 help_text='Add topical terms that are the subject focuses '
                                                           'of the files.')
-    coll_subject_city = models.ManyToManyField(verbose_name=u'Subject - Cities',
-                                               to='CollectionSubjectCity',
+    coll_subject_city = models.ManyToManyField(to='CollectionSubjectCity',
                                                related_name='Collection',
+                                               verbose_name=u'Subject - Cities',
                                                blank=True,
                                                help_text='Add cities that are subject focuses of the files')
-    coll_subject_county = models.ManyToManyField(verbose_name=u'Subject - Counties',
-                                                 to='CollectionSubjectCounty',
+    coll_subject_county = models.ManyToManyField(to='CollectionSubjectCounty',
                                                  related_name='Collection',
+                                                 verbose_name=u'Subject - Counties',
                                                  blank=True,
                                                  help_text='Add counties that are subject focuses of the '
                                                            'files.')
-    coll_subject_state_prov = models.ManyToManyField(verbose_name=u'Subject - States and '
-                                                     'Provinces',
-                                                     to='CollectionSubjectStateProv',
+    coll_subject_state_prov = models.ManyToManyField(to='CollectionSubjectStateProv',
                                                      related_name='Collection',
+                                                     verbose_name=u'Subject - States and '
+                                                                  'Provinces',
                                                      blank=True,
                                                      help_text='Add states or provinces that are subject '
                                                                'focuses of the files.')
-    coll_subject_country = models.ManyToManyField(verbose_name=u'Subject - Countries',
-                                                  to='CollectionSubjectCountry',
+    coll_subject_country = models.ManyToManyField(to='CollectionSubjectCountry',
                                                   related_name='Collection',
+                                                  verbose_name=u'Subject - Countries',
                                                   blank=True,
                                                   help_text='Add countries that are subject focuses of the '
                                                             'files.')
-    coll_subject_geo_area = models.ManyToManyField(verbose_name=u'Subject - Geographic Areas',
-                                                   to='CollectionSubjectGeoArea',
+    coll_subject_geo_area = models.ManyToManyField(to='CollectionSubjectGeoArea',
                                                    related_name='Collection',
+                                                   verbose_name=u'Subject - Geographic Areas',
                                                    blank=True,
                                                    help_text='Add geographic areas, such as West U.S. that '
                                                              'are subject focuses of the files.')
@@ -146,7 +145,7 @@ class Collection(models.Model):
 
 
 class CollectionService(models.Model):
-    coll_serv_name = models.CharField('Services',
+    coll_serv_name = models.CharField('Reference Services',
                                       max_length=100)
     notes = models.TextField(max_length=500,
                              blank=True)
@@ -155,8 +154,8 @@ class CollectionService(models.Model):
         return self.coll_serv_name
 
     class Meta:
-        verbose_name = 'Service'
-        verbose_name_plural = 'Services'
+        verbose_name = 'Reference Service'
+        verbose_name_plural = 'Reference Services'
         ordering = ['coll_serv_name']
 
 
