@@ -145,7 +145,8 @@ class Collection(models.Model):
 
 class CollectionService(models.Model):
     coll_serv_name = models.CharField('Reference Services',
-                                      max_length=100)
+                                      max_length=100,
+                                      help_text='Add a new reference service.')
     notes = models.TextField(max_length=500,
                              blank=True)
 
@@ -160,7 +161,8 @@ class CollectionService(models.Model):
 
 class CollectionCatSystem(models.Model):
     coll_cat_name = models.CharField('Cataloging Systems',
-                                     max_length=100)
+                                     max_length=100,
+                                     help_text='Add a new cataloging system.')
     notes = models.TextField(max_length=500,
                              blank=True)
 
@@ -175,23 +177,22 @@ class CollectionCatSystem(models.Model):
 
 class CollectionSpecialFormat(models.Model):
     # Use id.loc.gov
-    coll_special_format_thesaurus_choices = [
-        ('TGM', 'Thesaurus for Graphic Materials'),
-        ('LCGFT', 'LC Genre/Form Terms'),
-        ('Wikipedia', 'Wikipedia'),
-        ('Other', 'Other')
-    ]
     coll_special_format = models.CharField('Special Format Name',
-                                           max_length=100)
-    coll_special_format_thesaurus = models.CharField('Thesaurus',
-                                                     max_length=10,
-                                                     choices=coll_special_format_thesaurus_choices,
-                                                     blank=False)
-    coll_special_format_url = models.URLField('Thesaurus Website',
+                                           max_length=100,
+                                           help_text='Add a new special format.')
+    coll_special_format_url = models.URLField('Term Reference',
                                               max_length=255,
-                                              help_text='Provide permalink from id.loc.gov or '
-                                                        'Wikipedia URL.',
-                                              blank=False)
+                                              help_text='Provide URI from <a '
+                                                        'href="http://id.loc.gov/vocabulary'
+                                                        '/graphicMaterials.html" target="_blank">TGM</a>, '
+                                                        '<a '
+                                                        'href="http://id.loc.gov/authorities/genreForms'
+                                                        '.html" '
+                                                        'target="_blank">LCGFT</a>, '
+                                                        '<a href="http://www.wikipedia.org" '
+                                                        'target="_blank">Wikipedia</a> URL, '
+                                                        'or other URL.',
+                                              blank=True)
     notes = models.TextField(max_length=500,
                              blank=True)
 
@@ -217,12 +218,17 @@ class CollectionImage(models.Model):
 
 class CollectionSubjectName(models.Model):
     # Use VIAF
-    coll_sub_name = models.CharField('Subject - Name',
+    coll_sub_name = models.CharField('Subject: Name',
                                      max_length=100,
-                                     help_text='Use preferred VIAF form of name.')
-    coll_sub_name_url = models.URLField('Thesaurus Website',
+                                     blank="False",
+                                     help_text='Use preferred <a href="http://www.viaf.org" '
+                                               'target="_blank">VIAF</a> form '
+                                               'of '
+                                               'name.')
+    coll_sub_name_url = models.URLField('Form of Name Reference',
                                         max_length=255,
-                                        help_text='Provide VIAF permalink.')
+                                        help_text='Provide <a href="http://www.viaf.org" '
+                                                  'target="_blank">VIAF</a> permalink.')
     notes = models.TextField(max_length=500,
                              blank=True)
 
@@ -237,24 +243,20 @@ class CollectionSubjectName(models.Model):
 
 class CollectionSubjectTopic(models.Model):
     # Use id.loc.gov?
-    coll_sub_thesaurus_choices = [
-        ('LCSH', 'Library of Congress Subject Headings'),
-        ('AAT', 'Art and Architecture Thesaurus'),
-    ]
     coll_sub_topic = models.CharField('Subject: Topic',
                                       max_length=100,
-                                      blank=False)
-    coll_sub_thesaurus = models.CharField('Thesaurus',
-                                          max_length=10,
-                                          choices=coll_sub_thesaurus_choices,
-                                          blank=False,
-                                          default='LCSH')
-    coll_sub_topic_url = models.URLField('Thesaurus Website',
+                                      blank=False,
+                                      help_text='Use term from <a '
+                                                'href="http://id.loc.gov/authorities/subjects.html" '
+                                                'target="_blank">LCSH '
+                                                '</a> or other authority.')
+    coll_sub_topic_url = models.URLField('Term Reference',
                                          max_length=255,
-                                         help_text='Provide permalink from id.loc.gov or vocab.getty.edu.',
-                                         default='')
-    description = models.TextField(max_length=500,
-                                   blank=True)
+                                         help_text='Provide URI to term.',
+                                         default='',
+                                         blank=True)
+    notes = models.TextField(max_length=500,
+                             blank=True)
 
     def __str__(self):
         return self.coll_sub_topic
@@ -269,11 +271,16 @@ class CollectionSubjectCity(models.Model):
     # use VIAF
     coll_sub_city = models.CharField('Subject: City',
                                      max_length=100,
-                                     help_text='Use preferred VIAF form of name.')
-    coll_sub_city_url = models.URLField('Thesaurus Website',
+                                     blank=False,
+                                     help_text='Use term from <a '
+                                               'href="http://id.loc.gov/authorities/subjects.html" '
+                                               'target="_blank">LCSH</a> '
+                                               'or other authority.')
+    coll_sub_city_url = models.URLField('Term Reference',
                                         max_length=255,
-                                        help_text='Provide VIAF permalink.',
-                                        default='')
+                                        help_text='Provide URI to term.',
+                                        default='',
+                                        blank=True)
     notes = models.TextField(max_length=500,
                              blank=True)
 
@@ -290,10 +297,15 @@ class CollectionSubjectCounty(models.Model):
     # use VIAF
     coll_sub_county = models.CharField('Subject: County',
                                        max_length=100,
-                                       help_text='Use preferred VIAF form of name.')
-    coll_sub_county_url = models.URLField('Thesaurus Website',
+                                       blank=False,
+                                       help_text='Use term from <a '
+                                                 'href="http://id.loc.gov/authorities/subjects.html" '
+                                                 'target="_blank">LCSH '
+                                                 '</a> or other authority.')
+    coll_sub_county_url = models.URLField('Term Reference',
                                           max_length=255,
-                                          help_text='Provide VIAF permalink.')
+                                          blank=True,
+                                          help_text='Provide URI to term.')
     notes = models.TextField(max_length=500,
                              blank=True)
 
@@ -310,10 +322,14 @@ class CollectionSubjectStateProv(models.Model):
     # Use VIAF
     coll_sub_state_prov = models.CharField('Subject: State/Province',
                                            max_length=100,
-                                           help_text='Use preferred VIAF form of name.')
-    coll_sub_state_prov_url = models.URLField('Thesaurus Website',
+                                           blank=False,
+                                           help_text='Use term from <a '
+                                                     'href="http://id.loc.gov/authorities/subjects.html'
+                                                     '" target="_blank">LCSH</a> or other authority.')
+    coll_sub_state_prov_url = models.URLField('Term Reference',
                                               max_length=255,
-                                              help_text='Provide VIAF permalink.')
+                                              blank=True,
+                                              help_text='Provide URI to term.')
     notes = models.TextField(max_length=500,
                              blank=True)
 
@@ -330,10 +346,14 @@ class CollectionSubjectCountry(models.Model):
     # Use VIAF
     coll_sub_country = models.CharField('Subject: Country',
                                         max_length=100,
-                                        help_text='Use preferred VIAF form of name.')
-    coll_sub_country_url = models.URLField('Thesaurus Website',
+                                        blank=False,
+                                        help_text='Use term from <a '
+                                                  'href="http://id.loc.gov/authorities/subjects.html" '
+                                                  'target="_blank">LCSH '
+                                                  '</a> or other authority.')
+    coll_sub_country_url = models.URLField('Term Reference',
                                            max_length=255,
-                                           help_text='Provide VIAF permalink.')
+                                           help_text='Provide URI to term.')
     notes = models.TextField(max_length=500,
                              blank=True)
 
@@ -350,10 +370,15 @@ class CollectionSubjectGeoArea(models.Model):
     # use VIAF
     coll_sub_geo_area = models.CharField('Subject: Geographic Area',
                                          max_length=100,
-                                         help_text='Use preferred VIAF form of name.')
-    coll_sub_geo_area_url = models.URLField('Thesaurus Website',
+                                         blank=False,
+                                         help_text='Use term from <a '
+                                                   'href="http://id.loc.gov/authorities/subjects.html" '
+                                                   'target="_blank">LCSH '
+                                                   '</a> or other authority.')
+    coll_sub_geo_area_url = models.URLField('Term Reference',
                                             max_length=255,
-                                            help_text='Provide VIAF permalink.')
+                                            blank=True,
+                                            help_text='Provide URI to term.')
     notes = models.TextField(max_length=500,
                              blank=True)
 
@@ -370,12 +395,15 @@ class CollectionLanguage(models.Model):
     # use id.loc.gov?
     coll_lang = models.CharField('Language',
                                  max_length=100,
-                                 help_text='Use language term from '
-                                           'http://id.loc.gov/vocabulary/languages.html')
-    coll_lang_url = models.URLField('Thesaurus Website',
+                                 blank=False,
+                                 help_text='Use language term from <a '
+                                           'href="http://id.loc.gov/vocabulary/languages.html" '
+                                           'target="_blank">MARC List '
+                                           'for Languages</a> or other authority.')
+    coll_lang_url = models.URLField('Language Name Reference',
                                     max_length=255,
-                                    help_text='Provide URI for term from '
-                                              'http://id.loc.gov/vocabulary/languages.html')
+                                    blank=True,
+                                    help_text='Provide URI to term.')
     notes = models.TextField(max_length=500,
                              blank=True)
 
