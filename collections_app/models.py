@@ -185,11 +185,14 @@ class CollectionSpecialFormat(models.Model):
                                               max_length=255,
                                               help_text='Provide URI from <a '
                                                         'href="http://id.loc.gov/vocabulary'
-                                                        '/graphicMaterials.html" target="_blank">TGM</a>, '
+                                                        '/graphicMaterials.html" '
+                                                        'target="_blank">Thesaurus for Graphic '
+                                                        'Materials</a>, '
                                                         '<a '
                                                         'href="http://id.loc.gov/authorities/genreForms'
                                                         '.html" '
-                                                        'target="_blank">LCGFT</a>, '
+                                                        'target="_blank">Library of Congress Genre/Form '
+                                                        'Terms</a>, '
                                                         '<a href="http://www.wikipedia.org" '
                                                         'target="_blank">Wikipedia</a> URL, '
                                                         'or other URL.',
@@ -250,7 +253,7 @@ class CollectionSubjectTopic(models.Model):
                                       blank=False,
                                       help_text='Use term from <a '
                                                 'href="http://id.loc.gov/authorities/subjects.html" '
-                                                'target="_blank">LCSH '
+                                                'target="_blank">Library of Congress Subject Headings '
                                                 '</a> or other authority.')
     coll_sub_topic_url = models.URLField('Term Reference',
                                          max_length=255,
@@ -276,7 +279,7 @@ class CollectionSubjectCity(models.Model):
                                      blank=False,
                                      help_text='Use term from <a '
                                                'href="http://id.loc.gov/authorities/subjects.html" '
-                                               'target="_blank">LCSH</a> '
+                                               'target="_blank">Library of Congress Subject Headings</a> '
                                                'or other authority.')
     coll_sub_city_url = models.URLField('Term Reference',
                                         max_length=255,
@@ -302,7 +305,7 @@ class CollectionSubjectCounty(models.Model):
                                        blank=False,
                                        help_text='Use term from <a '
                                                  'href="http://id.loc.gov/authorities/subjects.html" '
-                                                 'target="_blank">LCSH '
+                                                 'target="_blank">Library of Congress Subject Headings '
                                                  '</a> or other authority.')
     coll_sub_county_url = models.URLField('Term Reference',
                                           max_length=255,
@@ -327,7 +330,8 @@ class CollectionSubjectStateProv(models.Model):
                                            blank=False,
                                            help_text='Use term from <a '
                                                      'href="http://id.loc.gov/authorities/subjects.html'
-                                                     '" target="_blank">LCSH</a> or other authority.')
+                                                     '" target="_blank">Library of Congress Subject '
+                                                     'Headings</a> or other authority.')
     coll_sub_state_prov_url = models.URLField('Term Reference',
                                               max_length=255,
                                               blank=True,
@@ -351,7 +355,7 @@ class CollectionSubjectCountry(models.Model):
                                         blank=False,
                                         help_text='Use term from <a '
                                                   'href="http://id.loc.gov/authorities/subjects.html" '
-                                                  'target="_blank">LCSH '
+                                                  'target="_blank">Library of Congress Subject Headings '
                                                   '</a> or other authority.')
     coll_sub_country_url = models.URLField('Term Reference',
                                            max_length=255,
@@ -375,7 +379,7 @@ class CollectionSubjectGeoArea(models.Model):
                                          blank=False,
                                          help_text='Use term from <a '
                                                    'href="http://id.loc.gov/authorities/subjects.html" '
-                                                   'target="_blank">LCSH '
+                                                   'target="_blank">Library of Congress Subject Headings '
                                                    '</a> or other authority.')
     coll_sub_geo_area_url = models.URLField('Term Reference',
                                             max_length=255,
