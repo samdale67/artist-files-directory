@@ -73,64 +73,63 @@ class Collection(models.Model):
                                              'and/or storage systems in use.')
     coll_subject_name = models.ManyToManyField(to='CollectionSubjectName',
                                                related_name='Collection',
-                                               verbose_name=u'Subject - Names',
+                                               verbose_name=u'Subject: Names',
                                                blank=True,
                                                help_text='Add personal and institutional names that '
                                                          'are subjects of the collection.')
     coll_subject_topic = models.ManyToManyField(to='CollectionSubjectTopic',
                                                 related_name='Collection',
-                                                verbose_name=u'Subject - Topics',
+                                                verbose_name=u'Subject: Topics',
                                                 blank=True,
                                                 help_text='Add topical terms that are the subject focuses '
                                                           'of the files.')
     coll_subject_city = models.ManyToManyField(to='CollectionSubjectCity',
                                                related_name='Collection',
-                                               verbose_name=u'Subject - Cities',
+                                               verbose_name=u'Subject: Cities',
                                                blank=True,
                                                help_text='Add cities that are subject focuses of the files')
     coll_subject_county = models.ManyToManyField(to='CollectionSubjectCounty',
                                                  related_name='Collection',
-                                                 verbose_name=u'Subject - Counties',
+                                                 verbose_name=u'Subject: Counties',
                                                  blank=True,
                                                  help_text='Add counties that are subject focuses of the '
                                                            'files.')
     coll_subject_state_prov = models.ManyToManyField(to='CollectionSubjectStateProv',
                                                      related_name='Collection',
-                                                     verbose_name=u'Subject - States and '
+                                                     verbose_name=u'Subject: States and '
                                                                   'Provinces',
                                                      blank=True,
                                                      help_text='Add states or provinces that are subject '
                                                                'focuses of the files.')
     coll_subject_country = models.ManyToManyField(to='CollectionSubjectCountry',
                                                   related_name='Collection',
-                                                  verbose_name=u'Subject - Countries',
+                                                  verbose_name=u'Subject: Countries',
                                                   blank=True,
                                                   help_text='Add countries that are subject focuses of the '
                                                             'files.')
     coll_subject_geo_area = models.ManyToManyField(to='CollectionSubjectGeoArea',
                                                    related_name='Collection',
-                                                   verbose_name=u'Subject - Geographic Areas',
+                                                   verbose_name=u'Subject: Geographic Areas',
                                                    blank=True,
-                                                   help_text='Add geographic areas, such as West U.S. that '
+                                                   help_text='Add geographic areas, such as "West U.S." that '
                                                              'are subject focuses of the files.')
 
     # Need to develop a way, function, etc, for entering city then automatically filling in higher
     # geographical hierarchies, including zip
-    coll_loc_city = models.CharField('Location - City',
+    coll_loc_city = models.CharField('Location: City',
                                      max_length=255,
-                                     help_text='Important for providing access to collections '
-                                               'located in specific cities.',
+                                     help_text='Important for providing access to collections located in '
+                                               'specific cities.',
                                      blank=False)
-    coll_loc_state_prov = models.CharField('Location - State/Province',
+    coll_loc_state_prov = models.CharField('Location: State/Province',
                                            max_length=255,
-                                           help_text='Important for providing access to '
-                                                     'collections '
-                                                     'located in specific states or provinces.',
+                                           help_text='Important for providing access to collections located'
+                                                     ' in specific states or provinces.',
                                            blank=False)
-    coll_loc_country = models.CharField('Location - Country',
+    coll_loc_country = models.CharField('Location: Country',
                                         max_length=255,
-                                        help_text='Important for providing access to collections '
-                                                  'located in specific countries.',
+                                        help_text='Important for providing access to collections located in '
+                                                  'specific countries.',
                                         blank=False)
     coll_date_created = models.DateField(auto_now_add=True)
     coll_date_saved = models.DateField(auto_now=True)
@@ -211,6 +210,10 @@ class CollectionImage(models.Model):
                                    help_text='Upload images showing example material from files '
                                              'and/or storage systems in use.')
 
+    class Meta:
+        verbose_name = 'Image'
+        verbose_name_plural = 'Images'
+
 
 class CollectionSubjectName(models.Model):
     # Use VIAF
@@ -227,8 +230,8 @@ class CollectionSubjectName(models.Model):
         return self.coll_sub_name
 
     class Meta:
-        verbose_name = 'Subject - Name'
-        verbose_name_plural = 'Subject - Names'
+        verbose_name = 'Subject: Name'
+        verbose_name_plural = 'Subject: Names'
         ordering = ['coll_sub_name']
 
 
@@ -238,7 +241,7 @@ class CollectionSubjectTopic(models.Model):
         ('LCSH', 'Library of Congress Subject Headings'),
         ('AAT', 'Art and Architecture Thesaurus'),
     ]
-    coll_sub_topic = models.CharField('Subject - Topic',
+    coll_sub_topic = models.CharField('Subject: Topic',
                                       max_length=100,
                                       blank=False)
     coll_sub_thesaurus = models.CharField('Thesaurus',
@@ -257,14 +260,14 @@ class CollectionSubjectTopic(models.Model):
         return self.coll_sub_topic
 
     class Meta:
-        verbose_name = 'Subject - Topic'
-        verbose_name_plural = 'Subject - Topics'
+        verbose_name = 'Subject: Topic'
+        verbose_name_plural = 'Subject: Topics'
         ordering = ['coll_sub_topic']
 
 
 class CollectionSubjectCity(models.Model):
     # use VIAF
-    coll_sub_city = models.CharField('Subject City',
+    coll_sub_city = models.CharField('Subject: City',
                                      max_length=100,
                                      help_text='Use preferred VIAF form of name.')
     coll_sub_city_url = models.URLField('Thesaurus Website',
@@ -278,14 +281,14 @@ class CollectionSubjectCity(models.Model):
         return self.coll_sub_city
 
     class Meta:
-        verbose_name = 'Subject - City'
-        verbose_name_plural = 'Subject - Cities'
+        verbose_name = 'Subject: City'
+        verbose_name_plural = 'Subject: Cities'
         ordering = ['coll_sub_city']
 
 
 class CollectionSubjectCounty(models.Model):
     # use VIAF
-    coll_sub_county = models.CharField('Subject - County',
+    coll_sub_county = models.CharField('Subject: County',
                                        max_length=100,
                                        help_text='Use preferred VIAF form of name.')
     coll_sub_county_url = models.URLField('Thesaurus Website',
@@ -298,14 +301,14 @@ class CollectionSubjectCounty(models.Model):
         return self.coll_sub_county
 
     class Meta:
-        verbose_name = 'Subject - County'
-        verbose_name_plural = 'Subject - Counties'
+        verbose_name = 'Subject: County'
+        verbose_name_plural = 'Subject: Counties'
         ordering = ['coll_sub_county']
 
 
 class CollectionSubjectStateProv(models.Model):
     # Use VIAF
-    coll_sub_state_prov = models.CharField('Subject - State/Province',
+    coll_sub_state_prov = models.CharField('Subject: State/Province',
                                            max_length=100,
                                            help_text='Use preferred VIAF form of name.')
     coll_sub_state_prov_url = models.URLField('Thesaurus Website',
@@ -318,14 +321,14 @@ class CollectionSubjectStateProv(models.Model):
         return self.coll_sub_state_prov
 
     class Meta:
-        verbose_name = 'Subject - State/Province'
-        verbose_name_plural = 'Subject - State/Provinces '
+        verbose_name = 'Subject: State/Province'
+        verbose_name_plural = 'Subject: State/Provinces '
         ordering = ['coll_sub_state_prov']
 
 
 class CollectionSubjectCountry(models.Model):
     # Use VIAF
-    coll_sub_country = models.CharField('Subject - Country',
+    coll_sub_country = models.CharField('Subject: Country',
                                         max_length=100,
                                         help_text='Use preferred VIAF form of name.')
     coll_sub_country_url = models.URLField('Thesaurus Website',
@@ -338,14 +341,14 @@ class CollectionSubjectCountry(models.Model):
         return self.coll_sub_country
 
     class Meta:
-        verbose_name = 'Subject - Country'
-        verbose_name_plural = 'Subject - Countries'
+        verbose_name = 'Subject: Country'
+        verbose_name_plural = 'Subject: Countries'
         ordering = ['coll_sub_country']
 
 
 class CollectionSubjectGeoArea(models.Model):
     # use VIAF
-    coll_sub_geo_area = models.CharField('Geographic Area Term',
+    coll_sub_geo_area = models.CharField('Subject: Geographic Area',
                                          max_length=100,
                                          help_text='Use preferred VIAF form of name.')
     coll_sub_geo_area_url = models.URLField('Thesaurus Website',
@@ -358,8 +361,8 @@ class CollectionSubjectGeoArea(models.Model):
         return self.coll_sub_geo_area
 
     class Meta:
-        verbose_name = 'Subject - Geographic Area'
-        verbose_name_plural = 'Subject - Geographic Areas'
+        verbose_name = 'Subject: Geographic Area'
+        verbose_name_plural = 'Subject: Geographic Areas'
         ordering = ['coll_sub_geo_area']
 
 
