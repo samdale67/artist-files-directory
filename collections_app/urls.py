@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import CollectionDetailView
+from collections_app import views
+from django.conf.urls import url
 
 urlpatterns = [
-    path('<int:pk>/', CollectionDetailView.as_view(), name='collection_details'),
+    url(r'^(?P<collection_id>[0-9]+)/$', views.collection_detail, name='collection_detail'),
 ]

@@ -1,0 +1,21 @@
+{% load static %}
+
+
+<div style="flex: 1 0 175px">
+ <!--   <ul class="navigation">
+        <li class="navigation"><a href="">Home</a></li>
+        <li class="navigation"><a href="">Browse</a></li>
+        <li class="navigation"><a href="">Search</a></li>
+        <li class="navigation"><a href="">About</a></li>
+    </ul>-->
+
+    <img src="{% static 'graphics/Artist-Files-Revealed-logo-blue.svg' %}">
+
+    <a href="http://artistfiles.arlisna.org"><img
+            src="{% static 'graphics/Artist-Files-SIG-logo-outline-orange.svg' %}"></a>
+
+    <p class="navigation">Entry Created:<br><strong>{{ collection.date_created }}</strong></p>
+    <p class="navigation">Entry Updated:<br><strong>{{ collection.date_saved }}</strong></p>
+
+</div>
+

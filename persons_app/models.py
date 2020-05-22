@@ -2,28 +2,27 @@ from django.db import models
 
 
 class Person(models.Model):
-    per_last_name = models.CharField('Last Name',
+    last_name = models.CharField('Last Name',
                                      max_length=255,
                                      blank=False)
-    per_first_name = models.CharField('First Name',
+    first_name = models.CharField('First Name',
                                       max_length=255,
                                       blank=False)
-    per_email = models.EmailField('Email',
+    email = models.EmailField('Email',
                                   max_length=255,
                                   blank=True)
-    per_tel = models.CharField('Telephone',
+    tel = models.CharField('Telephone',
                                max_length=50,
                                blank=True)
-    per_website = models.URLField('Website',
+    website = models.URLField('Website',
                                   max_length=255,
                                   blank=True)
-    per_type = models.ManyToManyField(to='PersonType',
+    type = models.ManyToManyField(to='PersonType',
                                       verbose_name=u'Types',
                                       related_name='Person',
                                       help_text='Choose all roles that are relevant. Create new role if '
-                                                'there '
-                                                'is not a fit.')
-    per_collection = models.ForeignKey('collections_app.Collection',
+                                                'there is not a fit.')
+    collection = models.ForeignKey('collections_app.Collection',
                                        verbose_name=u'Collections',
                                        help_text='Create an artist files collection and provide details. '
                                                  'Use "General Collection" if describing all files as one '
@@ -33,16 +32,16 @@ class Person(models.Model):
                                                  'Files on Native American Artists.\" Multiple collections '
                                                  'allowed and encouraged.',
                                        on_delete=models.CASCADE)
-    per_date_created = models.DateField(auto_now_add=True)
-    per_date_saved = models.DateField(auto_now=True)
+    date_created = models.DateField(auto_now_add=True)
+    date_saved = models.DateField(auto_now=True)
 
     def __str__(self):
-        return self.per_last_name + ", " + self.per_first_name
+        return self.last_name + ", " + self.first_name
 
     class Meta:
         verbose_name = 'Person'
         verbose_name_plural = 'Persons'
-        ordering = ['per_last_name']
+        ordering = ['last_name']
 
 
 class PersonType(models.Model):

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style="flex: 10 1 1000px">
+    <h1>{{ collection.name }}</h1>
+    <blockquote>{% autoescape off %}{{ collection.quote }}{% endautoescape %}</blockquote>
+    <h2>Collector</h2>
+            <p>
+            {{ collector_person.first_name}} {{ collector_person.last_name }}<br>
+            <a href="">{{ collector_person.email }}</a><br>
+            {{ collector_person.tel }}<br>
+            <a href="">{{ collector_person.website }}</a><br>
+            Type:
+                {% for type in collector_person_type %}
+                <a href="">{{ type }}</a>
+                {% endfor %}
+                </ul>
+    <h2>General Description</h2>
+        <p>{% autoescape off %}{{ collection.description }}{% endautoescape %}</p>
+    <h2>Access and Use</h2>
+        <p>{{ collection.access }}</p>
+    <h2>Size</h2>
+        <p>{{ collection.size }}</p>
+    <h2>Reference Services Offered</h2>
+        <ul>
+            {% for service in service %}
+                <li>{{ service }}</li>
+            {% endfor %}
+        </ul>
+    <h2>Special Formats</h2>
+        <ul>
+            {% for spec_format in spec_format %}
+            <li><a href="">{{ spec_format }}</a></li>
+            {% endfor %}
+        </ul>
+    <h2>Digital Content</h2>
+        <p>{{ collection.dig_projects }}</p>
+    <h2>Digital Access</h2>
+        <p><a href="{{ collection.dig_access }}">{{ collection.dig_access }}</a></p>
+    <h2>Collection Location</h2>
+    <p><a href="">{{ collection.loc_city }}</a>, <a href="">{{ collection.loc_state_prov }}</a>,
+        <a href="">{{ collection.loc_country }}</a></p>
+
+    <h1>Subjects</h1>
+      <h2>Institutional and Personal Names</h2>
+        <ul>
+            {% for name in subject_name %}
+            <li><a href="">{{ name }}</a></li>
+            {% endfor %}
+        </ul>
+    <h2>Topics</h2>
+        <ul>
+            {% for subject in subject_topic %}
+            <li><a href="">{{ subject }}</a></li>
+            {% endfor %}
+        </ul>
+    <h2>Cities</h2>
+        <ul>
+            {% for city in subject_city %}
+            <li><a href="">{{ city }}</a></li>
+            {% endfor %}
+        </ul>
+    <h1>Meta</h1>
+    <h2>Cataloging Systems</h2>
+        <ul>
+            {% for cat_system in cat_system %}
+                <li>{{ cat_system }}</li>
+            {% endfor %}
+        </ul>
+</div>
+
+{% endblock %}
+
