@@ -2,36 +2,104 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00caeb6b-957e-444f-8302-7a5f9b0b5b4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0039_auto_20200519_0004.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0040_auto_20200519_0008.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0041_auto_20200519_0011.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0042_auto_20200519_1837.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0043_auto_20200519_1838.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0044_auto_20200521_1834.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0045_auto_20200521_2014.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0046_auto_20200521_2016.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0047_auto_20200521_2129.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/collection_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/navigation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/institutions_app/migrations/0015_auto_20200521_1838.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/persons_app/migrations/0008_auto_20200521_1839.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-black.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-blue.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-gray.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-light-gray.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-SIG-logo-outline-orange.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0002_auto_20200527_2308.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/migrations/0002_auto_20200527_2308.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/artist_files_directory/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/artist_files_directory/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/artist_files_directory/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/artist_files_directory/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0008_auto_20200512_0149.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0009_auto_20200512_0150.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0010_auto_20200513_1434.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0011_auto_20200513_1457.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0012_auto_20200513_1500.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0013_auto_20200513_1501.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0014_auto_20200513_1517.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0015_auto_20200513_1551.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0016_auto_20200513_1552.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0017_auto_20200513_1609.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0018_auto_20200513_1612.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0019_auto_20200513_1613.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0020_auto_20200513_1615.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0021_auto_20200513_1622.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0022_auto_20200513_1626.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0023_auto_20200514_0022.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0024_auto_20200515_1814.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0025_auto_20200518_1808.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0026_auto_20200518_1819.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0027_auto_20200518_1821.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0028_auto_20200518_1858.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0029_auto_20200518_1900.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0030_auto_20200518_1903.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0031_auto_20200518_1913.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0032_auto_20200518_1916.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0033_auto_20200518_1931.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0034_auto_20200518_1931.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0035_auto_20200518_1941.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0036_auto_20200518_1944.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0037_auto_20200518_1953.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0038_auto_20200518_2007.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0039_auto_20200519_0004.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0040_auto_20200519_0008.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0041_auto_20200519_0011.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0042_auto_20200519_1837.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0043_auto_20200519_1838.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0044_auto_20200521_1834.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0045_auto_20200521_2014.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0046_auto_20200521_2016.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0047_auto_20200521_2129.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/collection_details.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/collection_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/collection_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/navigation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/institutions_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/institutions_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/persons_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/persons_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datadump.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/migrations/0002_auto_20200512_0204.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/migrations/0003_auto_20200512_0205.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/migrations/0004_auto_20200512_1613.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/migrations/0005_auto_20200513_1505.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/migrations/0006_auto_20200513_1506.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/migrations/0007_auto_20200513_1507.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/migrations/0008_auto_20200513_1511.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/migrations/0009_auto_20200513_1515.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/migrations/0010_auto_20200513_1515.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/migrations/0011_auto_20200514_0024.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/migrations/0012_auto_20200514_0025.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/migrations/0013_auto_20200518_1955.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/migrations/0014_auto_20200518_2007.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/migrations/0015_auto_20200521_1838.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/institutions_app/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persons_app/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persons_app/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persons_app/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persons_app/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persons_app/migrations/0002_auto_20200512_1613.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persons_app/migrations/0003_auto_20200513_1510.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persons_app/migrations/0004_auto_20200513_1511.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persons_app/migrations/0005_auto_20200513_1515.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persons_app/migrations/0006_auto_20200514_0026.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persons_app/migrations/0007_auto_20200518_1955.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persons_app/migrations/0008_auto_20200521_1839.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persons_app/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persons_app/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persons_app/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persons_app/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-blue.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-blue.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +224,11 @@
       <workItem from="1589416761513" duration="39493000" />
       <workItem from="1589910240147" duration="25673000" />
       <workItem from="1590076145284" duration="36181000" />
-      <workItem from="1590179022762" duration="6540000" />
+      <workItem from="1590179022762" duration="9994000" />
+      <workItem from="1590258792447" duration="134000" />
+      <workItem from="1590259061638" duration="15034000" />
+      <workItem from="1590533141637" duration="13069000" />
+      <workItem from="1590611229724" duration="13019000" />
     </task>
     <task id="LOCAL-00001" summary="None.">
       <created>1589247969075</created>
@@ -263,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589833946661</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="None.">
+      <created>1590187239852</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1590187239852</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,12 +370,13 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="909" y="631" key="#com.intellij.fileTypes.FileTypeChooser/0.23.2880.1597@0.23.2880.1597" timestamp="1589240272466" />
-    <state x="1097" y="321" width="1087" height="1173" key="CommitChangelistDialog2" timestamp="1589833946540">
-      <screen x="58" y="23" width="2822" height="1597" />
+    <state x="1102" y="321" width="1087" height="1173" key="CommitChangelistDialog2" timestamp="1590187239620">
+      <screen x="66" y="23" width="2814" height="1597" />
     </state>
     <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2/0.23.2880.1597@0.23.2880.1597" timestamp="1589383162443" />
     <state x="1096" y="321" key="CommitChangelistDialog2/56.23.2824.1597@56.23.2824.1597" timestamp="1589830339190" />
     <state x="1097" y="321" key="CommitChangelistDialog2/58.23.2822.1597@58.23.2822.1597" timestamp="1589833946540" />
+    <state x="1102" y="321" key="CommitChangelistDialog2/66.23.2814.1597@66.23.2814.1597" timestamp="1590187239620" />
     <state x="953" y="229" width="1401" height="1264" key="DiffContextDialog" timestamp="1589248165754">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
@@ -337,12 +417,13 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="1286" y="373" key="SettingsEditor/0.23.2880.1597@0.23.2880.1597" timestamp="1589247816077" />
-    <state x="1296" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2" timestamp="1589833954281">
-      <screen x="58" y="23" width="2822" height="1597" />
+    <state x="1300" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2" timestamp="1590187597817">
+      <screen x="66" y="23" width="2814" height="1597" />
     </state>
     <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2/0.23.2880.1597@0.23.2880.1597" timestamp="1589383171430" />
     <state x="1295" y="549" key="Vcs.Push.Dialog.v2/56.23.2824.1597@56.23.2824.1597" timestamp="1589830346962" />
     <state x="1296" y="549" key="Vcs.Push.Dialog.v2/58.23.2822.1597@58.23.2822.1597" timestamp="1589833954281" />
+    <state x="1300" y="549" key="Vcs.Push.Dialog.v2/66.23.2814.1597@66.23.2814.1597" timestamp="1590187597817" />
     <state x="931" y="159" width="1458" height="1263" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589238753759">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>

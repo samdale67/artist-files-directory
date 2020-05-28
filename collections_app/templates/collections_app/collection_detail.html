@@ -3,21 +3,28 @@
 {% block content %}
 
 <div style="flex: 10 1 1000px">
+    <h1>Collector</h1>
+    <p>
+    <a href="">{{ collector.inst_main_name }}<br>{{ collector.inst_sub_name }}</a><br>
+    <a href="">{{ collector.person_first_name }} {{ collector.person_last_name }}</a><br>
+    Email: <a href="">{{ collector.email }}</a><br>
+    Telephone: {{ collector.telephone }}<br>
+    Twitter: <a href="">{{ collector.twitter }}</a><br>
+    Instagram: <a href="">{{ collector.instagram }}</a><br>
+    Website: <a href="">{{ collector.website }}</a><br>
+        Institution Type:
+        {% for inst_type in collector_institution_type %}
+        <a href="">{{ inst_type }}</a>
+        {% endfor %}
+        Person Type:
+        {% for person_type in collector_person_type %}
+        <a href="">{{ person_type }}</a>
+        {% endfor %}
+    </p>
     <h1>{{ collection.name }}</h1>
-    <blockquote>{% autoescape off %}{{ collection.quote }}{% endautoescape %}</blockquote>
-    <h2>Collector</h2>
-            <p>
-            {{ collector_person.first_name}} {{ collector_person.last_name }}<br>
-            <a href="">{{ collector_person.email }}</a><br>
-            {{ collector_person.tel }}<br>
-            <a href="">{{ collector_person.website }}</a><br>
-            Type:
-                {% for type in collector_person_type %}
-                <a href="">{{ type }}</a>
-                {% endfor %}
-                </ul>
     <h2>General Description</h2>
         <p>{% autoescape off %}{{ collection.description }}{% endautoescape %}</p>
+    <blockquote>{% autoescape off %}&ldquo;{{ collection.quote }}&rdquo;{% endautoescape %}</blockquote>
     <h2>Access and Use</h2>
         <p>{{ collection.access }}</p>
     <h2>Size</h2>
@@ -28,7 +35,7 @@
                 <li>{{ service }}</li>
             {% endfor %}
         </ul>
-    <h2>Special Formats</h2>
+    <h2>Special Formats in the Collection</h2>
         <ul>
             {% for spec_format in spec_format %}
             <li><a href="">{{ spec_format }}</a></li>
@@ -68,6 +75,10 @@
                 <li>{{ cat_system }}</li>
             {% endfor %}
         </ul>
+        <div id="entry-dates">
+        Entry Created: <strong>{{ collection.date_created }}</strong><br>
+        Entry Updated: <strong>{{ collection.date_saved }}</strong>
+        </div>
 </div>
 
 {% endblock %}

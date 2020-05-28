@@ -1,3 +1,15 @@
+div#entry-dates {
+    margin:0 0 20px 0;
+    padding: 7px;
+    color: #7d7d7d;
+    font-size: .8em;
+    line-height: 18px;
+    align-content: center;
+    background-color: #e0d9ce;
+    width: 170px;
+    min-width: 170px;
+}
+
 .flex-container {
     display: flex;
     flex-wrap: nowrap;
@@ -12,7 +24,7 @@
 
 blockquote{
     color: #9e8c7d;
-    font-size: 1.75em;
+    font-size: 2em;
     padding: 0 0 0 0;
     margin: 15px 0 25px 0;
     line-height: 40px;
@@ -30,15 +42,7 @@ html {
 
 p {
     margin-bottom: 20px;
-    color: #555454;
-}
-
-p.navigation {
-    margin:0 0 20px 50px;
-    color: #7d7d7d;
-    font-size: .8em;
-    line-height: 20px;
-    align-content: center;
+    color: #636161;
 }
 
 h1 {
@@ -52,12 +56,12 @@ h2 {
     margin: 0 0 10px 0;
     padding: 0;
     line-height: 20px;
-    color: #7d7d7d;
+    color: #c2a78e;
 }
 
 a {
     text-decoration: none;
-    color: #dc5502;
+    color: #ea5b02;
 }
 
 a:hover {
@@ -91,7 +95,7 @@ label {
 ul  {
     margin: 10px 0 20px 20px;
     padding: 0;
-    color: #555454;
+    color: #636161;
 }
 
 ul.navigation  {

@@ -28,4 +28,3 @@ admin.site.register(CollectionSubjectTopic)
 admin.site.register(CollectionSubjectStateProv)
 admin.site.register(CollectionImage)
 
-

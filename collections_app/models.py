@@ -3,6 +3,17 @@ from django.urls import reverse
 
 
 class Collection(models.Model):
+    collector = models.ForeignKey('collectors_app.Collector',
+                                  verbose_name=u'Collector',
+                                  default='',
+                                  help_text='Create an artist files collection and provide details. '
+                                            'Use "General Collection" if describing all files as one '
+                                            'combined entry. Create a separate entry for each '
+                                            'formally named collection or collection with special '
+                                            'characteristics, for example \"The Nettie Wheeler Artist '
+                                            'Files on Native American Artists.\" Multiple collections '
+                                            'allowed and encouraged.',
+                                  on_delete=models.CASCADE)
     name = models.CharField('Name',
                             max_length=255,
                             blank=False,
@@ -33,11 +44,11 @@ class Collection(models.Model):
                               blank=True,
                               help_text='Add website describing or providing access to the collection.')
     service = models.ManyToManyField(to='CollectionService',
-                                      related_name='collections',
-                                      verbose_name=u'Reference Services',
-                                      blank=False,
-                                      help_text='Add reference services offered. Create a new service '
-                                                'if there is not a fit.')
+                                     related_name='collections',
+                                     verbose_name=u'Reference Services',
+                                     blank=False,
+                                     help_text='Add reference services offered. Create a new service '
+                                               'if there is not a fit.')
     cat_system = models.ManyToManyField(to='CollectionCatSystem',
                                         related_name='collections',
                                         verbose_name=u'Cataloging Systems',
@@ -75,8 +86,8 @@ class Collection(models.Model):
                               on_delete=models.CASCADE,
                               blank=True,
                               null=True,
-                              help_text='Upload images showing example material from files '
-                                        'and/or storage systems in use.')
+                              help_text='Upload images showing example material from files, storage systems '
+                                        'in use, or documents relating to the collection.')
     subject_name = models.ManyToManyField(to='CollectionSubjectName',
                                           related_name='collections',
                                           verbose_name=u'Subject: Names',
