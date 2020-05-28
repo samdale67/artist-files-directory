@@ -6,13 +6,7 @@ class Collection(models.Model):
     collector = models.ForeignKey('collectors_app.Collector',
                                   verbose_name=u'Collector',
                                   default='',
-                                  help_text='Create an artist files collection and provide details. '
-                                            'Use "General Collection" if describing all files as one '
-                                            'combined entry. Create a separate entry for each '
-                                            'formally named collection or collection with special '
-                                            'characteristics, for example \"The Nettie Wheeler Artist '
-                                            'Files on Native American Artists.\" Multiple collections '
-                                            'allowed and encouraged.',
+                                  help_text='Create or choose a collector related to the collection.',
                                   on_delete=models.CASCADE)
     name = models.CharField('Name',
                             max_length=255,
@@ -183,6 +177,7 @@ class CollectionService(models.Model):
 class CollectionCatSystem(models.Model):
     cat_name = models.CharField('Cataloging System',
                                 max_length=100,
+                                blank=False,
                                 help_text='')
     notes = models.TextField(max_length=500,
                              blank=True)
@@ -200,6 +195,7 @@ class CollectionSpecialFormat(models.Model):
     # Use id.loc.gov
     special_format = models.CharField('Special Format',
                                       max_length=100,
+                                      blank=False,
                                       help_text='')
     special_format_url = models.URLField('Term Reference',
                                          max_length=255,
@@ -382,6 +378,7 @@ class CollectionSubjectCountry(models.Model):
                                              '</a> or other authority if available.')
     sub_country_url = models.URLField('Term Reference',
                                       max_length=255,
+                                      blank=True,
                                       help_text='Provide URI to term.')
     notes = models.TextField(max_length=500,
                              blank=True)

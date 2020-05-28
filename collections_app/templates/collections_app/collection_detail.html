@@ -3,15 +3,12 @@
 {% block content %}
 
 <div style="flex: 10 1 1000px">
-    <h1>Collector</h1>
-    <p>
+    <h1>Collector Details</h1>
+    <div class="flex-container-collector">
+    <div>
     <a href="">{{ collector.inst_main_name }}<br>{{ collector.inst_sub_name }}</a><br>
-    <a href="">{{ collector.person_first_name }} {{ collector.person_last_name }}</a><br>
-    Email: <a href="">{{ collector.email }}</a><br>
-    Telephone: {{ collector.telephone }}<br>
-    Twitter: <a href="">{{ collector.twitter }}</a><br>
-    Instagram: <a href="">{{ collector.instagram }}</a><br>
-    Website: <a href="">{{ collector.website }}</a><br>
+    Collector or Person Responsible for Listing:<br>
+        <a href="">{{ collector.person_first_name }} {{ collector.person_last_name }}</a><br>
         Institution Type:
         {% for inst_type in collector_institution_type %}
         <a href="">{{ inst_type }}</a>
@@ -20,7 +17,15 @@
         {% for person_type in collector_person_type %}
         <a href="">{{ person_type }}</a>
         {% endfor %}
-    </p>
+    </div>
+    <div>
+    Email: <a href="">{{ collector.email }}</a><br>
+    Telephone: {{ collector.telephone }}<br>
+    Twitter: <a href="">{{ collector.twitter }}</a><br>
+    Instagram: <a href="">{{ collector.instagram }}</a><br>
+    Website: <a href="">{{ collector.website }}</a><br>
+    </div>
+    </div>
     <h1>{{ collection.name }}</h1>
     <h2>General Description</h2>
         <p>{% autoescape off %}{{ collection.description }}{% endautoescape %}</p>
@@ -69,7 +74,7 @@
             {% endfor %}
         </ul>
     <h1>Meta</h1>
-    <h2>Cataloging Systems</h2>
+    <h2>Cataloging/Inventory Systems</h2>
         <ul>
             {% for cat_system in cat_system %}
                 <li>{{ cat_system }}</li>

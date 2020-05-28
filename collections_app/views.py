@@ -4,10 +4,10 @@ from collectors_app.models import Collector
 
 
 def collection_detail(request, collection_id):
-    collection = get_object_or_404(Collection, pk=collection_id)
-    collector_query = Collection.objects.select_related('collector').filter(id=collection_id).get()
-    collector_institution_type = Collector.inst_type.all()
-    collector_person_type = Collector.person_type.all()
+    collection = Collection.objects.get(pk=collection_id)
+    collector = collection.collector
+    collector_institution_type = collector.inst_type.all()
+    collector_person_type = collector.person_type.all()
     service = collection.service.all()
     cat_system = collection.cat_system.all()
     spec_format = collection.spec_format.all()

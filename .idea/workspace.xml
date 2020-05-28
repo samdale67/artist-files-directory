@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00caeb6b-957e-444f-8302-7a5f9b0b5b4a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0003_auto_20200528_1945.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0004_auto_20200528_2009.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/migrations/0003_auto_20200528_1930.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/migrations/0004_auto_20200528_1935.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/migrations/0005_auto_20200528_1936.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/collection_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/collection_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collectors_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/collectors_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +142,7 @@
       <workItem from="1590258792447" duration="134000" />
       <workItem from="1590259061638" duration="15034000" />
       <workItem from="1590533141637" duration="13069000" />
-      <workItem from="1590611229724" duration="13576000" />
+      <workItem from="1590611229724" duration="24489000" />
     </task>
     <task id="LOCAL-00001" summary="None.">
       <created>1589247969075</created>
@@ -252,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590627910166</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="None.">
+      <created>1590628415304</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1590628415304</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,12 +298,12 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="909" y="631" key="#com.intellij.fileTypes.FileTypeChooser/0.23.2880.1597@0.23.2880.1597" timestamp="1589240272466" />
-    <state x="1097" y="321" width="1087" height="1173" key="CommitChangelistDialog2" timestamp="1590627909923">
+    <state x="1097" y="321" width="1087" height="1173" key="CommitChangelistDialog2" timestamp="1590628415186">
       <screen x="58" y="23" width="2822" height="1597" />
     </state>
     <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2/0.23.2880.1597@0.23.2880.1597" timestamp="1589383162443" />
     <state x="1096" y="321" key="CommitChangelistDialog2/56.23.2824.1597@56.23.2824.1597" timestamp="1589830339190" />
-    <state x="1097" y="321" key="CommitChangelistDialog2/58.23.2822.1597@58.23.2822.1597" timestamp="1590627909923" />
+    <state x="1097" y="321" key="CommitChangelistDialog2/58.23.2822.1597@58.23.2822.1597" timestamp="1590628415186" />
     <state x="1102" y="321" key="CommitChangelistDialog2/66.23.2814.1597@66.23.2814.1597" timestamp="1590187239620" />
     <state x="953" y="229" width="1401" height="1264" key="DiffContextDialog" timestamp="1589248165754">
       <screen x="0" y="23" width="2880" height="1597" />
@@ -327,12 +345,12 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="1286" y="373" key="SettingsEditor/0.23.2880.1597@0.23.2880.1597" timestamp="1589247816077" />
-    <state x="1296" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2" timestamp="1590627920869">
+    <state x="1296" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2" timestamp="1590628423335">
       <screen x="58" y="23" width="2822" height="1597" />
     </state>
     <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2/0.23.2880.1597@0.23.2880.1597" timestamp="1589383171430" />
     <state x="1295" y="549" key="Vcs.Push.Dialog.v2/56.23.2824.1597@56.23.2824.1597" timestamp="1589830346962" />
-    <state x="1296" y="549" key="Vcs.Push.Dialog.v2/58.23.2822.1597@58.23.2822.1597" timestamp="1590627920869" />
+    <state x="1296" y="549" key="Vcs.Push.Dialog.v2/58.23.2822.1597@58.23.2822.1597" timestamp="1590628423335" />
     <state x="1300" y="549" key="Vcs.Push.Dialog.v2/66.23.2814.1597@66.23.2814.1597" timestamp="1590187597817" />
     <state x="931" y="159" width="1458" height="1263" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589238753759">
       <screen x="0" y="23" width="2880" height="1597" />
@@ -355,6 +373,17 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="931" y="159" width="1458" height="1263" key="git4idea.log.GitShowExternalLogAction/0.23.2880.1597@0.23.2880.1597" timestamp="1589238367531" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/collectors_app/models.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/artist_files_directory$models.coverage" NAME="models Coverage Results" MODIFIED="1588363071866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/institutions_app" />

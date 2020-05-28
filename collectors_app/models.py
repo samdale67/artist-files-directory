@@ -19,32 +19,38 @@ class Collector(models.Model):
                                        blank=True,
                                        help_text='Choose all types that are relevant. Create a new '
                                                  'type if there is not a fit.')
-    person_last_name = models.CharField('Last Name',
-                                        max_length=255,
-                                        blank=True,
-                                        help_text='If a personal collection, provide last name of collector.')
     person_first_name = models.CharField('First Name',
                                          max_length=255,
-                                         blank=True,
+                                         blank=False,
                                          help_text='If a personal collection, provide first name of '
-                                                   'collector.')
+                                                   'collector. If institution, provide first name of person '
+                                                   'filling '
+                                                   'out this form.')
+    person_last_name = models.CharField('Last Name',
+                                        max_length=255,
+                                        blank=False,
+                                        help_text='If a personal collection, provide last name of '
+                                                   'collector. If institution, provide last name of person '
+                                                  'filling out this form.')
+
     person_type = models.ManyToManyField(to='PersonType',
                                          verbose_name=u'Person Types',
                                          related_name='Collector',
                                          blank=True,
-                                         help_text='Choose all types that are relevant. Create new type if '
+                                         help_text='If a collector, choose all types that are '
+                                                   'relevant. Create new type if '
                                                    'there is not a fit.')
     email = models.EmailField('Email',
                               max_length=255,
                               help_text='Provide best email for answering questions about artist '
                                         'files. If an institution, prefer general email such as '
                                         '"library@cartermuseum.org"',
-                              blank=True)
+                              blank=False)
     telephone = models.CharField('Telephone',
                                  max_length=50,
                                  help_text='Provide best telephone contact for answering questions about '
                                            'artist files.',
-                                 blank=False)
+                                 blank=True)
     website = models.URLField('Website',
                               max_length=255,
                               help_text='Provide website address related to institution or person '
