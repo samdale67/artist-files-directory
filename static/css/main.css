@@ -1,13 +1,13 @@
-div#entry-dates {
+div.entry-dates {
     margin:0 0 20px 0;
-    padding: 7px;
+    padding: 6px;
     color: #7d7d7d;
     font-size: .8em;
     line-height: 18px;
     align-content: center;
     background-color: #e0d9ce;
-    width: 170px;
-    min-width: 170px;
+    max-width: 195px;
+    min-width: 195px;
 }
 
 .flex-container-main {
@@ -19,19 +19,19 @@ div#entry-dates {
 
 .flex-container-main > div {
     padding: 10px 50px 20px 10px;
-    margin: 0px;
+    margin: 0;
 }
 
 .flex-container-collector {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
   /*background-color: ;*/
 }
 
 .flex-container-collector > div {
     padding: 0;
-    margin: 0 50px 20px 0px;
+    margin: 0 50px 20px 0;
 }
 
 blockquote{

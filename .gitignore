@@ -1,0 +1,23 @@
+# Created by .ignore support plugin (hsz.mobi)
+!/artist_files_directory/settings.py
+.DS_Store
+collections_app/__pycache__/urls.cpython-38.pyc
+collections_app/__pycache__/views.cpython-38.pyc
+collections_app/migrations/__pycache__/0002_auto_20200527_2308.cpython-38.pyc
+collections_app/migrations/__pycache__/0003_auto_20200528_1945.cpython-38.pyc
+collections_app/migrations/__pycache__/0004_auto_20200528_2009.cpython-38.pyc
+collectors_app/__pycache__/
+collectors_app/migrations/__pycache__/
+lib/python3.8/site-packages/pkg_resources/__pycache__/
+lib/python3.8/site-packages/pkg_resources/_vendor/__pycache__/
+lib/python3.8/site-packages/pkg_resources/_vendor/packaging/__pycache__/
+lib/python3.8/site-packages/pkg_resources/extern/__pycache__/
+lib/python3.8/site-packages/psycopg2/__pycache__/
+lib/python3.8/site-packages/setuptools/__pycache__/
+lib/python3.8/site-packages/setuptools/_vendor/__pycache__/
+lib/python3.8/site-packages/setuptools/_vendor/packaging/__pycache__/
+lib/python3.8/site-packages/setuptools/command/__pycache__/
+lib/python3.8/site-packages/setuptools/extern/__pycache__/
+media/
+static/.DS_Store
+static/graphics/.DS_Store

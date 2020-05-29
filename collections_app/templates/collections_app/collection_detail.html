@@ -26,6 +26,10 @@
     Website: <a href="">{{ collector.website }}</a><br>
     </div>
     </div>
+    <div class="entry-dates">
+        Collector Info Created: <strong>{{ collector.date_created }}</strong><br>
+        Collector Info Updated: <strong>{{ collector.date_saved }}</strong>
+        </div>
     <h1>{{ collection.name }}</h1>
     <h2>General Description</h2>
         <p>{% autoescape off %}{{ collection.description }}{% endautoescape %}</p>
@@ -73,6 +77,30 @@
             <li><a href="">{{ city }}</a></li>
             {% endfor %}
         </ul>
+    <h2>Counties</h2>
+        <ul>
+            {% for county in subject_county %}
+            <li><a href="">{{ county }}</a></li>
+            {% endfor %}
+        </ul>
+    <h2>States/Provinces</h2>
+        <ul>
+            {% for state in subject_state_prov %}
+            <li><a href="">{{ state }}</a></li>
+            {% endfor %}
+        </ul>
+    <h2>Countries</h2>
+        <ul>
+            {% for country in subject_country %}
+            <li><a href="">{{ country }}</a></li>
+            {% endfor %}
+        </ul>
+    <h2>Geographic Areas</h2>
+        <ul>
+            {% for geo_area in subject_geo_area %}
+            <li><a href="">{{ geo_area }}</a></li>
+            {% endfor %}
+        </ul>
     <h1>Meta</h1>
     <h2>Cataloging/Inventory Systems</h2>
         <ul>
@@ -80,9 +108,9 @@
                 <li>{{ cat_system }}</li>
             {% endfor %}
         </ul>
-        <div id="entry-dates">
-        Entry Created: <strong>{{ collection.date_created }}</strong><br>
-        Entry Updated: <strong>{{ collection.date_saved }}</strong>
+        <div class="entry-dates">
+        Description Created: <strong>{{ collection.date_created }}</strong><br>
+        Description Updated: <strong>{{ collection.date_saved }}</strong>
         </div>
 </div>
 
