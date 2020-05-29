@@ -20,4 +20,4 @@ lib/python3.8/site-packages/setuptools/extern/__pycache__/
 media/
 static/.DS_Store
 static/graphics/.DS_Store
-!/artist_files_directory/settings.py
+artist_files_directory/settings.py
