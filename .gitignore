@@ -1,5 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
-!/artist_files_directory/settings.py
 .DS_Store
 collections_app/__pycache__/urls.cpython-38.pyc
 collections_app/__pycache__/views.cpython-38.pyc
@@ -21,3 +20,4 @@ lib/python3.8/site-packages/setuptools/extern/__pycache__/
 media/
 static/.DS_Store
 static/graphics/.DS_Store
+!/artist_files_directory/settings.py

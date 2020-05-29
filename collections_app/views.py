@@ -3,8 +3,8 @@ from .models import Collection
 
 
 def collection_detail(request, collection_id):
-    # get a collection object based on collection_id passed through the URL, pk is the primary key for the
-    # collection, which is matched with the collection_id pass through the URL
+    # get a collection based on collection_id passed from the URL; pk is the primary key for the
+    # collection, which is matched with the collection_id
     collection = Collection.objects.get(pk=collection_id)
     # remember, when you access a field that is a foreign key, you automatically get related object! Wow!
     collector = collection.collector
