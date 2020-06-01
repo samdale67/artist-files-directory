@@ -8,6 +8,7 @@ def collection_detail(request, collection_id):
     collection = Collection.objects.get(pk=collection_id)
     # remember, when you access a field that is a foreign key, you automatically get related object! Wow!
     collector = collection.collector
+    images = collection.image
     # you have to make a separate call to bring in inst_type and person_type, and all fields below which are
     # many-to-many fields
     collector_institution_type = collector.inst_type.all()
@@ -30,6 +31,7 @@ def collection_detail(request, collection_id):
                'service': service,
                'cat_system': cat_system,
                'spec_format': spec_format,
+               'images': images,
                'subject_name': subject_name,
                'subject_topic': subject_topic,
                'subject_city': subject_city,

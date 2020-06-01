@@ -2,40 +2,71 @@
 
 {% block content %}
 
-<div style="flex: 10 1 1000px">
-    <h1>Collector Details</h1>
-    <div class="flex-container-collector">
+<div style="flex: 10 1 1000px" xmlns="http://www.w3.org/1999/html">
+    <h1>Collector</h1>
+    <div class="flex-container-body">
     <div>
-    <a href="">{{ collector.inst_main_name }}<br>{{ collector.inst_sub_name }}</a><br>
-    Collector or Person Responsible for Listing:<br>
+    {% if collector.collector_bool %}
+        <h2>Private Collector Name</h2>
         <a href="">{{ collector.person_first_name }} {{ collector.person_last_name }}</a><br>
-        Institution Type:
-        {% for inst_type in collector_institution_type %}
-        <a href="">{{ inst_type }}</a>
-        {% endfor %}
-        Person Type:
-        {% for person_type in collector_person_type %}
-        <a href="">{{ person_type }}</a>
-        {% endfor %}
+        <p><label>Person Type(s)</label><br>
+            {% for person_type in collector_person_type %}
+            <a href="">{{ person_type }}</a><br>
+            {% endfor %}</p>
+    {% else %}
+        <h2>Institutional Collector Name</h2>
+        <a href="">{{ collector.inst_main_name }}<br>{{ collector.inst_sub_name }}</a><br>
+        <p><label>Institution Type(s)</label>:<br>
+            {% for inst_type in collector_institution_type %}
+            <a href="">{{ inst_type }}</a><br>
+            {% endfor %}</p>
+    {% endif %}
     </div>
     <div>
-    Email: <a href="">{{ collector.email }}</a><br>
-    Telephone: {{ collector.telephone }}<br>
-    Twitter: <a href="">{{ collector.twitter }}</a><br>
-    Instagram: <a href="">{{ collector.instagram }}</a><br>
-    Website: <a href="">{{ collector.website }}</a><br>
+    <h2>Primary Contact</h2>
+    {% if collector.email_pref %}
+        <label>Email</label> <a href="">{{ collector.email }}</a><br>
+    {% endif %}
+    {% if collector.telephone_pref %}
+        <label>Phone</label> {{ collector.telephone }}<br>
+    {% endif %}
+    </div>
+    <div>
+    <h2>Other Contact</h2>
+    {% if collector.email_pref == False %}
+        <label>Email</label> <a href="">{{ collector.email }}</a><br>
+    {% endif %}
+    {% if collector.telephone_pref == False %}
+        <label>Phone</label> {{ collector.telephone }}<br>
+    {% endif %}
+    {% if collector.website %}
+        <label>Website</label> {{ collector.website }}<br>
+    {% endif %}
+    {% if collector.twitter %}
+        <label>Twitter</label> <a href="">{{ collector.twitter }}</a><br>
+    {% endif %}
+    {% if collector.instagram %}
+        <label>Instagram</label> <a href="">{{ collector.instagram }}</a><br>
+    {% endif %}
+    <p class="entry-dates">
+        <label>Collector Info Updated</label> {{ collector.date_saved }}
+    </p>
     </div>
     </div>
-    <div class="entry-dates">
-        Collector Info Created: <strong>{{ collector.date_created }}</strong><br>
-        Collector Info Updated: <strong>{{ collector.date_saved }}</strong>
-        </div>
+
     <h1>{{ collection.name }}</h1>
-    <h2>General Description</h2>
+
+    <div class="flex-container-body">
+    <div>
+    <h2>Description</h2>
         <p>{% autoescape off %}{{ collection.description }}{% endautoescape %}</p>
     <blockquote>{% autoescape off %}&ldquo;{{ collection.quote }}&rdquo;{% endautoescape %}</blockquote>
     <h2>Access and Use</h2>
         <p>{{ collection.access }}</p>
+    {% if collection.website %}
+        <h2>Collection Website</h2>
+        <p><a href="">{{ collection.website }}</a></p>
+    {% endif %}
     <h2>Size</h2>
         <p>{{ collection.size }}</p>
     <h2>Reference Services Offered</h2>
@@ -50,68 +81,85 @@
             <li><a href="">{{ spec_format }}</a></li>
             {% endfor %}
         </ul>
+    {% if collector.dig_projects %}
     <h2>Digital Content</h2>
         <p>{{ collection.dig_projects }}</p>
+    {% endif %}
+    {% if collector.dig_access %}
     <h2>Digital Access</h2>
         <p><a href="{{ collection.dig_access }}">{{ collection.dig_access }}</a></p>
+    {% endif %}
     <h2>Collection Location</h2>
-    <p><a href="">{{ collection.loc_city }}</a>, <a href="">{{ collection.loc_state_prov }}</a>,
+        <p><a href="">{{ collection.loc_city }}</a>, <a href="">{{ collection.loc_state_prov }}</a>,
         <a href="">{{ collection.loc_country }}</a></p>
+    <h2>Images</h2>
+        <p>{{ collection.images }}</p>
+    </div>
+    </div>
 
     <h1>Subjects</h1>
-      <h2>Institutional and Personal Names</h2>
-        <ul>
+
+    <div class="flex-container-body">
+    <div>
+      <h2>People and Institutions</h2>
+        <ul class="collection-elements">
             {% for name in subject_name %}
             <li><a href="">{{ name }}</a></li>
             {% endfor %}
         </ul>
-    <h2>Topics</h2>
-        <ul>
+    </div>
+    <div>
+        <h2>Topics</h2>
+        <ul class="collection-elements">
             {% for subject in subject_topic %}
             <li><a href="">{{ subject }}</a></li>
             {% endfor %}
         </ul>
-    <h2>Cities</h2>
-        <ul>
+    </div>
+    <div>
+        <h2>Places</h2>
+        <ul class="collection-elements">
             {% for city in subject_city %}
-            <li><a href="">{{ city }}</a></li>
+                <li><a href="">{{ city }}</a></li>
             {% endfor %}
         </ul>
-    <h2>Counties</h2>
-        <ul>
+        <ul class="collection-elements">
             {% for county in subject_county %}
-            <li><a href="">{{ county }}</a></li>
+                <li><a href="">{{ county }}</a></li>
             {% endfor %}
         </ul>
-    <h2>States/Provinces</h2>
-        <ul>
+        <ul class="collection-elements">
             {% for state in subject_state_prov %}
-            <li><a href="">{{ state }}</a></li>
+                <li><a href="">{{ state }}</a></li>
             {% endfor %}
         </ul>
-    <h2>Countries</h2>
-        <ul>
+        <ul class="collection-elements">
             {% for country in subject_country %}
-            <li><a href="">{{ country }}</a></li>
+                <li><a href="">{{ country }}</a></li>
             {% endfor %}
         </ul>
-    <h2>Geographic Areas</h2>
-        <ul>
+        <ul class="collection-elements">
             {% for geo_area in subject_geo_area %}
-            <li><a href="">{{ geo_area }}</a></li>
+                <li><a href="">{{ geo_area }}</a></li>
             {% endfor %}
         </ul>
+    </div>
+    </div>
+
     <h1>Meta</h1>
-    <h2>Cataloging/Inventory Systems</h2>
+    <div class="flex-container-body">
+    <div>
+    <h2>Cataloging/Inventory/Discovery Systems</h2>
         <ul>
             {% for cat_system in cat_system %}
-                <li>{{ cat_system }}</li>
+            <li><a href="">{{ cat_system }}</a></li>
             {% endfor %}
         </ul>
-        <div class="entry-dates">
-        Description Created: <strong>{{ collection.date_created }}</strong><br>
-        Description Updated: <strong>{{ collection.date_saved }}</strong>
-        </div>
+    </div>
+    </div>
+        <p class="entry-dates">
+            <label>Collection Info Updated</label> {{ collection.date_saved }}
+        </p>
 </div>
 
 {% endblock %}

@@ -6,17 +6,19 @@ class Collection(models.Model):
     collector = models.ForeignKey('collectors_app.Collector',
                                   verbose_name=u'Collector',
                                   default='',
-                                  help_text='Create or choose a collector related to the collection.',
+                                  help_text='Create or choose a collector responsible for the '
+                                            'collection.',
                                   on_delete=models.CASCADE)
     name = models.CharField('Name',
                             max_length=255,
                             blank=False,
-                            default='General Collection',
-                            help_text='Use "General Collection" if describing all files as one '
+                            default='General Artist Files Collection',
+                            help_text='Use "General Artist Files Collection" if describing collection as one '
                                       'combined entry; otherwise, create a separate entry '
                                       'for each formally named collection or collection '
                                       'with special characteristics, for example "The Nettie '
-                                      'Wheeler Artist Files on Native American Artists."')
+                                      'Wheeler Artist Files on Native American Artists. Multiple '
+                                      'collections allowed and encouraged."')
     description = models.TextField('Description',
                                    max_length=3000,
                                    blank=False,
@@ -153,7 +155,7 @@ class Collection(models.Model):
 
     class Meta:
         verbose_name = 'Collection'
-        verbose_name_plural = 'Collections'
+        verbose_name_plural = '** Collections'
         ordering = ['name']
 
 

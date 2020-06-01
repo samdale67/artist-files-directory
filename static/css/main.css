@@ -1,13 +1,17 @@
-div.entry-dates {
-    margin:0 0 20px 0;
-    padding: 6px;
+p.entry-dates {
+    margin: 20px 10px 0 0;
+    padding: 6px 7px 6px 9px;
     color: #7d7d7d;
-    font-size: .8em;
+    font-size: .75em;
     line-height: 18px;
-    align-content: center;
-    background-color: #e0d9ce;
-    max-width: 195px;
-    min-width: 195px;
+    background-color: #cce2e2;
+    border-radius: 7px;
+    max-width: 205px;
+    min-width: 205px;
+}
+
+div.normal {
+    border: none;
 }
 
 .flex-container-main {
@@ -18,27 +22,35 @@ div.entry-dates {
 }
 
 .flex-container-main > div {
-    padding: 10px 50px 20px 10px;
+    padding: 10px 30px 20px 15px;
     margin: 0;
 }
 
-.flex-container-collector {
+.flex-container-body {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-  /*background-color: ;*/
+    /*border-right: 2px solid #a88566;*/
+    border-radius: 15px;
+    background-color: #f3f0eb;
+    padding: 20px 0 0 20px;
+    margin: 0 0 20px 0;
 }
 
-.flex-container-collector > div {
+.flex-container-body > div {
+    flex: 1 0 75px;
     padding: 0;
-    margin: 0 50px 20px 0;
+    margin: 0 30px 15px 0;
+    /*border-right: 2px solid #e7e7e7;*/
 }
+
 
 blockquote{
-    color: #9e8c7d;
-    font-size: 2em;
-    padding: 0 0 0 0;
-    margin: 15px 0 25px 0;
+    color: #93afaa;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 0 50px 0 50px;
+    margin: 10px 0 25px 0;
     line-height: 40px;
 }
 
@@ -48,7 +60,7 @@ body {
 
 html {
     font-family: sans-serif;
-    font-size: 1em;
+    /*font-size: 1em;*/
     line-height: 28px;
     margin-top: 25px;
     color: #636161;
@@ -67,9 +79,10 @@ h1 {
 
 h2 {
     margin: 0 0 10px 0;
+    font-weight: normal;
     padding: 0;
     line-height: 20px;
-    color: #c2a78e;
+    color: #8b7463;
 }
 
 a {
@@ -83,30 +96,20 @@ a:hover {
 
 img {
     margin-bottom: 20px;
-    margin-left: 35px;
-}
-
-input {
-    display: block;
-    padding: 6px;
-    margin: 0 0 25px 0;
-    color: DodgerBlue;
-    font-size: 1.25em;
-}
-
-input[type=submit], input[type=reset] {
-    font-size: .75em;
+    margin-left: 20px;
 }
 
 label {
-    display: block;
-    color: gray;
-    font-size: .75em;
-    margin-bottom: 8px;
+    color: #7d685a;
+}
+
+strong {
+    color: #8b7463;
+    font-weight: normal;
 }
 
 ul  {
-    margin: 10px 0 20px 20px;
+    margin: 10px 0 20px 15px;
     padding: 0;
     color: #636161;
 }
@@ -119,5 +122,16 @@ ul.navigation  {
 }
 
 li.navigation {
+    margin-bottom: 10px;
+}
+
+ul.collection-elements  {
+    /*font-size: 1.25em;*/
+    /*list-style-type: none;*/
+    margin: 0 0 0 15px;
+    padding: 0;
+}
+
+li.collection-elements {
     margin-bottom: 10px;
 }
