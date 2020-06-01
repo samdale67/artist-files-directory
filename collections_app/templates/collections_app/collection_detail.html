@@ -8,14 +8,14 @@
     <div>
     {% if collector.collector_bool %}
         <h2>Private Collector Name</h2>
-        <a href="">{{ collector.person_first_name }} {{ collector.person_last_name }}</a><br>
+        <a href="">{{ collector.person_first_name }} {{ collector.person_last_name }}</a>
         <p><label>Person Type(s)</label><br>
             {% for person_type in collector_person_type %}
             <a href="">{{ person_type }}</a><br>
             {% endfor %}</p>
     {% else %}
         <h2>Institutional Collector Name</h2>
-        <a href="">{{ collector.inst_main_name }}<br>{{ collector.inst_sub_name }}</a><br>
+        <a href="">{{ collector.inst_main_name }}<br>{{ collector.inst_sub_name }}</a>
         <p><label>Institution Type(s)</label>:<br>
             {% for inst_type in collector_institution_type %}
             <a href="">{{ inst_type }}</a><br>
