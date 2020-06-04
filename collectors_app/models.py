@@ -21,18 +21,12 @@ class Collector(models.Model):
                                                  'type if there is not a fit.')
     person_first_name = models.CharField('First Name',
                                          max_length=255,
-                                         blank=False,
-                                         help_text='If a private collection, provide first name of '
-                                                   'collector. If institution, provide first name of person '
-                                                   'filling out this form.')
+                                         blank=True,
+                                         help_text='Provide first name of private collector.')
     person_last_name = models.CharField('Last Name',
                                         max_length=255,
-                                        blank=False,
-                                        help_text='If a private collection, provide last name of '
-                                                  'collector. If institution, provide last name of person '
-                                                  'filling out this form.')
-    collector_bool = models.BooleanField('Is this the name of a private collector?',
-                                     blank=False)
+                                        blank=True,
+                                        help_text='Provide last name of private collector.')
     person_type = models.ManyToManyField(to='PersonType',
                                          verbose_name=u'Private Collector Types',
                                          related_name='Collector',
@@ -47,6 +41,8 @@ class Collector(models.Model):
                                         'collector '
                                         'responsible for artist files collection, for example, '
                                         '"www.cartermuseum.org/library"')
+    website_pref = models.BooleanField('Is website a preferred contact?',
+                                       blank=True)
     email = models.EmailField('Email',
                               max_length=255,
                               help_text='Provide best email for answering questions about artist '
@@ -61,23 +57,23 @@ class Collector(models.Model):
                                  help_text='Provide best telephone contact for answering questions about '
                                            'artist files.')
     telephone_pref = models.BooleanField('Is telephone a preferred contact?',
-                                     blank=True)
-    instagram = models.CharField('Instagram',
-                                 max_length=50,
-                                 blank=True)
-    instagram_pref = models.BooleanField('Is Instragram a preferred contact?',
                                          blank=True)
     twitter = models.CharField('Twitter',
                                max_length=50,
                                blank=True)
     twitter_pref = models.BooleanField('Is Twitter a preferred contact?',
-                                         blank=True)
-    other_contact = models.CharField ('Other Contact',
-                                      max_length=255,
-                                      blank=True,
-                                      help_text='Provide other form of contact.')
-    other_pref = models.BooleanField('Is other contact a preferred contact?',
                                        blank=True)
+    instagram = models.CharField('Instagram',
+                                 max_length=50,
+                                 blank=True)
+    instagram_pref = models.BooleanField('Is Instagram a preferred contact?',
+                                         blank=True)
+    other_contact = models.CharField('Other Contact',
+                                     max_length=255,
+                                     blank=True,
+                                     help_text='Provide other form of contact.')
+    other_pref = models.BooleanField('Is other contact a preferred contact?',
+                                     blank=True)
     date_created = models.DateField(auto_now_add=True)
     date_saved = models.DateField(auto_now=True)
 

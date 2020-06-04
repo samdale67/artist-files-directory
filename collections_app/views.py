@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Collection
+from .models import CollectionSubjectCity
 
 
 def collection_detail(request, collection_id):
@@ -39,4 +40,16 @@ def collection_detail(request, collection_id):
                'subject_state_prov': subject_state_prov,
                'subject_country': subject_country,
                'subject_geo_area': subject_geo_area}
+    return render(request, template, context)
+
+
+def browse_subject_city(request, id):
+    # get collection objects that have city subject based on subject id passed from the URL and also
+    # select related foreign key for collector, then get the subject city name; remember that what we're
+    # dealing with here is a queryset, ie multiple objects, get is used for a single object
+    collections = Collection.objects.filter(subject_city=id).select_related('collector')
+    subject_city = CollectionSubjectCity.objects.get(pk=id)
+    template = 'collections_app/collection_browse.html'
+    context = {'collections': collections,
+               'subject_city': subject_city}
     return render(request, template, context)

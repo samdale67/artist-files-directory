@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style="flex: 10 1 1000px" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <h1>Browsing All Collections with Subject "{{ subject_city.sub_city }}"</h1>
+    <div class="flex-container-body">
+        <div>
+            <ul class="body">
+            {% for collection in collections %}
+                <li><a href="/collections/{{ collection.id }}">{{ collection.collector.inst_main_name }}{% if collection.collector.inst_sub_name %}, {% endif %}
+                    {{ collection.collector.inst_sub_name }} {{ collection.collector.person_last_name }}{% if collection.collector.person_last_name %}, {% endif %}{{ collection.collector.person_first_name }}
+                     &#8226; {{ collection.name }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

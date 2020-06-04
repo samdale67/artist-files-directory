@@ -6,8 +6,9 @@ class Collection(models.Model):
     collector = models.ForeignKey('collectors_app.Collector',
                                   verbose_name=u'Collector',
                                   default='',
+                                  blank=False,
                                   help_text='Create or choose a collector responsible for the '
-                                            'collection.',
+                                            'artist files collection.',
                                   on_delete=models.CASCADE)
     name = models.CharField('Name',
                             max_length=255,
@@ -29,7 +30,13 @@ class Collection(models.Model):
     quote = models.TextField('Quote',
                              max_length=500,
                              blank=True,
-                             help_text='Provide an quotable quote or tagline for the collection.')
+                             help_text='Provide a quote or tagline for the collection. Quotes '
+                                       'are automatically added.')
+    quote_attrib = models.CharField('Quote Attribution',
+                                    max_length=255,
+                                    blank=True,
+                                    help_text='Provide the source of quote or tagline if applicable, '
+                                              'including name, title, date, publication source, etc.')
     access = models.TextField('Access and Use',
                               max_length=1000,
                               blank=False,
