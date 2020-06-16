@@ -17,20 +17,18 @@
     /*border-right: 2px solid #a88566;*/
     border-radius: 15px;
     background-color: #f3f0eb;
-    padding: 20px 0 0 20px;
-    margin: 0 0 20px 0;
+    padding: 10px 0 5px 30px;
+    margin: 0 0 25px 0;
 }
 
 .flex-container-body > div {
-    flex: 1 2 75px;
     padding: 0;
-    margin: 0 30px 0 0;
-    /*border-right: 2px solid #e7e7e7;*/
+    margin: 0 60px 0 0;
 }
 
 a {
     text-decoration: none;
-    color: #ea5b02;
+    color: #e25d0e;
 }
 
 a.navigation {
@@ -47,7 +45,7 @@ blockquote{
     font-size: 1.5em;
     font-weight: bold;
     padding: 0 40px 0 40px;
-    margin: 10px 0 18px 0;
+    margin: 0 0 18px 0;
     line-height: 40px;
 }
 
@@ -55,55 +53,66 @@ blockquote.quote-attrib {
     color: #909090;
     font-size: .75em;
     font-weight: normal;
-    margin: -20px 0 23px 0;
+    margin: -30px 0 18px 0;
 }
 
 body {
+    /*background-color: #F1F1ED;*/
     background-color: #faf8f2;
     }
 
 html {
     font-family: sans-serif;
     /*font-size: 1em;*/
-    line-height: 28px;
+    line-height: 25px;
     margin-top: 25px;
     color: #636161;
     -webkit-text-size-adjust:100%
 }
 
-p {
-    margin-bottom: 20px;
-}
-
-p.entry-dates {
-    margin: 0;
-    padding: 6px 7px 6px 9px;
+div#entry-dates {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 20px 15px;
+    padding: 0 5px 0px 7px;
     color: #7d7d7d;
-    font-size: .75em;
-    line-height: 18px;
+    font-size: .8em;
     background-color: #cce2e2;
     border-radius: 7px;
-    max-width: 205px;
-    min-width: 205px;
+    max-width: 140px;
+    min-width: 140px;
 }
 
 h1 {
-    margin: 0 0 20px 0;
+    display: inline;
+    font-size: 1.65em;
+    margin: 0 0 15px 15px;
     padding: 0;
-    line-height: 35px;
+    /*line-height: 35px;*/
     color: #6197c6;
 }
 
 h2 {
-    margin: 0 0 10px 0;
+    margin: 15px 0 8px 0;
+    font-size: 1.25em;
     font-weight: normal;
     padding: 0;
-    line-height: 20px;
+    line-height: 18px;
     color: #8b7463;
 }
 
+h2.collection-name {
+    margin: 5px 0 20px 0;
+    font-size: 1.6em;
+    font-style: italic;
+    padding: 0;
+    line-height: 30px;
+    color: #8b7463;
+}
+
+
 h3 {
-    margin: 0;
+    margin: 5px 0 5px 0;
     font-weight: normal;
     font-size: 1em;
     padding: 0;
@@ -120,6 +129,12 @@ label {
     color: #7d685a;
 }
 
+strong {
+    color: #715b4e;
+    font-weight: bold;
+}
+
+
 strong.preferred {
     color: #38a005;
     font-weight: normal;
@@ -130,7 +145,7 @@ strong.preferred {
 }
 
 ul.body {
-    margin: 10px 0 20px 18px;
+    margin: 0 0 15px 15px;
     padding: 0;
     color: #746859;
     list-style-type: disc;
@@ -162,6 +177,6 @@ ul.types {
 }
 
 ul.types > li  {
-    margin: 0;
+    margin: 0 0 0 5px;
     padding: 0;
 }

@@ -6,15 +6,26 @@
     <h1>Browsing All Collections with Subject "{{ subject_city.sub_city }}"</h1>
     <div class="flex-container-body">
         <div>
-            <ul class="body">
-            {% for collection in collections %}
-                <li><a href="/collections/{{ collection.id }}">{{ collection.collector.inst_main_name }}{% if collection.collector.inst_sub_name %}, {% endif %}
-                    {{ collection.collector.inst_sub_name }} {{ collection.collector.person_last_name }}{% if collection.collector.person_last_name %}, {% endif %}{{ collection.collector.person_first_name }}
-                     &#8226; {{ collection.name }}</a></li>
+        <ul class="body">
+            {% for collection in collection.collector.all %} #loop through collection objects and all
+                related collector objects gathered from prefetch_related
+                <li><a href="/collections/{{ collection.id }}"> #grab collection id
+                    {{ collection.collector.inst_main_name }} #grab related collector object's field
+                    "inst_main_name"
+                    {% if collection.collector.inst_sub_name %}, {% endif %} #if related collector object
+                    has field "inst_sub_name", add a comma
+                    {{ collection.collector.inst_sub_name }} #grab related collector object's field
+                    "inst_sub_name"
+                    {{ collection.collector.person_last_name }} #grab related collector object's field
+                    "person_last_name"
+                    {% if collection.collector.person_last_name %}, {% endif %} #if related collector
+                    object has field "person_last_name", add a comma
+                    {{ collection.collector.person_first_name }} &#8226; {{ collection.name }}</a></li>
+                #grab related collector object field "person_last_name", html entity, then collection object
+                field "name"
             {% endfor %}
-            </ul>
+        </ul>
         </div>
-
     </div>
 </div>
 

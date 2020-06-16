@@ -5,7 +5,9 @@ class Collector(models.Model):
     inst_main_name = models.CharField('Institution Main Name',
                                       max_length=255,
                                       help_text='If an institutional collection, provide main institution '
-                                                'name.',
+                                                'name. If consortium or collaboration, suppy official name '
+                                                'or generalized name (use notes field to provide details). '
+                                                'If a dealer, provide business name.',
                                       blank=True)
     inst_sub_name = models.CharField('Institution Secondary Name',
                                      max_length=255,
@@ -22,11 +24,11 @@ class Collector(models.Model):
     person_first_name = models.CharField('First Name',
                                          max_length=255,
                                          blank=True,
-                                         help_text='Provide first name of private collector.')
+                                         help_text='Only use for first name of private collector.')
     person_last_name = models.CharField('Last Name',
                                         max_length=255,
                                         blank=True,
-                                        help_text='Provide last name of private collector.')
+                                        help_text='Only use for last name of private collector.')
     person_type = models.ManyToManyField(to='PersonType',
                                          verbose_name=u'Private Collector Types',
                                          related_name='Collector',
@@ -74,17 +76,19 @@ class Collector(models.Model):
                                      help_text='Provide other form of contact.')
     other_pref = models.BooleanField('Is other contact a preferred contact?',
                                      blank=True)
+    notes = models.TextField('Notes',
+                             max_length=1000,
+                             blank=True)
     date_created = models.DateField(auto_now_add=True)
     date_saved = models.DateField(auto_now=True)
-
-    def __str__(self):
-        return self.inst_main_name + self.person_last_name
 
     class Meta:
         verbose_name = 'Collector'
         verbose_name_plural = '** Collectors'
-        ordering = ['inst_main_name']
+        ordering = ['inst_main_name', 'person_last_name']
 
+    def __str__(self):
+        return self.inst_main_name + self.person_last_name
 
 class InstitutionType(models.Model):
     type_name = models.CharField('Institution Type',

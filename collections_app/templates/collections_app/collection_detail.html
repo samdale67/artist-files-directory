@@ -3,27 +3,34 @@
 {% block content %}
 
 <div style="flex: 10 1 1000px" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-    <h1>Collector Details</h1>
+
+    <h1>Collector Details</h1><div id="entry-dates"><label>Updated</label> <strong
+>{{ collection.date_saved }}</strong></div>
+
+    {% for collector in collection.collector.all %}
+
+
     <div class="flex-container-body">
-    <div>
+
+    <div style="flex: 0 0 300px">
     <h2>Collector Name</h2>
     {% if collector.person_last_name %}
         <p><a href="">{{ collector.person_first_name }} {{ collector.person_last_name }}</a></p>
         <h3>Person Type(s)</h3>
-            <ul class="types">
-            {% for person_type in collector_person_type %}
+            <ul class="body">
+            {% for person_type in collector.person_type.all %}
             <li><a href="">{{ person_type }}</a></li>
             {% endfor %}
             </ul>
     {% else %}
-        <p><a href="">{{ collector.inst_main_name }}<br>{{ collector.inst_sub_name }}</a></p>
+        <a href="">{{ collector.inst_main_name }}<br>{{ collector.inst_sub_name }}</a></p>
         <h3>Institution Type(s)</h3>
-        <ul class="types">
-        {% for inst_type in collector_institution_type %}
+        <ul class="body">
+        {% for inst_type in collector.inst_type.all %}
             <li><a href="">{{ inst_type }}</a></li>
+       {% endfor %}
         </ul>
-        {% endfor %}
-    {% endif %}
+     {% endif %}
     </div>
 
     <div>
@@ -64,120 +71,165 @@
             {{ collector.instagram }}</a></li>
     {% endif %}
     </ul>
+
     </div>
 
-    <div>
-    <p class="entry-dates">
-        <label>Collector Info Updated</label> <strong>{{ collector.date_saved }}</strong>
-    </p>
-    </div>
     </div>
 
-    <h1>{{ collection.name }}</h1>
+    {% if collector.notes %}
+        <div class="flex-container-body">
+        <div>
+        <h2>Collector Notes</h2>
+        <p>{% autoescape off %}{{ collector.notes }}{% endautoescape %}</p>
+        </div>
+        </div>
+    {% endif %}
+
+    {% endfor %}
+
+    <h1>Collection Details</h1><div id="entry-dates"><label>Updated</label> <strong
+>{{ collection.date_saved }}</strong></div>
 
     <div class="flex-container-body">
     <div>
-    <h2>Overview</h2>
-        <p>{% autoescape off %}{{ collection.description }}{% endautoescape %}</p>
+
+    <h2 class="collection-name">{{ collection.name }}</h2>
+
     {% if collection.quote %}
         <blockquote>{% autoescape off %}&ldquo;{{ collection.quote }}&rdquo;{% endautoescape %}</blockquote>
     {% endif %}
+
     {% if collection.quote_attrib %}
         <blockquote class="quote-attrib">{{ collection.quote_attrib }}</blockquote>
     {% endif %}
-    <h2>Access and Use</h2>
+
+    {%  if collection.description %}
+        <h2>Overview</h2>
+        <p>{% autoescape off %}{{ collection.description }}{% endautoescape %}</p>
+    {% endif %}
+
+    {% if collection.dig_projects %}
+        <h2>Digital Project Overview</h2>
+        <p>{% autoescape off %}{{ collection.dig_projects }}{% endautoescape %}</p>
+    {% endif %}
+
+    {% if collection.access %}
+        <h2>Access and Use</h2>
         <p>{{ collection.access }}</p>
+    {% endif %}
+
     {% if collection.website %}
         <h2>Collection Website</h2>
         <p><a href="">{{ collection.website }}</a></p>
     {% endif %}
-    <h2>Size</h2>
+
+    {% if collection.size %}
+        <h2>Size</h2>
         <p>{{ collection.size }}</p>
-    <h2>Reference Services</h2>
+    {% endif %}
+
+    {% if collection.service.all %}
+        <h2>Reference Services</h2>
         <ul class="body">
-            {% for service in service %}
+            {% for service in collection.service.all %}
                 <li>{{ service }}</li>
             {% endfor %}
         </ul>
-    <h2>Special Formats in the Collection</h2>
+    {% endif %}
+
+    {% if collection.spec_format.all %}
+        <h2>Special Formats</h2>
         <ul class="body">
-            {% for spec_format in spec_format %}
+            {% for spec_format in collection.spec_format.all %}
             <li><a href="">{{ spec_format }}</a></li>
             {% endfor %}
         </ul>
-    {% if collector.dig_projects %}
-    <h2>Digital Content</h2>
-        <p>{{ collection.dig_projects }}</p>
     {% endif %}
-    {% if collector.dig_access %}
-    <h2>Digital Access</h2>
+
+    {% if collection.dig_access %}
+        <h2>Digital Access</h2>
         <p><a href="{{ collection.dig_access }}">{{ collection.dig_access }}</a></p>
     {% endif %}
-    <h2>Collection Location</h2>
+
+    {% if collection.loc_city or collection.loc_state_prov or collection.loc_country %}
+        <h2>Collection Location</h2>
         <ul class="body">
-        <li><a href="">{{ collection.loc_city }}</a>, <a href="">{{ collection.loc_state_prov }}</a>,
+        <li><a href="">{{ collection.loc_city }}</a>{% if collection.loc_city and collection.loc_state_prov %},
+        {% endif %} <a href=""
+        >{{ collection.loc_state_prov }}</a>{% if collection.loc_state_prov and collection.loc_country %},
+                {% endif %}
         <a href="">{{ collection.loc_country }}</a></li>
         </ul>
-    <h2>Images</h2>
+    {%  endif %}
+
+    {% if collection.image %}
+        <h2>Images</h2>
         <p>{{ collection.images }}</p>
+    {% endif %}
     </div>
     </div>
 
-    <h1>Subjects</h1>
+    {% if collection.subject_topic.all or collection.subject_name.all or collection.subject_city.all or collecton.subject_county.all or collection.subject_state_prov.all or collection.subject_country.all or collection.subject_geo_area.all %}
+        <div class="flex-container-body">
+        <div>
+        <h2>Subjects</h2>
+    {% endif %}
 
-    <div class="flex-container-body">
-    <div>
-      <h2>People and Institutions</h2>
+    {% if collection.subject_name.all %}
+        <h3>People and Institutions</h3>
         <ul class="body">
-            {% for name in subject_name %}
+            {% for name in collection.subject_name.all %}
             <li><a href="">{{ name }}</a></li>
             {% endfor %}
         </ul>
-    </div>
-    <div>
-        <h2>Topics</h2>
+    {% endif %}
+
+    {% if collection.subject_topic.all %}
+        <h3>Topics</h3>
         <ul class="body">
-            {% for subject in subject_topic %}
+            {% for subject in collection.subject_topic.all %}
             <li><a href="">{{ subject }}</a></li>
             {% endfor %}
         </ul>
-    </div>
-    <div>
-        <h2>Places</h2>
-        <ul class="body">
-            {% for city in subject_city %}
-                <li><a href="/collections/browse/subjects/cities/{{ city.id }}">{{ city }}</a></li>
-            {% endfor %}
-            {% for county in subject_county %}
-                <li><a href="">{{ county }}</a></li>
-            {% endfor %}
-            {% for state in subject_state_prov %}
-                <li><a href="">{{ state }}</a></li>
-            {% endfor %}
-            {% for country in subject_country %}
-                <li><a href="">{{ country }}</a></li>
-            {% endfor %}
-            {% for geo_area in subject_geo_area %}
-                <li><a href="">{{ geo_area }}</a></li>
-            {% endfor %}
-        </ul>
+    {% endif %}
+
+    {% if collection.subject_city.all or collecton.subject_county.all or collection.subject_state_prov.all or collection.subject_country.all or collection.subject_geo_area.all %}
+            <h3>Places</h3>
+            <ul class="body">
+                {% for city in collection.subject_city.all %}
+                    <li><a href="/collections/browse/subjects/cities/{{ city.id }}"
+                    >{{ city }}</a></li>
+                {% endfor %}
+                {% for county in collection.subject_county.all %}
+                    <li><a href="">{{ county }}</a></li>
+                {% endfor %}
+                {% for state in collection.subject_state_prov.all %}
+                    <li><a href="">{{ state }}</a></li>
+                {% endfor %}
+                {% for country in collection.subject_country.all %}
+                    <li><a href="">{{ country }}</a></li>
+                {% endfor %}
+                {% for geo_area in collection.subject_geo_area.all %}
+                    <li><a href="">{{ geo_area }}</a></li>
+                {% endfor %}
+            </ul>
+    {% endif %}
     </div>
     </div>
 
-    <h1>Meta</h1>
-    <div class="flex-container-body">
-    <div>
-    <h2>Cataloging/Inventory/Discovery Systems</h2>
-        <ul class="body">
-            {% for cat_system in cat_system %}
+    {% if collection.cat_system.all %}
+        <div class="flex-container-body">
+        <div>
+        <h2>Cataloging/Inventory/Discovery Systems</h2>
+            <ul class="body">
+            {% for cat_system in collection.cat_system.all %}
             <li><a href="">{{ cat_system }}</a></li>
             {% endfor %}
-        </ul>
-    </div>
-    </div>
-        <p class="entry-dates">
-            <label>Collection Info Updated</label> <strong>{{ collection.date_saved }}</strong>
-        </p>
+            </ul>
+        </div>
+        </div>
+    {% endif %}
+
 </div>
 
 {% endblock %}

@@ -14,7 +14,17 @@ from .models import CollectionSubjectStateProv
 from .models import CollectionImage
 
 
-admin.site.register(Collection)
+class CollectionAdmin(admin.ModelAdmin):
+    list_display = ('name', 'institution_name', 'person_last_name')
+
+    def institution_name(self, obj):
+        return ", ".join([c.inst_main_name for c in obj.collector.all()])
+
+    def person_last_name(self, obj):
+        return "\n".join([c.person_last_name for c in obj.collector.all()])
+
+
+admin.site.register(Collection, CollectionAdmin)
 admin.site.register(CollectionCatSystem)
 admin.site.register(CollectionLanguage)
 admin.site.register(CollectionService)
@@ -27,4 +37,3 @@ admin.site.register(CollectionSubjectGeoArea)
 admin.site.register(CollectionSubjectTopic)
 admin.site.register(CollectionSubjectStateProv)
 admin.site.register(CollectionImage)
-

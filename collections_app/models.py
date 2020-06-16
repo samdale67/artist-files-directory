@@ -3,14 +3,15 @@ from django.urls import reverse
 
 
 class Collection(models.Model):
-    collector = models.ForeignKey('collectors_app.Collector',
-                                  verbose_name=u'Collector',
-                                  default='',
-                                  blank=False,
-                                  help_text='Create or choose a collector responsible for the '
-                                            'artist files collection.',
-                                  on_delete=models.CASCADE)
-    name = models.CharField('Name',
+    collector = models.ManyToManyField(to='collectors_app.Collector',
+                                       related_name='collections',
+                                       verbose_name=u'Collector(s)',
+                                       blank=False,
+                                       help_text='Create or choose a collector responsible for the '
+                                                 'artist files collection. A collection can have '
+                                                 'multiple owners, for example, in the case of '
+                                                 'consortial digital projects.')
+    name = models.CharField('Collection Name',
                             max_length=255,
                             blank=False,
                             default='General Artist Files Collection',
@@ -22,7 +23,7 @@ class Collection(models.Model):
                                       'collections allowed and encouraged."')
     description = models.TextField('Description',
                                    max_length=3000,
-                                   blank=False,
+                                   blank=True,
                                    help_text='Provide a general description of the collection, '
                                              'including such aspects as history and provenance. Also '
                                              'use this field for general notes about '
@@ -39,7 +40,7 @@ class Collection(models.Model):
                                               'including name, title, date, publication source, etc.')
     access = models.TextField('Access and Use',
                               max_length=1000,
-                              blank=False,
+                              blank=True,
                               help_text='Add policies and procedures relating to how '
                                         'researchers access and use the collection.')
     website = models.URLField('Website',
@@ -49,20 +50,20 @@ class Collection(models.Model):
     service = models.ManyToManyField(to='CollectionService',
                                      related_name='collections',
                                      verbose_name=u'Reference Services',
-                                     blank=False,
+                                     blank=True,
                                      help_text='Add reference services offered. Create a new service '
                                                'if there is not a fit.')
     cat_system = models.ManyToManyField(to='CollectionCatSystem',
                                         related_name='collections',
                                         verbose_name=u'Cataloging Systems',
-                                        blank=False,
+                                        blank=True,
                                         help_text='Add systems used for cataloging artist files '
                                                   'collection. Create a new system if there is '
                                                   'not a fit.')
     size = models.TextField('Size',
                             max_length=1000,
                             default='',
-                            blank=False,
+                            blank=True,
                             help_text='Provide a statement about the size of the collection, '
                                       'including growth rate, etc. Use whatever measurement terms are '
                                       'relevant.')
@@ -74,7 +75,7 @@ class Collection(models.Model):
                                                    'collection, either analog or digital. Create a new '
                                                    'type if there is not a fit.')
     dig_projects = models.TextField('Digital Projects',
-                                    max_length=1000,
+                                    max_length=3000,
                                     blank=True,
                                     help_text='Describe digital projects, either completed '
                                               'or planned, for this collection.')
@@ -107,7 +108,7 @@ class Collection(models.Model):
                                           related_name='collections',
                                           verbose_name=u'Subject: Cities',
                                           blank=True,
-                                          help_text='Add cities that are subject focuses of the files')
+                                          help_text='Add cities that are subject focuses of the files.')
     subject_county = models.ManyToManyField(to='CollectionSubjectCounty',
                                             related_name='collections',
                                             verbose_name=u'Subject: Counties',
@@ -140,17 +141,17 @@ class Collection(models.Model):
                                 max_length=255,
                                 help_text='Important for providing access to collections located in '
                                           'specific cities.',
-                                blank=False)
+                                blank=True)
     loc_state_prov = models.CharField('Location: State/Province',
                                       max_length=255,
                                       help_text='Important for providing access to collections located'
                                                 ' in specific states or provinces.',
-                                      blank=False)
+                                      blank=True)
     loc_country = models.CharField('Location: Country',
                                    max_length=255,
                                    help_text='Important for providing access to collections located in '
                                              'specific countries.',
-                                   blank=False)
+                                   blank=True)
     date_created = models.DateField(auto_now_add=True)
     date_saved = models.DateField(auto_now=True)
 
