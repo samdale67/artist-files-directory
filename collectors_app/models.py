@@ -88,7 +88,13 @@ class Collector(models.Model):
         ordering = ['inst_main_name', 'person_last_name']
 
     def __str__(self):
-        return self.inst_main_name + self.person_last_name
+        if self.inst_sub_name:
+            return f"{self.inst_main_name}, " + self.inst_sub_name
+        elif self.inst_main_name:
+            return f"{self.inst_main_name}"
+        elif self.person_last_name:
+            return f"{self.person_last_name}, " + self.person_first_name
+
 
 class InstitutionType(models.Model):
     type_name = models.CharField('Institution Type',

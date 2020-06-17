@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import Collection
 from .models import CollectionCatSystem
-from .models import CollectionLanguage
 from .models import CollectionService
 from .models import CollectionSpecialFormat
 from .models import CollectionSubjectCountry
@@ -26,7 +25,6 @@ class CollectionAdmin(admin.ModelAdmin):
 
 admin.site.register(Collection, CollectionAdmin)
 admin.site.register(CollectionCatSystem)
-admin.site.register(CollectionLanguage)
 admin.site.register(CollectionService)
 admin.site.register(CollectionSpecialFormat)
 admin.site.register(CollectionSubjectCountry)

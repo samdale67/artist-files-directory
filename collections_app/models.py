@@ -11,6 +11,10 @@ class Collection(models.Model):
                                                  'artist files collection. A collection can have '
                                                  'multiple owners, for example, in the case of '
                                                  'consortial digital projects.')
+    consortium = models.BooleanField('Consortial collection?',
+                                     blank=True,
+                                     help_text='Is this collection a consortial or collaborative '
+                                               'collection?')
     name = models.CharField('Collection Name',
                             max_length=255,
                             blank=False,
@@ -32,7 +36,7 @@ class Collection(models.Model):
                              max_length=500,
                              blank=True,
                              help_text='Provide a quote or tagline for the collection. Quotes '
-                                       'are automatically added.')
+                                       'get automatically added.')
     quote_attrib = models.CharField('Quote Attribution',
                                     max_length=255,
                                     blank=True,
@@ -83,7 +87,6 @@ class Collection(models.Model):
                                  max_length=255,
                                  blank=True,
                                  help_text='Provide URL for accessing digital collection.')
-    # Need to work on way for user to choose a featured image below
     image = models.ForeignKey('CollectionImage',
                               related_name='collections',
                               verbose_name=u'Collection Images',
@@ -167,6 +170,20 @@ class Collection(models.Model):
         ordering = ['name']
 
 
+class CollectionImage(models.Model):
+    image = models.ImageField('Add Image',
+                              upload_to='collection/images/',
+                              help_text='Upload images showing example material from files '
+                                        'and/or storage systems in use.')
+
+    def __str__(self):
+        return 'Image'
+
+    class Meta:
+        verbose_name = 'Image'
+        verbose_name_plural = 'Images'
+
+
 class CollectionService(models.Model):
     serv_name = models.CharField('Reference Service',
                                  max_length=100,
@@ -233,17 +250,6 @@ class CollectionSpecialFormat(models.Model):
         verbose_name = 'Special Format'
         verbose_name_plural = 'Special Formats'
         ordering = ['special_format']
-
-
-class CollectionImage(models.Model):
-    image = models.ImageField('Add Image',
-                              upload_to='collection/images/',
-                              help_text='Upload images showing example material from files '
-                                        'and/or storage systems in use.')
-
-    class Meta:
-        verbose_name = 'Image'
-        verbose_name_plural = 'Images'
 
 
 class CollectionSubjectName(models.Model):
@@ -425,28 +431,3 @@ class CollectionSubjectGeoArea(models.Model):
         verbose_name = 'Subject: Geographic Area'
         verbose_name_plural = 'Subject: Geographic Areas'
         ordering = ['sub_geo_area']
-
-
-class CollectionLanguage(models.Model):
-    # use id.loc.gov?
-    lang = models.CharField('Language',
-                            max_length=100,
-                            blank=False,
-                            help_text='Use language term from <a '
-                                      'href="http://id.loc.gov/vocabulary/languages.html" '
-                                      'target="_blank">MARC List '
-                                      'for Languages</a> or other authority if available.')
-    lang_url = models.URLField('Language Name Reference',
-                               max_length=255,
-                               blank=True,
-                               help_text='Provide URI to term.')
-    notes = models.TextField(max_length=500,
-                             blank=True)
-
-    def __str__(self):
-        return self.lang
-
-    class Meta:
-        verbose_name = 'Language'
-        verbose_name_plural = 'Languages'
-        ordering = ['lang']

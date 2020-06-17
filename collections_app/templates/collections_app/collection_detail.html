@@ -2,13 +2,12 @@
 
 {% block content %}
 
-<div style="flex: 10 1 1000px" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<div style="flex: 10 1 1000px" xmlns="http://www.w3.org/1999/html">
 
     <h1>Collector Details</h1><div id="entry-dates"><label>Updated</label> <strong
 >{{ collection.date_saved }}</strong></div>
 
     {% for collector in collection.collector.all %}
-
 
     <div class="flex-container-body">
 
@@ -38,26 +37,26 @@
     <ul class="body">
     {% if collector.email_pref == True %}
         <li><a href="mailto:{{ collector.email }}?subject=Artist Files Question">
-        {{ collector.email }}</a>&nbsp;<strong class="preferred">Preferred</strong></li>
+        {{ collector.email }}</a>&nbsp;<strong class="preferred">&#10003;</strong></li>
         {% elif collector.email and collector.website_pref == False %}
         <li><a href="mailto:{{ collector.email }}?subject=Artist Files Question">{{ collector.email }}</a></li>
     {% endif %}
 
     {% if collector.telephone and collector.telephone_pref == True %}
-        <li>{{ collector.telephone }}&nbsp;<strong class="preferred">Preferred</strong></li>
+        <li>{{ collector.telephone }}&nbsp;<strong class="preferred">&#10003;</strong></li>
         {% elif collector.telephone and collector.telephone_pref == False %}
         <li>{{ collector.telephone }}</li>
     {% endif %}
 
     {% if collector.website and collector.website_pref == True %}
-        <li><a href="{{ collector.website }}">{{ collector.website }}</a>&nbsp;<strong class="preferred">Preferred</strong></li>
+        <li><a href="{{ collector.website }}">{{ collector.website }}</a>&nbsp;<strong class="preferred">&#10003;</strong></li>
         {% elif collector.website and collector.website_pref == False %}
         <li><a href="{{ collector.website }}">{{ collector.website }}</a></li>
     {% endif %}
 
     {% if collector.twitter and collector.twitter_pref == True %}
         <li><label>Twitter</label> <a href="https://www.twitter.com/{{ collector.twitter }}"
-        >{{ collector.twitter }}</a>&nbsp;<strong class="preferred">Preferred</strong></li>
+        >{{ collector.twitter }}</a>&nbsp;<strong class="preferred">&#10003;</strong></li>
         {% elif collector.twitter and collector.twitter_pref == False %}
         <li><label>Twitter</label> <a href="https://www.twitter.com/{{ collector.twitter }}"
         >{{ collector.twitter }}</a></li>
@@ -65,7 +64,7 @@
 
     {% if collector.instagram and collector.instagram_pref == True %}
         <li><label>Instagram</label> <a href="https://www.instagram.com/{{ collector.instagram }}">
-        {{ collector.instagram }}</a>&nbsp;<strong class="preferred">Preferred</strong></li>
+        {{ collector.instagram }}</a>&nbsp;<strong class="preferred">&#10003;</strong></li>
         {% elif collector.instagram and collector.instagram_pref == False %}
         <li><label>Instagram</label> <a href="https://www.instagram.com/{{ collector.instagram }}">
             {{ collector.instagram }}</a></li>
@@ -90,9 +89,40 @@
     <h1>Collection Details</h1><div id="entry-dates"><label>Updated</label> <strong
 >{{ collection.date_saved }}</strong></div>
 
+    {% if collection.image %}
+    <div class="flex-container-body">
+        <div style="flex: 2 4 200px" class="collection-image">
+        {% if collection.image %}
+{#            {% for image in collection.image.image %}#}
+            <img class="collection" src="{{ collection.image.image.url }}" width="300" alt=
+                    "{{ collection.name }} Image"/></li>
+{#            {% endfor %}#}
+        {% endif %}
+        </div>
+        <div style="flex: 2 4 200px" class="collection-image">
+        {% if collection.image %}
+{#            {% for image in collection.image.image %}#}
+            <img class="collection" src="{{ collection.image.image.url }}" width="300" alt=
+                    "{{ collection.name }} Image"/></li>
+{#            {% endfor %}#}
+        {% endif %}
+        </div>
+        <div style="flex: 2 4 200px" class="collection-image">
+        {% if collection.image %}
+{#            {% for image in collection.image.image %}#}
+            <img class="collection" src="{{ collection.image.image.url }}" width="300" alt=
+                    "{{ collection.name }}
+            Image"/></li>
+{#            {% endfor %}#}
+        {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
     <div class="flex-container-body">
     <div>
-
+    {% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong
+    >{% endif %}
     <h2 class="collection-name">{{ collection.name }}</h2>
 
     {% if collection.quote %}
@@ -154,7 +184,8 @@
     {% if collection.loc_city or collection.loc_state_prov or collection.loc_country %}
         <h2>Collection Location</h2>
         <ul class="body">
-        <li><a href="">{{ collection.loc_city }}</a>{% if collection.loc_city and collection.loc_state_prov %},
+        <li><a href="">{{ collection.loc_city }}</a
+        >{% if collection.loc_city and collection.loc_state_prov %},
         {% endif %} <a href=""
         >{{ collection.loc_state_prov }}</a>{% if collection.loc_state_prov and collection.loc_country %},
                 {% endif %}
@@ -162,14 +193,10 @@
         </ul>
     {%  endif %}
 
-    {% if collection.image %}
-        <h2>Images</h2>
-        <p>{{ collection.images }}</p>
-    {% endif %}
     </div>
     </div>
 
-    {% if collection.subject_topic.all or collection.subject_name.all or collection.subject_city.all or collecton.subject_county.all or collection.subject_state_prov.all or collection.subject_country.all or collection.subject_geo_area.all %}
+    {% if collection.subject_topic.all or collection.subject_name.all or collection.subject_city.all or collectons.subject_county.all or collection.subject_state_prov.all or collection.subject_country.all or collection.subject_geo_area.all %}
         <div class="flex-container-body">
         <div>
         <h2>Subjects</h2>
@@ -193,7 +220,7 @@
         </ul>
     {% endif %}
 
-    {% if collection.subject_city.all or collecton.subject_county.all or collection.subject_state_prov.all or collection.subject_country.all or collection.subject_geo_area.all %}
+    {% if collection.subject_city.all or collectons.subject_county.all or collection.subject_state_prov.all or collection.subject_country.all or collection.subject_geo_area.all %}
             <h3>Places</h3>
             <ul class="body">
                 {% for city in collection.subject_city.all %}
