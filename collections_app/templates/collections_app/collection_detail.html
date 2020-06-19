@@ -4,7 +4,10 @@
 
 <div style="flex: 10 1 1000px" xmlns="http://www.w3.org/1999/html">
 
-    <h1>Collector Details</h1><div id="entry-dates"><label>Updated</label> <strong
+    {% if collection.collector.all.count > 1 %}<h1>Collectors</h1>
+{% else %}<h1>Collector</h1>
+    {% endif %}<div
+        id="entry-dates"><label>Updated</label> <strong
 >{{ collection.date_saved }}</strong></div>
 
     {% for collector in collection.collector.all %}
@@ -37,26 +40,27 @@
     <ul class="body">
     {% if collector.email_pref == True %}
         <li><a href="mailto:{{ collector.email }}?subject=Artist Files Question">
-        {{ collector.email }}</a>&nbsp;<strong class="preferred">&#10003;</strong></li>
+        {{ collector.email }}</a>&nbsp;<strong class="preferred">&#10003; preferred</strong></li>
         {% elif collector.email and collector.website_pref == False %}
         <li><a href="mailto:{{ collector.email }}?subject=Artist Files Question">{{ collector.email }}</a></li>
     {% endif %}
 
     {% if collector.telephone and collector.telephone_pref == True %}
-        <li>{{ collector.telephone }}&nbsp;<strong class="preferred">&#10003;</strong></li>
+        <li>{{ collector.telephone }}&nbsp;<strong class="preferred">&#10003; preferred</strong></li>
         {% elif collector.telephone and collector.telephone_pref == False %}
         <li>{{ collector.telephone }}</li>
     {% endif %}
 
     {% if collector.website and collector.website_pref == True %}
-        <li><a href="{{ collector.website }}">{{ collector.website }}</a>&nbsp;<strong class="preferred">&#10003;</strong></li>
+        <li><a href="{{ collector.website }}">{{ collector.website }}</a>&nbsp;<strong
+                class="preferred">&#10003; preferred</strong></li>
         {% elif collector.website and collector.website_pref == False %}
         <li><a href="{{ collector.website }}">{{ collector.website }}</a></li>
     {% endif %}
 
     {% if collector.twitter and collector.twitter_pref == True %}
         <li><label>Twitter</label> <a href="https://www.twitter.com/{{ collector.twitter }}"
-        >{{ collector.twitter }}</a>&nbsp;<strong class="preferred">&#10003;</strong></li>
+        >{{ collector.twitter }}</a>&nbsp;<strong class="preferred">&#10003; preferred</strong></li>
         {% elif collector.twitter and collector.twitter_pref == False %}
         <li><label>Twitter</label> <a href="https://www.twitter.com/{{ collector.twitter }}"
         >{{ collector.twitter }}</a></li>
@@ -64,7 +68,7 @@
 
     {% if collector.instagram and collector.instagram_pref == True %}
         <li><label>Instagram</label> <a href="https://www.instagram.com/{{ collector.instagram }}">
-        {{ collector.instagram }}</a>&nbsp;<strong class="preferred">&#10003;</strong></li>
+        {{ collector.instagram }}</a>&nbsp;<strong class="preferred">&#10003; preferred</strong></li>
         {% elif collector.instagram and collector.instagram_pref == False %}
         <li><label>Instagram</label> <a href="https://www.instagram.com/{{ collector.instagram }}">
             {{ collector.instagram }}</a></li>
@@ -86,45 +90,26 @@
 
     {% endfor %}
 
-    <h1>Collection Details</h1><div id="entry-dates"><label>Updated</label> <strong
+    <h1>{{ collection.name }}</h1>{% if collection.consortium == True %}<strong class="consortium">
+    &#x26AD;</strong
+    >{% endif %}<div id="entry-dates"><label>Updated</label> <strong
 >{{ collection.date_saved }}</strong></div>
 
-    {% if collection.image %}
+    {% if collection_images %}
     <div class="flex-container-body">
-        <div style="flex: 2 4 200px" class="collection-image">
-        {% if collection.image %}
-{#            {% for image in collection.image.image %}#}
-            <img class="collection" src="{{ collection.image.image.url }}" width="300" alt=
-                    "{{ collection.name }} Image"/></li>
-{#            {% endfor %}#}
-        {% endif %}
-        </div>
-        <div style="flex: 2 4 200px" class="collection-image">
-        {% if collection.image %}
-{#            {% for image in collection.image.image %}#}
-            <img class="collection" src="{{ collection.image.image.url }}" width="300" alt=
-                    "{{ collection.name }} Image"/></li>
-{#            {% endfor %}#}
-        {% endif %}
-        </div>
-        <div style="flex: 2 4 200px" class="collection-image">
-        {% if collection.image %}
-{#            {% for image in collection.image.image %}#}
-            <img class="collection" src="{{ collection.image.image.url }}" width="300" alt=
+        {% for image in collection_images %}
+            <div class="collection-image">
+                <a href="{{ image.image.url }}"><img class="collection" src="{{ image.image.url }}"
+                                                   height="340S" alt=
                     "{{ collection.name }}
-            Image"/></li>
-{#            {% endfor %}#}
-        {% endif %}
-        </div>
+                Image"/></a><br /><label class="caption">{{ image.image_caption }}</label>
+            </div>
+        {% endfor %}
     </div>
     {% endif %}
 
     <div class="flex-container-body">
     <div>
-    {% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong
-    >{% endif %}
-    <h2 class="collection-name">{{ collection.name }}</h2>
-
     {% if collection.quote %}
         <blockquote>{% autoescape off %}&ldquo;{{ collection.quote }}&rdquo;{% endautoescape %}</blockquote>
     {% endif %}
@@ -136,11 +121,6 @@
     {%  if collection.description %}
         <h2>Overview</h2>
         <p>{% autoescape off %}{{ collection.description }}{% endautoescape %}</p>
-    {% endif %}
-
-    {% if collection.dig_projects %}
-        <h2>Digital Project Overview</h2>
-        <p>{% autoescape off %}{{ collection.dig_projects }}{% endautoescape %}</p>
     {% endif %}
 
     {% if collection.access %}
@@ -174,6 +154,11 @@
             <li><a href="">{{ spec_format }}</a></li>
             {% endfor %}
         </ul>
+    {% endif %}
+
+    {% if collection.dig_projects %}
+        <h2>Digital Content/Projects</h2>
+        <p>{% autoescape off %}{{ collection.dig_projects }}{% endautoescape %}</p>
     {% endif %}
 
     {% if collection.dig_access %}
@@ -243,6 +228,15 @@
     {% endif %}
     </div>
     </div>
+
+    {% if collection.notes %}
+        <div class="flex-container-body">
+        <div>
+        <h2>Collection Notes</h2>
+        <p>{% autoescape off %}{{ collection.notes }}{% endautoescape %}</p>
+        </div>
+        </div>
+    {% endif %}
 
     {% if collection.cat_system.all %}
         <div class="flex-container-body">

@@ -5,6 +5,9 @@
 <div style="flex: 10 1 1000px" xmlns="http://www.w3.org/1999/html">
     <h1 class="browse">Browsing all collections sorted by collector ... {% if subject_city.sub_city %} with
         subject <strong class="search-term">{{ subject_city.sub_city }}</strong>{% endif %}</h1>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong class="consortium">&#x26AD;</strong> = consortial/collaborative
+        collections</p>
+
     <div class="flex-container-body">
         <div>
         <ul class="body-collection-browse">
@@ -16,7 +19,8 @@
                 {{ collector.inst_sub_name }}
                 {{ collector.person_last_name }}{% if collector.person_last_name %}, {% endif %}
                 {{ collector.person_first_name }} &mdash; {{ collection.name }}</a>
-                </li>
+                    {% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong
+    >{% endif %}</li>
                 {% endfor %}
             {% endfor %}
         </ul>

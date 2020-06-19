@@ -6,7 +6,7 @@
 }
 
 .flex-container-main > div {
-    padding: 15px 30px 10px 10px;
+    padding: 0 30px 10px 10px;
     margin: 0;
 }
 
@@ -24,7 +24,7 @@
 
 .flex-container-body > div {
     padding: 0;
-    margin: 0 60px 0 0;
+    margin: 0px 60px 0 0;
 }
 
 .flex-container-body > div.collection-image {
@@ -34,7 +34,7 @@
 
 a {
     text-decoration: none;
-    color: #d5641b;
+    color: #f17220;
 }
 
 a.navigation {
@@ -55,8 +55,8 @@ blockquote{
     color: #93afaa;
     font-size: 1.5em;
     font-weight: bold;
-    padding: 0 40px 0 40px;
-    margin: 0 0 18px 0;
+    /*padding: 0 40px 0 40px;*/
+    margin: 10px 0 18px 0;
     line-height: 40px;
 }
 
@@ -64,7 +64,7 @@ blockquote.quote-attrib {
     color: #909090;
     font-size: .75em;
     font-weight: normal;
-    margin: -30px 0 18px 0;
+    margin: -30px 0 10px 0;
 }
 
 body {
@@ -79,7 +79,7 @@ html {
     line-height: 25px;
     margin-top: 25px;
     color: #636161;
-    -webkit-text-size-adjust:100%
+    -webkit-text-size-adjust:100%;
 }
 
 img.collection {
@@ -94,7 +94,7 @@ div#entry-dates {
     padding: 0 0 0 6px;
     color: #7d7d7d;
     font-size: .8em;
-    background-color: #f6e1c6;
+    background-color: #f6ebda;
     border-radius: 6px;
     max-width: 140px;
     min-width: 140px;
@@ -151,8 +151,20 @@ img {
     margin-left: 20px;
 }
 
+img.collection {
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
 label {
     color: #7d685a;
+}
+
+label.caption {
+    text-transform: uppercase;
+    font-size: .75em;
+    color: #999999;
+    margin: 0;
 }
 
 strong {
@@ -161,11 +173,12 @@ strong {
 }
 
 strong.consortium {
-    display: block;
+    display: inline;
+    vertical-align: top;
     color: #e5d275;
-    font-weight: normal;
+    font-weight: bold;
     text-transform: uppercase;
-    font-size: 2.75em;
+    font-size: 2.3em;
     margin: 7px 0 10px 0;
     /*padding: 4px;*/
 }
@@ -173,7 +186,7 @@ strong.preferred {
     color: #93afaa;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 1.25em;
+    font-size: .8em;
     /*border-radius: 2px;*/
     /*padding: 4px;*/
 }
@@ -201,12 +214,12 @@ ul.body-collection-browse {
     margin: 5px 0 10px 0;
     padding: 0;
     color: #746859;
-    list-style-type: none;
-    font-size: 1.1em;
+    list-style-type: disc;
+    font-size: 1em;
 }
 
 ul.body-collection-browse > li {
-    margin: 4px 0 4px 0;
+    margin: 5px 0 5px 0;
     padding: 0;
 }
 

@@ -1,14 +1,16 @@
 from django.shortcuts import render
 from .models import Collection
 from collectors_app.models import Collector
+from collections_app.models import CollectionImage
 from .models import CollectionSubjectCity
 
 
 def collection_detail(request, collection_id):
-    collection = Collection.objects.prefetch_related('collector').select_related('image').get(
-        pk=collection_id)
+    collection = Collection.objects.prefetch_related('collector').get(pk=collection_id)
+    collection_images = CollectionImage.objects.filter(collection_id=collection_id).all()
     template = 'collections_app/collection_detail.html'
-    context = {'collection': collection}
+    context = {'collection': collection,
+               'collection_images': collection_images}
     return render(request, template, context)
 
 

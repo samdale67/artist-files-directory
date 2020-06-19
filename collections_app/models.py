@@ -10,7 +10,7 @@ class Collection(models.Model):
                                        help_text='Create or choose a collector responsible for the '
                                                  'artist files collection. A collection can have '
                                                  'multiple owners, for example, in the case of '
-                                                 'consortial digital projects.')
+                                                 'consortial or collaborative digital projects.')
     consortium = models.BooleanField('Consortial collection?',
                                      blank=True,
                                      help_text='Is this collection a consortial or collaborative '
@@ -87,14 +87,6 @@ class Collection(models.Model):
                                  max_length=255,
                                  blank=True,
                                  help_text='Provide URL for accessing digital collection.')
-    image = models.ForeignKey('CollectionImage',
-                              related_name='collections',
-                              verbose_name=u'Collection Images',
-                              on_delete=models.CASCADE,
-                              blank=True,
-                              null=True,
-                              help_text='Upload images showing example material from files, storage systems '
-                                        'in use, or documents relating to the collection.')
     subject_name = models.ManyToManyField(to='CollectionSubjectName',
                                           related_name='collections',
                                           verbose_name=u'Subject: Names',
@@ -155,11 +147,12 @@ class Collection(models.Model):
                                    help_text='Important for providing access to collections located in '
                                              'specific countries.',
                                    blank=True)
+    notes = models.TextField('Notes',
+                             max_length=1000,
+                             blank=True,
+                             help_text='Use this field for information that does not fit elsewhere.')
     date_created = models.DateField(auto_now_add=True)
     date_saved = models.DateField(auto_now=True)
-
-    def __str__(self):
-        return self.name
 
     def get_absolute_url(self):
         return reverse('collection_detail', args=[str(self.pk)])
@@ -169,19 +162,31 @@ class Collection(models.Model):
         verbose_name_plural = '** Collections'
         ordering = ['name']
 
+    def __str__(self):
+        return f"{self.name}"
+
 
 class CollectionImage(models.Model):
     image = models.ImageField('Add Image',
                               upload_to='collection/images/',
                               help_text='Upload images showing example material from files '
                                         'and/or storage systems in use.')
+    image_caption = models.CharField('Image Caption',
+                                     max_length=50,
+                                     default='', )
+    collection = models.ForeignKey('Collection',
+                                   related_name='collections',
+                                   verbose_name=u'Related Collection',
+                                   on_delete=models.CASCADE,
+                                   default='',
+                                   blank=True, )
 
     def __str__(self):
-        return 'Image'
+        return self.image_caption
 
     class Meta:
-        verbose_name = 'Image'
-        verbose_name_plural = 'Images'
+        verbose_name = 'Collection Image'
+        verbose_name_plural = 'Collection Images'
 
 
 class CollectionService(models.Model):
