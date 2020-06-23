@@ -15,6 +15,12 @@ class Collector(models.Model):
                                                'division, etc., responsible for '
                                                'artist files.',
                                      blank=True)
+    inst_sub2_name = models.CharField('Institution Tertiary Name',
+                                      max_length=255,
+                                      help_text='If an institutional collection, provide name of department, '
+                                                'division, etc., responsible for '
+                                                'artist files.',
+                                      blank=True)
     inst_type = models.ManyToManyField(to='InstitutionType',
                                        verbose_name=u'Institution Types',
                                        related_name='Collector',
@@ -36,6 +42,12 @@ class Collector(models.Model):
                                          help_text='If a private collector, choose all types that are '
                                                    'relevant. Create new type if '
                                                    'there is not a fit.')
+    sort_name = models.CharField('Collector Sort Name',
+                                 max_length=255,
+                                 help_text='Use this field to tell the system how you want your entry to be '
+                                           'sorted in a list. You will wan to drop initial articles, etc.',
+                                 default='',
+                                 blank=False)
     website = models.URLField('Website',
                               max_length=255,
                               blank=True,

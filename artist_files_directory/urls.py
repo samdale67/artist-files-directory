@@ -17,11 +17,15 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
 from django.conf import settings
+from collections_app import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.home_page, name='home'),
     path('collections/', include('collections_app.urls')),
+    path('collectors/', include('collectors_app.urls')),
+    path('what-are-artist-files/', views.what_are_artist_files),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

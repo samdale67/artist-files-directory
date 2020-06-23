@@ -2,17 +2,17 @@
 
 {% block content %}
 
-<div style="flex: 10 1 1000px" xmlns="http://www.w3.org/1999/html">
+<div>
 
-    {% if collection.collector.all.count > 1 %}<h1>Collectors</h1>
-{% else %}<h1>Collector</h1>
+    {% if collection.collector.all.count > 1 %}<h1>Collectors Detail</h1>
+{% else %}<h1>Collector Details</h1>
     {% endif %}<div
         id="entry-dates"><label>Updated</label> <strong
 >{{ collection.date_saved }}</strong></div>
 
     {% for collector in collection.collector.all %}
 
-    <div class="flex-container-body">
+    <div style="flex-basis: 1000px; flex-grow: 2; flex-shrink: 3" class="flex-container-body">
 
     <div style="flex: 0 0 300px">
     <h2>Collector Name</h2>
@@ -25,11 +25,13 @@
             {% endfor %}
             </ul>
     {% else %}
-        <a href="">{{ collector.inst_main_name }}<br>{{ collector.inst_sub_name }}</a></p>
+        <a href="/collectors/{{ collector.id }}">{{ collector.inst_main_name }}<br
+        >{{ collector.inst_sub_name }}<br />{{ collector.inst_sub2_name }}</a></p>
         <h3>Institution Type(s)</h3>
         <ul class="body">
         {% for inst_type in collector.inst_type.all %}
-            <li><a href="">{{ inst_type }}</a></li>
+            <li><a href="/collectors/browse/institution_type/{{ inst_type.id }}"
+            >{{ inst_type }}</a></li>
        {% endfor %}
         </ul>
      {% endif %}
@@ -100,9 +102,9 @@
         {% for image in collection_images %}
             <div class="collection-image">
                 <a href="{{ image.image.url }}"><img class="collection" src="{{ image.image.url }}"
-                                                   height="340S" alt=
+                                                   height="275" alt=
                     "{{ collection.name }}
-                Image"/></a><br /><label class="caption">{{ image.image_caption }}</label>
+                Image"/></a><br /><label class="caption">^ {{ image.image_caption }}</label>
             </div>
         {% endfor %}
     </div>
@@ -225,9 +227,10 @@
                     <li><a href="">{{ geo_area }}</a></li>
                 {% endfor %}
             </ul>
+        </div>
+    </div>
     {% endif %}
-    </div>
-    </div>
+
 
     {% if collection.notes %}
         <div class="flex-container-body">

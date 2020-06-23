@@ -2,11 +2,10 @@
 
 {% block content %}
 
-<div>
-    <h1 class="browse">Here is a list of all collections in the database ...
-        {% if subject_city.sub_city %} with
+<div style="flex: 10 1 1000px" xmlns="http://www.w3.org/1999/html">
+    <h1 class="browse">Here are all collections {% if subject_city.sub_city %} with
         subject <strong class="search-term">{{ subject_city.sub_city }}</strong>{% endif %}
-        {% if institution_type.type_name %} with institution type <strong class="search-term"
+        {% if institution_type.type_name %} with collector type <strong class="search-term"
         >{{ institution_type.type_name }}</strong>{% endif %}</h1>
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong class="consortium">&#x26AD;</strong> = consortial/collaborative
         collections</p>
@@ -19,10 +18,9 @@
                 <li>
                 <a href="/collections/{{ collection.id }}">
                 {{ collector.inst_main_name }}{% if collector.inst_sub_name %}, {% endif %}
-                {{ collector.inst_sub_name }}{% if collector.inst_sub2_name %}, {% endif %}
-                {{ collector.inst_sub2_name }}
+                {{ collector.inst_sub_name }}
                 {{ collector.person_last_name }}{% if collector.person_last_name %}, {% endif %}
-                {{ collector.person_first_name }}</a> &mdash; {{ collection.name }}
+                {{ collector.person_first_name }} &mdash; {{ collection.name }}</a>
                     {% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong
     >{% endif %}</li>
                 {% endfor %}

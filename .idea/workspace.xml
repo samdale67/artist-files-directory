@@ -2,50 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00caeb6b-957e-444f-8302-7a5f9b0b5b4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0002_auto_20200618_1739.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0003_auto_20200618_1744.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0004_auto_20200618_1801.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0006_auto_20200618_1808.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0007_auto_20200618_1907.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0008_collection_notes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/samduncan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/samduncan.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/what-are-artist-files.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/migrations/0038_auto_20200623_1626.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/migrations/0039_auto_20200623_1835.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/templates/collectors_app/browse_collectors.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-khaki.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-light-green.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-peach.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-yellow.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-SIG-logo-gray.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0002_auto_20200527_2308.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0003_auto_20200528_1945.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0004_auto_20200528_2009.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0005_auto_20200529_1521.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0006_auto_20200529_1525.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0007_auto_20200529_1526.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0008_auto_20200529_1527.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0009_auto_20200601_1432.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0010_collection_quote_attrib.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0011_auto_20200601_2346.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0012_auto_20200601_2347.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0013_auto_20200601_2349.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0014_auto_20200603_2300.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0015_auto_20200605_1559.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0016_auto_20200605_1601.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0017_collection_collector_mul.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0018_auto_20200609_1407.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0019_auto_20200609_1415.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0020_auto_20200609_1438.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0021_auto_20200609_2102.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0022_auto_20200611_1711.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0023_auto_20200611_1740.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/migrations/0005_auto_20200618_1807.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0024_auto_20200615_1553.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0025_collection_consortium.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0026_auto_20200616_1447.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0027_auto_20200616_2208.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0028_delete_collectionlanguage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0029_collection_images.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/migrations/0030_remove_collection_images.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/artist_files_directory/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/artist_files_directory/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/collection_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/collection_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/navigation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collectors_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/collectors_app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-blue.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +81,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/media/collection/images/IMG_3449.jpeg&#10;/Users/samduncan/Dev/artist-files-directory/artist_files_directory/settings.py" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/collectors_app" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -114,6 +92,10 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/collectors_app" />
+      <recent name="$PROJECT_DIR$/collectors_app/templates/collectors_app" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/collections_app" />
     </key>
@@ -198,7 +180,9 @@
       <workItem from="1591639941090" duration="34000" />
       <workItem from="1591711288714" duration="51645000" />
       <workItem from="1591993633137" duration="76156000" />
-      <workItem from="1592502479322" duration="9966000" />
+      <workItem from="1592502479322" duration="22582000" />
+      <workItem from="1592669462135" duration="13602000" />
+      <workItem from="1592853376836" duration="25204000" />
     </task>
     <task id="LOCAL-00001" summary="None.">
       <created>1589247969075</created>
@@ -410,7 +394,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592431925510</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="None.">
+      <created>1592577754274</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1592577754274</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,10 +445,10 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="1550" y="580" key="#com.intellij.tools.ToolEditorDialog/0.23.2880.1597@0.23.2880.1597" timestamp="1590762264919" />
-    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2" timestamp="1592431925358">
+    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2" timestamp="1592577754060">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
-    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2/0.23.2880.1597@0.23.2880.1597" timestamp="1592431925358" />
+    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2/0.23.2880.1597@0.23.2880.1597" timestamp="1592577754060" />
     <state x="1096" y="321" key="CommitChangelistDialog2/56.23.2824.1597@56.23.2824.1597" timestamp="1589830339190" />
     <state x="1097" y="321" key="CommitChangelistDialog2/58.23.2822.1597@58.23.2822.1597" timestamp="1590628415186" />
     <state x="1102" y="321" key="CommitChangelistDialog2/66.23.2814.1597@66.23.2814.1597" timestamp="1590187239620" />
@@ -501,10 +492,10 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="316" y="331" width="1037" height="943" key="SettingsEditor/0.23.2880.1597@0.23.2880.1597" timestamp="1592420961606" />
-    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2" timestamp="1592431933999">
+    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2" timestamp="1592577761926">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
-    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2/0.23.2880.1597@0.23.2880.1597" timestamp="1592431933999" />
+    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2/0.23.2880.1597@0.23.2880.1597" timestamp="1592577761926" />
     <state x="1295" y="549" key="Vcs.Push.Dialog.v2/56.23.2824.1597@56.23.2824.1597" timestamp="1589830346962" />
     <state x="1296" y="549" key="Vcs.Push.Dialog.v2/58.23.2822.1597@58.23.2822.1597" timestamp="1590628423335" />
     <state x="1300" y="549" key="Vcs.Push.Dialog.v2/66.23.2814.1597@66.23.2814.1597" timestamp="1590187597817" />
@@ -539,7 +530,7 @@
       <breakpoints>
         <line-breakpoint suspend="NONE" type="python-line">
           <url>file://$PROJECT_DIR$/collectors_app/models.py</url>
-          <line>34</line>
+          <line>40</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

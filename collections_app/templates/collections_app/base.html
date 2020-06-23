@@ -10,9 +10,20 @@
 <body>
 <div class="flex-container-main">
     {% include 'navigation.html' %}
+<div  style="flex: 8 .5 1500px" >
+
+    <h1 class="title">Artist Files Revealed: International Directory of Artist Files Collections</h1>
+<h2 class="home">A Resource from the Art Libraries Society of North America, Artist Files Special
+    Interest Group</h2>
+
     {% block content %}
     replace me
     {% endblock %}
+<a href="http://artistfiles.arlisna.org"><img src=
+                                                 "
+{% static 'graphics/Artist-Files-SIG-logo-gray.svg' %}" width="90"
+                         alt="Art Libraries Society of North America, Artist Files SIG Logo"
+                                                  class="home-sig-logo"></a>
 </div>
 </body>
 </html>

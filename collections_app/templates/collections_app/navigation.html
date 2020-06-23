@@ -1,14 +1,18 @@
 {% load static %}
 
-<div style="flex: 3 .2 180px">
-    <a href="/collections/2"><img src="
-{% static 'graphics/Artist-Files-Revealed-logo-blue.svg' %}"></a>
+<div style="flex: .1 .5 250px">
+
+    <a href="/"><img src="{% static 'graphics/Artist-Files-Revealed-logo-yellow.svg' %}"></a>
 
     <ul class="navigation">
-        <li><a class="navigation" href="/collections/2">Home</a></li>
-        <li><a class="navigation" href="/collections/browse">Browse Collections</a></li>
+        <li><a class="navigation" href="/">Home</a></li>
+        <li><a class="navigation" href="/collections/browse">Browse</a></li>
         <li><a class="navigation" href="">Search</a></li>
-        <li><a class="navigation" href="">About</a></li>
+{#        <li><a class="navigation" href="">About</a></li>#}
+    </ul>
+
+    <ul class="navigation">
+        <li><a href="">Newest Listings</a></li>
     </ul>
 
     <ul class="navigation">
@@ -16,13 +20,11 @@
     </ul>
 
     <ul class="navigation">
-        <li><a href="/collections/browse/dealers">Dealer Directory</a></li>
+        <li><a href="/collectors/browse/institution_type/17">Dealer Directory</a></li>
     </ul>
 
-{% comment %}
-    <a href="http://artistfiles.arlisna.org"><img
-            src="{% static 'graphics/Artist-Files-SIG-logo-outline-orange.svg' %}"></a>
-{% endcomment %}
+    <ul class="navigation">
+        <li><a href="/what-are-artist-files">What Are Artist Files?</a></li>
+    </ul>
 
 </div>
-

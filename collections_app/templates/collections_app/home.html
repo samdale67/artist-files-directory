@@ -1,12 +1,53 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<div>
-<h2>Artist Files Directory</h2>
 
-<p>Enter words to stack in the box below ...</p>
+    <div class="flex-container-body">
+   <div>
 
+<h1 class="home">What Does This Directory Do?</h1>
 
+<p>Artist files are among the most valued and heavily used resources in art research facilities. These files
+often provide critical documentation about well established artists, as well as lesser known artists
+not well documented in the literature. Researchers rely on artist files to establish chronologies,
+flesh out exhibition histories, review stylistic developments and assess the critical reception of
+artists over time. Artist files often do not circulate due to their unique and irreplaceable nature.
+Artist file collections frequently have regional strengths that make them particularly vital repositories
+for communities.</p>
+
+<p>Ironically, artist files are among the least accessible resources in research collections. The
+very nature of the material, limited cataloging staff, and lack of technical or administrative support
+have all contributed to this problem. While a large number of institutions have made records of their
+files accessible from their local catalog or website, they have yet to migrate them to larger union
+catalogs where users can more readily connect with them. As a result, it is only the most diligent of
+researchers that will discover these files by searching individual local catalogs or other publicly
+published indexes. In effect, this has made artist files the single most untapped resource to the broader
+    art research community.</p>
+
+<p>Some information adapted from <a href="http://www.arlisna.org/images/researchreports/artist_files_revealed
+.pdf"><cite>Artist Files Revealed: Documentation and Access</cite></a> by The Artist Files
+    Working
+    Group, ARLIS/NA</cite> (Art Libraries Society of North America, 2009, 2010).</p>
+
+       <hr>
+
+       <p>Below our automated artist files curators have randomly selected a number of images from
+           the directory to show the diversity of the collections.</p>
 
 </div>
+
+    </div>
+
+
+    <div class="flex-container-body">
+          {% for image in collection_images %}
+            <div class="collection-image">
+                <a href="/collections/{{ image.collection_id }}"><img
+                        class="collection" src="{{ image.image.url }}"  height="170" alt=
+                        "Random Collection Image" /></a>
+            </div>
+        {% endfor %}
+    </div>
+
 {% endblock %}
