@@ -1,20 +1,16 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-<div>
-
-    {% if collection.collector.all.count > 1 %}<h1>Collectors Detail</h1>
-{% else %}<h1>Collector Details</h1>
-    {% endif %}<div
-        id="entry-dates"><label>Updated</label> <strong
->{{ collection.date_saved }}</strong></div>
+    {% if collection.collector.all.count > 1 %}<h1 class="detail">Collectors Detail</h1>
+{% else %}<h1 class="detail">Collector Details</h1>{% endif %}
 
     {% for collector in collection.collector.all %}
 
-    <div style="flex-basis: 1000px; flex-grow: 2; flex-shrink: 3" class="flex-container-body">
+{#    <div id="update-date"><label>Collector information last updated</label> <strong>{{ collector.date_saved }}</strong></div>#}
 
-    <div style="flex: 0 0 300px">
+    <div class="flex-container-content">
+
+    <div>
     <h2>Collector Name</h2>
     {% if collector.person_last_name %}
         <p><a href="">{{ collector.person_first_name }} {{ collector.person_last_name }}</a></p>
@@ -25,8 +21,8 @@
             {% endfor %}
             </ul>
     {% else %}
-        <a href="/collectors/{{ collector.id }}">{{ collector.inst_main_name }}<br
-        >{{ collector.inst_sub_name }}<br />{{ collector.inst_sub2_name }}</a></p>
+        <p><a href="/collectors/{{ collector.id }}">{{ collector.inst_main_name }}
+            {%  if collector.inst_sub_name %}<br />{{ collector.inst_sub_name }}{% endif %}{% if collector.inst_sub_name %}<br />{{ collector.inst_sub2_name }}{% endif %}</a></p>
         <h3>Institution Type(s)</h3>
         <ul class="body">
         {% for inst_type in collector.inst_type.all %}
@@ -76,13 +72,14 @@
             {{ collector.instagram }}</a></li>
     {% endif %}
     </ul>
-
     </div>
 
     </div>
+
+    {% endfor %}
 
     {% if collector.notes %}
-        <div class="flex-container-body">
+        <div class="flex-container-content">
         <div>
         <h2>Collector Notes</h2>
         <p>{% autoescape off %}{{ collector.notes }}{% endautoescape %}</p>
@@ -90,19 +87,18 @@
         </div>
     {% endif %}
 
-    {% endfor %}
+    <h1 class="detail">{{ collection.name }}</h1>{% if collection.consortium == True %}<strong class="consortium">
+    &#x26AD;</strong>{% endif %}
 
-    <h1>{{ collection.name }}</h1>{% if collection.consortium == True %}<strong class="consortium">
-    &#x26AD;</strong
-    >{% endif %}<div id="entry-dates"><label>Updated</label> <strong
->{{ collection.date_saved }}</strong></div>
+{#<div id="update-date"><label>Collection information last updated</label> <strong#}
+{#        >{{ collection.date_saved }}</strong>#}
 
     {% if collection_images %}
-    <div class="flex-container-body">
+    <div class="flex-container-content-images">
         {% for image in collection_images %}
-            <div class="collection-image">
+            <div>
                 <a href="{{ image.image.url }}"><img class="collection" src="{{ image.image.url }}"
-                                                   height="275" alt=
+                                                   height="250" alt=
                     "{{ collection.name }}
                 Image"/></a><br /><label class="caption">^ {{ image.image_caption }}</label>
             </div>
@@ -110,7 +106,7 @@
     </div>
     {% endif %}
 
-    <div class="flex-container-body">
+    <div class="flex-container-content">
     <div>
     {% if collection.quote %}
         <blockquote>{% autoescape off %}&ldquo;{{ collection.quote }}&rdquo;{% endautoescape %}</blockquote>
@@ -120,7 +116,7 @@
         <blockquote class="quote-attrib">{{ collection.quote_attrib }}</blockquote>
     {% endif %}
 
-    {%  if collection.description %}
+    {% if collection.description %}
         <h2>Overview</h2>
         <p>{% autoescape off %}{{ collection.description }}{% endautoescape %}</p>
     {% endif %}
@@ -159,7 +155,7 @@
     {% endif %}
 
     {% if collection.dig_projects %}
-        <h2>Digital Content/Projects</h2>
+        <h2>Digital Content/Projects Description</h2>
         <p>{% autoescape off %}{{ collection.dig_projects }}{% endautoescape %}</p>
     {% endif %}
 
@@ -171,23 +167,18 @@
     {% if collection.loc_city or collection.loc_state_prov or collection.loc_country %}
         <h2>Collection Location</h2>
         <ul class="body">
-        <li><a href="">{{ collection.loc_city }}</a
-        >{% if collection.loc_city and collection.loc_state_prov %},
-        {% endif %} <a href=""
-        >{{ collection.loc_state_prov }}</a>{% if collection.loc_state_prov and collection.loc_country %},
-                {% endif %}
+        <li><a href="">{{ collection.loc_city }}</a>{% if collection.loc_city and collection.loc_state_prov %}, {% endif %}
+        <a href="">{{ collection.loc_state_prov }}</a>{% if collection.loc_state_prov and collection.loc_country %}, {% endif %}
         <a href="">{{ collection.loc_country }}</a></li>
         </ul>
-    {%  endif %}
-
+    {% endif %}
     </div>
     </div>
 
     {% if collection.subject_topic.all or collection.subject_name.all or collection.subject_city.all or collectons.subject_county.all or collection.subject_state_prov.all or collection.subject_country.all or collection.subject_geo_area.all %}
-        <div class="flex-container-body">
+        <div class="flex-container-content">
         <div>
-        <h2>Subjects</h2>
-    {% endif %}
+        <h2 class="subjects">Subjects</h2>
 
     {% if collection.subject_name.all %}
         <h3>People and Institutions</h3>
@@ -227,13 +218,13 @@
                     <li><a href="">{{ geo_area }}</a></li>
                 {% endfor %}
             </ul>
-        </div>
+    {% endif %}
+    </div>
     </div>
     {% endif %}
 
-
     {% if collection.notes %}
-        <div class="flex-container-body">
+        <div class="flex-container-content">
         <div>
         <h2>Collection Notes</h2>
         <p>{% autoescape off %}{{ collection.notes }}{% endautoescape %}</p>
@@ -242,7 +233,7 @@
     {% endif %}
 
     {% if collection.cat_system.all %}
-        <div class="flex-container-body">
+        <div class="flex-container-content">
         <div>
         <h2>Cataloging/Inventory/Discovery Systems</h2>
             <ul class="body">
@@ -254,7 +245,10 @@
         </div>
     {% endif %}
 
-</div>
+    <div class="flex-container-footer">
+        <div><strong class="consortium">&#x26AD;</strong> = consortial/collaborative collection
+        </div>
+    </div>
 
 {% endblock %}
 

@@ -41,7 +41,7 @@ class Collection(models.Model):
                                     max_length=255,
                                     blank=True,
                                     help_text='Provide the source of quote or tagline if applicable, '
-                                              'including name, title, date, publication source, etc.')
+                                              'including, at minimum, name, title, institution.')
     access = models.TextField('Access and Use',
                               max_length=1000,
                               blank=True,

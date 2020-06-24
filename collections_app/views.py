@@ -25,6 +25,13 @@ def browse_all_collections(request):
     return render(request, template, context)
 
 
+def randomized_collection_object(request):
+    random_collection_object = Collection.objects.filter(name__isnull=False).order_by('?').first()
+    template = 'collections_app/navigation.html'
+    context = {'random_collection_object': random_collection_object}
+    return render(request, template, context)
+
+
 def browse_all_dealers(request):
     dealers = Collector.objects.filter(inst_type=17)
     template = 'collections_app/browse_dealers.html'
@@ -76,4 +83,27 @@ def home_page(request):
 
 
 def what_are_artist_files(request):
-    return render(request, 'collections_app/what-are-artist-files.html')
+    random_quote = Collection.objects.filter(quote__contains=' ').order_by('?').first()
+    template = 'collections_app/what-are-artist-files.html'
+    context = {'random_quote': random_quote}
+    return render(request, template, context)
+
+
+def last_database_update(request):
+    last_updated_collection_object = Collection.objects.latest('date_saved')
+    last_updated_collector_object = Collector.objects.latest('date_saved')
+    if last_updated_collection_object.date_saved > last_updated_collector_object.date_saved:
+        last_updated_object = last_updated_collection_object
+    else:
+        last_updated_object = last_updated_collector_object
+    template = 'collections_app/base.html'
+    context = {'last_updated_object': last_updated_object}
+    return render(request, template, context)
+
+
+def browse_consortial_collections(request):
+    collections = Collection.objects.filter(consortium=True).prefetch_related('collector').order_by(
+        'collector__sort_name', 'collector__inst_sub2_name', 'name').all()
+    template = 'collections_app/browse_collections.html'
+    context = {'collections': collections}
+    return render(request, template, context)

@@ -3,14 +3,12 @@
 {% block content %}
 
 <div style="flex: 10 1 1000px" xmlns="http://www.w3.org/1999/html">
-    <h1 class="browse">Here are all collections {% if subject_city.sub_city %} with
+    <h1 class="browse">Here is a list of {% if subject_city.sub_city %} with
         subject <strong class="search-term">{{ subject_city.sub_city }}</strong>{% endif %}
-        {% if institution_type.type_name %} with collector type <strong class="search-term"
-        >{{ institution_type.type_name }}</strong>{% endif %}</h1>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong class="consortium">&#x26AD;</strong> = consortial/collaborative
-        collections</p>
+        {% if institution_type.type_name %} <strong class="search-term"
+        >{{ institution_type.type_name }}s</strong>{% endif %}</h1>
 
-    <div class="flex-container-body">
+    <div class="flex-container-content">
         <div>
         <ul class="body-collection-browse">
             {% for collection in collections %}
@@ -28,6 +26,11 @@
         </ul>
         </div>
     </div>
+
+        <div class="flex-container-footer">
+        <div><strong class="consortium">&#x26AD;</strong> = consortial/collaborative collections</div>
+    </div>
+
 
 </div>
 

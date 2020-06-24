@@ -1,30 +1,25 @@
 {% load static %}
 
-<div style="flex: .1 .5 250px">
-
-    <a href="/"><img src="{% static 'graphics/Artist-Files-Revealed-logo-yellow.svg' %}"></a>
+    <a href="/"><img src="{% static 'graphics/Artist-Files-Revealed-logo-blue.svg' %}"></a>
 
     <ul class="navigation">
         <li><a class="navigation" href="/">Home</a></li>
-        <li><a class="navigation" href="/collections/browse">Browse</a></li>
-        <li><a class="navigation" href="">Search</a></li>
+        <li><a class="navigation" href="/collections/browse">Browse Directory</a></li>
+        <li><a class="navigation" href="">Search Directory</a></li>
 {#        <li><a class="navigation" href="">About</a></li>#}
     </ul>
 
     <ul class="navigation">
         <li><a href="">Newest Listings</a></li>
-    </ul>
-
-    <ul class="navigation">
-        <li><a href="">Random Collection</a></li>
-    </ul>
-
-    <ul class="navigation">
-        <li><a href="/collectors/browse/institution_type/17">Dealer Directory</a></li>
+        <li><a href="/collections/browse/consortial_collections">Consortial Collections</a></li>
+        <li><a href="/collections/{{ random_collection_object.id }}">Random Collection</a></li>
+        <li><a href="/collectors/browse/institution_type/17">Dealers</a></li>
     </ul>
 
     <ul class="navigation">
         <li><a href="/what-are-artist-files">What Are Artist Files?</a></li>
     </ul>
 
-</div>
+    <ul class="navigation">
+        <li><a class="navigation" href="/">Login</a></li>
+    </ul>

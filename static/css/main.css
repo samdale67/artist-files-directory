@@ -2,15 +2,44 @@
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-  /*background-color: ;*/
 }
 
 .flex-container-main > div {
-    padding: 0 30px 10px 10px;
+    padding: 10px 30px 10px 10px;
     margin: 0;
 }
 
-.flex-container-body {
+.flex-container-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-radius: 15px;
+    background-color: #f1f1f1;
+    padding: 20px 0 10px 30px;
+    margin: 0 0 25px 0;
+}
+
+.flex-container-content > div {
+    padding: 0 0 7px 0;
+    margin: 0px 50px 0 0;
+}
+
+.flex-container-footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /*border-radius: 15px;*/
+    /*background-color: #f1f1f1;*/
+    padding: 0 0 10px 15px;
+    margin: 0 0 10px 0;
+}
+
+.flex-container-footer > div {
+    padding: 0 0 7px 0;
+    margin: 0px 50px 0 0;
+}
+
+.flex-container-content-images {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -20,19 +49,14 @@
     margin: 0 0 25px 0;
 }
 
-.flex-container-body > div {
+.flex-container-content-images > div {
     padding: 0 0 7px 0;
-    margin: 0px 40px 0 0;
-}
-
-.flex-container-body > div.collection-image {
-    padding: 0;
-    margin: 0 10px 0 0;
+    margin: 0px 20px 0 0;
 }
 
 a {
     text-decoration: none;
-    color: #e57026;
+    color: #dc6c26;
 }
 
 a.navigation {
@@ -49,7 +73,7 @@ blockquote{
     color: #93afaa;
     font-size: 1.5em;
     font-weight: bold;
-    margin: 10px 0 18px 0;
+    margin: 5px 0 18px 0;
     line-height: 40px;
 }
 
@@ -57,7 +81,7 @@ blockquote.quote-attrib {
     color: #909090;
     font-size: .75em;
     font-weight: normal;
-    margin: -30px 0 10px 0;
+    margin: -25px 0 0 0;
 }
 
 body {
@@ -66,42 +90,36 @@ body {
     /*background-color: #faf8f2;*/
     }
 
-html {
-    font-family: sans-serif;
-    /*font-size: 1em;*/
-    line-height: 25px;
-    margin-top: 25px;
-    color: #636161;
-    -webkit-text-size-adjust:100%;
+
+div#update-date {
+    /*display: inline-block;*/
+    /*vertical-align: top;*/
+    margin: 0;
+    font-size: .9em;
+    /*background-color: #f3e5d1;*/
+    /*border-radius: 6px;*/
+    /*max-width: 135px;*/
+    /*min-width: 135px;*/
 }
 
-div#entry-dates {
+div#entry-dates-database {
     display: inline-block;
     vertical-align: top;
-    margin: 0 0 20px 15px;
+    margin: 0 0 30px 5px;
     padding: 0 0 0 6px;
     color: #7d7d7d;
-    font-size: .8em;
+    font-size: .85em;
     background-color: #f3e5d1;
     border-radius: 6px;
-    max-width: 140px;
-    min-width: 140px;
+    max-width: 265px;
+    min-width: 265px;
 }
-
-div#navigation-call-out {
-    margin: 0 0 0 20px;
-    padding: 5px 5px 5px 8px;
-    font-size: .8em;
-    background-color: #f6ebda;
-    border-radius: 6px;
-}
-
 
 h1 {
     display: inline;
-    font-size: 1.65em;
-    font-weight: normal;
-    margin: 0 0 15px 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0 0 15px 0;
     padding: 0;
     /*line-height: 35px;*/
     color: #5293c4;
@@ -109,18 +127,30 @@ h1 {
 
 h1.browse {
     display: block;
+    font-weight: normal;
     font-size: 1.65em;
     margin: 0 0 20px 15px;
     padding: 0;
     line-height: 35px;
-    color: #6197c6;
+    color: #528cc1;
 }
+
+h1.detail {
+    display: inline-block;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0 0 20px 15px;
+    padding: 0;
+    /*line-height: 35px;*/
+    color: #5293c4;
+}
+
 
 h1.home {
     display: block;
     font-size: 1.6em;
     font-weight: normal;
-    margin: 15px 0 8px 0px;
+    margin: 0 0 8px 0px;
     padding: 0;
     line-height: 35px;
     color: #5a8fc1;
@@ -128,9 +158,9 @@ h1.home {
 
 h1.title {
     display: block;
-    font-size: 2.2em;
-    font-weight: normal;
-    margin: 0 0 10px 15px;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0 0 10px 5px;
     padding: 0;
     line-height: 35px;
     color: #e7ab2a;
@@ -148,7 +178,7 @@ h2 {
 
 h2.collection-name {
     margin: 5px 0 20px 0;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 1.7em;
     /*font-style: italic;*/
     padding: 0;
@@ -157,7 +187,7 @@ h2.collection-name {
 }
 
 h2.home {
-    margin: 15px 0 40px 15px;
+    margin: 10px 0 50px 5px;
     font-size: 1.4em;
     font-weight: normal;
     padding: 0;
@@ -165,16 +195,35 @@ h2.home {
     color: #8b7463;
 }
 
+h2.subjects {
+    margin: 15px 0 17px 0;
+    font-size: 1.4em;
+    font-weight: normal;
+    padding: 0;
+    line-height: 18px;
+    color: #977c6c;
+}
+
 h3 {
     margin: 5px 0 5px 0;
     font-weight: normal;
-    font-size: 1.2em;
+    font-size: 1.15em;
     padding: 0;
     line-height: 20px;
-    color: #7d685a;
+    color: #8e7163;
+}
+
+html {
+    font-family: sans-serif;
+    /*font-size: 1em;*/
+    line-height: 25px;
+    margin-top: 25px;
+    color: #746859;
+    -webkit-text-size-adjust:100%;
 }
 
 hr {
+    margin: 5px 0 15px 0;
     height: 1px;
     border-width: 0;
     color: #dbdbdb;
@@ -192,12 +241,9 @@ img.collection {
     padding: 0;
 }
 
-img.home-sig-logo {
-    margin-left: 20px;
-    padding: 0;
-    /*float: right;*/
+img.sig-logo {
     position: relative;
-    left: 90%;
+    left: 90.5%;
 }
 
 label {
@@ -209,6 +255,10 @@ label.caption {
     font-size: .65em;
     color: #999999;
     margin: 0;
+}
+
+p {
+    margin-right: 10px;
 }
 
 strong {
@@ -244,7 +294,7 @@ strong.search-term {
     /*padding: 4px;*/
 }
 ul.body {
-    margin: 5px 0 10px 10px;
+    margin: 5px 0 10px 12px;
     padding: 0;
     color: #746859;
     list-style-type: disc;

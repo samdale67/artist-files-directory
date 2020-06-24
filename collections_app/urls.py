@@ -8,4 +8,6 @@ urlpatterns = [
          name='browse_collections'),
     path('browse/subjects/cities/<id>', views.browse_subject_city, name='browse_subject_city'),
     path('browse/dealers/', views.browse_all_dealers, name='browse_dealers'),
+    path('browse/consortial_collections/', views.browse_consortial_collections,
+         name='browse_consortial_collections'),
 ]
