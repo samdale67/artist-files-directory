@@ -4,21 +4,21 @@ from django.db import models
 class Collector(models.Model):
     inst_main_name = models.CharField('Institution Main Name',
                                       max_length=255,
-                                      help_text='If an institutional collection, provide main institution '
+                                      help_text='If an institutional collector, provide main institution '
                                                 'name. If consortium or collaboration, suppy official name '
                                                 'or generalized name (use notes field to provide details). '
                                                 'If a dealer, provide business name.',
                                       blank=True)
     inst_sub_name = models.CharField('Institution Secondary Name',
                                      max_length=255,
-                                     help_text='If an institutional collection, provide name of department, '
+                                     help_text='If an institutional collector, provide name of department, '
                                                'division, etc., responsible for '
                                                'artist files.',
                                      blank=True)
     inst_sub2_name = models.CharField('Institution Tertiary Name',
                                       max_length=255,
-                                      help_text='If an institutional collection, provide name of department, '
-                                                'division, etc., responsible for '
+                                      help_text='If an institutional collector, provide a tertiary name of '
+                                                'department, division, etc., responsible for '
                                                 'artist files.',
                                       blank=True)
     inst_type = models.ManyToManyField(to='InstitutionType',
@@ -97,10 +97,12 @@ class Collector(models.Model):
     class Meta:
         verbose_name = 'Collector'
         verbose_name_plural = '** Collectors'
-        ordering = ['inst_main_name', 'person_last_name']
+        ordering = ['sort_name']
 
     def __str__(self):
-        if self.inst_sub_name:
+        if self.inst_sub2_name:
+            return f"{self.inst_main_name}, " + f"{self.inst_sub_name}, " + self.inst_sub2_name
+        elif self.inst_sub_name:
             return f"{self.inst_main_name}, " + self.inst_sub_name
         elif self.inst_main_name:
             return f"{self.inst_main_name}"

@@ -18,14 +18,20 @@ from django.urls import include, path
 from django.conf.urls.static import static
 from django.conf import settings
 from collections_app import views
-
+from django.views.generic.base import TemplateView
+from collections_app.views import Register
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home_page, name='home'),
+    path('what-are-artist-files/', views.what_are_artist_files),
     path('collections/', include('collections_app.urls')),
     path('collectors/', include('collectors_app.urls')),
-    path('what-are-artist-files/', views.what_are_artist_files),
+    # User registration
+    path('', include('django.contrib.auth.urls')),
+    path('register/success/', TemplateView.as_view(template_name='registration/success.html'),
+         name='register-success'),
+    path('register/', Register.as_view(), name='register'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

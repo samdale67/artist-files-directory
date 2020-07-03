@@ -11,7 +11,7 @@
     <div class="flex-container-content">
 
     <div>
-    <h2>Collector Name</h2>
+    <h2>Name</h2>
     {% if collector.person_last_name %}
         <p><a href="">{{ collector.person_first_name }} {{ collector.person_last_name }}</a></p>
         <h3>Person Type(s)</h3>
@@ -38,7 +38,7 @@
     <ul class="body">
     {% if collector.email_pref == True %}
         <li><a href="mailto:{{ collector.email }}?subject=Artist Files Question">
-        {{ collector.email }}</a>&nbsp;<strong class="preferred">&#10003; preferred</strong></li>
+        {{ collector.email }}</a>&nbsp; <strong class="preferred">&#10003; preferred</strong></li>
         {% elif collector.email and collector.website_pref == False %}
         <li><a href="mailto:{{ collector.email }}?subject=Artist Files Question">{{ collector.email }}</a></li>
     {% endif %}
@@ -87,8 +87,8 @@
         </div>
     {% endif %}
 
-    <h1 class="detail">{{ collection.name }}</h1>{% if collection.consortium == True %}<strong class="consortium">
-    &#x26AD;</strong>{% endif %}
+    <h1 class="detail">{{ collection.name }}</h1>
+    {% if collection.consortium == True %}<strong id="consortium">&#x26AD;</strong>{% endif %}
 
 {#<div id="update-date"><label>Collection information last updated</label> <strong#}
 {#        >{{ collection.date_saved }}</strong>#}
@@ -98,7 +98,7 @@
         {% for image in collection_images %}
             <div>
                 <a href="{{ image.image.url }}"><img class="collection" src="{{ image.image.url }}"
-                                                   height="250" alt=
+                                                   height="240" alt=
                     "{{ collection.name }}
                 Image"/></a><br /><label class="caption">^ {{ image.image_caption }}</label>
             </div>
@@ -244,11 +244,9 @@
         </div>
         </div>
     {% endif %}
-
-    <div class="flex-container-footer">
-        <div><strong class="consortium">&#x26AD;</strong> = consortial/collaborative collection
-        </div>
-    </div>
+<strong class="consortium-footer">&#x26AD;</strong> = consortial/collaborative collection
+  </div>
+</div>
 
 {% endblock %}
 

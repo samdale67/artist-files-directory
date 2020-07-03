@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="flex-container-content">
+<div>
+
+<h1 class="home">Add a Document to a Collection</h1>
+    {% if submitted %}
+        <p><strong>Thanks</strong> for adding a document to your collection in the directory. Check that the
+            image looks okay by viewing your collection at the top of this <a href="/collections/new">list</a>
+            . Return to your account to add another document.</p>
+    {% else %}
+        <form action="" method="post" enctype="multipart/form-data" novalidate>
+            <table>
+                {{ form.as_table }}
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="submit" value="Submit"></td>
+                </tr>
+            </table>
+            {% csrf_token %}
+        </form>
+    {% endif %}
+
+</div>
+</div>
+
+&nbsp;<br />
+&nbsp;
+{% endblock %}

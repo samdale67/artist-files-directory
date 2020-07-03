@@ -2,25 +2,59 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00caeb6b-957e-444f-8302-7a5f9b0b5b4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0009_auto_20200624_1533.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-Documentation-and-Access-Cover.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-cream.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-pumpkin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/context_processors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0010_collectiondocument.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0011_auto_20200630_2149.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0012_auto_20200630_2150.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0013_auto_20200630_2219.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0014_auto_20200630_2220.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0015_auto_20200630_2234.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0016_auto_20200701_1939.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0017_auto_20200701_1940.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0018_auto_20200701_1941.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0019_auto_20200701_1950.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0020_auto_20200701_2007.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0021_auto_20200701_2050.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0022_afruser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/add_collection.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/add_document.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/add_image.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_all.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_consortia.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_new.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/migrations/0040_auto_20200630_2149.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/migrations/0041_auto_20200701_2055.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/templates/collectors_app/add_collector.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collectors_app/templates/collectors_app/browse_dealers.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-blue-orange.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/logout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/success.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/samduncan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/samduncan.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/artist_files_directory/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/artist_files_directory/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_dealers.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/collection_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/collection_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/navigation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/what-are-artist-files.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/what-are-artist-files.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collectors_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/collectors_app/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collectors_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/collectors_app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collectors_app/templates/collectors_app/browse_collectors.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectors_app/templates/collectors_app/browse_collectors.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collectors_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/collectors_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collectors_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/collectors_app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-light-gray.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-light-gray.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-blue.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-Revealed-logo-blue.svg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,9 +67,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="CSS File" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -79,7 +113,7 @@
     <property name="ToolWindowStructure.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/media/collection/images/IMG_3449.jpeg&#10;/Users/samduncan/Dev/artist-files-directory/artist_files_directory/settings.py" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/collectors_app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/registration" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -87,16 +121,21 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/artist_files_directory" />
+      <recent name="$PROJECT_DIR$/artist_files_directory/templates" />
+      <recent name="$PROJECT_DIR$/artist_files_directory/templates/registration" />
       <recent name="$PROJECT_DIR$/static/graphics" />
-      <recent name="$PROJECT_DIR$/collections_app" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/collectors_app" />
+      <recent name="$PROJECT_DIR$/templates/registration" />
+      <recent name="$PROJECT_DIR$/collections_app/templates/collections_app" />
       <recent name="$PROJECT_DIR$/collectors_app/templates/collectors_app" />
+      <recent name="$PROJECT_DIR$/collectors_app" />
     </key>
   </component>
   <component name="RunManager">
@@ -184,6 +223,9 @@
       <workItem from="1592853376836" duration="37404000" />
       <workItem from="1592961081285" duration="2010000" />
       <workItem from="1592963533194" duration="31673000" />
+      <workItem from="1593042386113" duration="55474000" />
+      <workItem from="1593467476780" duration="39474000" />
+      <workItem from="1593639229628" duration="21098000" />
     </task>
     <task id="LOCAL-00001" summary="None.">
       <created>1589247969075</created>
@@ -409,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592946849711</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="None.">
+      <created>1593042400292</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1593042400292</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,10 +502,10 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="1550" y="580" key="#com.intellij.tools.ToolEditorDialog/0.23.2880.1597@0.23.2880.1597" timestamp="1590762264919" />
-    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2" timestamp="1592946849526">
+    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2" timestamp="1593042400080">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
-    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2/0.23.2880.1597@0.23.2880.1597" timestamp="1592946849526" />
+    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2/0.23.2880.1597@0.23.2880.1597" timestamp="1593042400080" />
     <state x="1096" y="321" key="CommitChangelistDialog2/56.23.2824.1597@56.23.2824.1597" timestamp="1589830339190" />
     <state x="1097" y="321" key="CommitChangelistDialog2/58.23.2822.1597@58.23.2822.1597" timestamp="1590628415186" />
     <state x="1102" y="321" key="CommitChangelistDialog2/66.23.2814.1597@66.23.2814.1597" timestamp="1590187239620" />
@@ -496,14 +545,18 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="1442" y="552" key="RollbackChangesDialog/0.23.2880.1597@0.23.2880.1597" timestamp="1589235248035" />
-    <state x="316" y="331" width="1037" height="943" key="SettingsEditor" timestamp="1592420961606">
+    <state x="316" y="331" width="1037" height="943" key="SettingsEditor" timestamp="1593550661645">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
-    <state x="316" y="331" width="1037" height="943" key="SettingsEditor/0.23.2880.1597@0.23.2880.1597" timestamp="1592420961606" />
-    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2" timestamp="1593038979242">
+    <state x="316" y="331" width="1037" height="943" key="SettingsEditor/0.23.2880.1597@0.23.2880.1597" timestamp="1593550661645" />
+    <state x="615" y="744" key="VCS.ChangelistChooser" timestamp="1593188791417">
+      <screen x="58" y="23" width="2822" height="1597" />
+    </state>
+    <state x="615" y="744" key="VCS.ChangelistChooser/58.23.2822.1597@58.23.2822.1597" timestamp="1593188791417" />
+    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2" timestamp="1593042407410">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
-    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2/0.23.2880.1597@0.23.2880.1597" timestamp="1593038979242" />
+    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2/0.23.2880.1597@0.23.2880.1597" timestamp="1593042407410" />
     <state x="1295" y="549" key="Vcs.Push.Dialog.v2/56.23.2824.1597@56.23.2824.1597" timestamp="1589830346962" />
     <state x="1296" y="549" key="Vcs.Push.Dialog.v2/58.23.2822.1597@58.23.2822.1597" timestamp="1590628423335" />
     <state x="1300" y="549" key="Vcs.Push.Dialog.v2/66.23.2814.1597@66.23.2814.1597" timestamp="1590187597817" />
@@ -511,15 +564,15 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="931" y="159" width="1458" height="1263" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.2880.1597@0.23.2880.1597" timestamp="1589238753759" />
-    <state x="1502" y="768" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593038961279">
+    <state x="1502" y="768" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593735003292">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
-    <state x="1502" y="768" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.2880.1597@0.23.2880.1597" timestamp="1593038961279" />
+    <state x="1502" y="768" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.2880.1597@0.23.2880.1597" timestamp="1593735003292" />
     <state x="1530" y="768" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/58.23.2822.1597@58.23.2822.1597" timestamp="1589502682102" />
-    <state x="213" y="80" width="713" height="1513" key="dock-window-1" timestamp="1593027390245">
+    <state x="0" y="23" width="1157" height="1587" key="dock-window-1" timestamp="1593639690282">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
-    <state x="213" y="80" width="713" height="1513" key="dock-window-1/0.23.2880.1597@0.23.2880.1597" timestamp="1593027390245" />
+    <state x="0" y="23" width="1157" height="1587" key="dock-window-1/0.23.2880.1597@0.23.2880.1597" timestamp="1593639690282" />
     <state x="1496" y="561" width="651" height="532" key="find.popup" timestamp="1589248123851">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
@@ -528,10 +581,10 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="931" y="159" width="1458" height="1263" key="git4idea.log.GitShowExternalLogAction/0.23.2880.1597@0.23.2880.1597" timestamp="1589238367531" />
-    <state x="1936" y="414" width="670" height="676" key="search.everywhere.popup" timestamp="1591217132136">
+    <state x="1936" y="414" width="670" height="676" key="search.everywhere.popup" timestamp="1593116453813">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
-    <state x="1936" y="414" width="670" height="676" key="search.everywhere.popup/0.23.2880.1597@0.23.2880.1597" timestamp="1591217132136" />
+    <state x="1936" y="414" width="670" height="676" key="search.everywhere.popup/0.23.2880.1597@0.23.2880.1597" timestamp="1593116453813" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

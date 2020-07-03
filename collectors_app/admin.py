@@ -3,7 +3,7 @@ from .models import Collector, InstitutionType, PersonType
 
 
 class CollectorAdmin(admin.ModelAdmin):
-    list_display = ('inst_main_name', 'inst_sub_name', 'person_last_name', 'person_first_name')
+    list_display = ('id', 'inst_main_name', 'inst_sub_name', 'person_last_name', 'person_first_name')
 
 
 admin.site.register(Collector, CollectorAdmin)

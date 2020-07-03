@@ -4,27 +4,31 @@
 
 <div>
 
-    <h1 class="browse">Here is a list of collections associated with this collector ... </h1>
+  &nbsp;&nbsp;<strong id="consortium">&#x26AD;</strong><h1 class="browse">All corsortial/shared collections,
+    sorted
+        by collector name ...</h1>
+
+    &nbsp;
 
     <div class="flex-container-content">
         <div>
         <ul class="body-collection-browse">
-            {% for collector in collectors %}
+            {% for collector in consortial_collectors %}
                 {% for collection in collector.collections.all %}
                 <li>
                 <a href="/collections/{{ collection.id }}">
                 {{ collector.inst_main_name }}{% if collector.inst_sub_name %}, {% endif %}
-                {{ collector.inst_sub_name }}{% if collector.inst_sub2_name %}, {% endif %}{{ collector.inst_sub2_name }}
+                {{ collector.inst_sub_name }}{% if collector.inst_sub2_name %}, {% endif %}
+                {{ collector.inst_sub2_name }}
                 {{ collector.person_last_name }}{% if collector.person_last_name %}, {% endif %}
-                {{ collector.person_first_name }} &mdash; {{ collection.name }}</a>
-                    {% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong>{% endif %}
+                {{ collector.person_first_name }}</a> &mdash; {{ collection.name }}
                 </li>
                 {% endfor %}
             {% endfor %}
         </ul>
         </div>
     </div>
-
+&nbsp;
 </div>
 
 {% endblock %}

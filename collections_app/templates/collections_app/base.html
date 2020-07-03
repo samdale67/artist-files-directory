@@ -10,26 +10,20 @@
 
 <div class="flex-container-main">
 
-    <div style="flex: 2 .5 250px">
     {% include 'navigation.html' %}
-    </div>
 
-    <div style="flex: 2 1 1500px">
-    <div id="entry-dates-database">&nbsp;<label>We're fresh! Directory last updated</label> <strong>
-        {{ last_updated_collector_object.date_saved }}</strong></div>
-    <h1 class="title">Artist Files Revealed: International Directory of Artist Files Collections</h1>
-    <h2 class="home">A Resource from the Art Libraries Society of North America, Artist Files Special
-    Interest Group</h2>
+    {% include 'header.html' %}
 
     {% block content %}
-    replace me
+        This section gets replaced with "extends" calls coded in content pages
     {% endblock %}
 
-        <a href="http://artistfiles.arlisna.org"><img src="
-{% static 'graphics/Artist-Files-SIG-logo-gray.svg' %}" class="sig-logo" width="90" alt="Art Libraries Society of
-North
-America, Artist Files SIG Logo"></a>
+{#        <a href="http://artistfiles.arlisna.org"><img src="#}
+{#{% static 'graphics/Artist-Files-SIG-logo-gray.svg' %}" class="sig-logo" width="90" alt="Art Libraries Society of#}
+{#North America, Artist Files SIG Logo"></a>#}
     </div>
+
+{#    {% include 'footer.html' %}#}
 
 </body>
 </html>

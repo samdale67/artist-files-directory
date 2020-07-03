@@ -1,25 +1,35 @@
 {% load static %}
+<div style="flex: .5 .5 250px">
+<a href="/"><img src="{% static 'graphics/Artist-Files-Revealed-logo-blue.svg' %}"></a>
 
-    <a href="/"><img src="{% static 'graphics/Artist-Files-Revealed-logo-blue.svg' %}"></a>
+<ul class="navigation">
+    <li><a class="navigation" href="/">Home</a></li>
+    <li><a class="navigation" href="/collections/browse">Browse Directory</a></li>
+{#    <li><a class="navigation" href="">Search Directory</a></li>#}
+</ul>
 
-    <ul class="navigation">
-        <li><a class="navigation" href="/">Home</a></li>
-        <li><a class="navigation" href="/collections/browse">Browse Directory</a></li>
-        <li><a class="navigation" href="">Search Directory</a></li>
-{#        <li><a class="navigation" href="">About</a></li>#}
-    </ul>
+<ul class="navigation">
+    <li><a href="/collections/new">New Listings</a></li>
+    <li><a href="/collections/random/">Random Collection</a></li>
+    <li><a href="/collections/browse/consortia">Consortial Collections</a></li>
+</ul>
 
-    <ul class="navigation">
-        <li><a href="">Newest Listings</a></li>
-        <li><a href="/collections/browse/consortial_collections">Consortial Collections</a></li>
-        <li><a href="/collections/{{ random_collection_object.id }}">Random Collection</a></li>
-        <li><a href="/collectors/browse/institution_type/17">Dealers</a></li>
-    </ul>
+<ul class="navigation">
+     <li><a href="/collectors/browse/dealers">Dealer Directory</a></li>
+</ul>
 
-    <ul class="navigation">
-        <li><a href="/what-are-artist-files">What Are Artist Files?</a></li>
-    </ul>
+<ul class="navigation">
+    <li><a href="/what-are-artist-files">What Are Artist Files?</a></li>
+</ul>
 
-    <ul class="navigation">
-        <li><a class="navigation" href="/">Login</a></li>
-    </ul>
+<ul class="navigation-login">
+    {%  if user.is_authenticated  %}
+        <li>{{ user.first_name }} <div id="heart">&hearts;</div>s Artist Files!</li>
+        <li><a href="">My Details</a></li>
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
+            {% else %}
+        <li><a href="{% url 'login' %}">Log In</a></li>
+    {% endif %}
+</ul>
+
+</div>

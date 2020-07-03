@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="flex-container-content">
+<div>
+
+<h1 class="home">Log In</h1>
+
+    <form method="post" action="{% url 'login' %}">
+        <table>
+            {{  form.as_table }}
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="submit" value="Log In"></td>
+                </tr>
+        </table>
+        <p>Not registered yet? You must have an account in order to create and manage directory entries.<br />
+            <a href="{% url 'register' %}">Register a new user account</a>.</p>
+        <input type="hidden" name="next" value="{{ next }}" />
+        {% csrf_token %}
+    </form>
+
+</div>
+</div>
+
+&nbsp;<br />
+&nbsp;
+{% endblock %}

@@ -1,13 +1,8 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
 <div>
-    <h1 class="browse">Sorted by collector name ...{% if subject_city.sub_city %}
-        with
-        subject <strong class="search-term">{{ subject_city.sub_city }}</strong>{% endif %}
-        {% if institution_type.type_name %} with institution type <strong class="search-term"
-        >{{ institution_type.type_name }}</strong>{% endif %}</h1>
+    <h1 class="browse">The last 10 collections added, newest on top ...</h1>
 
     <div class="flex-container-content">
         <div>
@@ -28,12 +23,7 @@
         </ul>
         </div>
     </div>
-
-        <div class="flex-container-footer">
-        <div><strong class="consortium">&#x26AD;</strong> = consortial/collaborative collections</div>
-    </div>
-
-
+    <strong class="consortium-footer">&#x26AD;</strong> = consortial/collaborative collections
 </div>
 
 {% endblock %}

@@ -5,7 +5,7 @@
 }
 
 .flex-container-main > div {
-    padding: 10px 30px 10px 10px;
+    padding: 5px 30px 0 10px;
     margin: 0;
 }
 
@@ -15,8 +15,8 @@
     flex-direction: row;
     border-radius: 15px;
     background-color: #f1f1f1;
-    padding: 20px 0 10px 30px;
-    margin: 0 0 25px 0;
+    padding: 20px 0 8px 30px;
+    margin: 0 0 20px 0;
 }
 
 .flex-container-content > div {
@@ -36,7 +36,7 @@
 
 .flex-container-footer > div {
     padding: 0 0 7px 0;
-    margin: 0px 50px 0 0;
+    margin: 0;
 }
 
 .flex-container-content-images {
@@ -56,7 +56,7 @@
 
 a {
     text-decoration: none;
-    color: #dc6c26;
+    color: #e26c08;
 }
 
 a.navigation {
@@ -74,7 +74,7 @@ blockquote{
     font-size: 1.5em;
     font-weight: bold;
     margin: 5px 0 18px 0;
-    line-height: 40px;
+    line-height: 35px;
 }
 
 blockquote.quote-attrib {
@@ -106,30 +106,42 @@ div#entry-dates-database {
     display: inline-block;
     vertical-align: top;
     margin: 0 0 30px 5px;
-    padding: 0 0 0 6px;
+    padding: 5px 0 4px 10px;
     color: #7d7d7d;
     font-size: .85em;
+    /*background-color: #cfe5e3;*/
     background-color: #f3e5d1;
     border-radius: 6px;
-    max-width: 265px;
-    min-width: 265px;
+    max-width: 300px;
+    min-width: 300px;
+}
+
+div#heart {
+    display: inline;
+    font-size: 1.3em;
+    /*color: #b35858;*/
+    }
+
+div.consortium {
+    margin: 0 0 30px 15px;
+    /*font-size: .85em;*/
 }
 
 h1 {
     display: inline;
-    font-size: 1.5em;
     font-weight: bold;
+    font-size: 1.5em;
     margin: 0 0 15px 0;
     padding: 0;
     /*line-height: 35px;*/
-    color: #5293c4;
+    color: #4885b3;
 }
 
 h1.browse {
-    display: block;
+    display: inline-block;
     font-weight: normal;
     font-size: 1.65em;
-    margin: 0 0 20px 15px;
+    margin: 0 0 20px 10px;
     padding: 0;
     line-height: 35px;
     color: #528cc1;
@@ -137,9 +149,9 @@ h1.browse {
 
 h1.detail {
     display: inline-block;
-    font-size: 1.5em;
+    font-size: 1.6em;
     font-weight: bold;
-    margin: 0 0 20px 15px;
+    margin: 10px 0 15px 15px;
     padding: 0;
     /*line-height: 35px;*/
     color: #5293c4;
@@ -149,11 +161,11 @@ h1.detail {
 h1.home {
     display: block;
     font-size: 1.6em;
-    font-weight: normal;
-    margin: 0 0 8px 0px;
+    font-weight: bold;
+    margin: 5px 0 8px 0px;
     padding: 0;
     line-height: 35px;
-    color: #5a8fc1;
+    color: #5891c4;
 }
 
 h1.title {
@@ -163,31 +175,22 @@ h1.title {
     margin: 0 0 10px 5px;
     padding: 0;
     line-height: 35px;
-    color: #e7ab2a;
+    color: #659e79;
+    /*color: #e7ab2a;*/
 }
 
 
 h2 {
     margin: 15px 0 8px 0;
-    font-size: 1.4em;
-    font-weight: normal;
+    font-size: 1.3em;
+    font-weight: bold;
     padding: 0;
     line-height: 18px;
     color: #977c6c;
 }
 
-h2.collection-name {
-    margin: 5px 0 20px 0;
-    font-weight: bold;
-    font-size: 1.7em;
-    /*font-style: italic;*/
-    padding: 0;
-    line-height: 30px;
-    color: #977c6c;
-}
-
 h2.home {
-    margin: 10px 0 50px 5px;
+    margin: 10px 0 40px 5px;
     font-size: 1.4em;
     font-weight: normal;
     padding: 0;
@@ -195,10 +198,20 @@ h2.home {
     color: #8b7463;
 }
 
+h2.browse {
+    margin: -15px 0 30px 5px;
+    font-size: 1.1em;
+    font-weight: normal;
+    padding: 0;
+    line-height: 18px;
+    color: #7f6a5d;
+}
+
+
 h2.subjects {
     margin: 15px 0 17px 0;
     font-size: 1.4em;
-    font-weight: normal;
+    font-weight: bold;
     padding: 0;
     line-height: 18px;
     color: #977c6c;
@@ -213,21 +226,20 @@ h3 {
     color: #8e7163;
 }
 
-html {
-    font-family: sans-serif;
-    /*font-size: 1em;*/
-    line-height: 25px;
-    margin-top: 25px;
-    color: #746859;
-    -webkit-text-size-adjust:100%;
-}
-
 hr {
-    margin: 5px 0 15px 0;
+    margin: 10px 0 15px 0;
     height: 1px;
     border-width: 0;
     color: #dbdbdb;
     background-color: #dbdbdb;
+}
+
+html {
+    font-family: sans-serif;
+    /*font-size: 1em;*/
+    line-height: 26px;
+    margin-top: 25px;
+    color: #746859;
 }
 
 img {
@@ -244,10 +256,11 @@ img.collection {
 img.sig-logo {
     position: relative;
     left: 90.5%;
+    margin-top: -15px;
 }
 
 label {
-    color: #7d685a;
+    color: #726254;
 }
 
 label.caption {
@@ -261,24 +274,54 @@ p {
     margin-right: 10px;
 }
 
+p.footer {
+    margin-left: 25px;
+    margin-bottom: 0px;
+}
+
 strong {
-    color: #937868;
+    color: #b35858;
+    /*color: #975b5b;*/
+    font-weight: bold;
+}
+
+strong.date {
+    color: #7d6550;
     font-weight: bold;
 }
 
 strong.consortium {
     display: inline;
-    vertical-align: top;
-    /*color: #e5d275;*/
-    color: #93afaa;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 2.3em;
-    margin: 7px 0 10px 0;
+    vertical-align: inherit;
+    color: #eac545;
+    font-weight: bolder;
+    /*text-transform: uppercase;*/
+    font-size: 1.6em;
+    margin: -15px 0 0 3px;
+}
+strong.consortium-footer {
+    display: inline-block;
+    vertical-align: inherit;
+    color: #eac545;
+    font-weight: bolder;
+    /*text-transform: uppercase;*/
+    font-size: 1.6em;
+    margin: -15px 0 0 25px;
+}
+
+strong#consortium {
+    display: inline-block;
+    vertical-align: baseline;
+    color: #eac545;
+    font-weight: bolder;
+    /*text-transform: uppercase;*/
+    font-size: 2.5em;
+    /*margin: -2px 0 10px 0;*/
     /*padding: 4px;*/
 }
+
 strong.preferred {
-    color: #93afaa;
+    color: #8cb6ad;
     font-weight: bold;
     text-transform: uppercase;
     font-size: .8em;
@@ -310,11 +353,10 @@ ul.body-collection-browse {
     padding: 0;
     color: #746859;
     list-style-type: disc;
-    font-size: 1em;
 }
 
 ul.body-collection-browse > li {
-    margin: 5px 0 5px 0;
+    margin: 6px 0 6px 0;
     padding: 0;
 }
 
@@ -336,7 +378,7 @@ ul.navigation  {
     font-size: 1em;
     list-style-type: none;
     margin: 0px 0 40px 25px;
-    padding: 10px 10px 3px 0;
+    padding: 15px 10px 5px 0;
     border-radius: 10px;
     /*background-color: #f3f0eb;*/
     background-color: #ecf3f5;
@@ -345,6 +387,28 @@ ul.navigation  {
 ul.navigation > li {
     margin: 0 0 8px 20px;
     /*font-weight: bold;*/
+}
+
+ul.navigation-login {
+    list-style-type: none;
+    margin: 0px 0 40px 25px;
+    padding: 15px 10px 12px 0;
+    border-radius: 10px;
+    background-color: #f3e5d1;
+    /*background-color: #ecf3f5;*/
+}
+
+ul.navigation-login > li {
+    font-size: .95em;
+    font-weight: normal;
+    margin: 0 0 0 20px;
+    /*color: #67a577;*/
+}
+
+ul.navigation-login > li > a {
+    font-size: .95em;
+    font-weight: bold;
+    color: #589567;
 }
 
 ul.types {
@@ -356,4 +420,66 @@ ul.types {
 ul.types > li  {
     margin: 0 0 0 5px;
     padding: 0;
+}
+
+/*FORMS*/
+
+th {
+    vertical-align: top;
+    text-align: right;
+    font-weight: normal;
+    width: 210px;
+    padding: 8px;
+}
+
+td {
+    vertical-align: top;
+    text-align: left;
+    padding: 8px;
+}
+
+
+.helptext {
+    display: block;
+    font-size: .85em;
+    color: #937b71;
+    line-height: 18px;
+    margin-bottom: 12px;
+}
+
+
+input[type=text] {
+    width: 385px;
+    font-size: .85em;
+}
+
+input[type=url] {
+    width: 385px;
+    font-size: .85em;
+}
+
+input#id_username {
+    width: 135px;
+    font-size: .85em;
+}
+
+
+.required label:after {
+    display: block;
+    content: "value required";
+    text-transform: uppercase;
+    font-size: .8em;
+    font-weight: bold;
+    color: #b35858;
+    margin-top: -4px;
+}
+
+select {
+    height: 180px;
+    font-size: .85em;
+}
+
+select#id_collection {
+    height: revert;
+    font-size: .85em;
 }

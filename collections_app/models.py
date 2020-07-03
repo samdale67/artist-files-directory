@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 
 class Collection(models.Model):
@@ -11,10 +12,10 @@ class Collection(models.Model):
                                                  'artist files collection. A collection can have '
                                                  'multiple owners, for example, in the case of '
                                                  'consortial or collaborative digital projects.')
-    consortium = models.BooleanField('Consortial collection?',
+    consortium = models.BooleanField('Consortial Collection?',
                                      blank=True,
-                                     help_text='Is this collection a consortial or collaborative '
-                                               'collection?')
+                                     help_text='Check if you have selected more than one collector in the '
+                                               'field above.')
     name = models.CharField('Collection Name',
                             max_length=255,
                             blank=False,
@@ -173,20 +174,48 @@ class CollectionImage(models.Model):
                                         'and/or storage systems in use.')
     image_caption = models.CharField('Image Caption',
                                      max_length=50,
-                                     default='', )
+                                     default='',
+                                     help_text='Provide a short yet descriptive caption describing the '
+                                               'image. 50 character limit.')
     collection = models.ForeignKey('Collection',
                                    related_name='collections',
                                    verbose_name=u'Related Collection',
                                    on_delete=models.CASCADE,
                                    default='',
-                                   blank=True, )
-
-    def __str__(self):
-        return self.image_caption
+                                   blank=False)
 
     class Meta:
         verbose_name = 'Collection Image'
         verbose_name_plural = 'Collection Images'
+        ordering = ['image_caption']
+
+    def __str__(self):
+        return f"{self.image_caption}"
+
+
+class CollectionDocument(models.Model):
+    document = models.FileField('Add Document',
+                                upload_to='collection/documents/',
+                                help_text='Upload documents such as use guides or collection development '
+                                          'statements.')
+    document_caption = models.CharField('Document Caption',
+                                        max_length=255,
+                                        default='',
+                                        help_text='Provide a short caption describing the document.')
+    collection = models.ForeignKey('Collection',
+                                   related_name='documents',
+                                   verbose_name=u'Related Collection',
+                                   on_delete=models.CASCADE,
+                                   default='',
+                                   blank=True)
+
+    def __str__(self):
+        return self.document_caption
+
+    class Meta:
+        verbose_name = 'Collection Document'
+        verbose_name_plural = 'Collection Documents'
+        ordering = ['document_caption']
 
 
 class CollectionService(models.Model):
@@ -436,3 +465,11 @@ class CollectionSubjectGeoArea(models.Model):
         verbose_name = 'Subject: Geographic Area'
         verbose_name_plural = 'Subject: Geographic Areas'
         ordering = ['sub_geo_area']
+
+
+# Extend User model with custom fields
+class AFRUser(models.Model):
+    user = models.OneToOneField(User, blank=True, null=True, on_delete=models.SET_NULL)
+    institution = models.CharField(blank=True, max_length=100)
+    private_collector = models.BooleanField(default=False)
+    dealer = models.BooleanField(default=False)

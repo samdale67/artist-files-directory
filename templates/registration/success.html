@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="flex-container-content">
+<div>
+
+<h1 class="home">You're One of Us Now!</h1>
+
+    <p>Now you can <a href="{% url 'login' %}?next=/">login</a> to create and
+        modify your directory content.</p>
+
+</div>
+</div>
+
+&nbsp;<br />
+&nbsp;
+{% endblock %}

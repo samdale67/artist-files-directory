@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="flex-container-content">
+<div>
+
+<h1 class="home">Add a Collector</h1>
+    {% if submitted %}
+        <p>You have successfullyl added a new collector record. Return to your account to add another
+            collector or to associate your new collector with a collection.</p>
+    {% else %}
+        <form action="" method="post" novalidate>
+            <table>
+                {{ form.as_table }}
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="submit" value="Submit"></td>
+                </tr>
+            </table>
+            {% csrf_token %}
+        </form>
+    {% endif %}
+
+</div>
+</div>
+
+&nbsp;<br />
+&nbsp;
+{% endblock %}

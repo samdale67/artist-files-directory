@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="flex-container-content">
+<div>
+
+<h1 class="home">Register a New Account</h1>
+
+    <p>You must have an account in order to create and manage directory entries. Choose a username and
+        password below.</p>
+
+    <form method="post" action="">
+         {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+            <tr>
+                 <td>&nbsp;</td>
+                <td><input type="submit" value="Create Account"></td>
+            </tr>
+        </table>
+    <input type="hidden" name="next" value="{{ next }}" />
+
+    </form>
+
+</div>
+</div>
+
+&nbsp;<br />
+&nbsp;
+{% endblock %}
