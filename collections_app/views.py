@@ -131,6 +131,7 @@ def add_image(request):
             submitted = True
     return render(request, 'collections_app/add_image.html', {'form': form, 'submitted': submitted})
 
+
 @login_required(login_url=reverse_lazy('login'))
 def add_document(request):
     submitted = False

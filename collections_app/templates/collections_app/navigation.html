@@ -24,9 +24,8 @@
 
 <ul class="navigation-login">
     {%  if user.is_authenticated  %}
-        <li>{{ user.first_name }} <div id="heart">&hearts;</div>s Artist Files!</li>
-        <li><a href="">My Details</a></li>
-        <li><a href="{% url 'logout' %}">Log Out</a></li>
+        <li>{{ user.username }} <div id="heart">&hearts;</div>s Artist Files!</li>
+        <li><a href="">Account</a> | <a href="{% url 'logout' %}">Log Out</a></li>
             {% else %}
         <li><a href="{% url 'login' %}">Log In</a></li>
     {% endif %}

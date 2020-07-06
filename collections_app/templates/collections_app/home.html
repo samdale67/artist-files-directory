@@ -3,6 +3,19 @@
 
 {% block content %}
 
+{#    <li>Below our automated artist files curators present a randomly selected set of images from#}
+{#           the directory to show the diversity of the collections. Refresh to view a new set of images!</li>#}
+
+    <div class="flex-container-content-images">
+          {% for image in collection_images %}
+            <div>
+                <a href="/collections/{{ image.collection_id }}"><img
+                        class="collection" src="{{ image.image.url }}"  height="170" alt=
+                        "Random Collection Image" /></a>
+            </div>
+        {% endfor %}
+    </div>
+
     <div class="flex-container-content">
    <div>
 
@@ -35,23 +48,10 @@ published indexes. In effect, this has made artist files the single most untappe
     <ul class="body">
        <li>Some information from the section above adapted from <a href="http://www.arlisna.org/images/researchreports/artist_files_revealed.pdf"><cite>Artist Files Revealed: Documentation and Access</cite></a> by The Artist Files
     Working Group, ARLIS/NA</cite> (Art Libraries Society of North America, 2009, 2010).</li>
-
-       <li>Below our automated artist files curators present a randomly selected set of images from
-           the directory to show the diversity of the collections. Refresh to view a new set of images!</li>
     </ul>
 </div>
 </div>
 
-
-    <div class="flex-container-content-images">
-          {% for image in collection_images %}
-            <div>
-                <a href="/collections/{{ image.collection_id }}"><img
-                        class="collection" src="{{ image.image.url }}"  height="170" alt=
-                        "Random Collection Image" /></a>
-            </div>
-        {% endfor %}
-    </div>
 &nbsp;<br />
 &nbsp;
 {% endblock %}

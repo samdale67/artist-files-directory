@@ -4,6 +4,8 @@ from .forms import Collector
 from .models import InstitutionType
 from .forms import AddCollectorForm
 from collections_app.models import Collection
+from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 
 
 def browse_collector(request, collector_id):
@@ -33,13 +35,14 @@ def browse_institution_type(request, id):
     return render(request, template, context)
 
 
+@login_required(login_url=reverse_lazy('login'))
 def add_collector(request):
     submitted = False
     if request.method == 'POST':
         form = AddCollectorForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/collections/add_document/?submitted=True')
+            return HttpResponseRedirect('/collections/add_collector/?submitted=True')
     else:
         form = AddCollectorForm()
         if 'submitted' in request.GET:

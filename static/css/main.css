@@ -392,9 +392,9 @@ ul.navigation > li {
 ul.navigation-login {
     list-style-type: none;
     margin: 0px 0 40px 25px;
-    padding: 15px 10px 12px 0;
+    padding: 12px 7px 9px 0;
     border-radius: 10px;
-    background-color: #f3e5d1;
+    background-color: #f8ebd8;
     /*background-color: #ecf3f5;*/
 }
 
