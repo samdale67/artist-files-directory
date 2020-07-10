@@ -1,9 +1,11 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 
 class Collection(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     collector = models.ManyToManyField(to='collectors_app.Collector',
                                        related_name='collections',
                                        verbose_name=u'Collector(s)',
@@ -26,28 +28,28 @@ class Collection(models.Model):
                                       'with special characteristics, for example "The Nettie '
                                       'Wheeler Artist Files on Native American Artists. Multiple '
                                       'collections allowed and encouraged."')
-    description = models.TextField('Description',
-                                   max_length=3000,
-                                   blank=True,
-                                   help_text='Provide a general description of the collection, '
-                                             'including such aspects as history and provenance. Also '
-                                             'use this field for general notes about '
-                                             'the collection.')
+    description = RichTextField('Description',
+                                max_length=3000,
+                                blank=True,
+                                help_text='Provide a general description of the collection, '
+                                          'including such aspects as history and provenance. Also '
+                                          'use this field for general notes about '
+                                          'the collection.')
     quote = models.TextField('Quote',
                              max_length=500,
                              blank=True,
-                             help_text='Provide a quote or tagline for the collection. Quotes '
-                                       'get automatically added.')
+                             help_text='Provide a pithy quote or tagline for the collection. This field '
+                                       'automatically adds quotes.')
     quote_attrib = models.CharField('Quote Attribution',
                                     max_length=255,
                                     blank=True,
                                     help_text='Provide the source of quote or tagline if applicable, '
                                               'including, at minimum, name, title, institution.')
-    access = models.TextField('Access and Use',
-                              max_length=1000,
-                              blank=True,
-                              help_text='Add policies and procedures relating to how '
-                                        'researchers access and use the collection.')
+    access = RichTextField('Access and Use',
+                           max_length=1000,
+                           blank=True,
+                           help_text='Add policies and procedures relating to how '
+                                     'researchers access and use the collection.')
     website = models.URLField('Website',
                               max_length=255,
                               blank=True,
@@ -65,13 +67,13 @@ class Collection(models.Model):
                                         help_text='Add systems used for cataloging artist files '
                                                   'collection. Create a new system if there is '
                                                   'not a fit.')
-    size = models.TextField('Size',
-                            max_length=1000,
-                            default='',
-                            blank=True,
-                            help_text='Provide a statement about the size of the collection, '
-                                      'including growth rate, etc. Use whatever measurement terms are '
-                                      'relevant.')
+    size = RichTextField('Size',
+                         max_length=1000,
+                         default='',
+                         blank=True,
+                         help_text='Provide a statement about the size of the collection, '
+                                   'including growth rate, etc. Use whatever measurement terms are '
+                                   'relevant.')
     spec_format = models.ManyToManyField(to='CollectionSpecialFormat',
                                          related_name='collections',
                                          verbose_name=u'Special Formats',
@@ -79,11 +81,11 @@ class Collection(models.Model):
                                          help_text='Add special formats contained in the '
                                                    'collection, either analog or digital. Create a new '
                                                    'type if there is not a fit.')
-    dig_projects = models.TextField('Digital Projects',
-                                    max_length=3000,
-                                    blank=True,
-                                    help_text='Describe digital projects, either completed '
-                                              'or planned, for this collection.')
+    dig_projects = RichTextField('Digital Projects',
+                                 max_length=3000,
+                                 blank=True,
+                                 help_text='Describe digital projects, either completed '
+                                           'or planned, for this collection.')
     dig_access = models.URLField('Digital Project Website',
                                  max_length=255,
                                  blank=True,
@@ -148,10 +150,10 @@ class Collection(models.Model):
                                    help_text='Important for providing access to collections located in '
                                              'specific countries.',
                                    blank=True)
-    notes = models.TextField('Notes',
-                             max_length=1000,
-                             blank=True,
-                             help_text='Use this field for information that does not fit elsewhere.')
+    notes = RichTextField('Notes',
+                          max_length=1000,
+                          blank=True,
+                          help_text='Use this field for information that does not fit elsewhere.')
     date_created = models.DateField(auto_now_add=True)
     date_saved = models.DateField(auto_now=True)
 
@@ -168,6 +170,7 @@ class Collection(models.Model):
 
 
 class CollectionImage(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     image = models.ImageField('Add Image',
                               upload_to='collection/images/',
                               help_text='Upload images showing example material from files '
@@ -194,6 +197,7 @@ class CollectionImage(models.Model):
 
 
 class CollectionDocument(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     document = models.FileField('Add Document',
                                 upload_to='collection/documents/',
                                 help_text='Upload documents such as use guides or collection development '

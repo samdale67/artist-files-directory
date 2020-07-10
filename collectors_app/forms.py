@@ -2,7 +2,7 @@ from django.forms import ModelForm
 from .models import Collector
 
 
-class AddCollectorForm(ModelForm):
+class CollectorForm(ModelForm):
     required_css_class = 'required'
 
     # # Remove colons from labels
@@ -13,3 +13,4 @@ class AddCollectorForm(ModelForm):
     class Meta:
         model = Collector
         fields = '__all__'
+        exclude = ['user']

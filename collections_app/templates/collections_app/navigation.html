@@ -1,5 +1,5 @@
 {% load static %}
-<div style="flex: .5 .5 250px">
+<div style="flex: .05 .5 260px">
 <a href="/"><img src="{% static 'graphics/Artist-Files-Revealed-logo-blue.svg' %}"></a>
 
 <ul class="navigation">
@@ -22,12 +22,19 @@
     <li><a href="/what-are-artist-files">What Are Artist Files?</a></li>
 </ul>
 
+<ul class="navigation-counts">
+    <li><strong>We're growing &#10030; &#x263B; &#8673;</strong></li>
+    <li>&bull; Currently {{ collection_count }} collections</li>
+    <li>&bull; Add yours below!</li>
+</ul>
+
 <ul class="navigation-login">
     {%  if user.is_authenticated  %}
-        <li>{{ user.username }} <div id="heart">&hearts;</div>s Artist Files!</li>
-        <li><a href="">Account</a> | <a href="{% url 'logout' %}">Log Out</a></li>
+        <li><strong>Hi {{ user.first_name }}!</strong></li>
+        <li><a href="/user/content">Create / Edit</a></li>
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
             {% else %}
-        <li><a href="{% url 'login' %}">Log In</a></li>
+        <li><a href="{% url 'login' %}">Log In / New Account</a></li>
     {% endif %}
 </ul>
 

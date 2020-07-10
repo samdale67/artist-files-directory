@@ -9,6 +9,8 @@ urlpatterns = [
     path('random/', views.random_collection),
     path('new/', views.new_collections),
     path('add_collection/', views.add_collection, name='add_collection'),
+    path('update/<int:pk>', views.update_collection, name='update-collection'),
+    path('delete/<int:pk>', views.delete_collection, name='delete-collection'),
     path('add_image/', views.add_image, name='add_image'),
     path('add_document/', views.add_document, name='add_document'),
 

@@ -7,7 +7,7 @@
 
 <div>
     Quoted in collection: <a href="/collections/{{ random_quote.id }}">{{ random_quote.name }}</a>
-    <blockquote>{% autoescape off %}&ldquo;{{ random_quote.quote }}&rdquo;{% endautoescape %}</blockquote>
+    <blockquote>&#10077; {{ random_quote.quote|safe }} &#10078;</blockquote>
     {% if random_quote.quote_attrib %}<blockquote class="quote-attrib">{{ random_quote.quote_attrib }}</blockquote>{% endif %}
 </div>
 

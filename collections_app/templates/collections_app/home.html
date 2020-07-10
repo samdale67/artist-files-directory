@@ -3,55 +3,82 @@
 
 {% block content %}
 
-{#    <li>Below our automated artist files curators present a randomly selected set of images from#}
-{#           the directory to show the diversity of the collections. Refresh to view a new set of images!</li>#}
-
     <div class="flex-container-content-images">
-          {% for image in collection_images %}
-            <div>
+
+    <div>
+        {% for image in collection_images %}
+
                 <a href="/collections/{{ image.collection_id }}"><img
-                        class="collection" src="{{ image.image.url }}"  height="170" alt=
+                        class="collection" src="{{ image.image.url }}"  height="165" alt=
                         "Random Collection Image" /></a>
-            </div>
         {% endfor %}
+
+            <hr>
+            <ul class="body">
+                <li class="footnote">Above, our robot artist files curators present a randomly
+            selected set of images from the directory to show the diversity of the collections. Reload the
+            page to view a new set of images!</li>
+            </ul>
+        </div>
+
+
     </div>
 
     <div class="flex-container-content">
-   <div>
+   <div style="flex: 1 1 300px">
 
-<h1 class="home">Why An Artist Files Directory?</h1>
+    <h1 class="home">Why An Artist Files Directory?</h1>
 
-       <p><a href="/what-are-artist-files">Artist files</a> are among the most valued and heavily used
-           resources in
-    art
-      research facilities.
-      These files
-often provide critical documentation about well established artists, as well as lesser known artists
-not well documented in the literature. Researchers rely on artist files to establish chronologies,
-flesh out exhibition histories, review stylistic developments and assess the critical reception of
-artists over time. Artist files often do not circulate due to their unique and irreplaceable nature.
-Artist file collections frequently have regional strengths that make them particularly vital repositories
-for communities.</p>
+       <p>If you are new to artist files, head to <a href="/what-are-artist-files">What Are Artist
+           Files?</a> for a primer.</p>
+       <p>Artist files are among the most valued and heavily used
+           resources in art research facilities. These files often provide critical documentation about
+           well established artists, as well as lesser known artists not well documented in the literature.
+           Researchers rely on artist files to establish chronologies, flesh out exhibition histories,
+           review stylistic developments and assess the critical reception of artists over time. Artist
+           files often do not circulate due to their unique and irreplaceable nature. Artist file
+           collections frequently have regional strengths that make them particularly vital repositories
+           for communities.</p>
 
-<blockquote>&ldquo;Ironically, artist files are among the least accessible resources in research collections ...
-    the single most untapped resource to the broader art research community.&rdquo;</blockquote>
+<blockquote>&#10077;&nbsp;Ironically, artist files are among the least accessible resources in research
+    collections [and] the single most untapped resource to the broader art research community.&nbsp;&#10078;
+</blockquote>
 
 <p>Ironically, artist files are among the least accessible resources in research collections. The
 very nature of the material, limited cataloging staff, and lack of technical or administrative support
-have all contributed to this problem. While a large number of institutions have made records of their
-files accessible from their local catalog or website, they have yet to migrate them to larger union
-catalogs where users can more readily connect with them. As a result, it is only the most diligent of
+have all contributed to this problem ... As a result, it is only the most diligent of
 researchers that will discover these files by searching individual local catalogs or other publicly
 published indexes. In effect, this has made artist files the single most untapped resource to the broader
     art research community.</p>
-       <hr>
+   </div>
+
+    <div style="flex: 1 1 300px">
+       <h1>What is the Scope of the Directory?</h1>
+       <p>Let's quickly get something out of the way: the directory is <strong>not</strong> a delivery
+           platform for digitized or digital artist files content.</p>
+        <p><strong>The major new features of the new directory is accommodation for personal/private
+            collections and the ability for dealers who specialize in
+            artist ephemera to add listings.</strong></p>
+        <p>Wile the first <cite>Artist Files
+               Revealed</cite>
+           <a href="http://www.arlisna
+       .org/images/researchreports/artist_files_revealed.pdf">publication</a> and related (now defunct)
+           online directory focused on institutional collections, the new directory expands coverage by
+           offering access to personal collections of artist files. It also provides a dealer directory
+           focused on sellers who specialize in artist ephemera. </p>
+         <hr>
     <ul class="body">
-       <li>Some information from the section above adapted from <a href="http://www.arlisna.org/images/researchreports/artist_files_revealed.pdf"><cite>Artist Files Revealed: Documentation and Access</cite></a> by The Artist Files
+       <li class="footnote">Some information on this page adapted from <a href="http://www
+       .arlisna
+       .org/images/researchreports/artist_files_revealed.pdf"><cite>Artist Files Revealed: Documentation
+           and Access</cite></a> by The Artist Files
     Working Group, ARLIS/NA</cite> (Art Libraries Society of North America, 2009, 2010).</li>
-    </ul>
+            </ul>
+    <a href="http://www.arlisna.org/images/researchreports/artist_files_revealed.pdf"><img src="
+{% static 'graphics/Artist-Files-Revealed-Documentation-and-Access-Cover.jpg' %}" width="175" alt="Artist
+Files Revealed Documentation and Access Cover"></a>
+    </div>
 </div>
 </div>
 
-&nbsp;<br />
-&nbsp;
 {% endblock %}

@@ -10,3 +10,10 @@ def last_database_update(request):
     else:
         last_updated_object = last_updated_collector_object
     return {'last_updated_object': last_updated_object}
+
+
+def navigation_content(request):
+    collector_count = Collector.objects.count()
+    collection_count = Collection.objects.count()
+
+    return {'collector_count': collector_count, 'collection_count': collection_count}

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="flex-container-content">
+   <div style="flex: 1 1 300px">
+        <h1>{{ user.first_name }} <div id="heart">&hearts;</div>s Artist Files!</h1>
+       <ul>
+        <li>We've gathered all the collector, collection, images, and documents you have created in the
+            blue area below and provided links to create new content. Your content helps make the directory
+            more comprehensive.<br />
+            <strong>Thanks for contributing</strong>.</li>
+       <li>We think it's important to keep directory entries up to date, so the directory will send you an
+           email (the one in the collector record) every six months with a reminder to review your
+           information. And you can't opt out!</li>
+       </ul>
+   </div>
+    <div style="flex: 1 1 300px">
+       <h2>About Directory Records</h2>
+            <ul>
+            <li>The directory currently contains <strong
+            >{{ collector_count }}</strong> collector records, <strong
+           >{{ collection_count }}</strong> collection records, <strong>{{ image_count }}</strong> images,
+               and <strong>{{ document_count }}</strong> documents.</li>
+            <li>Directory entries are pairings of collector records and collection records. A collector can
+            "own" multiple collections. Similarly, a collection can have multiple collectors, which is the
+                case for digital collections that contain material from multiple collectors. See <a
+                    href="/collections/5/">Missouri Remembers: Artists in Missouri 1821-1951</a>.</li>
+                <li>With that in mind, you'll first need to create a collector record before you can associate
+                a collection. After creating a collector record, you will return to this page and create a
+                collection record and connect a collector (or collectors).</li>
+                <li>Any authenticated user can add and update the following fields: institution
+                    type, private collector type, reference service, cataloging system, special format,
+                    subject: name, subject: topic, subject: city, subject: county, subject: states and provinces,
+                    subject: country, subject, and geographic area. </li>
+            </ul>
+    </div>
+</div>
+
+
+    <div class="flex-container-content-user-records">
+{% if collectors %}
+<div style="flex: 1 1 300px">
+    <h2>Your Collector Records</h2>
+    <ul>
+        {% for collector in collectors %}
+            <li>{{ collector.inst_main_name }}{% if collector.inst_sub_name %},
+                {{ collector.inst_sub_name }}{% endif %}{% if collector.inst_sub2_name %},
+                {{ collector.inst_sub2_name }}{% endif %}{% if collector.person_last_name %}
+                {{ collector.person_last_name }}, {{ collector.person_first_name }}{% endif %}&nbsp;
+                &#10142;
+                &nbsp;<a
+                href="/collectors/update/{{ collector.id }}">Update</a> | <a
+                href="/collectors/delete/{{ collector.id }}">Delete</a></li>
+        {% endfor %}
+    </ul>
+    <ul>
+        <li><strong><a href="/collectors/add_collector/">Add a collector</a></strong></li>
+    </ul>
+</div>
+
+            {% else %}
+
+   <div style="flex: 1 1 300px">
+               <h2>Your Collector Records</h2>
+   <p>You haven't created any collector records. You'll first need to create a collector record before you can
+       create a collection.</p>
+    <ul>
+        <li><strong><a href="/collectors/add_collector/">Add a collector</a></strong></li>
+    </ul>
+ </div>
+ {% endif %}
+
+
+        {% if collections %}
+<div style="flex: 1 1 300px">
+    <h2>Your Collection Records</h2>
+<p>Clicking a collection name loads the record as seen by the public.</p>
+    <ul>
+        {% for collection in collections %}
+            <li><a href="/collections/{{ collection.id }}">{{ collection.name }}</a>&nbsp;&#10142;&nbsp;<a
+                href="/collections/update/{{ collection.id }}">Update</a> | <a
+                href="/collections/delete/{{ collection.id }}">Delete</a></li>
+        {% endfor %}
+    </ul>
+
+       <ul>
+           <li><strong><a href="/collections/add_collection/">Add a collection</a></strong></li>
+    </ul>
+</div>
+
+            {% else %}
+<div style="flex: 1 1 300px">
+           <h2>Your Collection Records</h2>
+
+   <p>You haven't created an artist files collection yet. Remember that you'll first need to create a
+       collector before you can associate a collection.</p>
+    <ul>
+        <li><strong><a href="/collections/add_collection/">Add a collection</a></strong></li>
+    </ul>
+    </div>
+
+            </div>
+
+            {% endif %}
+
+
+{% endblock %}

@@ -82,7 +82,7 @@
         <div class="flex-container-content">
         <div>
         <h2>Collector Notes</h2>
-        <p>{% autoescape off %}{{ collector.notes }}{% endautoescape %}</p>
+        <p>{{ collector.notes|safe }}</p>
         </div>
         </div>
     {% endif %}
@@ -98,7 +98,7 @@
         {% for image in collection_images %}
             <div>
                 <a href="{{ image.image.url }}"><img class="collection" src="{{ image.image.url }}"
-                                                   height="240" alt=
+                                                   height="210" alt=
                     "{{ collection.name }}
                 Image"/></a><br /><label class="caption">^ {{ image.image_caption }}</label>
             </div>
@@ -109,7 +109,7 @@
     <div class="flex-container-content">
     <div>
     {% if collection.quote %}
-        <blockquote>{% autoescape off %}&ldquo;{{ collection.quote }}&rdquo;{% endautoescape %}</blockquote>
+        <blockquote>&#10077; {{ collection.quote|safe }} &#10078;</blockquote>
     {% endif %}
 
     {% if collection.quote_attrib %}
@@ -118,12 +118,12 @@
 
     {% if collection.description %}
         <h2>Overview</h2>
-        <p>{% autoescape off %}{{ collection.description }}{% endautoescape %}</p>
+        <p>{{ collection.description|safe }}</p>
     {% endif %}
 
     {% if collection.access %}
         <h2>Access and Use</h2>
-        <p>{{ collection.access }}</p>
+        <p>{{ collection.access|safe }}</p>
     {% endif %}
 
     {% if collection.website %}
@@ -133,7 +133,7 @@
 
     {% if collection.size %}
         <h2>Size</h2>
-        <p>{{ collection.size }}</p>
+        <p>{{ collection.size|safe }}</p>
     {% endif %}
 
     {% if collection.service.all %}
@@ -146,7 +146,7 @@
     {% endif %}
 
     {% if collection.spec_format.all %}
-        <h2>Special Formats</h2>
+        <h2>Special Formats in the Collection</h2>
         <ul class="body">
             {% for spec_format in collection.spec_format.all %}
             <li><a href="">{{ spec_format }}</a></li>
@@ -156,7 +156,7 @@
 
     {% if collection.dig_projects %}
         <h2>Digital Content/Projects Description</h2>
-        <p>{% autoescape off %}{{ collection.dig_projects }}{% endautoescape %}</p>
+        <p>{{ collection.dig_projects|safe }}</p>
     {% endif %}
 
     {% if collection.dig_access %}
@@ -227,7 +227,7 @@
         <div class="flex-container-content">
         <div>
         <h2>Collection Notes</h2>
-        <p>{% autoescape off %}{{ collection.notes }}{% endautoescape %}</p>
+        <p>{{ collection.notes|safe }}</p>
         </div>
         </div>
     {% endif %}

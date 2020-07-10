@@ -1,7 +1,10 @@
 from django.db import models
+from ckeditor.fields import RichTextField
+from django.contrib.auth.models import User
 
 
 class Collector(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     inst_main_name = models.CharField('Institution Main Name',
                                       max_length=255,
                                       help_text='If an institutional collector, provide main institution '
@@ -86,11 +89,13 @@ class Collector(models.Model):
                                      max_length=255,
                                      blank=True,
                                      help_text='Provide other form of contact.')
-    other_pref = models.BooleanField('Is other contact a preferred contact?',
+    other_pref = models.BooleanField('Is this a preferred contact?',
                                      blank=True)
-    notes = models.TextField('Notes',
-                             max_length=1000,
-                             blank=True)
+    notes = RichTextField('Notes',
+                          max_length=1000,
+                          blank=True,
+                          help_text='Use this field for providing information not accommodated in other '
+                                    'fields. This field displays to the public.')
     date_created = models.DateField(auto_now_add=True)
     date_saved = models.DateField(auto_now=True)
 

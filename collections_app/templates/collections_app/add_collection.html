@@ -14,10 +14,11 @@
     {% else %}
         <form action="" method="post" novalidate>
             <table>
+                {{ form.media }}
                 {{ form.as_table }}
                 <tr>
                     <td>&nbsp;</td>
-                    <td><input type="submit" value="Submit"></td>
+                    <td><input type="submit" value="Add Collection"></td>
                 </tr>
             </table>
             {% csrf_token %}

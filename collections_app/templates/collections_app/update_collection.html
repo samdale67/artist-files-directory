@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="flex-container-content">
+<div>
+
+<h1 class="home">Update a Collection</h1>
+    {% if submitted %}
+        <p><strong>Thanks</strong> for sharing your collection in the directory. Your listing is live
+            and available for viewing at the top of this <a href="/collections/new">list</a>. Return to
+            your account to add another collection.</p>
+    {% else %}
+        <form action="" method="post" novalidate>
+            <table>
+                {{ form.media }}
+                {{ form.as_table }}
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="submit" value="Update Collection"></td>
+                </tr>
+            </table>
+            {% csrf_token %}
+        </form>
+    {% endif %}
+
+</div>
+</div>
+
+&nbsp;<br />
+&nbsp;
+{% endblock %}
