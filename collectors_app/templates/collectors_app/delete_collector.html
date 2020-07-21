@@ -6,14 +6,14 @@
 <div class="flex-container-content">
 <div>
 
-<h1 class="home">Delete a Collection</h1>
+<h1 class="home">Delete a Collector</h1>
         <form action="" method="post" novalidate>
-            <p>Really delete collection <strong>{{ collector.inst_main_name }}{% if collector.inst_sub_name %},
+            <p>Really delete collector <strong>{{ collector.inst_main_name }}{% if collector.inst_sub_name %},
                 {{ collector.inst_sub_name }}{% endif %}{% if collector.inst_sub2_name %},
                 {{ collector.inst_sub2_name }}{% endif %}{% if collector.person_last_name %}
-                {{ collector.person_last_name }}, {{ collector.person_first_name }}{% endif %}&nbsp;</strong>?</p>
+                {{ collector.person_last_name }}, {{ collector.person_first_name }}{% endif %}</strong>?</p>
             <p>This can't be undone, so be sure!</p>
-            <input type="submit" value="Delete Collection">
+            <input type="submit" value="Delete Collector">
             {% csrf_token %}
         </form>
 </div>

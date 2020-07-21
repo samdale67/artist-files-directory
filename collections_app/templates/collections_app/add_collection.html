@@ -7,13 +7,18 @@
 <div>
 
 <h1 class="home">Add a Collection</h1>
-    {% if submitted %}
-        <p><strong>Thanks</strong> for sharing your collection in the directory. Your listing is live
-            and available for viewing at the top of this <a href="/collections/new">list</a>. Return to
-            your account to add another collection.</p>
-    {% else %}
+
         <form action="" method="post" novalidate>
             <table>
+                <tr>
+                    <td>&nbsp;</td><td><p>You must first <a href="/collectors/add_collector/">add a related collector record</a> so that it
+        appears in the list below.</p><p> We encourage you to supply Country, State or Province, and City in order to provide directory access
+        to the physical location of your artist files collection. Location names come from
+        <a href="https://www.geonames.org">GeoNames</a> with limitations. Certain tertiary jurisdictions
+        such as boroughs are not included. Also, Canadian and Mexican subregions are not used in the
+        directory. GeoNames data is very dynamic and will be refreshed in the directory on a regular
+        schedule.</p></td>
+                </tr>
                 {{ form.media }}
                 {{ form.as_table }}
                 <tr>
@@ -23,11 +28,8 @@
             </table>
             {% csrf_token %}
         </form>
-    {% endif %}
 
 </div>
 </div>
-
-&nbsp;<br />
 &nbsp;
 {% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <h1 class="browse">All Reference Services ...</h1>
+
+    <div class="flex-container-content">
+        <div>
+            <ul class="body-collection-browse">
+                {% for service in services %}
+                    <li>{{ service.serv_name }} &#10142;
+                        <a href="/collections/reference_service_update/{{ service.id }}">Update</a></li>
+                {% endfor %}
+             </ul>
+            <ul>
+                <li><a href="/collections/reference_service_add/">Add new service</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

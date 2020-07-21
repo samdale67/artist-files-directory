@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <h1 class="browse">All Institution Types ...</h1>
+
+    <div class="flex-container-content">
+        <div>
+            <ul class="body-collection-browse">
+                {% for type in types %}
+                    <li>{{ type.type_name }} &#10142;
+                        <a href="/collectors/institution_type_update/{{ type.id }}">Update</a></li>
+                {% endfor %}
+             </ul>
+            <ul>
+                <li><a href="/collectors/institution_type_add/">Add new institution type</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

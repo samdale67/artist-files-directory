@@ -3,35 +3,67 @@
 {% block content %}
 
 <div>
-    <h1 class="browse">All collections,* sorted by collector name then collection name ...
-    </h1>
 
     <div class="flex-container-content">
-        <div>
-        <ul class="body-collection-browse">
+        <div style="flex: 1 1 2000px">
+
+        <h1 class="browse">All collections sorted by collector name then collection name ... </h1>
+
+        </div>
+        <div style="flex: 1 1 2000px">
+        <table class="collection-browse">
+
+            <tr>
+                <td class="collection-browse-header">Collector</td>
+                <td class="collection-browse-header">Collection Name</td>
+            </tr>
             {% for collector in all_collectors %}
                 {% for collection in collector.collections.all %}
-                <li>
-                <a href="/collections/{{ collection.id }}">
+            <tr>
+            <td class="collection-browse" width="40%">
+
                 {{ collector.inst_main_name }}{% if collector.inst_sub_name %}, {% endif %}
                 {{ collector.inst_sub_name }}{% if collector.inst_sub2_name %}, {% endif %}
                 {{ collector.inst_sub2_name }}
                 {{ collector.person_last_name }}{% if collector.person_last_name %}, {% endif %}
-                {{ collector.person_first_name }}</a> &mdash; {{ collection.name }}
-                    {% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong
-    >{% endif %}</li>
+                {{ collector.person_first_name }}
+            </td>
+
+            <td class="collection-browse" width="60%">
+            <a href="/collections/{{ collection.id }}">{{ collection.name }}</a>{% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong>{% endif %}
+            </td>
+
+            </tr>
+
                 {% endfor %}
             {% endfor %}
-        </ul>
-        </div>
+        </table>
+
+     </div>
+
     </div>
-    <p class="footer">* we have <strong>{{ collection_count }}</strong> collections to share!
-        (consortial/shared
-    collections
-    count as
-    one
-    collection)</p>
-    <strong class="consortium-footer">&#x26AD;</strong> = consortial/collaborative collections
+
+    <p class="consortium-footer"><strong class="consortium-footer">&#x26AD;</strong> =
+        consortial/collaborative collections</p>
 </div>
+
+
+{#    <div>#}
+{#        <ul class="body-collection-browse">#}
+{#            {% for collector in all_collectors %}#}
+{#                {% for collection in collector.collections.all %}#}
+{#                <li>#}
+{#                <a href="/collections/{{ collection.id }}">#}
+{#                {{ collector.inst_main_name }}{% if collector.inst_sub_name %}, {% endif %}#}
+{#                {{ collector.inst_sub_name }}{% if collector.inst_sub2_name %}, {% endif %}#}
+{#                {{ collector.inst_sub2_name }}#}
+{#                {{ collector.person_last_name }}{% if collector.person_last_name %}, {% endif %}#}
+{#                {{ collector.person_first_name }}</a> &mdash; {{ collection.name }}#}
+{#                    {% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong#}
+{#    >{% endif %}</li>#}
+{#                {% endfor %}#}
+{#            {% endfor %}#}
+{#        </ul>#}
+{#        </div>#}
 
 {% endblock %}

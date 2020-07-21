@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <h1 class="browse">All Personal and Institution Names as Subjects ...</h1>
+
+    <div class="flex-container-content">
+        <div>
+        <ul class="body-collection-browse">
+        {% for name in names %}
+        <li>{{ name.sub_name }} &#10142; <a href="/collections/subject_name_update/{{ name.id }}">Update</a></li>
+        {% endfor %}
+        </ul>
+        <ul>
+        <li><a href="/collections/subject_name_add/">Add new name</a></li>
+        </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

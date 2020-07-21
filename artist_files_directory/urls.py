@@ -19,8 +19,9 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 from django.views.generic.base import TemplateView
-
 from collections_app import views
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, \
+    PasswordResetConfirmView, PasswordResetCompleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,6 +35,13 @@ urlpatterns = [
          name='register-success'),
     path('register/', views.register, name='register'),
     path('user/content/', views.user_content),
+    path('user/edit/', views.user_edit, name='user-edit'),
+    path('user/change-password/', views.change_password, name='change_password'),
+    path('user/reset-password/', PasswordResetView.as_view(), name='reset_password'),
+    path('user/reset-password/done', PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('user/reset-password/confirm', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('user/reset-password/complete', PasswordResetCompleteView.as_view(),
+         name='password_reset_complete'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

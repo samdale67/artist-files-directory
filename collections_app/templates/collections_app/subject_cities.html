@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <h1 class="browse">All Cities as Subjects ...</h1>
+
+    <div class="flex-container-content">
+        <div>
+        <ul class="body-collection-browse">
+        {% for city in cities %}
+        <li>{{ city.sub_city }} &#10142; <a href="/collections/subject_city_update/{{ city.id }}">Update</a></li>
+        {% endfor %}
+        </ul>
+        <ul>
+        <li><a href="/collections/subject_city_add/">Add new city</a></li>
+        </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

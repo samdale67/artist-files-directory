@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+
+    <div class="flex-container-content">
+        <div style="flex: 1 1 2000px">
+        <h1 class="browse">All collections located in {{ country.name }} ...</h1>
+        </div>
+
+        <div>
+
+        <table class="collection-browse">
+
+            <tr>
+                <td class="collection-browse-header">Collector</td>
+                <td class="collection-browse-header">Collection Name</td>
+            </tr>
+            {% for collector in collectors_country %}
+                {% for collection in collector.collections.all %}
+            <tr>
+            <td class="collection-browse" width="60%">
+
+                {{ collector.inst_main_name }}{% if collector.inst_sub_name %}, {% endif %}
+                {{ collector.inst_sub_name }}{% if collector.inst_sub2_name %}, {% endif %}
+                {{ collector.inst_sub2_name }}
+                {{ collector.person_last_name }}{% if collector.person_last_name %}, {% endif %}
+                {{ collector.person_first_name }}
+            </td>
+
+            <td class="collection-browse" width="40%">
+            <a href="/collections/{{ collection.id }}">{{ collection.name }}</a>{% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong>{% endif %}
+            </td>
+
+            </tr>
+
+                {% endfor %}
+            {% endfor %}
+        </table>
+        </div>
+    </div>
+<p class="consortium-footer"><strong class="consortium-footer">&#x26AD;</strong> = consortial/collaborative
+    collections</p>
+</div>
+
+{% endblock %}

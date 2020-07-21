@@ -4,14 +4,15 @@
 
 <div>
 
-  &nbsp;&nbsp;<strong id="consortium">&#x26AD;</strong><h1 class="browse">All corsortial/shared collections,
-    sorted
-        by collector name ...</h1>
+  &nbsp;&nbsp;    <div class="flex-container-content">
 
-    &nbsp;
+   <div style="flex: 1 1 2000px">
+        <strong id="consortium">&#x26AD;</strong><h1 class="browse">All corsortial/shared collections,
+    sorted by collector name ...</h1>
+        <hr class="browse">
+        </div>
 
-    <div class="flex-container-content">
-        <div>
+    <div>
         <ul class="body-collection-browse">
             {% for collector in consortial_collectors %}
                 {% for collection in collector.collections.all %}

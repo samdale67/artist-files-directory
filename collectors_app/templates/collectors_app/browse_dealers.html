@@ -4,10 +4,13 @@
 
 <div>
 
-    <h1 class="browse">Here is a list of dealers in the directory ... </h1>
+
 
     <div class="flex-container-content">
         <div>
+
+        <h1 class="browse">Here is a list of dealers in the directory ... </h1>
+
         <ul class="body-collection-browse">
             {% for collector in collectors %}
                 {% for collection in collector.collections.all %}

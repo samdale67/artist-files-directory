@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <h1 class="browse">All States and Provinces as Subjects ...</h1>
+
+    <div class="flex-container-content">
+        <div>
+        <ul class="body-collection-browse">
+        {% for state in states %}
+        <li>{{ state.sub_state_prov }} &#10142; <a href="/collections/subject_state_province_update/{{ state.id }}">Update</a></li>
+        {% endfor %}
+        </ul>
+        <ul>
+        <li><a href="/collections/subject_state_province_add/">Add new state or province</a></li>
+        </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

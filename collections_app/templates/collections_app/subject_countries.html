@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <h1 class="browse">All Countries as Subjects ...</h1>
+
+    <div class="flex-container-content">
+        <div>
+        <ul class="body-collection-browse">
+        {% for country in countries %}
+        <li>{{ country.sub_country }} &#10142; <a href="/collections/subject_country_update/{{ country.id }}">Update</a></li>
+        {% endfor %}
+        </ul>
+        <ul>
+        <li><a href="/collections/subject_country_add/">Add new country</a></li>
+        </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

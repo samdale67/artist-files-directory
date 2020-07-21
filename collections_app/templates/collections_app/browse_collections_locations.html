@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+
+    <div class="flex-container-content">
+
+        <div style="flex: 1 1 2000px">
+        <h1 class="browse">All geographic locations of artist files collections ...</h1>
+        </div>
+
+        <div>
+        <table class="collection-browse">
+            <tr>
+                <td class="collection-browse-header">Cities</td>
+            </tr>
+            {% for city in cities %}
+            <tr>
+                <td class="collection-browse"><a href="/collections/browse/location/city/{{ city.id }}"
+                        >{{ city.display_name }}</a> ({{ city.num_collection }}
+                            {% if city.num_collection > 1 %}Collections{% else %}Collection{% endif %})
+               {% endfor %}
+            </td>
+            </tr>
+
+        </table>
+        </div>
+
+        <div>
+        <table class="collection-browse">
+            <tr>
+                <td class="collection-browse-header">States and Provinces</td>
+            </tr>
+            {% for state_prov in states_provs %}
+            <tr>
+                <td class="collection-browse"><a href="/collections/browse/location/state_prov/
+{{ state_prov.id }}"
+                        >{{ state_prov.display_name }}</a> ({{ state_prov.num_collection }}
+                            {% if state_prov.num_collection > 1 %}Collections{% else %}Collection{% endif %})
+               {% endfor %}
+            </td>
+            </tr>
+
+        </table>
+        </div>
+
+
+        <div>
+        <table class="collection-browse">
+            <tr>
+                <td class="collection-browse-header">Countries</td>
+            </tr>
+            {% for country in countries %}
+            <tr>
+                <td class="collection-browse"><a href="/collections/browse/location/country/
+{{ country.id }}"
+                        >{{ country.name }}</a> ({{ country.num_collection }}
+                            {% if country.num_collection > 1 %}Collections{% else %}Collection{% endif %})
+               {% endfor %}
+            </td>
+            </tr>
+
+        </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

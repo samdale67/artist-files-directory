@@ -14,7 +14,8 @@ from .models import CollectionSubjectTopic
 from .models import CollectionSubjectStateProv
 from .models import CollectionImage
 from .models import CollectionDocument
-from .models import AFRUser
+# from .models import City
+# from .models import AFRUser
 
 
 class CollectionAdmin(admin.ModelAdmin):
@@ -31,7 +32,7 @@ class CollectionAdmin(admin.ModelAdmin):
 
 
 class CollectionImageAdmin(admin.ModelAdmin):
-    list_display = ('id', 'image_caption', 'collection', 'institution_name', 'institution_sub_name',
+    list_display = ('id', 'caption', 'collection', 'institution_name', 'institution_sub_name',
                     'person_last_name')
 
     def institution_name(self, obj):
@@ -44,19 +45,18 @@ class CollectionImageAdmin(admin.ModelAdmin):
         return "\n".join([c.person_last_name for c in obj.collection.collector.all()])
 
 
-class AFRUserInline(admin.StackedInline):
-    model = AFRUser
-    can_delete = False
-    verbose_name = "Institution and User Categories"
-    verbose_name_plural = "Additional Info"
-
-
-class AFRUserAdmin(UserAdmin):
-    inlines = (AFRUserInline,)
+# class AFRUserInline(admin.StackedInline):
+#     model = AFRUser
+#     can_delete = False
+#     verbose_name = "Institution and User Categories"
+#     verbose_name_plural = "Additional Info"
+#
+#
+# class AFRUserAdmin(UserAdmin):
+#     inlines = (AFRUserInline,)
 
 
 admin.site.unregister(User)
-admin.site.register(User, AFRUserAdmin)
 admin.site.register(Collection, CollectionAdmin)
 admin.site.register(CollectionImage, CollectionImageAdmin)
 admin.site.register(CollectionCatSystem)
@@ -70,3 +70,4 @@ admin.site.register(CollectionSubjectGeoArea)
 admin.site.register(CollectionSubjectTopic)
 admin.site.register(CollectionSubjectStateProv)
 admin.site.register(CollectionDocument)
+# admin.site.register(City)

@@ -1,6 +1,7 @@
-from django.db import models
 from django.urls import reverse
+from django.db import models
 from django.contrib.auth.models import User
+from cities_light.models import Country, Region, City
 from ckeditor.fields import RichTextField
 
 
@@ -10,10 +11,12 @@ class Collection(models.Model):
                                        related_name='collections',
                                        verbose_name=u'Collector(s)',
                                        blank=False,
-                                       help_text='Create or choose a collector responsible for the '
+                                       help_text='Choose a collector or collectors responsible for the '
                                                  'artist files collection. A collection can have '
                                                  'multiple owners, for example, in the case of '
-                                                 'consortial or collaborative digital projects.')
+                                                 'consortial or collaborative digital projects. Hold down '
+                                                 '“Control” or “Command” to select more than '
+                                                 'one field.')
     consortium = models.BooleanField('Consortial Collection?',
                                      blank=True,
                                      help_text='Check if you have selected more than one collector in the '
@@ -28,6 +31,15 @@ class Collection(models.Model):
                                       'with special characteristics, for example "The Nettie '
                                       'Wheeler Artist Files on Native American Artists. Multiple '
                                       'collections allowed and encouraged."')
+    country = models.ForeignKey(Country, blank=True, null=True, on_delete=models.CASCADE,
+                                verbose_name='Location: Country')
+    state_province = models.ForeignKey(Region,
+                                       verbose_name='Location: State/Province',
+                                       blank=True,
+                                       null=True,
+                                       on_delete=models.CASCADE)
+    city = models.ForeignKey(City, blank=True, null=True, on_delete=models.CASCADE, verbose_name='Location: '
+                                                                                                 'City')
     description = RichTextField('Description',
                                 max_length=3000,
                                 blank=True,
@@ -58,15 +70,21 @@ class Collection(models.Model):
                                      related_name='collections',
                                      verbose_name=u'Reference Services',
                                      blank=True,
-                                     help_text='Add reference services offered. Create a new service '
-                                               'if there is not a fit.')
+                                     help_text='Add reference services offered. Hold down “Control” or '
+                                               '“Command” to select more than one value.<br /><a '
+                                               'href="/collections/reference_services" '
+                                               'target="blank">Create or update terms</a>, '
+                                               'then return to this page to use.')
     cat_system = models.ManyToManyField(to='CollectionCatSystem',
                                         related_name='collections',
                                         verbose_name=u'Cataloging Systems',
                                         blank=True,
                                         help_text='Add systems used for cataloging artist files '
-                                                  'collection. Create a new system if there is '
-                                                  'not a fit.')
+                                                  'collection. Hold down “Control” or '
+                                                  '“Command” to select more than one value.<br /><a '
+                                                  'href="/collections/cataloging_systems" '
+                                                  'target="blank">Create or update terms</a>, '
+                                                  'then return to this page to use.')
     size = RichTextField('Size',
                          max_length=1000,
                          default='',
@@ -79,8 +97,11 @@ class Collection(models.Model):
                                          verbose_name=u'Special Formats',
                                          blank=True,
                                          help_text='Add special formats contained in the '
-                                                   'collection, either analog or digital. Create a new '
-                                                   'type if there is not a fit.')
+                                                   'collection, either analog or digital. Hold down “Control” or '
+                                                   '“Command” to select more than one value.<br /><a '
+                                                   'href="/collections/special_formats" '
+                                                   'target="blank">Create or update terms</a>, '
+                                                   'then return to this page to use.')
     dig_projects = RichTextField('Digital Projects',
                                  max_length=3000,
                                  blank=True,
@@ -95,61 +116,72 @@ class Collection(models.Model):
                                           verbose_name=u'Subject: Names',
                                           blank=True,
                                           help_text='Add personal and institutional names that '
-                                                    'are subjects of the collection.')
+                                                    'are subjects of the collection. Hold down “Control” or '
+                                                    '“Command” to select more than one value.<br /><a '
+                                                    'href="/collections/subject_names" '
+                                                    'target="blank">Create or update terms</a>, then return '
+                                                    'to this page to use.')
     subject_topic = models.ManyToManyField(to='CollectionSubjectTopic',
                                            related_name='collections',
                                            verbose_name=u'Subject: Topics',
                                            blank=True,
                                            help_text='Add topical terms that are the subject focuses '
-                                                     'of the files.')
+                                                     'of the files. Hold down “Control” or “Command” to '
+                                                     'select more than one value.<br /><a '
+                                                     'href="/collections/subject_topics" '
+                                                     'target="blank">Create or update terms</a>, '
+                                                     'then return to this page to use.')
     subject_city = models.ManyToManyField(to='CollectionSubjectCity',
                                           related_name='collections',
                                           verbose_name=u'Subject: Cities',
                                           blank=True,
-                                          help_text='Add cities that are subject focuses of the files.')
+                                          help_text='Add cities that are subject focuses of the files. Hold '
+                                                    'down “Control” or “Command” to select more than one '
+                                                    'value.<br /><a href="/collections/subject_cities" '
+                                                    'target="blank">Create or update terms</a>, then return '
+                                                    'to this page to use.')
     subject_county = models.ManyToManyField(to='CollectionSubjectCounty',
                                             related_name='collections',
                                             verbose_name=u'Subject: Counties',
                                             blank=True,
                                             help_text='Add counties that are subject focuses of the '
-                                                      'files.')
+                                                      'files. Hold down “Control” or “Command” to select '
+                                                      'more than one value.<br /><a '
+                                                      'href="/collections/subject_counties" '
+                                                      'target="blank">Create or update terms</a>, '
+                                                      'then return to this page to use.')
     subject_state_prov = models.ManyToManyField(to='CollectionSubjectStateProv',
                                                 related_name='collections',
                                                 verbose_name=u'Subject: States and '
                                                              'Provinces',
                                                 blank=True,
                                                 help_text='Add states or provinces that are subject '
-                                                          'focuses of the files.')
+                                                          'focuses of the files. Hold down “Control” or '
+                                                          '“Command” to select more than one value.<br /><a '
+                                                          'href="/collections/subject_states_provinces" '
+                                                          'target="blank">Create or update terms</a>, '
+                                                          'then return to this page to use.')
     subject_country = models.ManyToManyField(to='CollectionSubjectCountry',
                                              related_name='collections',
                                              verbose_name=u'Subject: Countries',
                                              blank=True,
                                              help_text='Add countries that are subject focuses of the '
-                                                       'files.')
+                                                       'files. Hold down “Control” or “Command” to select '
+                                                       'more than one value.<br /><a '
+                                                       'href="/collections/subject_countries" '
+                                                       'target="blank">Create or update terms</a>, '
+                                                       'then return to this page to use.')
     subject_geo_area = models.ManyToManyField(to='CollectionSubjectGeoArea',
                                               related_name='collections',
                                               verbose_name=u'Subject: Geographic Areas',
                                               blank=True,
                                               help_text='Add geographic areas, such as "West U.S." that '
-                                                        'are subject focuses of the files.')
-
-    # Need to develop a way, function, etc, for entering city then automatically filling in higher
-    # geographical hierarchies, including zip
-    loc_city = models.CharField('Location: City',
-                                max_length=255,
-                                help_text='Important for providing access to collections located in '
-                                          'specific cities.',
-                                blank=True)
-    loc_state_prov = models.CharField('Location: State/Province',
-                                      max_length=255,
-                                      help_text='Important for providing access to collections located'
-                                                ' in specific states or provinces.',
-                                      blank=True)
-    loc_country = models.CharField('Location: Country',
-                                   max_length=255,
-                                   help_text='Important for providing access to collections located in '
-                                             'specific countries.',
-                                   blank=True)
+                                                        'are subject focuses of the files. Hold down '
+                                                        '“Control” or “Command” to select more than one '
+                                                        'value.<br /><a '
+                                                        'href="/collections/subject_geo_areas" '
+                                                        'target="blank">Create or update terms</a>, '
+                                                        'then return to this page to use.')
     notes = RichTextField('Notes',
                           max_length=1000,
                           blank=True,
@@ -171,18 +203,22 @@ class Collection(models.Model):
 
 class CollectionImage(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField('Add Image',
+    image = models.ImageField('Image File',
                               upload_to='collection/images/',
-                              help_text='Upload images showing example material from files '
-                                        'and/or storage systems in use.')
-    image_caption = models.CharField('Image Caption',
-                                     max_length=50,
-                                     default='',
-                                     help_text='Provide a short yet descriptive caption describing the '
-                                               'image. 50 character limit.')
-    collection = models.ForeignKey('Collection',
+                              help_text='Upload image showing example material from '
+                                        'files and/or storage systems in use.<br />It seems reasonable '
+                                        'to limit yourself to ten images per collection. Only '
+                                        'five random images show in your collection detail view.</br />Show '
+                                        'us the fun stuff!')
+    caption = models.CharField('Caption',
+                               max_length=50,
+                               default='',
+                               help_text='Provide a short yet descriptive caption describing the '
+                                         'image. <br />Be very economical: 50 character limit, but shorter '
+                                         'is better. Make adjustments based in image orientation.')
+    collection = models.ForeignKey(Collection,
                                    related_name='collections',
-                                   verbose_name=u'Related Collection',
+                                   verbose_name='Related Collection',
                                    on_delete=models.CASCADE,
                                    default='',
                                    blank=False)
@@ -190,10 +226,10 @@ class CollectionImage(models.Model):
     class Meta:
         verbose_name = 'Collection Image'
         verbose_name_plural = 'Collection Images'
-        ordering = ['image_caption']
+        ordering = ['caption']
 
     def __str__(self):
-        return f"{self.image_caption}"
+        return f"{self.caption}"
 
 
 class CollectionDocument(models.Model):
@@ -422,7 +458,6 @@ class CollectionSubjectStateProv(models.Model):
 
 
 class CollectionSubjectCountry(models.Model):
-    # Use VIAF
     sub_country = models.CharField('Subject: Country',
                                    max_length=100,
                                    blank=False,
@@ -447,7 +482,6 @@ class CollectionSubjectCountry(models.Model):
 
 
 class CollectionSubjectGeoArea(models.Model):
-    # use VIAF
     sub_geo_area = models.CharField('Subject: Geographic Area',
                                     max_length=100,
                                     blank=False,
@@ -470,10 +504,9 @@ class CollectionSubjectGeoArea(models.Model):
         verbose_name_plural = 'Subject: Geographic Areas'
         ordering = ['sub_geo_area']
 
-
 # Extend User model with custom fields
-class AFRUser(models.Model):
-    user = models.OneToOneField(User, blank=True, null=True, on_delete=models.SET_NULL)
-    institution = models.CharField(blank=True, max_length=100)
-    private_collector = models.BooleanField(default=False)
-    dealer = models.BooleanField(default=False)
+# class AFRUser(models.Model):
+#     user = models.OneToOneField(User, blank=True, null=True, on_delete=models.SET_NULL)
+#     institution = models.CharField(blank=True, max_length=100)
+#     private_collector = models.BooleanField(default=False)
+#     dealer = models.BooleanField(default=False)

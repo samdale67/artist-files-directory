@@ -2,15 +2,39 @@
 <div style="flex: .05 .5 260px">
 <a href="/"><img src="{% static 'graphics/Artist-Files-Revealed-logo-blue.svg' %}"></a>
 
+    <ul class="navigation-counts">
+    <li><strong>{{ collection_count }}</strong> collections and growing!</li>
+    <li>Add yours below.</li>
+</ul>
+
+<ul class="navigation-login">
+    {%  if user.is_authenticated  %}
+        <li><strong>Hi {{ user.first_name }}!</strong></li>
+        <li><a href="/user/content">Create / Edit / Delete</a></li>
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
+            {% else %}
+        <li><a href="{% url 'login' %}">Log In / New Account</a></li>
+    {% endif %}
+</ul>
+
+
 <ul class="navigation">
-    <li><a class="navigation" href="/">Home</a></li>
-    <li><a class="navigation" href="/collections/browse">Browse Directory</a></li>
-{#    <li><a class="navigation" href="">Search Directory</a></li>#}
+    <li><a class="navigation" href="/">Start Page</a></li>
+    <li><strong class="navigation-browse">Browse ...</strong></li>
+        <ul class="navigation-sub">
+            <li><a href="/collections/browse/all" class="navigation">By Collector</a></li>
+            <li><a href="/collections/browse/locations" class="navigation">By Collection Location</a></li>
+            <li><a href="/collectors/browse/collector_types/" class="navigation">By Collector Type</a></li>
+            <li><a class="navigation">By Subject</a></li>
+            <li><a class="navigation">By Technical Data</a></li>
+        </ul>
+{#    <li>Search</li>#}
 </ul>
 
 <ul class="navigation">
     <li><a href="/collections/new">New Listings</a></li>
     <li><a href="/collections/random/">Random Collection</a></li>
+    <li><a href="">Digital Collections</a></li>
     <li><a href="/collections/browse/consortia">Consortial Collections</a></li>
 </ul>
 
@@ -22,20 +46,6 @@
     <li><a href="/what-are-artist-files">What Are Artist Files?</a></li>
 </ul>
 
-<ul class="navigation-counts">
-    <li><strong>We're growing &#10030; &#x263B; &#8673;</strong></li>
-    <li>&bull; Currently {{ collection_count }} collections</li>
-    <li>&bull; Add yours below!</li>
-</ul>
 
-<ul class="navigation-login">
-    {%  if user.is_authenticated  %}
-        <li><strong>Hi {{ user.first_name }}!</strong></li>
-        <li><a href="/user/content">Create / Edit</a></li>
-        <li><a href="{% url 'logout' %}">Log Out</a></li>
-            {% else %}
-        <li><a href="{% url 'login' %}">Log In / New Account</a></li>
-    {% endif %}
-</ul>
 
 </div>

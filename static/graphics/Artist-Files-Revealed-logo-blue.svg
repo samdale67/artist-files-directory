@@ -4,22 +4,16 @@
     <g transform="matrix(1,0,0,1,-956.037,-634.244)">
         <g transform="matrix(4.16667,0,0,4.16667,0,0)">
             <g transform="matrix(-0.952466,-0.304645,-0.304645,0.952466,344.627,469.238)">
-                <ellipse cx="0" cy="-160.56" rx="160.561" ry="160.56" style="fill:rgb(243,243,243);stroke:rgb(111,150,194);stroke-width:7px;"/>
+                <ellipse cx="0" cy="-160.56" rx="160.561" ry="160.56" style="fill:rgb(243,243,243);stroke:rgb(89,141,201);stroke-width:7px;"/>
             </g>
-        </g>
-        <g transform="matrix(4.16667,0,0,4.16667,0,0)">
-            <g transform="matrix(0.473513,0.1262,-0.135951,0.510103,-190.348,-288.357)">
+            <g transform="matrix(0.458248,-0.173638,0.187056,0.493658,-440.917,168.975)">
                 <text x="1338.91px" y="964.453px" style="font-family:'Arial-BoldItalicMT', 'Arial', sans-serif;font-weight:700;font-style:italic;font-size:73.924px;fill:rgb(226,134,70);">REVEALED</text>
             </g>
-        </g>
-        <g transform="matrix(4.16667,0,0,4.16667,0,0)">
-            <g transform="matrix(0.511613,0.136354,-0.14689,0.551147,-270.85,-449.516)">
-                <text x="1338.91px" y="964.453px" style="font-family:'Arial-BoldItalicMT', 'Arial', sans-serif;font-weight:700;font-style:italic;font-size:125px;fill:rgb(109,150,194);">AR<tspan x="1517.2px 1593.55px " y="964.453px 964.453px ">TI</tspan>ST</text>
+            <g transform="matrix(0.495119,-0.18761,0.202107,0.533378,-594.299,79.4904)">
+                <text x="1338.91px" y="964.453px" style="font-family:'Arial-BoldItalicMT', 'Arial', sans-serif;font-weight:700;font-style:italic;font-size:125px;fill:rgb(64,133,208);">AR<tspan x="1517.2px 1593.55px " y="964.453px 964.453px ">TI</tspan>ST</text>
             </g>
-        </g>
-        <g transform="matrix(4.16667,0,0,4.16667,0,0)">
-            <g transform="matrix(0.436808,0.116417,-0.125413,0.470561,-216.519,-300.884)">
-                <text x="1338.91px" y="964.453px" style="font-family:'Arial-BoldItalicMT', 'Arial', sans-serif;font-weight:700;font-style:italic;font-size:125px;fill:rgb(109,150,194);">FILES</text>
+            <g transform="matrix(0.422726,-0.160178,0.172556,0.45539,-453.642,164.462)">
+                <text x="1338.91px" y="964.453px" style="font-family:'Arial-BoldItalicMT', 'Arial', sans-serif;font-weight:700;font-style:italic;font-size:125px;fill:rgb(64,133,208);">FILES</text>
             </g>
         </g>
     </g>

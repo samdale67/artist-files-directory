@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <h1 class="browse">All Geographic Areas as Subjects ...</h1>
+
+    <div class="flex-container-content">
+        <div>
+        <ul class="body-collection-browse">
+        {% for area in areas %}
+        <li>{{ area.sub_geo_area }} &#10142; <a href="/collections/subject_geo_area_update/{{ area.id }}">Update</a></li>
+        {% endfor %}
+        </ul>
+        <ul>
+        <li><a href="/collections/subject_geo_area_add/">Add new geographic area</a></li>
+        </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

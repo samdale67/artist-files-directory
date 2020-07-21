@@ -1,115 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    {% if collection.collector.all.count > 1 %}<h1 class="detail">Collectors Detail</h1>
-{% else %}<h1 class="detail">Collector Details</h1>{% endif %}
 
-    {% for collector in collection.collector.all %}
-
-{#    <div id="update-date"><label>Collector information last updated</label> <strong>{{ collector.date_saved }}</strong></div>#}
-
-    <div class="flex-container-content">
-
-    <div>
-    <h2>Name</h2>
-    {% if collector.person_last_name %}
-        <p><a href="">{{ collector.person_first_name }} {{ collector.person_last_name }}</a></p>
-        <h3>Person Type(s)</h3>
-            <ul class="body">
-            {% for person_type in collector.person_type.all %}
-            <li><a href="">{{ person_type }}</a></li>
-            {% endfor %}
-            </ul>
-    {% else %}
-        <p><a href="/collectors/{{ collector.id }}">{{ collector.inst_main_name }}
-            {%  if collector.inst_sub_name %}<br />{{ collector.inst_sub_name }}{% endif %}{% if collector.inst_sub_name %}<br />{{ collector.inst_sub2_name }}{% endif %}</a></p>
-        <h3>Institution Type(s)</h3>
-        <ul class="body">
-        {% for inst_type in collector.inst_type.all %}
-            <li><a href="/collectors/browse/institution_type/{{ inst_type.id }}"
-            >{{ inst_type }}</a></li>
-       {% endfor %}
-        </ul>
-     {% endif %}
-    </div>
-
-    <div>
-    <h2>Contacts</h2>
-    <ul class="body">
-    {% if collector.email_pref == True %}
-        <li><a href="mailto:{{ collector.email }}?subject=Artist Files Question">
-        {{ collector.email }}</a>&nbsp; <strong class="preferred">&#10003; preferred</strong></li>
-        {% elif collector.email and collector.website_pref == False %}
-        <li><a href="mailto:{{ collector.email }}?subject=Artist Files Question">{{ collector.email }}</a></li>
-    {% endif %}
-
-    {% if collector.telephone and collector.telephone_pref == True %}
-        <li>{{ collector.telephone }}&nbsp;<strong class="preferred">&#10003; preferred</strong></li>
-        {% elif collector.telephone and collector.telephone_pref == False %}
-        <li>{{ collector.telephone }}</li>
-    {% endif %}
-
-    {% if collector.website and collector.website_pref == True %}
-        <li><a href="{{ collector.website }}">{{ collector.website }}</a>&nbsp;<strong
-                class="preferred">&#10003; preferred</strong></li>
-        {% elif collector.website and collector.website_pref == False %}
-        <li><a href="{{ collector.website }}">{{ collector.website }}</a></li>
-    {% endif %}
-
-    {% if collector.twitter and collector.twitter_pref == True %}
-        <li><label>Twitter</label> <a href="https://www.twitter.com/{{ collector.twitter }}"
-        >{{ collector.twitter }}</a>&nbsp;<strong class="preferred">&#10003; preferred</strong></li>
-        {% elif collector.twitter and collector.twitter_pref == False %}
-        <li><label>Twitter</label> <a href="https://www.twitter.com/{{ collector.twitter }}"
-        >{{ collector.twitter }}</a></li>
-    {% endif %}
-
-    {% if collector.instagram and collector.instagram_pref == True %}
-        <li><label>Instagram</label> <a href="https://www.instagram.com/{{ collector.instagram }}">
-        {{ collector.instagram }}</a>&nbsp;<strong class="preferred">&#10003; preferred</strong></li>
-        {% elif collector.instagram and collector.instagram_pref == False %}
-        <li><label>Instagram</label> <a href="https://www.instagram.com/{{ collector.instagram }}">
-            {{ collector.instagram }}</a></li>
-    {% endif %}
-    </ul>
-    </div>
-
-    </div>
-
+    <h1 class="detail">{{ collection.name }}</h1>{% for collector in collection.collector.all %}
+        <h2 class="detail">{{ collector.inst_main_name }}{% if collector.inst_sub_name %},
+            {{ collector.inst_sub_name }}{% endif %}{% if collector.inst_sub2_name %},
+            {{ collector.inst_sub2_name }}{% endif %}</h2>
+    <h2 class="detail">{{ collector.person_first_name }} {{ collector.person_last_name }}</h2>
     {% endfor %}
-
-    {% if collector.notes %}
-        <div class="flex-container-content">
-        <div>
-        <h2>Collector Notes</h2>
-        <p>{{ collector.notes|safe }}</p>
-        </div>
-        </div>
-    {% endif %}
-
-    <h1 class="detail">{{ collection.name }}</h1>
     {% if collection.consortium == True %}<strong id="consortium">&#x26AD;</strong>{% endif %}
-
-{#<div id="update-date"><label>Collection information last updated</label> <strong#}
-{#        >{{ collection.date_saved }}</strong>#}
 
     {% if collection_images %}
     <div class="flex-container-content-images">
         {% for image in collection_images %}
             <div>
                 <a href="{{ image.image.url }}"><img class="collection" src="{{ image.image.url }}"
-                                                   height="210" alt=
+                                                   height="225" alt=
                     "{{ collection.name }}
-                Image"/></a><br /><label class="caption">^ {{ image.image_caption }}</label>
+                Image"/></a><br /><label class="caption">{{ image.caption }}</label>
             </div>
         {% endfor %}
     </div>
     {% endif %}
 
     <div class="flex-container-content">
-    <div>
+    <div style="flex: 1 1 300px">
     {% if collection.quote %}
-        <blockquote>&#10077; {{ collection.quote|safe }} &#10078;</blockquote>
+        <blockquote>&#10077;&nbsp;{{ collection.quote|safe }}&nbsp;&#10078;</blockquote>
     {% endif %}
 
     {% if collection.quote_attrib %}
@@ -119,6 +36,18 @@
     {% if collection.description %}
         <h2>Overview</h2>
         <p>{{ collection.description|safe }}</p>
+    {% endif %}
+    </div>
+
+    <div style="flex: 1 1 250px">
+
+        {% if collection.loc_city or collection.loc_state_prov or collection.loc_country %}
+        <h2>Location</h2>
+        <ul class="body">
+        <li><a href="">{{ collection.loc_city }}</a>{% if collection.loc_city and collection.loc_state_prov %}, {% endif %}
+        <a href="">{{ collection.loc_state_prov }}</a>{% if collection.loc_state_prov and collection.loc_country %}, {% endif %}
+        <a href="">{{ collection.loc_country }}</a></li>
+        </ul>
     {% endif %}
 
     {% if collection.access %}
@@ -164,42 +93,55 @@
         <p><a href="{{ collection.dig_access }}">{{ collection.dig_access }}</a></p>
     {% endif %}
 
-    {% if collection.loc_city or collection.loc_state_prov or collection.loc_country %}
-        <h2>Collection Location</h2>
-        <ul class="body">
-        <li><a href="">{{ collection.loc_city }}</a>{% if collection.loc_city and collection.loc_state_prov %}, {% endif %}
-        <a href="">{{ collection.loc_state_prov }}</a>{% if collection.loc_state_prov and collection.loc_country %}, {% endif %}
-        <a href="">{{ collection.loc_country }}</a></li>
-        </ul>
+    {% if collection.notes %}
+        <h2>Collection Notes</h2>
+        <p>{{ collection.notes|safe }}</p>
+        {% endif %}
+
+    {% if collection.cat_system.all %}
+        <h2>Cataloging/Inventory/Discovery Systems</h2>
+            <ul class="body">
+            {% for cat_system in collection.cat_system.all %}
+            <li><a href="">{{ cat_system }}</a></li>
+            {% endfor %}
+            </ul>
     {% endif %}
     </div>
     </div>
 
+
     {% if collection.subject_topic.all or collection.subject_name.all or collection.subject_city.all or collectons.subject_county.all or collection.subject_state_prov.all or collection.subject_country.all or collection.subject_geo_area.all %}
         <div class="flex-container-content">
-        <div>
-        <h2 class="subjects">Subjects</h2>
+
 
     {% if collection.subject_name.all %}
-        <h3>People and Institutions</h3>
+                <div style="flex: 1 1 250px">
+
+        <h2>Subjects: Names</h2>
         <ul class="body">
             {% for name in collection.subject_name.all %}
             <li><a href="">{{ name }}</a></li>
             {% endfor %}
         </ul>
+                </div>
     {% endif %}
 
     {% if collection.subject_topic.all %}
-        <h3>Topics</h3>
+                <div style="flex: 1 1 250px">
+
+        <h2>Subjects: Topics</h2>
         <ul class="body">
             {% for subject in collection.subject_topic.all %}
             <li><a href="">{{ subject }}</a></li>
             {% endfor %}
         </ul>
+                </div>
     {% endif %}
 
     {% if collection.subject_city.all or collectons.subject_county.all or collection.subject_state_prov.all or collection.subject_country.all or collection.subject_geo_area.all %}
-            <h3>Places</h3>
+                   <div style="flex: 1 1 250px">
+
+            <h2>Subjects: Places</h2>
             <ul class="body">
                 {% for city in collection.subject_city.all %}
                     <li><a href="/collections/browse/subjects/cities/{{ city.id }}"
@@ -218,32 +160,111 @@
                     <li><a href="">{{ geo_area }}</a></li>
                 {% endfor %}
             </ul>
+                 </div>
     {% endif %}
+    <div style="flex: 1 1 200px">
+    &nbsp;
     </div>
+
     </div>
+
     {% endif %}
 
-    {% if collection.notes %}
-        <div class="flex-container-content">
-        <div>
-        <h2>Collection Notes</h2>
-        <p>{{ collection.notes|safe }}</p>
-        </div>
-        </div>
-    {% endif %}
+       {% if collection.collector.all.count > 1 %}<h1 class="detail">Collectors Detail</h1>
+{% else %}<h1 class="detail">Collector Details</h1>{% endif %}
 
-    {% if collection.cat_system.all %}
-        <div class="flex-container-content">
-        <div>
-        <h2>Cataloging/Inventory/Discovery Systems</h2>
+    {% for collector in collection.collector.all %}
+
+{#    <div id="update-date"><label>Collector information last updated</label> <strong>{{ collector.date_saved }}</strong></div>#}
+
+    <div class="flex-container-content">
+
+    <div style="flex: 1 1 250px">
+    <h2>Name</h2>
+    {% if collector.person_last_name %}
+        <p><a href="">{{ collector.person_first_name }} {{ collector.person_last_name }}</a></p>
+        <h3>Person Type(s)</h3>
             <ul class="body">
-            {% for cat_system in collection.cat_system.all %}
-            <li><a href="">{{ cat_system }}</a></li>
+            {% for person_type in collector.person_type.all %}
+            <li><a href="">{{ person_type }}</a></li>
             {% endfor %}
             </ul>
+    {% else %}
+        <p><a href="/collectors/{{ collector.id }}">{{ collector.inst_main_name }}
+            {%  if collector.inst_sub_name %}<br />{{ collector.inst_sub_name }}{% endif %}{% if collector.inst_sub_name %}<br />{{ collector.inst_sub2_name }}{% endif %}</a></p>
+        <h3>Institution Type(s)</h3>
+        <ul class="body">
+        {% for inst_type in collector.inst_type.all %}
+            <li><a href="/collectors/browse/institution_type/{{ inst_type.id }}"
+            >{{ inst_type }}</a></li>
+       {% endfor %}
+        </ul>
+     {% endif %}
+    </div>
+
+    <div style="flex: 1 1 250px">
+    <h2>Contacts</h2>
+    <ul class="body">
+    {% if collector.email_pref == True %}
+        <li><a href="mailto:{{ collector.email }}?subject=Artist Files Question">
+        {{ collector.email }}</a>&nbsp; <strong class="preferred">&#10003; preferred</strong></li>
+        {% elif collector.email and collector.website_pref == False %}
+        <li><a href="mailto:{{ collector.email }}?subject=Artist Files Question">{{ collector.email }}</a></li>
+    {% endif %}
+
+    {% if collector.telephone and collector.telephone_pref == True %}
+        <li>{{ collector.telephone }}&nbsp;<strong class="preferred">&#10003; preferred</strong></li>
+        {% elif collector.telephone and collector.telephone_pref == False %}
+        <li>{{ collector.telephone }}</li>
+    {% endif %}
+
+    {% if collector.website and collector.website_pref == True %}
+        <li><a href="{{ collector.website }}">{{ collector.website }}</a>&nbsp;<strong
+                class="preferred">&#10003; preferred</strong></li>
+        {% elif collector.website and collector.website_pref == False %}
+        <li><a href="{{ collector.website }}">{{ collector.website }}</a></li>
+    {% endif %}
+
+    {% if collector.twitter and collector.twitter_pref == True %}
+        <li><label>Twitter</label> <a href="https://www.twitter.com/{{ collector.twitter }}"
+        >{{ collector.twitter }}</a>&nbsp;<strong class="preferred">&#10003; preferred</strong></li>
+        {% elif collector.twitter and collector.twitter_pref == False %}
+        <li><label>Twitter</label> <a href="https://www.twitter.com/{{ collector.twitter }}"
+        >{{ collector.twitter }}</a></li>
+    {% endif %}
+
+    {% if collector.instagram and collector.instagram_pref == True %}
+        <li><label>Instagram</label> <a href="https://www.instagram.com/{{ collector.instagram }}">
+        {{ collector.instagram }}</a>&nbsp;<strong class="preferred">&#10003; preferred</strong></li>
+        {% elif collector.instagram and collector.instagram_pref == False %}
+        <li><label>Instagram</label> <a href="https://www.instagram.com/{{ collector.instagram }}">
+            {{ collector.instagram }}</a></li>
+    {% endif %}
+    </ul>
+    </div>
+
+        <div style="flex: 1 1 250px">
+        &nbsp;
+        </div>
+
+        <div style="flex: 1 1 200px">
+        &nbsp;
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+    {% if collector.notes %}
+        <div class="flex-container-content">
+        <div>
+        <h2>Collector Notes</h2>
+        <p>{{ collector.notes|safe }}</p>
         </div>
         </div>
     {% endif %}
+
+
 <strong class="consortium-footer">&#x26AD;</strong> = consortial/collaborative collection
   </div>
 </div>

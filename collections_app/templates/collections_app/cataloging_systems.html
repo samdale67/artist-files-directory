@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <h1 class="browse">All Cataloging Systems ...</h1>
+
+    <div class="flex-container-content">
+        <div>
+            <ul class="body-collection-browse">
+                {% for system in systems %}
+                    <li>{{ system.cat_name }} &#10142;
+                        <a href="/collections/cataloging_system_update/{{ system.id }}">Update</a></li>
+                {% endfor %}
+             </ul>
+            <ul>
+                <li><a href="/collections/cataloging_system_add/">Add new cataloging system</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

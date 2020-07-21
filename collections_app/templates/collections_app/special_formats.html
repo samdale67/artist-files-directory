@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <h1 class="browse">All Special Formats ...</h1>
+
+    <div class="flex-container-content">
+        <div>
+            <ul class="body-collection-browse">
+                {% for format in formats %}
+        <li>{{ format.special_format }}  &#10142; <a href="/collections/special_format_update/{{ format.id }}">Update</a></li>
+                {% endfor %}
+             </ul>
+            <ul>
+                <li><a href="/collections/special_format_add/">Add new format</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

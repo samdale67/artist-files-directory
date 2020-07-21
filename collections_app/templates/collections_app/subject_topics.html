@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <h1 class="browse">All Topical Subjects ...</h1>
+
+    <div class="flex-container-content">
+        <div>
+        <ul class="body-collection-browse">
+        {% for topic in topics %}
+        <li>{{ topic.sub_topic }} &#10142; <a href="/collections/subject_topic_update/{{ topic.id }}">Update</a></li>
+        {% endfor %}
+        </ul>
+        <ul>
+        <li><a href="/collections/subject_topic_add/">Add new topic</a></li>
+        </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -28,8 +28,13 @@ class Collector(models.Model):
                                        verbose_name=u'Institution Types',
                                        related_name='Collector',
                                        blank=True,
-                                       help_text='Choose all types that are relevant. Create a new '
-                                                 'type if there is not a fit.')
+                                       help_text='Choose all types that are relevant. Hold down Control or '
+                                                 'Command to select more than one field. <br />This is a '
+                                                 'shared '
+                                                 'field.'
+                                                 ' Load <a href="/collectors/institution_types/" '
+                                                 'target="_blank">field page</a> to '
+                                                 'add or edit fields, then refresh this page to use.')
     person_first_name = models.CharField('First Name',
                                          max_length=255,
                                          blank=True,
@@ -43,12 +48,19 @@ class Collector(models.Model):
                                          related_name='Collector',
                                          blank=True,
                                          help_text='If a private collector, choose all types that are '
-                                                   'relevant. Create new type if '
-                                                   'there is not a fit.')
+                                                   'relevant. Dealers: please choose "Dealer." Hold down '
+                                                   'Control or '
+                                                   'Command to select more '
+                                                   'than one field.<br />This is a shared field. Load '
+                                                   '<a '
+                                                   'href="/collectors/person_types/" target="_blank">field '
+                                                   'page</a> '
+                                                   'to '
+                                                   'add or edit fields, then refresh this page to use.')
     sort_name = models.CharField('Collector Sort Name',
                                  max_length=255,
                                  help_text='Use this field to tell the system how you want your entry to be '
-                                           'sorted in a list. You will wan to drop initial articles, etc.',
+                                           'sorted in a list, dropping initial articles, etc.',
                                  default='',
                                  blank=False)
     website = models.URLField('Website',

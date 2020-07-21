@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+
+    <div class="flex-container-content">
+
+        <div style="flex: 1 1 2000px">
+        <h1 class="browse">All collector types ...</h1>
+        </div>
+
+        <div>
+
+        <table class="collection-browse" width="400px">
+            <tr>
+                <td class="collection-browse-header">Institution Types</td>
+             </tr>
+
+            {% for type in institution_types %}
+                <tr>
+                <td class="collection-browse">
+                <a href="/collectors/browse/collector_type/institution/{{ type.id }}"
+                >{{ type.type_name }}</a> ({{ type.num_collection }}
+                            {% if type.num_collection > 1 %}Collections{% else %}Collection{% endif %})
+                           {% endfor %}
+            </td>
+            </tr>
+        </table>
+
+        </div>
+
+        <div>
+
+           <table class="collection-browse" width="400px">
+            <tr>
+                <td class="collection-browse-header">Person Types</td>
+             </tr>
+
+            {% for type in person_types %}
+                <tr>
+                <td class="collection-browse">
+                <a href="/collectors/browse/collector_type/person/{{ type.id }}"
+                >{{ type.type_name }}</a> ({{ type.num_collection }}
+                            {% if type.num_collection > 1 %}Collections{% else %}Collection{% endif %})
+                           {% endfor %}
+                </td>
+                </tr>
+        </table>
+</div>
+
+    </div>
+{% endblock %}

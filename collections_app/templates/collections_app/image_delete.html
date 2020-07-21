@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="flex-container-content">
+<div>
+
+<h1 class="home">Delete an Image</h1>
+        <form action="" method="post" novalidate>
+            <p>Really delete this image?</p>
+            <p>This can't be undone, so be sure!</p>
+            <input type="submit" value="Delete Image">
+            {% csrf_token %}
+        </form>
+</div>
+
+</div>
+</div>
+
+{% endblock %}

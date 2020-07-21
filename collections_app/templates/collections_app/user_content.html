@@ -4,106 +4,193 @@
 {% block content %}
 
 <div class="flex-container-content">
-   <div style="flex: 1 1 300px">
-        <h1>{{ user.first_name }} <div id="heart">&hearts;</div>s Artist Files!</h1>
-       <ul>
+    <div style="flex: 1 1 250px">
+     <h1>{{ user.first_name }} <div id="heart">&hearts;</div>s Artist Files!</h1>
+        <ul>
         <li>We've gathered all the collector, collection, images, and documents you have created in the
-            blue area below and provided links to create new content. Your content helps make the directory
-            more comprehensive.<br />
-            <strong>Thanks for contributing</strong>.</li>
-       <li>We think it's important to keep directory entries up to date, so the directory will send you an
-           email (the one in the collector record) every six months with a reminder to review your
-           information. And you can't opt out!</li>
-       </ul>
-   </div>
-    <div style="flex: 1 1 300px">
-       <h2>About Directory Records</h2>
-            <ul>
-            <li>The directory currently contains <strong
-            >{{ collector_count }}</strong> collector records, <strong
-           >{{ collection_count }}</strong> collection records, <strong>{{ image_count }}</strong> images,
-               and <strong>{{ document_count }}</strong> documents.</li>
-            <li>Directory entries are pairings of collector records and collection records. A collector can
-            "own" multiple collections. Similarly, a collection can have multiple collectors, which is the
-                case for digital collections that contain material from multiple collectors. See <a
-                    href="/collections/5/">Missouri Remembers: Artists in Missouri 1821-1951</a>.</li>
-                <li>With that in mind, you'll first need to create a collector record before you can associate
-                a collection. After creating a collector record, you will return to this page and create a
-                collection record and connect a collector (or collectors).</li>
-                <li>Any authenticated user can add and update the following fields: institution
-                    type, private collector type, reference service, cataloging system, special format,
-                    subject: name, subject: topic, subject: city, subject: county, subject: states and provinces,
-                    subject: country, subject, and geographic area. </li>
-            </ul>
+            blue area below and provided links to create and update content. </li>
+        <li>The green area allows you to add and edit controlled terms that are commonly used in collector
+            collection descriptions. You are encouraged to edit and add new terms there, but you cannot
+            delete them.</li>
+        <li><strong>Thanks for contributing</strong>. Your content helps make the directory
+            more comprehensive.</li>
+        </ul>
+    </div>
+           <div style="flex: 1 1 300px">
+              <h2>Current User Info</h2>
+    <p> <strong>Username</strong>: <code>{{ user.username }}</code><br />
+           <strong>Email</strong>: <code>{{ user.email }}</code><br />
+           <strong>First Name</strong>: <code>{{ user.first_name }}</code><br />
+        <strong>Last Name</strong>: <code>{{ user.last_name }}</code></p>
+
+           <a href="/user/edit/">Update user info</a><br />
+           <a href="/user/change-password/">Change password</a></p>
+
+       <p>We think it's important to keep entries up to date, so the directory will send an
+           email to <code>{{ user.email }}</code> every six months with a reminder to
+           review your information. Sorry, you can't opt out!</p>
+       </div>
+    <div style="flex: 1 1 175px">
     </div>
 </div>
 
 
     <div class="flex-container-content-user-records">
-{% if collectors %}
-<div style="flex: 1 1 300px">
+
+    <div style="flex: 1 1 250px">
+    <h1>About Directory Records</h1>
+            <ul>
+            <li>The directory currently contains <strong
+           >{{ collection_count }}</strong> collection records, <strong
+            >{{ collector_count }}</strong> collector records,  and <strong>{{ image_count }}</strong>
+                images.</li>
+            <li>Directory entries are pairings of collector records and collection records. </li>
+            <li><strong>You must create a collector record before you can associate
+                a collection.</strong> After creating a collector record, you will return to this page to
+                create a collection record and connect it to a collector or collectors.</li>
+                <li>A collector can "own" multiple collections. We encourage you create separate
+                    collection records
+                for any specialized collection, such as a named collection or a collection with
+                distinct subject matter.</li>
+                <li>Similarly, a collection can have multiple collectors,
+                which is the case for digital collections that contain material from multiple sources. See <a
+                    href="/collections/5/">Missouri Remembers: Artists in Missouri 1821-1951</a> for an
+                example.</li>
+                            </ul>
+    </div>
+    <div style="flex: 1 1 275px">
+
+        {% if collectors %}
+
     <h2>Your Collector Records</h2>
     <ul>
         {% for collector in collectors %}
             <li>{{ collector.inst_main_name }}{% if collector.inst_sub_name %},
                 {{ collector.inst_sub_name }}{% endif %}{% if collector.inst_sub2_name %},
                 {{ collector.inst_sub2_name }}{% endif %}{% if collector.person_last_name %}
-                {{ collector.person_last_name }}, {{ collector.person_first_name }}{% endif %}&nbsp;
-                &#10142;
-                &nbsp;<a
-                href="/collectors/update/{{ collector.id }}">Update</a> | <a
-                href="/collectors/delete/{{ collector.id }}">Delete</a></li>
+                {{ collector.person_last_name }}, {{ collector.person_first_name }}{% endif %}<br /><a href="/collectors/update/{{ collector.id }}">Update</a> | <a href="/collectors/delete/{{ collector.id }}">Delete</a></li>
         {% endfor %}
     </ul>
-    <ul>
-        <li><strong><a href="/collectors/add_collector/">Add a collector</a></strong></li>
-    </ul>
-</div>
 
+    <p><label class="number">&#10122;</label> <strong><a href="/collectors/add_collector/">Add
+        collector</a></strong></p>
+            <p>&nbsp;</p>
             {% else %}
 
-   <div style="flex: 1 1 300px">
                <h2>Your Collector Records</h2>
    <p>You haven't created any collector records. You'll first need to create a collector record before you can
        create a collection.</p>
-    <ul>
-        <li><strong><a href="/collectors/add_collector/">Add a collector</a></strong></li>
-    </ul>
- </div>
+    <p><label class="number">&#10122;</label> <strong><a href="/collectors/add_collector/">Add
+        collector</a></strong></p>
  {% endif %}
 
-
         {% if collections %}
-<div style="flex: 1 1 300px">
     <h2>Your Collection Records</h2>
-<p>Clicking a collection name loads the record as seen by the public.</p>
+
+            <p>Clicking a collection name loads the record as seen by the public.</p>
+
     <ul>
         {% for collection in collections %}
-            <li><a href="/collections/{{ collection.id }}">{{ collection.name }}</a>&nbsp;&#10142;&nbsp;<a
-                href="/collections/update/{{ collection.id }}">Update</a> | <a
+            <li><a href="/collections/{{ collection.id }}">{{ collection.name }}</a><br /><a href="/collections/update/{{ collection.id }}">Update</a> | <a
                 href="/collections/delete/{{ collection.id }}">Delete</a></li>
         {% endfor %}
     </ul>
 
-       <ul>
-           <li><strong><a href="/collections/add_collection/">Add a collection</a></strong></li>
-    </ul>
-</div>
+        <p><label class="number">&#10123;</label><strong><a href="/collections/add_collection/">Add
+            collection</a></strong></p>
+
+                    {% elif collectors and not collections %}
+    <h2>Your Collection Records</h2>
+<p>You're all set to create your first collection.</p>
+
+           <p><label class="number">&#10123;</label> <strong><a href="/collections/add_collection/">Add
+               collection</a></strong></p>
 
             {% else %}
-<div style="flex: 1 1 300px">
            <h2>Your Collection Records</h2>
 
-   <p>You haven't created an artist files collection yet. Remember that you'll first need to create a
+   <p>You haven't created an artist files collection yet. You'll first need to create a
        collector before you can associate a collection.</p>
-    <ul>
-        <li><strong><a href="/collections/add_collection/">Add a collection</a></strong></li>
-    </ul>
-    </div>
-
-            </div>
 
             {% endif %}
+    </div>
+    <div style="flex: 1 1 175px">
+
+    <h2>Your Collection Images</h2>
+    <p>Click an image to update or delete.</p>
+{#        <ul class="images-user">#}
+        {% for image in images %}
+            <a href="/collections/image_update/{{ image.id }}"><img class="collection" src="
+{{ image.image.url }}" height="100" alt="Collection Image"/></a>
+        {% endfor %}
+{#        </ul>#}
+
+           <p><label class="number">&#10124;</label> <strong><a href="/collections/image_add/">Add
+               image</a></strong></p>
+
+
+
+{#        <h2>Your Documents</h2>#}
+{#    <ul>#}
+{#        {% for document in documents %}#}
+{#            <li><a href="/collections/{{ collection.id }}">{{ collection.name }}</a>&nbsp;&#10142;&nbsp;<a#}
+{#                href="/collections/update/{{ collection.id }}">Update</a> | <a#}
+{#                href="/collections/delete/{{ collection.id }}">Delete</a></li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+{##}
+{#       <ul>#}
+{#           <li><a href="/collections/add_collection/">Add document</a></li>#}
+{#    </ul>#}
+
+    </div>
+    </div>
+
+    <div class="flex-container-content-user-records-shared">
+            <div style="flex: 1 1 250px">
+               <h1>About Shared Fields</h1>
+                <ul>
+                <li>Any user can add and update the shared fields to the right.
+                    They are owned and maintained by the community and designed to grow and improve over
+                    time.</li>
+                <li>If your collector or collector record requires a new field, you can add it here. You
+                    can also edit fields, but be prepared to substantiate your edit. As noted in the form,
+                    please use legitimate/authorized terms and reference the source
+                    of the term when applicable. Your edit will be reflected on any records that include
+                    the term. <strong>No pressure!</strong></li>
+                <li>You are not allowed to delete shared fields.</li>
+                </ul>
+            </div>
+            <div style="flex: 1 1 275px">
+                <h2>Services, Systems, Formats</h2>
+                <ul>
+                    <li><a href="/collections/reference_services/">Reference Services</a></li>
+                    <li><a href="/collections/cataloging_systems">Cataloging Systems</a></li>
+                    <li><a href="/collections/special_formats">Special Formats</a></li>
+                </ul>
+                <p>&nbsp;</p>
+
+                                <h2>Private Collector and Institution Types</h2>
+                 <ul>
+                     <li><a href="/collectors/person_types/">Private Collector Types</a></li>
+                    <li><a href="/collectors/institution_types">Institution Types</a></li>
+                 </ul>
+
+            </div>
+    <div style="flex: 1 1 175px">
+                        <h2>Subjects</h2>
+             <ul>
+                 <li><a href="/collections/subject_names/">Persons and Institutions</a></li>
+                 <li><a href="/collections/subject_topics">Topics</a></li>
+                 <li><a href="/collections/subject_cities">Cities</a></li>
+                 <li><a href="/collections/subject_counties">Counties</a></li>
+                 <li><a href="/collections/subject_states_provinces">States/Provinces</a></li>
+                 <li><a href="/collections/subject_countries">Countries</a></li>
+                 <li><a href="/collections/subject_geo_areas">Geographic Areas</a></li>
+             </ul>
+
+    </div>
+    </div>
 
 
 {% endblock %}

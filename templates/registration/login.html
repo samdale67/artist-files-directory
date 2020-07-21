@@ -16,15 +16,15 @@
                     <input type="submit" value="Log In">
 {#                </tr>#}
 {#        </table>#}
-        <p>Not registered yet? You must have an account in order to create and manage directory entries.<br />
-            <a href="{% url 'register' %}">Create an account</a>.</p>
-        <input type="hidden" name="next" value="{{ next }}" />
+        <p>You must have an account in order to create and manage directory entries.</p>
+            <a href="{% url 'register' %}">Create an Account</a></p>
+
+        <p><a href="/user/reset-password/">Password Reset</a></p>
+{#        <input type="hidden" name="next" value="{{ next }}" />#}
         {% csrf_token %}
     </form>
 
 </div>
 </div>
 
-&nbsp;<br />
-&nbsp;
 {% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <h1 class="browse">All Private Collector Types ...</h1>
+
+    <div class="flex-container-content">
+        <div>
+            <ul class="body-collection-browse">
+                {% for type in types %}
+                    <li>{{ type.type_name }} &#10142;
+                        <a href="/collectors/person_type_update/{{ type.id }}">Update</a></li>
+                {% endfor %}
+             </ul>
+            <ul>
+                <li><a href="/collectors/person_type_add/">Add new private collector type</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

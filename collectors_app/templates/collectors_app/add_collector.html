@@ -7,11 +7,7 @@
 <div>
 
 <h1 class="home">Add a Collector</h1>
-    {% if submitted %}
-        <p>You have successfully added a new collector record. Return to your the
-            <a href="/user/content">Create / Edit</a> to add another
-            collector or to associate your new collector with a collection.</p>
-    {% else %}
+
         <form action="" method="post" novalidate>
             <table>
                 {{ form.media }}
@@ -25,7 +21,6 @@
             {% csrf_token %}
 
         </form>
-    {% endif %}
 
 </div>
 </div>

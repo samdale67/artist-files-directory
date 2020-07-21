@@ -5,16 +5,16 @@
 
 <div class="flex-container-content">
 
-<div>
+<div id="quote-what-are">
     Quoted in collection: <a href="/collections/{{ random_quote.id }}">{{ random_quote.name }}</a>
-    <blockquote>&#10077; {{ random_quote.quote|safe }} &#10078;</blockquote>
+    <blockquote>&#10077;&nbsp;{{ random_quote.quote|safe }}&nbsp;&#10078;</blockquote>
     {% if random_quote.quote_attrib %}<blockquote class="quote-attrib">{{ random_quote.quote_attrib }}</blockquote>{% endif %}
 </div>
 
 </div>
 
 <div class="flex-container-content">
-   <div>
+   <div style="flex: 1 1 300px">
 
 <h1>What Are Artist Files?</h1>
 
@@ -51,20 +51,23 @@ researchers that will discover these files by searching individual local catalog
 published indexes. In effect, this has made artist files the single most untapped resource to the broader
 art research community.</p>
 
-<p>	Artist files are collections of research material on artists that contain uncataloged material
+{#<p>This publication links the art researcher to a web-based directory of institutional holdings of artist#}
+{#files (Directory of Artist Files) that allows for efficient browsing of collection statements and provides#}
+{#links to further institutional resources.</p>#}
+   </div>
+    <div style="flex: 1 1 300px">
+        <h1>A Sprawling Definition</h1>
+<p><strong>In keeping with the diverse nature of artist files and the varying institutions that maintain
+             them, a
+    broad definition has been used for the purposes of this project. Artist files are:</strong></p>
+
+        <p>	Artist files are collections of research material on artists that contain uncataloged material
     in a broad range of formats and sizes that is often ephemeral or fugitive in nature. They are
     typically mixed collections consisting of an array of published, unpublished, and sometimes original art
     items. These collections are typically unitemized so the only way to learn what they contain is to
     view them. Maybe we should qualify size: though items in these files are <em>typically</em> small, they
     may  contain large items like posters. </p>
 
-{#<p>This publication links the art researcher to a web-based directory of institutional holdings of artist#}
-{#files (Directory of Artist Files) that allows for efficient browsing of collection statements and provides#}
-{#links to further institutional resources.</p>#}
-
-<p><strong>In keeping with the diverse nature of artist files and the varying institutions that maintain
-             them, a
-    broad definition has been used for the purposes of this project. Artist files are:</strong></p>
 
 <p>Collections of small-sized documents relating to the visual arts that are collected and arranged for the
     purposes of research. Often, these materials fail to receive individual full-level cataloging. It is
