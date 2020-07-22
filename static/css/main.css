@@ -129,17 +129,6 @@ div#home-image-gallery-caption {
     font-size: .85em;
 }
 
-/*div#update-date {*/
-/*    display: inline-block;*/
-/*    vertical-align: top;*/
-/*    margin: 0;*/
-/*    font-size: .9em;*/
-/*    background-color: #f3e5d1;*/
-/*    border-radius: 6px;*/
-/*    max-width: 135px;*/
-/*    min-width: 135px;*/
-/*}*/
-
 div#entry-dates-database {
     display: inline-block;
     vertical-align: top;
@@ -171,7 +160,7 @@ div.consortium {
 
 div.vertical-line {
     background-color: #dbdbdb;
-    margin: 10px 40px 10px 0;
+    margin: 20px 35px 20px -10px;
 }
 
 
@@ -198,10 +187,19 @@ h1.browse {
 h1.detail {
     font-size: 1.5em;
     font-weight: bold;
-    margin: 10px 0 5px 5px;
+    margin: 10px 0 2px 0;
     padding: 0;
     line-height: 30px;
-    color: #5293c4;
+    color: #3789bf;
+}
+
+h1.detail-collector {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px 0 -15px 0;
+    padding: 0;
+    line-height: 30px;
+    color: #3789bf;
 }
 
 
@@ -228,8 +226,8 @@ h1.title {
 }
 
 h2 {
-    margin: 30px 0 8px 0;
-    font-size: 1.3em;
+    margin: 20px 0 8px 0;
+    font-size: 1em;
     font-weight: bold;
     padding: 0;
     line-height: 18px;
@@ -238,17 +236,17 @@ h2 {
 
 h2.detail {
     display: block;
-    margin: 0 0 10px 5px;
+    margin: 8px 0 5px 0;
     font-size: 1.3em;
     font-weight: normal;
     padding: 0;
-    line-height: 18px;
+    /*line-height: 18px;*/
     color: #c18e6c;
 }
 
 
 h2.home {
-    margin: 10px 0 50px 5px;
+    margin: 0 0 50px 5px;
     font-size: 1.4em;
     font-weight: normal;
     padding: 0;
@@ -278,7 +276,7 @@ h2.subjects {
 h3 {
     margin: 5px 0 5px 0;
     font-weight: normal;
-    font-size: 1.15em;
+    font-size: 1em;
     padding: 0;
     line-height: 20px;
     color: #8e7163;
@@ -407,7 +405,7 @@ strong#consortium {
     font-weight: bolder;
     /*text-transform: uppercase;*/
     font-size: 2.5em;
-    margin: 0 0 0 7px;
+    margin: 0;
     /*padding: 4px;*/
 }
 
@@ -429,22 +427,26 @@ strong.search-term {
 }
 
 table.collection-browse {
-    margin: 20px 0 15px 0;
+    margin: 10px 0 10px 0;
     border-collapse: collapse;
+    width: 900px;
 }
 
-tr:hover {
-    background-color: #e7eef1;
-}
-
-td.collection-browse-header {
+table.collection-browse th {
+    text-align: left;
     font-weight: bold;
     font-size: 1.15em;
+    color: #9a7d6b;
 }
 
-td.collection-browse {
+table.collection-browse td {
     border-top: 1px solid #dedede;
     margin: 0 0 1px 0;
+    padding-right: 20px;
+}
+
+table.collection-browse tr:hover {
+    background-color: #e7eef1;
 }
 
 ul {
@@ -560,7 +562,8 @@ ul.navigation-counts > li {
 
 ul.navigation-login {
     list-style-type: none;
-    margin: 0px 0 30px 25px;
+    margin: 0 0 20px 25px;
+    margin: 0 0 20px 25px;
     padding: 12px 7px 12px 0;
     border-radius: 10px;
     /*border: 1px solid #a6b5bd;*/

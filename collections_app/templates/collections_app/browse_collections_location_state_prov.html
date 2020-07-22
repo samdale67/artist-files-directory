@@ -12,14 +12,13 @@
         <table class="collection-browse">
 
             <tr>
-                <td class="collection-browse-header">Collector</td>
-                <td class="collection-browse-header">Collection Name</td>
+                <th>Collector</th>
+                <th>Collection Name</th>
             </tr>
             {% for collector in collectors_state_prov %}
                 {% for collection in collector.collections.all %}
             <tr>
-            <td class="collection-browse" width="400px">
-
+            <td>
                 {{ collector.inst_main_name }}{% if collector.inst_sub_name %}, {% endif %}
                 {{ collector.inst_sub_name }}{% if collector.inst_sub2_name %}, {% endif %}
                 {{ collector.inst_sub2_name }}
@@ -27,7 +26,7 @@
                 {{ collector.person_first_name }}
             </td>
 
-            <td class="collection-browse" width="500px">
+            <td>
             <a href="/collections/{{ collection.id }}">{{ collection.name }}</a>{% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong>{% endif %}
             </td>
 

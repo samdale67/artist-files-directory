@@ -6,20 +6,21 @@
     <div class="flex-container-content">
 
         <div style="flex: 1 1 2000px">
-        <h1 class="browse">All collector types ...</h1>
+        <h1 class="browse">All collections with personal collector type <strong
+        >{{ person_type.type_name }}</strong> ...</h1>
         </div>
 
        <div style="flex: 1 1 2000px">
         <table class="collection-browse">
 
             <tr>
-                <td class="collection-browse-header">Collector</td>
-                <td class="collection-browse-header">Collection Name</td>
+                <th>Collector</th>
+                <th>Collection Name</th>
             </tr>
             {% for collector in collectors %}
                 {% for collection in collector.collections.all %}
             <tr>
-            <td class="collection-browse" width="40%">
+            <td>
 
                 {{ collector.inst_main_name }}{% if collector.inst_sub_name %}, {% endif %}
                 {{ collector.inst_sub_name }}{% if collector.inst_sub2_name %}, {% endif %}
@@ -28,7 +29,7 @@
                 {{ collector.person_first_name }}
             </td>
 
-            <td class="collection-browse" width="60%">
+            <td>
             <a href="/collections/{{ collection.id }}">{{ collection.name }}</a>{% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong>{% endif %}
             </td>
 

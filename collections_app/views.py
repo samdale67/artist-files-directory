@@ -18,6 +18,59 @@ from django.contrib.auth import update_session_auth_hash
 from cities_light.models import Country, Region, City
 
 
+def home_page(request):
+    collection_images = CollectionImage.objects.select_related('collection').order_by('?')[:12]
+    template = 'collections_app/home.html'
+    context = {'collection_images': collection_images}
+
+    return render(request, template, context)
+
+
+def what_are_artist_files(request):
+    random_quote = Collection.objects.filter(quote__contains=' ').order_by('?').first()
+    template = 'collections_app/what-are-artist-files.html'
+    context = {'random_quote': random_quote}
+
+    return render(request, template, context)
+
+
+def random_collection(request):
+    random_collection_object = Collection.objects.order_by('?').first()
+    collection = Collection.objects.prefetch_related('collector').get(pk=random_collection_object.id)
+    collection_images = CollectionImage.objects.filter(collection_id=random_collection_object.id).all()
+    template = 'collections_app/collection_detail.html'
+    context = {'collection': collection,
+               'collection_images': collection_images}
+    return render(request, template, context)
+
+
+def new_collections(request):
+    collections = Collection.objects.prefetch_related('collector').order_by('-date_created')[:10]
+    template = 'collections_app/browse_collections_new.html'
+    context = {'collections': collections}
+    return render(request, template, context)
+
+
+def browse_consortial_collections(request):
+    consortial_collectors = Collector.objects.filter(collections__consortium=True).order_by('sort_name',
+                                                                                            'inst_sub_name',
+                                                                                            'inst_sub2_name') \
+        .prefetch_related('collections')
+    template = 'collections_app/browse_collections_consortia.html'
+    context = {'consortial_collectors': consortial_collectors}
+    return render(request, template, context)
+
+
+def browse_digital_collections(request):
+    digital_collections = Collector.objects.order_by('sort_name', 'inst_sub_name',
+                                                     'inst_sub2_name').prefetch_related(
+        'collections').filter(collections__dig_access__contains='http')
+    template = 'collections_app/browse_collections_digital.html'
+    context = {'digital_collections': digital_collections}
+
+    return render(request, template, context)
+
+
 def collection_detail(request, collection_id):
     collection = Collection.objects.prefetch_related('collector').get(pk=collection_id)
     collection_images = CollectionImage.objects.filter(collection_id=collection_id).all().order_by('?')[:5]
@@ -83,55 +136,129 @@ def location_country_collections(request, pk):
     return render(request, template, context)
 
 
-def browse_subject_city(request, id):
-    subject_city = CollectionSubjectCity.objects.get(pk=id)
-    collections = Collection.objects.filter(subject_city=id).prefetch_related('collector').all()
-    template = 'collections_app/browse_collections.html'
-    context = {'collections': collections,
-               'subject_city': subject_city}
-    return render(request, template, context)
-
-
-def home_page(request):
-    collection_images = CollectionImage.objects.select_related('collection').order_by('?')[:12]
-    template = 'collections_app/home.html'
-    context = {'collection_images': collection_images}
-
-    return render(request, template, context)
-
-
-def what_are_artist_files(request):
-    random_quote = Collection.objects.filter(quote__contains=' ').order_by('?').first()
-    template = 'collections_app/what-are-artist-files.html'
-    context = {'random_quote': random_quote}
+def subjects_list(request):
+    names = CollectionSubjectName.objects.annotate(num_collection=Count('collections')).filter(num_collection__gt=0).order_by('sub_name')
+    topics = CollectionSubjectTopic.objects.annotate(num_collection=Count('collections')).filter(num_collection__gt=0).order_by('sub_topic')
+    cities = CollectionSubjectCity.objects.annotate(num_collection=Count('collections')).filter(num_collection__gt=0).order_by('sub_city')
+    counties = CollectionSubjectCounty.objects.annotate(num_collection=Count('collections')).filter(num_collection__gt=0).order_by('sub_county')
+    states_provs = CollectionSubjectStateProv.objects.annotate(num_collection=Count('collections')).filter(num_collection__gt=0).order_by('sub_state_prov')
+    countries = CollectionSubjectCountry.objects.annotate(num_collection=Count('collections')).filter(num_collection__gt=0).order_by('sub_country')
+    geo_areas = CollectionSubjectGeoArea.objects.annotate(num_collection=Count('collections')).filter(num_collection__gt=0).order_by('sub_geo_area')
+    template = 'collections_app/browse_collections_subjects.html'
+    context = {'names': names,
+               'topics': topics,
+               'cities': cities,
+               'counties': counties,
+               'states_provs': states_provs,
+               'countries': countries,
+               'geo_areas': geo_areas}
 
     return render(request, template, context)
 
 
-def random_collection(request):
-    random_collection_object = Collection.objects.order_by('?').first()
-    collection = Collection.objects.prefetch_related('collector').get(pk=random_collection_object.id)
-    collection_images = CollectionImage.objects.filter(collection_id=random_collection_object.id).all()
-    template = 'collections_app/collection_detail.html'
-    context = {'collection': collection,
-               'collection_images': collection_images}
+def subject_name_collections(request, pk):
+    sub_name = CollectionSubjectName.objects.get(id=pk)
+    collections_sub_name = Collection.objects.filter(subject_name=pk).prefetch_related('collector')
+    template = 'collections_app/browse_collections_subject_name.html'
+    context = {'sub_name': sub_name,
+               'collections_sub_name': collections_sub_name}
+
     return render(request, template, context)
 
 
-def new_collections(request):
-    collections = Collection.objects.prefetch_related('collector').order_by('-date_created')[:10]
-    template = 'collections_app/browse_collections_new.html'
-    context = {'collections': collections}
+def subject_topic_collections(request, pk):
+    sub_topic = CollectionSubjectTopic.objects.get(id=pk)
+    collections_sub_topic = Collection.objects.filter(subject_topic=pk).prefetch_related('collector')
+    template = 'collections_app/browse_collections_subject_topic.html'
+    context = {'sub_topic': sub_topic,
+               'collections_sub_topic': collections_sub_topic}
+
     return render(request, template, context)
 
 
-def browse_consortial_collections(request):
-    consortial_collectors = Collector.objects.filter(collections__consortium=True).order_by('sort_name',
-                                                                                            'inst_sub_name',
-                                                                                            'inst_sub2_name') \
-        .prefetch_related('collections')
-    template = 'collections_app/browse_collections_consortia.html'
-    context = {'consortial_collectors': consortial_collectors}
+def subject_city_collections(request, pk):
+    sub_city = CollectionSubjectCity.objects.get(id=pk)
+    collections_sub_city = Collection.objects.filter(subject_city=pk).prefetch_related('collector')
+    template = 'collections_app/browse_collections_subject_city.html'
+    context = {'sub_city': sub_city,
+               'collections_sub_city': collections_sub_city}
+
+    return render(request, template, context)
+
+
+def subject_county_collections(request, pk):
+    sub_county = CollectionSubjectCounty.objects.get(id=pk)
+    collections_sub_county = Collection.objects.filter(subject_county=pk).prefetch_related('collector')
+    template = 'collections_app/browse_collections_subject_county.html'
+    context = {'sub_county': sub_county,
+               'collections_sub_county': collections_sub_county}
+
+    return render(request, template, context)
+
+
+def subject_state_prov_collections(request, pk):
+    sub_state_prov = CollectionSubjectStateProv.objects.get(id=pk)
+    collections_sub_state_prov = Collection.objects.filter(subject_state_prov=pk).prefetch_related('collector')
+    template = 'collections_app/browse_collections_subject_state_prov.html'
+    context = {'sub_state_prov': sub_state_prov,
+               'collections_sub_state_prov': collections_sub_state_prov}
+
+    return render(request, template, context)
+
+
+def subject_country_collections(request, pk):
+    sub_country = CollectionSubjectCountry.objects.get(id=pk)
+    collections_sub_country = Collection.objects.filter(subject_country=pk).prefetch_related(
+        'collector')
+    template = 'collections_app/browse_collections_subject_country.html'
+    context = {'sub_country': sub_country,
+               'collections_sub_country': collections_sub_country}
+
+    return render(request, template, context)
+
+
+def subject_geo_area_collections(request, pk):
+    sub_geo_area = CollectionSubjectGeoArea.objects.get(id=pk)
+    collections_sub_geo_area = Collection.objects.filter(subject_geo_area=pk).prefetch_related(
+        'collector')
+    template = 'collections_app/browse_collections_subject_geo_area.html'
+    context = {'sub_geo_area': sub_geo_area,
+               'collections_sub_geo_area': collections_sub_geo_area}
+
+    return render(request, template, context)
+
+
+def tech_data_list(request):
+    collections_spec_formats = CollectionSpecialFormat.objects.annotate(num_collection=Count(
+        'collections')).filter(
+        num_collection__gt=0).order_by('special_format')
+    collections_cat_systems = CollectionCatSystem.objects.annotate(num_collection=Count(
+        'collections')).filter(
+        num_collection__gt=0).order_by('cat_name')
+    template = 'collections_app/browse_collections_tech_data.html'
+    context = {'collections_spec_formats': collections_spec_formats,
+               'collections_cat_systems': collections_cat_systems}
+
+    return render(request, template, context)
+
+
+def spec_format_collections(request, pk):
+    spec_format = CollectionSpecialFormat.objects.get(id=pk)
+    collections_spec_format = Collection.objects.filter(spec_format=pk).prefetch_related('collector')
+    template = 'collections_app/browse_collections_tech_data_spec_format.html'
+    context = {'spec_format': spec_format,
+               'collections_spec_format': collections_spec_format}
+
+    return render(request, template, context)
+
+
+def cat_system_collections(request, pk):
+    cat_system = CollectionCatSystem.objects.get(id=pk)
+    collections_cat_system = Collection.objects.filter(cat_system=pk).prefetch_related('collector')
+    template = 'collections_app/browse_collections_tech_data_cat_system.html'
+    context = {'cat_system': cat_system,
+               'collections_cat_system': collections_cat_system}
+
     return render(request, template, context)
 
 

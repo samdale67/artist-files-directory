@@ -327,7 +327,6 @@ class CollectionSpecialFormat(models.Model):
 
 
 class CollectionSubjectName(models.Model):
-    # Use VIAF
     sub_name = models.CharField('Subject: Name',
                                 max_length=100,
                                 blank=False,

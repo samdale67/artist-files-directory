@@ -1,28 +1,25 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
 <div>
 
-
-
     <div class="flex-container-content">
-
         <div style="flex: 1 1 2000px">
-
-        <h1 class="browse">Dealer Directory</h1>
-
+            <h1 class="browse">All collections with subject <strong>
+                {{ sub_country.sub_country }}</strong> ..
+                .</h1>
         </div>
 
-        <div style="flex: 1 1 2000px">
+        <div>
+
         <table class="collection-browse">
 
             <tr>
                 <th>Collector</th>
                 <th>Collection Name</th>
             </tr>
-            {% for collector in collectors %}
-                {% for collection in collector.collections.all %}
+            {% for collection in collections_sub_country %}
+                {% for collector in collection.collector.all %}
             <tr>
             <td>
                 {{ collector.inst_main_name }}{% if collector.inst_sub_name %}, {% endif %}
@@ -37,15 +34,14 @@
             </td>
 
             </tr>
-
-                {% endfor %}
             {% endfor %}
+        {% endfor %}
         </table>
 
-     </div>
-
-   </div>
-
+        </div>
+    </div>
+<p class="consortium-footer"><strong class="consortium-footer">&#x26AD;</strong> = consortial/collaborative
+    collections</p>
 </div>
 
 {% endblock %}

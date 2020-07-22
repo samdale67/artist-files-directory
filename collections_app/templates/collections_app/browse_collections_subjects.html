@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+
+    <div class="flex-container-content">
+
+        <div style="flex: 1 1 2000px">
+        <h1 class="browse">All subjects of artist files collections ...</h1>
+        </div>
+
+        <div>
+        <table class="collection-browse">
+            <tr>
+                <th>People and Institutions</th>
+            </tr>
+            {% for name in names %}
+            <tr>
+                <td><a href="/collections/browse/subject/name/{{ name.id }}"
+                        >{{ name.sub_name }}</a> ({{ name.num_collection }}
+                            {% if name.num_collection > 1 %}Collections{% else %}Collection{% endif %})
+               {% endfor %}
+            </td>
+            </tr>
+
+        </table>
+        </div>
+
+        <div>
+        <table class="collection-browse">
+            <tr>
+                <th>Topics</th>
+            </tr>
+            {% for topic in topics %}
+            <tr>
+                <td><a href="/collections/browse/subject/topic/{{ topic.id }}"
+                        >{{ topic.sub_topic }}</a> ({{ topic.num_collection }}
+                            {% if topic.num_collection > 1 %}Collections{% else %}Collection{% endif %})
+               {% endfor %}
+            </td>
+            </tr>
+
+        </table>
+        </div>
+
+        <div>
+        <table class="collection-browse">
+            <tr>
+                <th>Cities</th>
+            </tr>
+            {% for city in cities %}
+            <tr>
+                <td><a href="/collections/browse/subject/city/{{ city.id }}"
+                        >{{ city.sub_city }}</a> ({{ city.num_collection }}
+                            {% if city.num_collection > 1 %}Collections{% else %}Collection{% endif %})
+               {% endfor %}
+            </td>
+            </tr>
+
+        </table>
+        </div>
+
+    <div>
+        <table class="collection-browse">
+            <tr>
+                <th>Counties</th>
+            </tr>
+            {% for county in counties %}
+            <tr>
+                <td><a href="/collections/browse/subject/county/{{ county.id }}">{{ county.sub_county }}</a> ({{ county.num_collection }}
+                            {% if county.num_collection > 1 %}Collections{% else %}Collection{% endif %})
+               {% endfor %}
+            </td>
+            </tr>
+
+        </table>
+        </div>
+
+    <div>
+        <table class="collection-browse">
+            <tr>
+                <th>States and Provinces</th>
+            </tr>
+            {% for state_prov in states_provs  %}
+            <tr>
+                <td><a href="/collections/browse/subject/state_prov/{{ state_prov.id }}">{{ state_prov.sub_state_prov }}</a> ({{ state_prov.num_collection }}
+                            {% if state_prov.num_collection > 1 %}Collections{% else %}Collection{% endif %})
+               {% endfor %}
+            </td>
+            </tr>
+
+        </table>
+        </div>
+
+    <div>
+        <table class="collection-browse">
+            <tr>
+                <th>Countries</th>
+            </tr>
+            {% for country in countries %}
+            <tr>
+                <td><a href="/collections/browse/subject/country/{{ country.id }}"
+                        >{{ country.sub_country }}</a> ({{ country.num_collection }}
+                            {% if country.num_collection > 1 %}Collections{% else %}Collection{% endif %})
+               {% endfor %}
+            </td>
+            </tr>
+
+        </table>
+        </div>
+
+    <div>
+        <table class="collection-browse">
+            <tr>
+                <th>Geographic Areas</th>
+            </tr>
+            {% for geo_area in geo_areas %}
+            <tr>
+                <td><a href="/collections/browse/subject/geo_area/
+{{ geo_area.id }}">{{ geo_area.sub_geo_area }}</a> ({{ geo_area.num_collection }}
+                {% if geo_area.num_collection > 1 %}Collections{% else %}Collection{% endif %})
+               {% endfor %}
+            </td>
+            </tr>
+
+        </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
