@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load thumbnail %}
 
 {% block content %}
 
@@ -7,10 +8,9 @@
 
     <div>
         {% for image in collection_images %}
-
-                <a href="/collections/{{ image.collection_id }}"><img
-                        class="collection" src="{{ image.image.url }}"  height="165" alt=
-                        "Random Collection Image" /></a>
+        <a href="/collections/{{ image.collection_id }}">
+            {% thumbnail image.image 0x300 crop as thumb2x %}<img class="collection" srcset=
+                "{{ thumb2x.url }} 2x" src="{{ thumb.url }}"></a>
         {% endfor %}
 
             <hr>
@@ -37,8 +37,9 @@
            establish chronologies, flesh out exhibition histories, review stylistic developments, assess
            the critical reception of artists over time, among many other uses. Also, artist files
            collections frequently have regional strengths that make them particularly vital repositories
-           for communities. Also, artist files sometimes contain unique objects, such as those in the <a
-                   href="/collections/11/">New York Public Library's collections</a>. This type of material,
+           for communities. Also, artist files sometimes contain unique objects, such as those highlighted in
+           the <a
+                   href="/collections/11/">New York Public Library's entry</a>. This type of material,
            recognized by curators as helping to provide yet another angle on an artist, feature them in
            exhibitions.</p>
 
@@ -61,26 +62,28 @@ published indexes. In effect, this has made artist files the single most untappe
     <div style="flex: 1 1 300px">
        <h1 class="home">What is the Scope of the Directory?</h1>
 
-       <p>Wile the first <cite>Artist Files
+       <p>While the first <cite>Artist Files
                Revealed</cite>
            <a href="http://www.arlisna.org/images/researchreports/artist_files_revealed.pdf">publication</a> and related (now defunct)
            online directory focused on institutional collections, the new directory expands coverage by
-           offering access to personal collections of artist files. It also provides a dealer directory
-           focused on sellers who specialize in artist ephemera. A number of new access options help
-           researchers find collections by subjects, special formats, and by physical location of the
-           collection
-           .</p>
+           offering access to personal collections of artist files. A number of new access options help
+           researchers find collections by <a href="/collections/browse/subjects/">subjects</a>, <a
+                   href="/collections/browse/tech_data/">technical data</a> such as special formats,
+           physical <a href="/collections/browse/locations">location</a> of the the collection, and even by <a
+                   href="/collectors/browse/collector_types">collector categories</a>. It also provides a
+           <a href="/collectors/browse/dealers/">dealer directory</a> for sellers who specialize in artist
+               ephemera.</p>
         <p>Let's quickly get something out of the way: the directory is <strong>not</strong> a delivery
            platform for digitized or digital artist files content.</p>
          <hr>
     <ul class="body">
-       <li class="footnote">Some information on this page adapted from <a href="http://www.arlisna.org/images/researchreports/artist_files_revealed.pdf"><cite>Artist Files Revealed: Documentation
+       <li class="footnote">Some information on this page based on information from <a href="http://www
+       .arlisna.org/images/researchreports/artist_files_revealed.pdf"><cite>Artist Files Revealed: Documentation
            and Access</cite></a> by The Artist Files
     Working Group, ARLIS/NA</cite> (Art Libraries Society of North America, 2009, 2010).</li>
             </ul>
     <a href="http://www.arlisna.org/images/researchreports/artist_files_revealed.pdf"><img src="{% static 'graphics/Artist-Files-Revealed-Documentation-and-Access-Cover.jpg' %}" width="175" alt="Artist Files Revealed Documentation and Access Cover"></a>
     </div>
-</div>
 </div>
 
 {% endblock %}

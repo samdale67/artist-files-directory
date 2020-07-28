@@ -17,10 +17,6 @@ class Collection(models.Model):
                                                  'consortial or collaborative digital projects. Hold down '
                                                  '“Control” or “Command” to select more than '
                                                  'one field.')
-    consortium = models.BooleanField('Consortial Collection?',
-                                     blank=True,
-                                     help_text='Check if you have selected more than one collector in the '
-                                               'field above.')
     name = models.CharField('Collection Name',
                             max_length=255,
                             blank=False,
@@ -31,6 +27,18 @@ class Collection(models.Model):
                                       'with special characteristics, for example "The Nettie '
                                       'Wheeler Artist Files on Native American Artists. Multiple '
                                       'collections allowed and encouraged."')
+    consortium = models.BooleanField('Consortial Collection?',
+                                     blank=True,
+                                     help_text='Check if you have selected more than one collector in the '
+                                               'collector field above.')
+    consortium_desc = RichTextField('Consortium Description',
+                                    max_length=3000,
+                                    blank=True,
+                                    help_text='Provide details about the consortial/shared collection.')
+    consortium_url = models.URLField('Consortial Website',
+                                     max_length=255,
+                                     blank=True,
+                                     help_text='Add website for consortial/shared collection.')
     country = models.ForeignKey(Country, blank=True, null=True, on_delete=models.CASCADE,
                                 verbose_name='Location: Country')
     state_province = models.ForeignKey(Region,
@@ -74,7 +82,7 @@ class Collection(models.Model):
                                                '“Command” to select more than one value.<br /><a '
                                                'href="/collections/reference_services" '
                                                'target="blank">Create or update terms</a>, '
-                                               'then return to this page to use.')
+                                               'then reload this page to use.')
     cat_system = models.ManyToManyField(to='CollectionCatSystem',
                                         related_name='collections',
                                         verbose_name=u'Cataloging Systems',
@@ -84,7 +92,7 @@ class Collection(models.Model):
                                                   '“Command” to select more than one value.<br /><a '
                                                   'href="/collections/cataloging_systems" '
                                                   'target="blank">Create or update terms</a>, '
-                                                  'then return to this page to use.')
+                                                  'then reload this page to use.')
     size = RichTextField('Size',
                          max_length=1000,
                          default='',
@@ -101,7 +109,13 @@ class Collection(models.Model):
                                                    '“Command” to select more than one value.<br /><a '
                                                    'href="/collections/special_formats" '
                                                    'target="blank">Create or update terms</a>, '
-                                                   'then return to this page to use.')
+                                                   'then reload this page to use.')
+    dig_bool = models.BooleanField('Digital',
+                                   blank=True,
+                                   default=False,
+                                   help_text='Check if collection has been fully or partially digitized '
+                                             'content or if there are plans to offer digital '
+                                             'access.')
     dig_projects = RichTextField('Digital Projects',
                                  max_length=3000,
                                  blank=True,
@@ -119,8 +133,8 @@ class Collection(models.Model):
                                                     'are subjects of the collection. Hold down “Control” or '
                                                     '“Command” to select more than one value.<br /><a '
                                                     'href="/collections/subject_names" '
-                                                    'target="blank">Create or update terms</a>, then return '
-                                                    'to this page to use.')
+                                                    'target="blank">Create or update terms</a>, then reload '
+                                                    'this page to use.')
     subject_topic = models.ManyToManyField(to='CollectionSubjectTopic',
                                            related_name='collections',
                                            verbose_name=u'Subject: Topics',
@@ -130,7 +144,7 @@ class Collection(models.Model):
                                                      'select more than one value.<br /><a '
                                                      'href="/collections/subject_topics" '
                                                      'target="blank">Create or update terms</a>, '
-                                                     'then return to this page to use.')
+                                                     'then reload this page to use.')
     subject_city = models.ManyToManyField(to='CollectionSubjectCity',
                                           related_name='collections',
                                           verbose_name=u'Subject: Cities',
@@ -138,8 +152,8 @@ class Collection(models.Model):
                                           help_text='Add cities that are subject focuses of the files. Hold '
                                                     'down “Control” or “Command” to select more than one '
                                                     'value.<br /><a href="/collections/subject_cities" '
-                                                    'target="blank">Create or update terms</a>, then return '
-                                                    'to this page to use.')
+                                                    'target="blank">Create or update terms</a>, then reload '
+                                                    'this page to use.')
     subject_county = models.ManyToManyField(to='CollectionSubjectCounty',
                                             related_name='collections',
                                             verbose_name=u'Subject: Counties',
@@ -149,7 +163,7 @@ class Collection(models.Model):
                                                       'more than one value.<br /><a '
                                                       'href="/collections/subject_counties" '
                                                       'target="blank">Create or update terms</a>, '
-                                                      'then return to this page to use.')
+                                                      'then reload this page to use.')
     subject_state_prov = models.ManyToManyField(to='CollectionSubjectStateProv',
                                                 related_name='collections',
                                                 verbose_name=u'Subject: States and '
@@ -160,7 +174,7 @@ class Collection(models.Model):
                                                           '“Command” to select more than one value.<br /><a '
                                                           'href="/collections/subject_states_provinces" '
                                                           'target="blank">Create or update terms</a>, '
-                                                          'then return to this page to use.')
+                                                          'then reload this page to use.')
     subject_country = models.ManyToManyField(to='CollectionSubjectCountry',
                                              related_name='collections',
                                              verbose_name=u'Subject: Countries',
@@ -170,7 +184,7 @@ class Collection(models.Model):
                                                        'more than one value.<br /><a '
                                                        'href="/collections/subject_countries" '
                                                        'target="blank">Create or update terms</a>, '
-                                                       'then return to this page to use.')
+                                                       'then reload this page to use.')
     subject_geo_area = models.ManyToManyField(to='CollectionSubjectGeoArea',
                                               related_name='collections',
                                               verbose_name=u'Subject: Geographic Areas',
@@ -181,7 +195,7 @@ class Collection(models.Model):
                                                         'value.<br /><a '
                                                         'href="/collections/subject_geo_areas" '
                                                         'target="blank">Create or update terms</a>, '
-                                                        'then return to this page to use.')
+                                                        'then reload this page to use.')
     notes = RichTextField('Notes',
                           max_length=1000,
                           blank=True,
@@ -215,7 +229,8 @@ class CollectionImage(models.Model):
                                default='',
                                help_text='Provide a short yet descriptive caption describing the '
                                          'image. <br />Be very economical: 50 character limit, but shorter '
-                                         'is better. Make adjustments based in image orientation.')
+                                         'is better. The directory favors images with horizontal '
+                                         'orientation.')
     collection = models.ForeignKey(Collection,
                                    related_name='collections',
                                    verbose_name='Related Collection',
@@ -232,6 +247,7 @@ class CollectionImage(models.Model):
         return f"{self.caption}"
 
 
+# Not used presently
 class CollectionDocument(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     document = models.FileField('Add Document',

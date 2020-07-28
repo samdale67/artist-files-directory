@@ -1,19 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <div>
-
     <div class="flex-container-content">
         <div style="flex: 1 1 2000px">
-        <h1 class="browse">All collections with subject {{ sub_name.sub_name }} ...</h1>
+            <h1 class="browse">All collections with subject <strong>{{ sub_name.sub_name }}</strong> ...</h1>
         </div>
-
-        <div>
-
-        <table class="collection-browse">
-
-            <tr>
-                <th>Collector</th>
+        <div style="flex: 1 1 100%">
+                <table id="sorted" class="collection-browse">
+             <tr data-sort-method='none'>
+                <th data-sort-default>Collector</th>
                 <th>Collection Name</th>
             </tr>
             {% for collection in collections_sub_name %}
@@ -26,20 +21,17 @@
                 {{ collector.person_last_name }}{% if collector.person_last_name %}, {% endif %}
                 {{ collector.person_first_name }}
             </td>
-
             <td>
             <a href="/collections/{{ collection.id }}">{{ collection.name }}</a>{% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong>{% endif %}
             </td>
-
             </tr>
             {% endfor %}
         {% endfor %}
         </table>
+        <script>
+        new Tablesort(document.getElementById('sorted'));
+        </script>
 
         </div>
     </div>
-<p class="consortium-footer"><strong class="consortium-footer">&#x26AD;</strong> = consortial/collaborative
-    collections</p>
-</div>
-
 {% endblock %}

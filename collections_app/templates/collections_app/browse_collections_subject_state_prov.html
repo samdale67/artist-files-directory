@@ -1,21 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <div>
-
     <div class="flex-container-content">
         <div style="flex: 1 1 2000px">
             <h1 class="browse">All collections with subject <strong>
                 {{ sub_state_prov.sub_state_prov }}</strong> ..
                 .</h1>
         </div>
-
-        <div>
-
-        <table class="collection-browse">
-
-            <tr>
-                <th>Collector</th>
+        <div style="flex: 1 1 100%">
+        <table id="sorted" class="collection-browse">
+             <tr data-sort-method='none'>
+                <th data-sort-default>Collector</th>
                 <th>Collection Name</th>
             </tr>
             {% for collection in collections_sub_state_prov %}
@@ -37,11 +32,9 @@
             {% endfor %}
         {% endfor %}
         </table>
-
+        <script>
+        new Tablesort(document.getElementById('sorted'));
+        </script>
         </div>
     </div>
-<p class="consortium-footer"><strong class="consortium-footer">&#x26AD;</strong> = consortial/collaborative
-    collections</p>
-</div>
-
 {% endblock %}

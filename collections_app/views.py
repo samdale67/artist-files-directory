@@ -19,7 +19,7 @@ from cities_light.models import Country, Region, City
 
 
 def home_page(request):
-    collection_images = CollectionImage.objects.select_related('collection').order_by('?')[:12]
+    collection_images = CollectionImage.objects.select_related('collection').order_by('?')[:16]
     template = 'collections_app/home.html'
     context = {'collection_images': collection_images}
 
@@ -64,7 +64,7 @@ def browse_consortial_collections(request):
 def browse_digital_collections(request):
     digital_collections = Collector.objects.order_by('sort_name', 'inst_sub_name',
                                                      'inst_sub2_name').prefetch_related(
-        'collections').filter(collections__dig_access__contains='http')
+        'collections').filter(collections__dig_bool=True)
     template = 'collections_app/browse_collections_digital.html'
     context = {'digital_collections': digital_collections}
 
@@ -91,9 +91,12 @@ def browse_all_collections(request):
 
 
 def locations_list(request):
-    cities = City.objects.annotate(num_collection=Count('collection')).filter(num_collection__gt=0).order_by('display_name')
-    states_provs = Region.objects.annotate(num_collection=Count('collection')).filter(num_collection__gt=0).order_by('display_name')
-    countries = Country.objects.annotate(num_collection=Count('collection')).filter(num_collection__gt=0).order_by('name')
+    cities = City.objects.annotate(num_collection=Count('collection')).filter(num_collection__gt=0).order_by(
+        'display_name')
+    states_provs = Region.objects.annotate(num_collection=Count('collection')).filter(
+        num_collection__gt=0).order_by('display_name')
+    countries = Country.objects.annotate(num_collection=Count('collection')).filter(
+        num_collection__gt=0).order_by('name')
     template = 'collections_app/browse_collections_locations.html'
     context = {'cities': cities,
                'states_provs': states_provs,
@@ -104,8 +107,7 @@ def locations_list(request):
 
 def location_city_collections(request, pk):
     city = City.objects.get(id=pk)
-    collectors_city = Collector.objects.prefetch_related('collections').filter(
-        collections__city_id=pk).order_by('sort_name', 'inst_sub_name', 'inst_sub2_name').distinct()
+    collectors_city = Collection.objects.filter(city_id=pk)
     template = 'collections_app/browse_collections_location_city.html'
     context = {'city': city,
                'collectors_city': collectors_city}
@@ -115,8 +117,7 @@ def location_city_collections(request, pk):
 
 def location_state_prov_collections(request, pk):
     state_prov = Region.objects.get(id=pk)
-    collectors_state_prov = Collector.objects.prefetch_related('collections').filter(
-        collections__state_province_id=pk).order_by('sort_name', 'inst_sub_name', 'inst_sub2_name').distinct()
+    collectors_state_prov = Collection.objects.filter(state_province_id=pk)
     template = 'collections_app/browse_collections_location_state_prov.html'
     context = {'state_prov': state_prov,
                'collectors_state_prov': collectors_state_prov}
@@ -126,9 +127,7 @@ def location_state_prov_collections(request, pk):
 
 def location_country_collections(request, pk):
     country = Country.objects.get(id=pk)
-    collectors_country = Collector.objects.prefetch_related('collections').filter(
-        collections__country_id=pk).order_by('sort_name', 'inst_sub_name',
-                                                     'inst_sub2_name').distinct()
+    collectors_country = Collection.objects.filter(country_id=pk)
     template = 'collections_app/browse_collections_location_country.html'
     context = {'country': country,
                'collectors_country': collectors_country}
@@ -137,13 +136,20 @@ def location_country_collections(request, pk):
 
 
 def subjects_list(request):
-    names = CollectionSubjectName.objects.annotate(num_collection=Count('collections')).filter(num_collection__gt=0).order_by('sub_name')
-    topics = CollectionSubjectTopic.objects.annotate(num_collection=Count('collections')).filter(num_collection__gt=0).order_by('sub_topic')
-    cities = CollectionSubjectCity.objects.annotate(num_collection=Count('collections')).filter(num_collection__gt=0).order_by('sub_city')
-    counties = CollectionSubjectCounty.objects.annotate(num_collection=Count('collections')).filter(num_collection__gt=0).order_by('sub_county')
-    states_provs = CollectionSubjectStateProv.objects.annotate(num_collection=Count('collections')).filter(num_collection__gt=0).order_by('sub_state_prov')
-    countries = CollectionSubjectCountry.objects.annotate(num_collection=Count('collections')).filter(num_collection__gt=0).order_by('sub_country')
-    geo_areas = CollectionSubjectGeoArea.objects.annotate(num_collection=Count('collections')).filter(num_collection__gt=0).order_by('sub_geo_area')
+    names = CollectionSubjectName.objects.annotate(num_collection=Count('collections')).filter(
+        num_collection__gt=0).order_by('sub_name')
+    topics = CollectionSubjectTopic.objects.annotate(num_collection=Count('collections')).filter(
+        num_collection__gt=0).order_by('sub_topic')
+    cities = CollectionSubjectCity.objects.annotate(num_collection=Count('collections')).filter(
+        num_collection__gt=0).order_by('sub_city')
+    counties = CollectionSubjectCounty.objects.annotate(num_collection=Count('collections')).filter(
+        num_collection__gt=0).order_by('sub_county')
+    states_provs = CollectionSubjectStateProv.objects.annotate(num_collection=Count('collections')).filter(
+        num_collection__gt=0).order_by('sub_state_prov')
+    countries = CollectionSubjectCountry.objects.annotate(num_collection=Count('collections')).filter(
+        num_collection__gt=0).order_by('sub_country')
+    geo_areas = CollectionSubjectGeoArea.objects.annotate(num_collection=Count('collections')).filter(
+        num_collection__gt=0).order_by('sub_geo_area')
     template = 'collections_app/browse_collections_subjects.html'
     context = {'names': names,
                'topics': topics,
@@ -198,7 +204,8 @@ def subject_county_collections(request, pk):
 
 def subject_state_prov_collections(request, pk):
     sub_state_prov = CollectionSubjectStateProv.objects.get(id=pk)
-    collections_sub_state_prov = Collection.objects.filter(subject_state_prov=pk).prefetch_related('collector')
+    collections_sub_state_prov = Collection.objects.filter(subject_state_prov=pk).prefetch_related(
+        'collector')
     template = 'collections_app/browse_collections_subject_state_prov.html'
     context = {'sub_state_prov': sub_state_prov,
                'collections_sub_state_prov': collections_sub_state_prov}
@@ -308,7 +315,6 @@ def delete_collection(request, pk):
 
 @login_required(login_url=reverse_lazy('login'))
 def image_add(request):
-
     if request.method == 'POST':
         form = ImageForm(request.POST or None, request.FILES)
         form.fields["collection"].queryset = Collection.objects.filter(user=request.user.id)
@@ -328,23 +334,8 @@ def image_add(request):
     return render(request, template, context)
 
 
-# @login_required(login_url=reverse_lazy('login'))
-# def reference_service_update(request, pk):
-#     service = CollectionService.objects.get(pk=pk)
-#     form = CollectionServicesForm(request.POST or None, instance=service)
-#     template = 'collections_app/reference_service_update.html'
-#     context = {'form': form}
-#
-#     if form.is_valid():
-#         form.save()
-#         return redirect('/collections/reference_services/')
-#
-#     return render(request, template, context)
-
-
 @login_required(login_url=reverse_lazy('login'))
 def image_update(request, pk):
-
     image = CollectionImage.objects.get(pk=pk)
 
     if request.method == 'POST':

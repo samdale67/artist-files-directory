@@ -1,41 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="flex-container-content">
 <div>
-    <h1 class="browse">The last 10 collections added, newest on top ...</h1>
-        <table class="collection-browse">
+    <div class="flex-container-content">
+        <div style="flex: 1 1 100%">
+        <h1 class="browse">Newest 10 collections added to the directory sorted by collector name then
+            collection
+            name ... </h1>
+        </div>
 
-            <tr>
-                <th>Collector</td>
+        <div style="flex: 1 1 100%">
+<table id="sorted" class="collection-browse">
+             <tr data-sort-method='none'>
+                <th>Collector</th>
                 <th>Collection Name</th>
             </tr>
-            {% for collection in collections %}
+
+                  {% for collection in collections %}
                 {% for collector in collection.collector.all %}
             <tr>
-            <td>
+                <td>
 
-                {{ collector.inst_main_name }}{% if collector.inst_sub_name %}, {% endif %}
-                {{ collector.inst_sub_name }}{% if collector.inst_sub2_name %}, {% endif %}
-                {{ collector.inst_sub2_name }}
-                {{ collector.person_last_name }}{% if collector.person_last_name %}, {% endif %}
-                {{ collector.person_first_name }}
-            </td>
-
-            <td>
-            <a href="/collections/{{ collection.id }}">{{ collection.name }}</a>{% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong>{% endif %}
-            </td>
-
+                    {{ collector.inst_main_name }}{% if collector.inst_sub_name %}, {% endif %}
+                    {{ collector.inst_sub_name }}{% if collector.inst_sub2_name %}, {% endif %}
+                    {{ collector.inst_sub2_name }}
+                    {{ collector.person_last_name }}{% if collector.person_last_name %}, {% endif %}
+                    {{ collector.person_first_name }}
+                </td>
+                <td>
+                <a href="/collections/{{ collection.id }}">{{ collection.name }}</a>{% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong>{% endif %}
+                </td>
             </tr>
-
                 {% endfor %}
             {% endfor %}
         </table>
-
+        <script>
+        new Tablesort(document.getElementById('sorted'));
+        </script>
      </div>
-
-   </div>
-    <strong class="consortium-footer">&#x26AD;</strong> = consortial/collaborative collections
 </div>
-
 {% endblock %}

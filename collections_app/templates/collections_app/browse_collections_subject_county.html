@@ -1,21 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <div>
-
     <div class="flex-container-content">
         <div style="flex: 1 1 2000px">
-            <h1 class="browse">All collections with subject <strong>
-                {{ sub_county.sub_county }}</strong> ..
+            <h1 class="browse">All collections with county subject <strong>{{ sub_county.sub_county }}</strong> ..
                 .</h1>
         </div>
-
-        <div>
-
-        <table class="collection-browse">
-
-            <tr>
-                <th>Collector</th>
+        <div style="flex: 1 1 100%">
+     <table id="sorted" class="collection-browse">
+             <tr data-sort-method='none'>
+                <th data-sort-default>Collector</th>
                 <th>Collection Name</th>
             </tr>
             {% for collection in collections_sub_county %}
@@ -37,11 +31,9 @@
             {% endfor %}
         {% endfor %}
         </table>
-
+          <script>
+        new Tablesort(document.getElementById('sorted'));
+        </script>
         </div>
     </div>
-<p class="consortium-footer"><strong class="consortium-footer">&#x26AD;</strong> = consortial/collaborative
-    collections</p>
-</div>
-
 {% endblock %}

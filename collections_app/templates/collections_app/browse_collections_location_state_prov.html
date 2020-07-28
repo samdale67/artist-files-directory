@@ -5,18 +5,19 @@
 
     <div class="flex-container-content">
         <div style="flex: 1 1 2000px">
-        <h1 class="browse">All collections located in {{ state_prov.display_name }} ...</h1>
+            <h1 class="browse">All collections located in state/province: <strong>{{ state_prov.display_name }}</strong>
+            ... </h1>
         </div>
 
-        <div>
-        <table class="collection-browse">
+        <div style="flex: 1 1 100%">
+        <table id="sorted" class="collection-browse">
 
-            <tr>
-                <th>Collector</th>
+                   <tr data-sort-method='none'>
+                <th data-sort-default>Collector</th>
                 <th>Collection Name</th>
             </tr>
-            {% for collector in collectors_state_prov %}
-                {% for collection in collector.collections.all %}
+            {% for collection in collectors_state_prov %}
+                {% for collector in collection.collector.all %}
             <tr>
             <td>
                 {{ collector.inst_main_name }}{% if collector.inst_sub_name %}, {% endif %}
@@ -35,10 +36,9 @@
                 {% endfor %}
             {% endfor %}
         </table>
+        <script>
+        new Tablesort(document.getElementById('sorted'));
+        </script>
         </div>
     </div>
-<p class="consortium-footer"><strong class="consortium-footer">&#x26AD;</strong> = consortial/collaborative
-    collections</p>
-</div>
-
 {% endblock %}

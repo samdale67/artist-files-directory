@@ -2,22 +2,22 @@
 {% block content %}
 
 <div>
-
     <div class="flex-container-content">
         <div style="flex: 1 1 2000px">
-        <h1 class="browse">All collections located in {{ city.display_name }} {{ count }}...</h1>
+            <h1 class="browse">All collections located in <strong>{{ city.display_name }}</strong>...</h1>
         </div>
 
-        <div>
+        <div style="flex: 1 1 100%">
 
-        <table class="collection-browse">
 
-            <tr>
-                <th>Collector</th>
+        <table id="sorted" class="collection-browse">
+
+            <tr data-sort-method='none'>
+                <th data-sort-default>Collector</th>
                 <th>Collection Name</th>
             </tr>
-            {% for collector in collectors_city %}
-                {% for collection in collector.collections.all %}
+            {% for collection in collectors_city %}
+                {% for collector in collection.collector.all %}
             <tr>
             <td>
 
@@ -38,10 +38,10 @@
             {% endfor %}
         </table>
 
+        <script>
+        new Tablesort(document.getElementById('sorted'));
+        </script>
+
         </div>
     </div>
-<p class="consortium-footer"><strong class="consortium-footer">&#x26AD;</strong> = consortial/collaborative
-    collections</p>
-</div>
-
 {% endblock %}

@@ -11,10 +11,9 @@
         </div>
 
        <div style="flex: 1 1 2000px">
-        <table class="collection-browse">
-
-            <tr>
-                <th>Collector</th>
+        <table id="sorted" class="collection-browse">
+             <tr data-sort-method='none'>
+                <th data-sort-default>Collector</th>
                 <th>Collection Name</th>
             </tr>
             {% for collector in collectors %}
@@ -38,7 +37,9 @@
                 {% endfor %}
             {% endfor %}
         </table>
-
+        <script>
+        new Tablesort(document.getElementById('sorted'));
+        </script>
      </div>
-
+    </div>
 {% endblock %}

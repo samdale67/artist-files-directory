@@ -5,7 +5,7 @@
     <h1 class="browse">All Institution Types ...</h1>
 
     <div class="flex-container-content">
-        <div>
+        <div style="flex: 1 1 100%">
             <ul class="body-collection-browse">
                 {% for type in types %}
                     <li>{{ type.type_name }} &#10142;
@@ -17,6 +17,4 @@
             </ul>
         </div>
     </div>
-</div>
-
 {% endblock %}

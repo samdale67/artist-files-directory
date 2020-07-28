@@ -6,7 +6,7 @@
     <div class="flex-container-content">
 
         <div style="flex: 1 1 2000px">
-        <h1 class="browse">All subjects of artist files collections ...</h1>
+        <h1 class="browse">Listing all subjects of artist files collections ...</h1>
         </div>
 
         <div>
@@ -60,6 +60,7 @@
         </table>
         </div>
 
+    {% if counties %}
     <div>
         <table class="collection-browse">
             <tr>
@@ -75,6 +76,7 @@
 
         </table>
         </div>
+    {% endif %}
 
     <div>
         <table class="collection-browse">
@@ -125,8 +127,5 @@
 
         </table>
         </div>
-
     </div>
-</div>
-
 {% endblock %}

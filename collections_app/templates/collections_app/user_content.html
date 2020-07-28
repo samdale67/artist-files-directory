@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load thumbnail %}
 
 {% block content %}
 
@@ -26,7 +27,7 @@
            <a href="/user/edit/">Update user info</a><br />
            <a href="/user/change-password/">Change password</a></p>
 
-       <p>We think it's important to keep entries up to date, so the directory will send an
+       <p>It's important to keep entries up to date, so the directory will send an
            email to <code>{{ user.email }}</code> every six months with a reminder to
            review your information. Sorry, you can't opt out!</p>
        </div>
@@ -118,31 +119,13 @@
 
     <h2>Your Collection Images</h2>
     <p>Click an image to update or delete.</p>
-{#        <ul class="images-user">#}
         {% for image in images %}
-            <a href="/collections/image_update/{{ image.id }}"><img class="collection" src="
-{{ image.image.url }}" height="100" alt="Collection Image"/></a>
+            <a href="/collections/image_update/{{ image.id }}">{% thumbnail image.image 0x300 crop as thumb2x %}<img class="collection" srcset=
+                "{{ thumb2x.url }} 2x" src="{{ thumb.url }}"></a>
         {% endfor %}
-{#        </ul>#}
 
            <p><label class="number">&#10124;</label> <strong><a href="/collections/image_add/">Add
                image</a></strong></p>
-
-
-
-{#        <h2>Your Documents</h2>#}
-{#    <ul>#}
-{#        {% for document in documents %}#}
-{#            <li><a href="/collections/{{ collection.id }}">{{ collection.name }}</a>&nbsp;&#10142;&nbsp;<a#}
-{#                href="/collections/update/{{ collection.id }}">Update</a> | <a#}
-{#                href="/collections/delete/{{ collection.id }}">Delete</a></li>#}
-{#        {% endfor %}#}
-{#    </ul>#}
-{##}
-{#       <ul>#}
-{#           <li><a href="/collections/add_collection/">Add document</a></li>#}
-{#    </ul>#}
-
     </div>
     </div>
 
@@ -161,6 +144,7 @@
                 <li>You are not allowed to delete shared fields.</li>
                 </ul>
             </div>
+
             <div style="flex: 1 1 275px">
                 <h2>Services, Systems, Formats</h2>
                 <ul>
@@ -168,17 +152,21 @@
                     <li><a href="/collections/cataloging_systems">Cataloging Systems</a></li>
                     <li><a href="/collections/special_formats">Special Formats</a></li>
                 </ul>
-                <p>&nbsp;</p>
 
-                                <h2>Private Collector and Institution Types</h2>
+                <h2>Private Collector and Institution Types</h2>
                  <ul>
                      <li><a href="/collectors/person_types/">Private Collector Types</a></li>
                     <li><a href="/collectors/institution_types">Institution Types</a></li>
                  </ul>
 
             </div>
-    <div style="flex: 1 1 175px">
-                        <h2>Subjects</h2>
+
+        <div style="flex: 1 1 175px">
+                <h2>Subjects</h2>
+                <p>A quick note about subject access fields: these fields are not designed to be used as
+           comprehensive access points for all the names, topics, etc., related to the collection.
+            Use them when the collection offers particular depth or focus on a subject.</p>
+
              <ul>
                  <li><a href="/collections/subject_names/">Persons and Institutions</a></li>
                  <li><a href="/collections/subject_topics">Topics</a></li>
@@ -188,9 +176,6 @@
                  <li><a href="/collections/subject_countries">Countries</a></li>
                  <li><a href="/collections/subject_geo_areas">Geographic Areas</a></li>
              </ul>
-
+        </div>
     </div>
-    </div>
-
-
 {% endblock %}

@@ -1,9 +1,12 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'javascript/tablesort-5.2.1/tablesort.css' %}" />
+    <script src="{% static 'javascript/tablesort-5.2.1/src/tablesort.js' %}"></script>
     <title>Artist Files Revealed: International Directory of Artist Files</title>
 </head>
 <body>
@@ -18,12 +21,13 @@
         This section gets replaced with "extends" calls coded in content pages
     {% endblock %}
 
-{#        <a href="http://artistfiles.arlisna.org"><img src="#}
-{#{% static 'graphics/Artist-Files-SIG-logo-gray.svg' %}" class="sig-logo" width="90" alt="Art Libraries Society of#}
-{#North America, Artist Files SIG Logo"></a>#}
+    <div>
+    {% include 'footer.html' %}
     </div>
 
-{#    {% include 'footer.html' %}#}
+    </div>
+
+</div>
 
 </body>
 </html>

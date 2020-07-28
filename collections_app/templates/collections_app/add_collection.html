@@ -17,7 +17,16 @@
         <a href="https://www.geonames.org">GeoNames</a> with limitations. Certain tertiary jurisdictions
         such as boroughs are not included. Also, Canadian and Mexican subregions are not used in the
         directory. GeoNames data is very dynamic and will be refreshed in the directory on a regular
-        schedule.</p></td>
+        schedule.</p>
+                    <p>
+                        <strong>A quick note about subject access fields</strong>: these fields are not designed
+                            to be
+                        used as comprehensive access points for all the names, topics, etc., related to the
+                        collection. Use them when the collection offers particular depth on a
+                        subject.
+                    </p>
+
+                </td>
                 </tr>
                 {{ form.media }}
                 {{ form.as_table }}
@@ -28,8 +37,6 @@
             </table>
             {% csrf_token %}
         </form>
-
 </div>
 </div>
-&nbsp;
 {% endblock %}

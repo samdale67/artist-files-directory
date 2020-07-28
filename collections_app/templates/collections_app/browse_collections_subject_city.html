@@ -9,12 +9,11 @@
                 .</h1>
         </div>
 
-        <div>
+        <div style="flex: 1 1 100%">
 
-        <table class="collection-browse">
-
-            <tr>
-                <th>Collector</th>
+        <table id="sorted" class="collection-browse">
+             <tr data-sort-method='none'>
+                <th data-sort-default>Collector</th>
                 <th>Collection Name</th>
             </tr>
             {% for collection in collections_sub_city %}
@@ -36,11 +35,9 @@
             {% endfor %}
         {% endfor %}
         </table>
-
+          <script>
+        new Tablesort(document.getElementById('sorted'));
+        </script>
         </div>
     </div>
-<p class="consortium-footer"><strong class="consortium-footer">&#x26AD;</strong> = consortial/collaborative
-    collections</p>
-</div>
-
 {% endblock %}
