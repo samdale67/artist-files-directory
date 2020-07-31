@@ -8,14 +8,10 @@ Interest Group</h2>
 
     <div id="entry-dates-database">
         {%  if user.is_authenticated  %}
-        <strong>Hi {{ user.first_name }}!</strong><br />
-        <a href="/user/content">Create / Edit / Delete</a><br />
+        <strong>{{ user.first_name }} &hearts;s Artist Files!</strong><br />
+        <a href="/user/content">Create / Update / Delete</a><br />
         <a href="{% url 'logout' %}">Log Out</a>
             {% else %}
         <a href="{% url 'login' %}">Log In / New Account</a>
     {% endif %}
-
-{#    <strong>We're fresh!</strong><br /> Directory last#}
-{#    updated <strong>{{ last_updated_object.date_saved}}</strong>#}
-
     </div>

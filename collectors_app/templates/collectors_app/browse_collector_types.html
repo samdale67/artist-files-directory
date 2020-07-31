@@ -5,20 +5,20 @@
 
     <div class="flex-container-content">
 
-        <div style="flex: 1 1 2000px">
-        <h1 class="browse">All collector types ...</h1>
-        </div>
+{#        <div style="flex: 1 1 2000px">#}
+{#        <h1 class="browse">All collector types ...</h1>#}
+{#        </div>#}
 
         <div>
 
         <table class="collection-browse">
             <tr>
-                <th>Institution Types</th>
+                <th>Collector - Institution Types</th>
              </tr>
 
             {% for type in institution_types %}
                 <tr>
-                <td>
+                <td style="white-space: nowrap;">
                 <a href="/collectors/browse/collector_type/institution/{{ type.id }}"
                 >{{ type.type_name }}</a> ({{ type.num_collection }}
                             {% if type.num_collection > 1 %}Collections{% else %}Collection{% endif %})
@@ -33,12 +33,12 @@
 
            <table class="collection-browse">
             <tr>
-                <th>Person Types</th>
+                <th>Collector - Person Types</th>
              </tr>
 
             {% for type in person_types %}
                 <tr>
-                <td>
+                <td style="white-space: nowrap;">
                 <a href="/collectors/browse/collector_type/person/{{ type.id }}"
                 >{{ type.type_name }}</a> ({{ type.num_collection }}
                             {% if type.num_collection > 1 %}Collections{% else %}Collection{% endif %})

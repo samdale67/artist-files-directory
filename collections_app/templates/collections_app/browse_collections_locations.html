@@ -5,18 +5,18 @@
 
     <div class="flex-container-content">
 
-        <div style="flex: 1 1 2000px">
-        <h1 class="browse">All geographic locations of artist files collections ...</h1>
-        </div>
+{#        <div style="flex: 1 1 2000px">#}
+{#        <h1 class="browse">All geographic locations of artist files collections ...</h1>#}
+{#        </div>#}
 
         <div>
         <table class="collection-browse">
-            <tr>
+            <tr data-sort-method='none' class="notfirst">
                 <th>Cities</td>
             </tr>
             {% for city in cities %}
             <tr>
-                <td><a href="/collections/browse/location/city/{{ city.id }}"
+                <td style="white-space: nowrap;"><a href="/collections/browse/location/city/{{ city.id }}"
                         >{{ city.display_name }}</a> ({{ city.num_collection }}
                             {% if city.num_collection > 1 %}Collections{% else %}Collection{% endif %})
                {% endfor %}
@@ -28,12 +28,12 @@
 
         <div>
         <table class="collection-browse">
-            <tr>
+            <tr data-sort-method='none' class="notfirst">
                 <th>States and Provinces</th>
             </tr>
             {% for state_prov in states_provs %}
             <tr>
-                <td><a href="/collections/browse/location/state_prov/
+                <td style="white-space: nowrap;"><a href="/collections/browse/location/state_prov/
 {{ state_prov.id }}"
                         >{{ state_prov.display_name }}</a> ({{ state_prov.num_collection }}
                             {% if state_prov.num_collection > 1 %}Collections{% else %}Collection{% endif %})
@@ -47,12 +47,12 @@
 
         <div>
         <table class="collection-browse">
-            <tr>
+            <tr data-sort-method='none' class="notfirst">
                 <th>Countries</th>
             </tr>
             {% for country in countries %}
             <tr>
-                <td><a href="/collections/browse/location/country/
+                <td style="white-space: nowrap;"><a href="/collections/browse/location/country/
 {{ country.id }}"
                         >{{ country.name }}</a> ({{ country.num_collection }}
                             {% if country.num_collection > 1 %}Collections{% else %}Collection{% endif %})

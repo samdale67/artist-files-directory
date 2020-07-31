@@ -4,18 +4,15 @@
 <div>
     <div class="flex-container-content">
         <div style="flex: 1 1 100%">
-        <h1 class="browse">Newest 10 collections added to the directory sorted by collector name then
-            collection
-            name ... </h1>
+            <h1 class="browse"><strong>Newest 10 collections added to the directory, newest on top ... </strong></h1>
         </div>
 
         <div style="flex: 1 1 100%">
 <table id="sorted" class="collection-browse">
-             <tr data-sort-method='none'>
+             <tr data-sort-method='none' class="notfirst">
                 <th>Collector</th>
                 <th>Collection Name</th>
             </tr>
-
                   {% for collection in collections %}
                 {% for collector in collection.collector.all %}
             <tr>

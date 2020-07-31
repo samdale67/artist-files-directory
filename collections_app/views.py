@@ -16,6 +16,22 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth import update_session_auth_hash
 from cities_light.models import Country, Region, City
+from django.contrib.syndication.views import Feed
+
+
+class LatestEntriesFeed(Feed):
+    title = "Police beat site news"
+    link = "/rss/"
+    description = "New collections added to the directory."
+
+    def items(self):
+        return Collection.objects.order_by('-date_created')[:5]
+
+    def item_title(self, item):
+        return item.name
+
+    def item_description(self, item):
+        return item.description
 
 
 def home_page(request):
@@ -81,12 +97,13 @@ def collection_detail(request, collection_id):
 
 
 def browse_all_collections(request):
-    all_collectors = Collector.objects.order_by('sort_name', 'inst_sub_name',
-                                                'inst_sub2_name').prefetch_related('collections')
-    collection_count = Collection.objects.count()
+    all_collectors = Collector.objects.exclude(inst_type=17).prefetch_related('collections').order_by(
+        'sort_name',
+        'inst_sub_name',
+        'inst_sub2_name')
+    # collection_count = Collection.objects.count()
     template = 'collections_app/browse_collections_all.html'
-    context = {'all_collectors': all_collectors,
-               'collection_count': collection_count}
+    context = {'all_collectors': all_collectors}
     return render(request, template, context)
 
 
@@ -610,7 +627,7 @@ def subject_topic_update(request, pk):
 
     if form.is_valid():
         form.save()
-        return redirect('/collections/subject_names/')
+        return redirect('/collections/subject_topics/')
 
     return render(request, template, context)
 
@@ -623,7 +640,7 @@ def subject_topic_add(request):
 
     if form.is_valid():
         form.save()
-        return redirect('/collections/special_formats/')
+        return redirect('/collections/subject_topics/')
 
     return render(request, template, context)
 

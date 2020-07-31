@@ -1,39 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <div>
-
     <div class="flex-container-content">
-
         <div style="flex: 1 1 2000px">
         <h1 class="browse">All collections with personal collector type <strong
         >{{ person_type.type_name }}</strong> ...</h1>
         </div>
-
        <div style="flex: 1 1 2000px">
         <table id="sorted" class="collection-browse">
-             <tr data-sort-method='none'>
+            <tr data-sort-method='none' class="notfirst">
                 <th data-sort-default>Collector</th>
                 <th>Collection Name</th>
             </tr>
             {% for collector in collectors %}
                 {% for collection in collector.collections.all %}
             <tr>
-            <td>
-
+                <td>
                 {{ collector.inst_main_name }}{% if collector.inst_sub_name %}, {% endif %}
                 {{ collector.inst_sub_name }}{% if collector.inst_sub2_name %}, {% endif %}
                 {{ collector.inst_sub2_name }}
                 {{ collector.person_last_name }}{% if collector.person_last_name %}, {% endif %}
                 {{ collector.person_first_name }}
-            </td>
-
-            <td>
-            <a href="/collections/{{ collection.id }}">{{ collection.name }}</a>{% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong>{% endif %}
-            </td>
-
+                </td>
+                <td>
+                <a href="/collections/{{ collection.id }}">{{ collection.name }}</a>{% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong>{% endif %}
+                </td>
             </tr>
-
                 {% endfor %}
             {% endfor %}
         </table>

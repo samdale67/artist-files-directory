@@ -3,6 +3,7 @@ from django.urls import path, re_path
 
 urlpatterns = [
     re_path(r'^(?P<collection_id>[0-9]+)/$', views.collection_detail, name='collection_detail'),
+    path('rss/', views.LatestEntriesFeed()),
     path('browse/all/', views.browse_all_collections, name='browse_collections_all'),
     path('browse/consortia/', views.browse_consortial_collections, name='browse_collections_consortia'),
     path('browse/digital_collections/', views.browse_digital_collections,

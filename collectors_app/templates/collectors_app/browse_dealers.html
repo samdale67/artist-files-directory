@@ -5,11 +5,11 @@
 <div>
     <div class="flex-container-content">
         <div style="flex: 1 1 2000px">
-        <h1 class="browse">Dealer Directory</h1>
+            <h1 class="browse"><strong>Dealer Directory</strong></h1>
         </div>
         <div style="flex: 1 1 2000px">
                <table id="sorted" class="collection-browse">
-             <tr data-sort-method='none'>
+             <tr data-sort-method='none' class="notfirst">
                 <th data-sort-default>Collector</th>
                 <th>Collection Name</th>
             </tr>
@@ -35,7 +35,7 @@
         </table>
         <script>
         new Tablesort(document.getElementById('sorted'));
-        </script
+        </script>
      </div>
     </div>
 </div>

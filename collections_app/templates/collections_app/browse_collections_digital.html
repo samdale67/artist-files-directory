@@ -1,25 +1,20 @@
 {% extends 'base.html' %}
-
 {% block content %}
-
 <div>
     <div class="flex-container-content">
         <div style="flex: 1 1 100%">
-        <h1 class="browse">All collections offering digital access ... </h1>
+            <h1 class="browse"><strong>All collections offering digital access ...</strong></h1>
         </div>
-
         <div style="flex: 1 1 100%">
                 <table id="sorted" class="collection-browse">
              <tr data-sort-method='none'>
                 <th data-sort-default>Collector</th>
                 <th>Collection Name</th>
             </tr>
-
     {% for collector in digital_collections %}
                 {% for collection in collector.collections.all %}
             <tr>
                 <td>
-
                     {{ collector.inst_main_name }}{% if collector.inst_sub_name %}, {% endif %}
                     {{ collector.inst_sub_name }}{% if collector.inst_sub2_name %}, {% endif %}
                     {{ collector.inst_sub2_name }}

@@ -1,18 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <div>
-
     <div class="flex-container-content">
         <div style="flex: 1 1 2000px">
             <h1 class="browse">All collections located in state/province: <strong>{{ state_prov.display_name }}</strong>
             ... </h1>
         </div>
-
         <div style="flex: 1 1 100%">
         <table id="sorted" class="collection-browse">
 
-                   <tr data-sort-method='none'>
+            <tr data-sort-method='none' class="notfirst">
                 <th data-sort-default>Collector</th>
                 <th>Collection Name</th>
             </tr>
@@ -26,13 +23,10 @@
                 {{ collector.person_last_name }}{% if collector.person_last_name %}, {% endif %}
                 {{ collector.person_first_name }}
             </td>
-
             <td>
             <a href="/collections/{{ collection.id }}">{{ collection.name }}</a>{% if collection.consortium == True %}<strong class="consortium">&#x26AD;</strong>{% endif %}
             </td>
-
             </tr>
-
                 {% endfor %}
             {% endfor %}
         </table>

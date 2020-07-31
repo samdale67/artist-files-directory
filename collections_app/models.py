@@ -58,8 +58,9 @@ class Collection(models.Model):
     quote = models.TextField('Quote',
                              max_length=500,
                              blank=True,
-                             help_text='Provide a pithy quote or tagline for the collection. This field '
-                                       'automatically adds quotes.')
+                             help_text='Provide a pithy quote or tagline for the collection. A quote '
+                                       'makes the entry look better, besides rounding out the '
+                                       'description. The system automatically adds fancy quotes.')
     quote_attrib = models.CharField('Quote Attribution',
                                     max_length=255,
                                     blank=True,

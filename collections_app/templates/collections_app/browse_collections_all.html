@@ -1,17 +1,15 @@
 {% extends 'base.html' %}
-
 {% block content %}
-
 <div>
     <div class="flex-container-content">
         <div style="flex: 1 1 100%">
-        <h1 class="browse">Listing all collections ... </h1>
+            <h1 class="browse"><strong>All collections ... </strong></h1>
         </div>
-
-        <div style="flex: 1 1 100%">
+    <div style="flex: 1 1 100%">
    <table id="sorted" class="collection-browse">
-             <tr data-sort-method='none'>
-                <th data-sort-default>Collector</th>
+             <tr data-sort-method='none' class="notfirst">
+                 <th data-sort-default>Collector (Excluding <a href="/collectors/browse/dealers">Dealers</a>)
+                </th>
                 <th>Collection Name</th>
             </tr>
 

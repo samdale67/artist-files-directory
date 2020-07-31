@@ -15,7 +15,7 @@
     {% endif %}
 
     <div class="flex-container-content">
-    <div style="flex: 1 1 3000px">
+    <div style="flex: 1 1 225px">
         <h1 class="detail">{{ collection.name }}</h1>{% for collector in collection.collector.all %}
         <h2 class="detail">{{ collector.inst_main_name }}{% if collector.inst_sub_name %},
             {{ collector.inst_sub_name }}{% endif %}{% if collector.inst_sub2_name %},
@@ -23,15 +23,6 @@
     <h2 class="detail">{{ collector.person_first_name }} {{ collector.person_last_name }}</h2>
     {% endfor %}
     {% if collection.consortium == True %}<strong id="consortium">&#x26AD;</strong>{% endif %}
-    </div>
-        <div style="flex: 1 1 300px">
-    {% if collection.quote %}
-        <blockquote>&#10077;&nbsp;{{ collection.quote|safe }}&nbsp;&#10078;</blockquote>
-    {% endif %}
-
-    {% if collection.quote_attrib %}
-        <blockquote class="quote-attrib">{{ collection.quote_attrib }}</blockquote>
-    {% endif %}
 
     {% if collection.description %}
         <h2>Overview</h2>
@@ -60,6 +51,14 @@
 
 
     <div style="flex: 1 1 250px">
+
+        {% if collection.quote %}
+        <blockquote>&#10077;&nbsp;{{ collection.quote|safe }}&nbsp;&#10078;</blockquote>
+    {% endif %}
+
+    {% if collection.quote_attrib %}
+        <blockquote class="quote-attrib">{{ collection.quote_attrib }}</blockquote>
+    {% endif %}
 
         {% if collection.city or collection.state_prov or collection.country %}
         <h2>Collection Location</h2>

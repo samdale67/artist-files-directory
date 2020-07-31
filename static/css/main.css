@@ -90,7 +90,7 @@ a:hover{
 
 blockquote{
     color: #8fb4af;
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: bold;
     margin: 10px 0 15px 0;
     line-height: 35px;
@@ -120,25 +120,25 @@ div#home-image-gallery-caption {
 
 div#entry-dates-database {
     /*display: block;*/
-    color: ghostwhite;
     position: fixed;
     right: 0;
-    top: 40px;
+    top: 30px;
     vertical-align: top;
     line-height: 20px;
     margin: 0 0 30px 5px;
     padding: 10px 0 8px 15px;
-    color: #90684c;
+    /*color: #90684c;*/
     font-size: .9em;
+    background-color: #efe6d7;
     /*background-color: #f3e5d1;*/
-    background-color: #e7eff1;
+    /*background-color: #e7eff1;*/
     /*background-color: #e7f1ea;*/
     /*background-color: #f5f5f5;*/
     /*background-color: #1F88C6;*/
     border-radius: 6px 0 0 6px;
     /*border: #eacba5 solid 3px;*/
-    max-width: 180px;
-    min-width: 180px;
+    max-width: 185px;
+    min-width: 185px;
 }
 
 /*div#entry-dates-database a {*/
@@ -146,7 +146,7 @@ div#entry-dates-database {
 /*}*/
 
 div#entry-dates-database strong {
-    color: #1d7eb8;
+    color: #067ab8;
 }
 
 /*div#entry-dates-database {*/
@@ -165,7 +165,7 @@ div#entry-dates-database strong {
 
 div#heart {
     display: inline;
-    font-size: 1.2em;
+    font-size: 1.3em;
     /*color: #b35858;*/
     }
 
@@ -197,11 +197,11 @@ h1 {
 h1.browse {
     display: inline-block;
     font-weight: normal;
-    font-size: 1.25em;
+    font-size: 1.15em;
     margin: 15px 0 5px 5px;
     padding: 0;
     line-height: 35px;
-    color: #8e8e8e;
+    color: #06a4b8;
 }
 
 h1.detail {
@@ -237,7 +237,7 @@ h1.title {
     display: block;
     font-size: 2em;
     font-weight: bold;
-    margin: 0 0 10px 30px;
+    margin: 0 0 8px 25px;
     padding: 0;
     line-height: 35px;
     color: #58a770;;
@@ -256,16 +256,16 @@ h2 {
 
 h2.detail {
     margin: 8px 0 5px 0;
-    font-size: 1.3em;
+    font-size: 1.15em;
     font-weight: normal;
     padding: 0;
-    /*line-height: 18px;*/
+    line-height: 26px;
     color: #c18e6c;
 }
 
 
 h2.home {
-    margin: 0 0 50px 30px;
+    margin: 0 0 50px 28px;
     font-size: 1.4em;
     font-weight: normal;
     padding: 0;
@@ -294,11 +294,11 @@ h2.subjects {
 
 h3 {
     margin: 5px 0 5px 0;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 1em;
     padding: 0;
     line-height: 20px;
-    color: #8e7163;
+    color: #aa8572;
 }
 
 hr {
@@ -405,7 +405,8 @@ strong {
 
 strong.navigation-browse {
     /*color: #2e8b7d;*/
-    color: #93755e;
+    /*color: #93755e;*/
+    color: #1f88c6;
     font-weight: bold;
 }
 
@@ -415,13 +416,13 @@ strong.date {
 }
 
 strong.consortium {
-    display: inline;
-    vertical-align: inherit;
+    display: inline-block;
+    /*vertical-align: inherit;*/
     color: #3abac6;
     font-weight: bolder;
     /*text-transform: uppercase;*/
-    font-size: 1.7em;
-    margin: -15px 0 0 3px;
+    font-size: 1.6em;
+    margin: 0 0 0 3px;
 }
 
 strong.consortium-footer {
@@ -446,7 +447,7 @@ strong#consortium {
 }
 
 strong.preferred {
-    color: #8cb6ad;
+    color: #3abac6;
     font-weight: bold;
     text-transform: uppercase;
     font-size: .8em;
@@ -468,17 +469,25 @@ table.collection-browse {
     width: 100%;
 }
 
+table.collection-browse .notfirst:hover {
+    background-color: #f1f1f1;
+}
+
 table.collection-browse th {
     text-align: left;
     font-weight: bold;
-    /*font-size: 1.15em;*/
+    font-size: 1.05em;
     color: #9a7d6b;
+}
+
+th > strong {
+    color: #0eacb1;
 }
 
 table.collection-browse td {
     border-top: 1px solid #dedede;
-    margin: 0 0 1px 0;
-    padding-right: 20px;
+    margin: 0 10px 1px 0;
+    padding-right: 35px;
 }
 
 table.collection-browse tr:hover {
@@ -592,6 +601,14 @@ ul.navigation-counts  {
 ul.navigation-counts > li {
     color: #008282;
     margin: 0 0 0 33px;
+    list-style-type: disc;
+    /*font-weight: bold;*/
+}
+
+ul.navigation-counts a {
+    color: #008282;
+    font-size: 1.1em;
+   /*margin: 0 0 0 33px;*/
     list-style-type: disc;
     /*font-weight: bold;*/
 }
@@ -803,4 +820,39 @@ select[name=subject_geo_area] {
     font-size: .85em;
 }
 
+/*Style javascript table sorter*/
 
+th[role=columnheader]:not(.no-sort) {
+	cursor: pointer;
+}
+
+th[role=columnheader]:not(.no-sort):after {
+	content: '';
+	float: right;
+	margin-top: 7px;
+	margin-right: 50%;
+	border-width: 0 7px 7px;
+	border-style: solid;
+	border-color: #a5734a transparent;
+	visibility: hidden;
+	opacity: 100%;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+th[aria-sort=ascending]:not(.no-sort):after {
+	border-bottom: none;
+	border-width: 7px 7px 0;
+}
+
+th[aria-sort]:not(.no-sort):after {
+	visibility: visible;
+	/*opacity: 0.4;*/
+}
+
+th[role=columnheader]:not(.no-sort):hover:after {
+	visibility: visible;
+	opacity: 1;
+}

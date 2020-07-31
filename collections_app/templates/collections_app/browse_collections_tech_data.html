@@ -1,39 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <div>
-
     <div class="flex-container-content">
-
-        <div style="flex: 1 1 2000px">
-        <h1 class="browse">All technical data related to artist files collections ...</h1>
-        </div>
-
+{#        <div style="flex: 1 1 2000px">#}
+{#        <h1 class="browse">All technical data related to artist files collections ...</h1>#}
+{#        </div>#}
         <div>
         <table class="collection-browse">
-            <tr>
+            <tr data-sort-method='none' class="notfirst">
                 <th>Special Formats</th>
             </tr>
             {% for format in collections_spec_formats %}
             <tr>
-                <td><a href="/collections/browse/tech_data/spec_format/
+                <td style="white-space: nowrap;"><a href="/collections/browse/tech_data/spec_format/
 {{ format.id }}">{{ format.special_format }}</a> ({{ format.num_collection }}
                             {% if format.num_collection > 1 %}Collections{% else %}Collection{% endif %})
                {% endfor %}
             </td>
             </tr>
-
         </table>
         </div>
 
         <div>
         <table class="collection-browse">
-            <tr>
+            <tr data-sort-method='none' class="notfirst">
                 <th>Cataloging Systems</th>
             </tr>
             {% for system in collections_cat_systems %}
             <tr>
-                <td><a href="/collections/browse/tech_data/cat_system/
+                <td style="white-space: nowrap;"><a href="/collections/browse/tech_data/cat_system/
 {{ system.id }}">{{ system.cat_name }}</a> ({{ system.num_collection }}
                             {% if system.num_collection > 1 %}Collections{% else %}Collection{% endif %})
                {% endfor %}
