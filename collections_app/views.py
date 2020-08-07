@@ -20,7 +20,7 @@ from django.contrib.syndication.views import Feed
 
 
 class LatestEntriesFeed(Feed):
-    title = "Police beat site news"
+    title = "Artist Files Revealed New Collections"
     link = "/rss/"
     description = "New collections added to the directory."
 

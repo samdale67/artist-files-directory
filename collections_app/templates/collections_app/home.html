@@ -1,31 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load thumbnail %}
-
 {% block content %}
 
     <div class="flex-container-content-images">
 
-    <div>
-        {% for image in collection_images %}
-        <a href="/collections/{{ image.collection_id }}">
-            {% thumbnail image.image 0x300 crop as thumb2x %}<img class="collection" srcset=
-                "{{ thumb2x.url }} 2x" src="{{ thumb.url }}"></a>
-        {% endfor %}
-
-            <hr>
-            <ul class="body">
-                <li class="footnote">Above, our robot artist files curators present a randomly
-            selected set of images from the directory to show the diversity of the collections.
-            <strong>Reload the page to view a new set of images!</strong></li>
-            </ul>
+        <div class="row">
+            {% for image in collection_images %}
+            <div class="column">
+            <a href="/collections/{{ image.collection_id }}">
+                {% thumbnail image.image 450x450 crop as thumb2x %}<img srcset="{{ thumb2x.url }} 2x" src="{{ thumb.url }}" style="width:100%"></a>
+            </div>
+            {% endfor %}
         </div>
-
-
     </div>
 
     <div class="flex-container-content">
-   <div style="flex: 1 1 250px">
+    <div style="flex: 1 1 250px">
 
     <h1 class="home">Why An Artist Files Directory?</h1>
 

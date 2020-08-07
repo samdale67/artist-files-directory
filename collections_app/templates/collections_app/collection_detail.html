@@ -2,17 +2,32 @@
 {% block content %}
 {% load thumbnail %}
 
-   {% if collection_images %}
+{% if collection_images %}
     <div class="flex-container-content-images">
         {% for image in collection_images %}
             <div>
-                <a href="{{ image.image.url }}">{% thumbnail image.image 0x450 crop as thumb2x %}<img
-                        class="collection" srcset="{{ thumb2x.url }} 2x" src="{{ thumb.url }}"></a><br
-                /><label class="caption">{{ image.caption }}</label>
+                <a href="{{ image.image.url }}">{% thumbnail image.image 450x450 crop as thumb2x %}<img
+                        class="collection" srcset="{{ thumb2x.url }} 2x" src="{{ thumb.url }}"></a><br />
+                <label class="caption">{{ image.caption }}</label>
             </div>
         {% endfor %}
-    </div>
-    {% endif %}
+   </div>
+{% endif %}
+
+{#       {% if collection_images %}#}
+{#    <div class="flex-container-content-images">#}
+{#        <div class="row-detail">#}
+{#            {% for image in collection_images %}#}
+{#                <div class="column-detail">#}
+{#                <a href="{{ image.image.url }}">{% thumbnail image.image 450x450 crop as thumb2x %}<img#}
+{#                        srcset="{{ thumb2x.url }} 2x" src="{{ thumb.url }}"  style="width:100%"></a><br />#}
+{#                <label class="caption">{{ image.caption }}</label>#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#    {% endif %}#}
+{#    #}
 
     <div class="flex-container-content">
     <div style="flex: 1 1 225px">
@@ -180,9 +195,6 @@
 
     {% for collector in collection.collector.all %}
 
-        {% if collection.collector.all.count > 1 %}
-        <div style="flex: 0 0 98%;"><hr class="detail"></div>
-    {% endif %}
 
     <div style="flex: 1 1 250px">
     <h2>Name</h2>
@@ -259,7 +271,13 @@
     <div style="flex: 1 1 200px">
         &nbsp;&nbsp;
     </div>
+
+        {% if collection.collector.all.count > 1 %}
+        <div style="flex: 0 0 98%;"></div>
+        {% endif %}
     {% endfor %}
     </div>
+
+
 {% endblock %}
 

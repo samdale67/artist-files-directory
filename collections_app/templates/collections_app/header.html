@@ -8,7 +8,7 @@ Interest Group</h2>
 
     <div id="entry-dates-database">
         {%  if user.is_authenticated  %}
-        <strong>{{ user.first_name }} &hearts;s Artist Files!</strong><br />
+        <strong>{{ user.first_name }} <div id="heart">&hearts;</div>s Artist Files!</strong><br />
         <a href="/user/content">Create / Update / Delete</a><br />
         <a href="{% url 'logout' %}">Log Out</a>
             {% else %}

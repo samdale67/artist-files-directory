@@ -119,11 +119,21 @@
 
     <h2>Your Collection Images</h2>
     <p>Click an image to update or delete.</p>
-        {% for image in images %}
-            <a href="/collections/image_update/{{ image.id }}">{% thumbnail image.image 0x300 crop as thumb2x %}<img class="collection" srcset=
-                "{{ thumb2x.url }} 2x" src="{{ thumb.url }}"></a>
-        {% endfor %}
+{#    #}
+{#            {% for image in images %}#}
+{#            <a href="/collections/image_update/{{ image.id }}">{% thumbnail image.image 0x300 crop as thumb2x %}<img class="collection" srcset=#}
+{#                "{{ thumb2x.url }} 2x" src="{{ thumb.url }}"></a>#}
+{#        {% endfor %}#}
 
+      <div class="row">
+        {% for image in images %}
+        <div class="column">
+        <a href="/collections/image_update/{{ image.id }}">
+            {% thumbnail image.image 450x450 crop as thumb2x %}<img class="user-page" srcset=
+                "{{ thumb2x.url }} 2x" src="{{ thumb.url }}" style="width:300%"></a>
+        </div>
+        {% endfor %}
+    </div>
            <p><label class="number">&#10124;</label> <strong><a href="/collections/image_add/">Add
                image</a></strong></p>
     </div>

@@ -2,37 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00caeb6b-957e-444f-8302-7a5f9b0b5b4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0032_auto_20200729_2310.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0033_auto_20200729_2312.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0034_auto_20200729_2312.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_all.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_all.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_consortia.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_consortia.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_digital.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_digital.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_location_city.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_location_city.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_location_country.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_location_country.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_location_state_prov.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_location_state_prov.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_locations.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_locations.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_new.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_subjects.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_subjects.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_tech_data.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_tech_data.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_tech_data_cat_system.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/browse_collections_tech_data_cat_system.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/collection_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/collection_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/navigation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/user_content.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/user_content.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collectors_app/templates/collectors_app/browse_collector_type_institution.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectors_app/templates/collectors_app/browse_collector_type_institution.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collectors_app/templates/collectors_app/browse_collector_type_person.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectors_app/templates/collectors_app/browse_collector_type_person.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collectors_app/templates/collectors_app/browse_collector_types.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectors_app/templates/collectors_app/browse_collector_types.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collectors_app/templates/collectors_app/browse_collectors.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectors_app/templates/collectors_app/browse_collectors.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collectors_app/templates/collectors_app/browse_dealers.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectors_app/templates/collectors_app/browse_dealers.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/javascript/tablesort-5.2.1/tablesort.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/javascript/tablesort-5.2.1/tablesort.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +51,7 @@
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="7a655f8a-d4d6-45d6-8444-4de89d50c707" />
   </component>
+  <component name="JupyterTrust" id="55b9fc11-a45f-40ec-aea0-d0e6ce500ee5" />
   <component name="ProjectId" id="1bHAaqfSR6hsW6WvTPhLPQylpt9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -146,6 +125,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -234,6 +214,28 @@
       <workItem from="1596153935030" duration="826000" />
       <workItem from="1596155742638" duration="1416000" />
       <workItem from="1596208766340" duration="496000" />
+      <workItem from="1596211967812" duration="36000" />
+      <workItem from="1596212210295" duration="1040000" />
+      <workItem from="1596410944575" duration="702000" />
+      <workItem from="1596479163043" duration="172000" />
+      <workItem from="1596501989752" duration="64000" />
+      <workItem from="1596504302514" duration="317000" />
+      <workItem from="1596505638079" duration="507000" />
+      <workItem from="1596548307360" duration="157000" />
+      <workItem from="1596558767408" duration="7858000" />
+      <workItem from="1596584302282" duration="106000" />
+      <workItem from="1596584924478" duration="92000" />
+      <workItem from="1596585053723" duration="54000" />
+      <workItem from="1596589710205" duration="824000" />
+      <workItem from="1596590612272" duration="53000" />
+      <workItem from="1596631975988" duration="5824000" />
+      <workItem from="1596648939476" duration="183000" />
+      <workItem from="1596655683577" duration="430000" />
+      <workItem from="1596666403861" duration="43000" />
+      <workItem from="1596719794034" duration="730000" />
+      <workItem from="1596723207755" duration="250000" />
+      <workItem from="1596737996960" duration="3387000" />
+      <workItem from="1596759234648" duration="2674000" />
     </task>
     <task id="LOCAL-00001" summary="None.">
       <created>1589247969075</created>
@@ -508,11 +510,18 @@
       <option name="project" value="LOCAL" />
       <updated>1595972053391</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="None.">
+      <created>1596211972228</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1596211972228</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -552,10 +561,10 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="1550" y="580" key="#com.intellij.tools.ToolEditorDialog/0.23.2880.1597@0.23.2880.1597" timestamp="1590762264919" />
-    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2" timestamp="1595972052998">
+    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2" timestamp="1596211971929">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
-    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2/0.23.2880.1597@0.23.2880.1597" timestamp="1595972052998" />
+    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2/0.23.2880.1597@0.23.2880.1597" timestamp="1596211971929" />
     <state x="1096" y="321" key="CommitChangelistDialog2/56.23.2824.1597@56.23.2824.1597" timestamp="1589830339190" />
     <state x="1097" y="321" key="CommitChangelistDialog2/58.23.2822.1597@58.23.2822.1597" timestamp="1590628415186" />
     <state x="1102" y="321" key="CommitChangelistDialog2/66.23.2814.1597@66.23.2814.1597" timestamp="1590187239620" />
@@ -603,10 +612,10 @@
       <screen x="58" y="23" width="2822" height="1597" />
     </state>
     <state x="615" y="744" key="VCS.ChangelistChooser/58.23.2822.1597@58.23.2822.1597" timestamp="1593188791417" />
-    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2" timestamp="1595972061095">
+    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2" timestamp="1596211980247">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
-    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2/0.23.2880.1597@0.23.2880.1597" timestamp="1595972061095" />
+    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2/0.23.2880.1597@0.23.2880.1597" timestamp="1596211980247" />
     <state x="1295" y="549" key="Vcs.Push.Dialog.v2/56.23.2824.1597@56.23.2824.1597" timestamp="1589830346962" />
     <state x="1296" y="549" key="Vcs.Push.Dialog.v2/58.23.2822.1597@58.23.2822.1597" timestamp="1590628423335" />
     <state x="1300" y="549" key="Vcs.Push.Dialog.v2/66.23.2814.1597@66.23.2814.1597" timestamp="1590187597817" />

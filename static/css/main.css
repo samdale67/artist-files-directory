@@ -3,7 +3,6 @@
     flex-wrap: nowrap;
     flex-direction: row;
     /*background-color: #fdfdfd;*/
-
 }
 
 .flex-container-main > div {
@@ -23,7 +22,7 @@
 
 .flex-container-content > div {
     /*padding: 0 0 7px 0;*/
-    margin: 10px 50px 0 0;
+    margin: 10px 25px 0 0;
 }
 
 .flex-container-content-user-records {
@@ -38,7 +37,7 @@
 
 .flex-container-content-user-records > div {
     /*padding: 0 0 7px 0;*/
-    margin: 0px 50px 0 0;
+    margin: 0 50px 0 0;
 }
 
 .flex-container-content-user-records-shared {
@@ -63,13 +62,13 @@
     flex-direction: row;
     border-radius: 15px;
     background-color: #f1f1f1;
-    padding: 10px 0 5px 30px;
+    padding: 30px 40px 30px 18px;
     margin: 30px 0 30px 0;
 }
 
 .flex-container-content-images > div {
-    padding: 0 0 7px 0;
-    margin: 18px 20px 0 0;
+    /*padding: 0 0 7px 0;*/
+    /*margin: 18px 20px 0 0;*/
 }
 
 a {
@@ -114,15 +113,11 @@ code {
     font-size: 1em;
 }
 
-div#home-image-gallery-caption {
-    font-size: .85em;
-}
-
 div#entry-dates-database {
     /*display: block;*/
     position: fixed;
     right: 0;
-    top: 30px;
+    top: 25px;
     vertical-align: top;
     line-height: 20px;
     margin: 0 0 30px 5px;
@@ -165,7 +160,7 @@ div#entry-dates-database strong {
 
 div#heart {
     display: inline;
-    font-size: 1.3em;
+    font-size: 1.2em;
     /*color: #b35858;*/
     }
 
@@ -227,7 +222,7 @@ h1.home {
     display: block;
     font-size: 1.6em;
     font-weight: bold;
-    margin: 15px 0 8px 0px;
+    margin: 15px 0 8px 0;
     padding: 0;
     line-height: 35px;
     color: #1f88c6;
@@ -235,7 +230,7 @@ h1.home {
 
 h1.title {
     display: block;
-    font-size: 2em;
+    font-size: 2.25em;
     font-weight: bold;
     margin: 0 0 8px 25px;
     padding: 0;
@@ -269,7 +264,7 @@ h2.home {
     font-size: 1.4em;
     font-weight: normal;
     padding: 0;
-    line-height: 18px;
+    line-height: 26px;
     color: #8b7463;
 }
 
@@ -347,9 +342,15 @@ img.AFR {
 
 
 img.collection {
+    margin: 0 0 0 12px;
+    padding: 0;
+}
+
+img.user-page {
     margin: 0;
     padding: 0;
 }
+
 
 img.sig-logo {
     position: relative;
@@ -372,9 +373,10 @@ label.fresh {
 
 label.caption {
     text-transform: uppercase;
-    font-size: .65em;
+    font-size: .7em;
     color: #999999;
-    margin: 0;
+    margin: 0 0 -10px 13px;
+    line-height: 12px;
 }
 
 label.number {
@@ -392,7 +394,6 @@ p.footer {
     right: 60px;
     font-size: .85em;
     margin: -20px 0 20px 25px;
-    padding-bottom: 10px;
     padding-bottom: 15px;
     line-height: 20px;
 }
@@ -590,7 +591,7 @@ ul.navigation-sub li {
 ul.navigation-counts  {
     font-size: .88em;
     /*text-transform: uppercase;*/
-    margin: 0px 0 20px 25px;
+    margin: 0 0 20px 25px;
     padding: 15px 12px 12px 0;
     border-radius: 10px;
     /*background-color: #f3f0eb;*/
@@ -613,10 +614,15 @@ ul.navigation-counts a {
     /*font-weight: bold;*/
 }
 
+ul.navigation-counts strong {
+    color: #008282;
+    font-size: .88em;
+}
+
 ul.navigation-what  {
     /*font-size: .88em;*/
     /*text-transform: uppercase;*/
-    margin: 0px 0 20px 25px;
+    margin: 0 0 20px 25px;
     padding: 15px 12px 12px 0;
     border-radius: 10px;
     background-color: #f1e8d9;
@@ -635,7 +641,6 @@ ul.navigation-what > li {
 
 ul.navigation-login {
     list-style-type: none;
-    margin: 0 0 20px 25px;
     margin: 0 0 20px 25px;
     padding: 12px 7px 12px 0;
     border-radius: 10px;
@@ -856,3 +861,87 @@ th[role=columnheader]:not(.no-sort):hover:after {
 	visibility: visible;
 	opacity: 1;
 }
+
+/* home page image grid */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+/* Create equal columns that sits next to each other */
+.column {
+    flex: 100%;
+    max-width: 12.4%;
+    padding: 0;
+    margin: 0;
+}
+
+.column img {
+    margin-bottom: -9px;
+    padding: 0;
+    border-width: 2px 4px 2px 4px;
+    border-color: whitesmoke;
+    border-style: solid;
+}
+
+/*!* Responsive layout - makes a two column-layout instead of four columns *!*/
+/*@media (max-width: 800px) {*/
+/*  .column {*/
+/*    flex: 50%;*/
+/*    max-width: 50%;*/
+/*  }*/
+/*}*/
+
+/*!* Responsive layout - makes the two columns stack on top of each other instead of next to each other *!*/
+/*@media (max-width: 600px) {*/
+/*  .column {*/
+/*    flex: 100%;*/
+/*    max-width: 100%;*/
+/*  }*/
+/*}*/
+
+
+/* Style image presentation on collection detail page */
+
+.row-detail {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+/* Create equal columns that sits next to each other */
+.column-detail {
+    /*flex: 15%;*/
+    max-width: 12.5%;
+    padding: 0;
+    margin: 0;
+}
+
+.column-detail img {
+    /*margin-bottom: -9px;*/
+    padding: 0;
+    margin: 0;
+    border-width: 0 4px 0 0;
+    border-color: whitesmoke;
+    border-style: solid;
+}
+
+/*!* Responsive layout - makes a two column-layout instead of four columns *!*/
+/*@media (max-width: 800px) {*/
+/*  .column {*/
+/*    flex: 50%;*/
+/*    max-width: 50%;*/
+/*  }*/
+/*}*/
+
+/*!* Responsive layout - makes the two columns stack on top of each other instead of next to each other *!*/
+/*@media (max-width: 600px) {*/
+/*  .column {*/
+/*    flex: 100%;*/
+/*    max-width: 100%;*/
+/*  }*/
+/*}*/
