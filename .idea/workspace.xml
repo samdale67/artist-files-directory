@@ -2,13 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00caeb6b-957e-444f-8302-7a5f9b0b5b4a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0035_auto_20200813_1826.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0036_auto_20200819_1536.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0037_auto_20200819_1538.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0038_auto_20200819_1539.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collections_app/migrations/0039_auto_20200819_1540.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/graphics/Artist-Files-SIG-logo.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/context_processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/context_processors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/collection_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/collection_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/navigation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/user_content.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/user_content.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collections_app/templates/collections_app/what-are-artist-files.html" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/templates/collections_app/what-are-artist-files.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collections_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/collections_app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
     </list>
@@ -78,7 +88,8 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -236,6 +247,36 @@
       <workItem from="1596723207755" duration="250000" />
       <workItem from="1596737996960" duration="3387000" />
       <workItem from="1596759234648" duration="2674000" />
+      <workItem from="1596824570386" duration="25000" />
+      <workItem from="1596831926669" duration="3000" />
+      <workItem from="1596975947618" duration="3826000" />
+      <workItem from="1596990997486" duration="2503000" />
+      <workItem from="1597018966667" duration="264000" />
+      <workItem from="1597073954296" duration="4186000" />
+      <workItem from="1597236440915" duration="4998000" />
+      <workItem from="1597341698524" duration="2275000" />
+      <workItem from="1597524160026" duration="1922000" />
+      <workItem from="1597597634008" duration="826000" />
+      <workItem from="1597601613252" duration="1093000" />
+      <workItem from="1597609475139" duration="88000" />
+      <workItem from="1597609804444" duration="304000" />
+      <workItem from="1597616390926" duration="1692000" />
+      <workItem from="1597619585095" duration="31000" />
+      <workItem from="1597664831755" duration="332000" />
+      <workItem from="1597665937562" duration="8632000" />
+      <workItem from="1597689809471" duration="65000" />
+      <workItem from="1597690105309" duration="15744000" />
+      <workItem from="1597795127982" duration="2607000" />
+      <workItem from="1597840945729" duration="1370000" />
+      <workItem from="1597848731862" duration="10000" />
+      <workItem from="1597849078080" duration="2502000" />
+      <workItem from="1597857081449" duration="995000" />
+      <workItem from="1597931674023" duration="675000" />
+      <workItem from="1597933226803" duration="994000" />
+      <workItem from="1597968906194" duration="1273000" />
+      <workItem from="1598286750243" duration="1392000" />
+      <workItem from="1598305811194" duration="1815000" />
+      <workItem from="1598373726318" duration="498000" />
     </task>
     <task id="LOCAL-00001" summary="None.">
       <created>1589247969075</created>
@@ -517,7 +558,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596211972228</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="None.">
+      <created>1596824575934</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1596824575934</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,18 +585,6 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="1582" y="520" key="#Images/0.23.2880.1597@0.23.2880.1597" timestamp="1592336673795" />
-    <state x="1847" y="596" key="#Menus_and_Toolbars" timestamp="1589222695290">
-      <screen x="0" y="23" width="2880" height="1597" />
-    </state>
-    <state x="1847" y="596" key="#Menus_and_Toolbars/0.23.2880.1597@0.23.2880.1597" timestamp="1589222695290" />
-    <state x="1166" y="359" width="1140" height="1022" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588447286398">
-      <screen x="0" y="23" width="2880" height="1597" />
-    </state>
-    <state x="1166" y="359" width="1140" height="1022" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2880.1597@0.23.2880.1597" timestamp="1588447286398" />
-    <state x="909" y="631" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589240272466">
-      <screen x="0" y="23" width="2880" height="1597" />
-    </state>
-    <state x="909" y="631" key="#com.intellij.fileTypes.FileTypeChooser/0.23.2880.1597@0.23.2880.1597" timestamp="1589240272466" />
     <state width="927" height="501" key="#com.intellij.structuralsearch.plugin.ui.StructuralReplaceDialog" timestamp="1592344521965">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
@@ -561,10 +597,14 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="1550" y="580" key="#com.intellij.tools.ToolEditorDialog/0.23.2880.1597@0.23.2880.1597" timestamp="1590762264919" />
-    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2" timestamp="1596211971929">
+    <state x="1345" y="703" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1597849293719">
+      <screen x="0" y="25" width="2880" height="1595" />
+    </state>
+    <state x="1345" y="703" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.25.2880.1595@0.25.2880.1595" timestamp="1597849293719" />
+    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2" timestamp="1596824575618">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
-    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2/0.23.2880.1597@0.23.2880.1597" timestamp="1596211971929" />
+    <state x="1060" y="321" width="1087" height="1173" key="CommitChangelistDialog2/0.23.2880.1597@0.23.2880.1597" timestamp="1596824575618" />
     <state x="1096" y="321" key="CommitChangelistDialog2/56.23.2824.1597@56.23.2824.1597" timestamp="1589830339190" />
     <state x="1097" y="321" key="CommitChangelistDialog2/58.23.2822.1597@58.23.2822.1597" timestamp="1590628415186" />
     <state x="1102" y="321" key="CommitChangelistDialog2/66.23.2814.1597@66.23.2814.1597" timestamp="1590187239620" />
@@ -572,57 +612,23 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="953" y="229" width="1401" height="1264" key="DiffContextDialog/0.23.2880.1597@0.23.2880.1597" timestamp="1591041226620" />
-    <state x="1871" y="774" key="Github.ShareDialog" timestamp="1589247644422">
-      <screen x="0" y="23" width="2880" height="1597" />
-    </state>
-    <state x="1871" y="774" key="Github.ShareDialog/0.23.2880.1597@0.23.2880.1597" timestamp="1589247644422" />
-    <state x="1784" y="572" key="Github.UntrackedFilesDialog" timestamp="1589222789631">
-      <screen x="0" y="23" width="2880" height="1597" />
-    </state>
-    <state x="1784" y="572" key="Github.UntrackedFilesDialog/0.23.2880.1597@0.23.2880.1597" timestamp="1589222789631" />
-    <state width="1547" height="342" key="GridCell.Tab.0.bottom" timestamp="1588363233799">
-      <screen x="0" y="23" width="2880" height="1597" />
-    </state>
-    <state width="1547" height="342" key="GridCell.Tab.0.bottom/0.23.2880.1597@0.23.2880.1597" timestamp="1588363233799" />
-    <state width="1547" height="342" key="GridCell.Tab.0.center" timestamp="1588363233798">
-      <screen x="0" y="23" width="2880" height="1597" />
-    </state>
-    <state width="1547" height="342" key="GridCell.Tab.0.center/0.23.2880.1597@0.23.2880.1597" timestamp="1588363233798" />
-    <state width="1547" height="342" key="GridCell.Tab.0.left" timestamp="1588363233798">
-      <screen x="0" y="23" width="2880" height="1597" />
-    </state>
-    <state width="1547" height="342" key="GridCell.Tab.0.left/0.23.2880.1597@0.23.2880.1597" timestamp="1588363233798" />
-    <state width="1547" height="342" key="GridCell.Tab.0.right" timestamp="1588363233798">
-      <screen x="0" y="23" width="2880" height="1597" />
-    </state>
-    <state width="1547" height="342" key="GridCell.Tab.0.right/0.23.2880.1597@0.23.2880.1597" timestamp="1588363233798" />
-    <state width="243" height="498" key="HiddenNamespacesPopup" timestamp="1589242811602">
-      <screen x="0" y="23" width="2880" height="1597" />
-    </state>
-    <state width="243" height="498" key="HiddenNamespacesPopup/0.23.2880.1597@0.23.2880.1597" timestamp="1589242811602" />
-    <state x="1442" y="552" key="RollbackChangesDialog" timestamp="1589235248035">
-      <screen x="0" y="23" width="2880" height="1597" />
-    </state>
-    <state x="1442" y="552" key="RollbackChangesDialog/0.23.2880.1597@0.23.2880.1597" timestamp="1589235248035" />
-    <state x="316" y="331" width="1037" height="943" key="SettingsEditor" timestamp="1595871275898">
-      <screen x="0" y="23" width="2880" height="1597" />
+    <state x="1080" y="338" width="1495" height="728" key="SettingsEditor" timestamp="1597968935818">
+      <screen x="73" y="25" width="2807" height="1595" />
     </state>
     <state x="316" y="331" width="1037" height="943" key="SettingsEditor/0.23.2880.1597@0.23.2880.1597" timestamp="1595871275898" />
+    <state x="1033" y="338" width="1495" height="728" key="SettingsEditor/0.25.2880.1595@0.25.2880.1595" timestamp="1597856907129" />
+    <state x="1080" y="338" key="SettingsEditor/73.25.2807.1595@73.25.2807.1595" timestamp="1597968935818" />
     <state x="615" y="744" key="VCS.ChangelistChooser" timestamp="1593188791417">
       <screen x="58" y="23" width="2822" height="1597" />
     </state>
     <state x="615" y="744" key="VCS.ChangelistChooser/58.23.2822.1597@58.23.2822.1597" timestamp="1593188791417" />
-    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2" timestamp="1596211980247">
+    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2" timestamp="1596824587636">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
-    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2/0.23.2880.1597@0.23.2880.1597" timestamp="1596211980247" />
+    <state x="1263" y="549" width="941" height="727" key="Vcs.Push.Dialog.v2/0.23.2880.1597@0.23.2880.1597" timestamp="1596824587636" />
     <state x="1295" y="549" key="Vcs.Push.Dialog.v2/56.23.2824.1597@56.23.2824.1597" timestamp="1589830346962" />
     <state x="1296" y="549" key="Vcs.Push.Dialog.v2/58.23.2822.1597@58.23.2822.1597" timestamp="1590628423335" />
     <state x="1300" y="549" key="Vcs.Push.Dialog.v2/66.23.2814.1597@66.23.2814.1597" timestamp="1590187597817" />
-    <state x="931" y="159" width="1458" height="1263" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589238753759">
-      <screen x="0" y="23" width="2880" height="1597" />
-    </state>
-    <state x="931" y="159" width="1458" height="1263" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.2880.1597@0.23.2880.1597" timestamp="1589238753759" />
     <state x="990" y="498" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595878520660">
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
@@ -668,14 +674,11 @@
       <screen x="0" y="23" width="2880" height="1597" />
     </state>
     <state x="931" y="457" width="909" height="921" key="find.popup/0.23.2880.1597@0.23.2880.1597" timestamp="1595433660650" />
-    <state x="931" y="159" width="1458" height="1263" key="git4idea.log.GitShowExternalLogAction" timestamp="1589238367531">
-      <screen x="0" y="23" width="2880" height="1597" />
-    </state>
-    <state x="931" y="159" width="1458" height="1263" key="git4idea.log.GitShowExternalLogAction/0.23.2880.1597@0.23.2880.1597" timestamp="1589238367531" />
-    <state x="1936" y="414" width="670" height="676" key="search.everywhere.popup" timestamp="1594578996965">
-      <screen x="0" y="23" width="2880" height="1597" />
+    <state x="1936" y="416" width="670" height="676" key="search.everywhere.popup" timestamp="1597003427585">
+      <screen x="0" y="25" width="2880" height="1595" />
     </state>
     <state x="1936" y="414" width="670" height="676" key="search.everywhere.popup/0.23.2880.1597@0.23.2880.1597" timestamp="1594578996965" />
+    <state x="1936" y="416" width="670" height="676" key="search.everywhere.popup/0.25.2880.1595@0.25.2880.1595" timestamp="1597003427585" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

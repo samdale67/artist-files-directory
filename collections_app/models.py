@@ -49,7 +49,7 @@ class Collection(models.Model):
     city = models.ForeignKey(City, blank=True, null=True, on_delete=models.CASCADE, verbose_name='Location: '
                                                                                                  'City')
     description = RichTextField('Description',
-                                max_length=3000,
+                                max_length=5000,
                                 blank=True,
                                 help_text='Provide a general description of the collection, '
                                           'including such aspects as history and provenance. Also '
@@ -221,17 +221,17 @@ class CollectionImage(models.Model):
     image = models.ImageField('Image File',
                               upload_to='collection/images/',
                               help_text='Upload image showing example material from '
-                                        'files and/or storage systems in use.<br />It seems reasonable '
-                                        'to limit yourself to ten images per collection. Only '
-                                        'five random images show in your collection detail view.</br />Show '
-                                        'us the fun stuff!')
+                                        'files and/or storage systems in use. Ten images seems reasonable '
+                                        'per collection, less is better. '
+                                        'Only five random images show in your collection detail view. The '
+                                        'directory favors square images, otherwise automatic square cropping '
+                                        'can be unpredictable. Show off your special material!')
     caption = models.CharField('Caption',
                                max_length=50,
                                default='',
                                help_text='Provide a short yet descriptive caption describing the '
                                          'image. <br />Be very economical: 50 character limit, but shorter '
-                                         'is better. The directory favors images with horizontal '
-                                         'orientation.')
+                                         'is better.')
     collection = models.ForeignKey(Collection,
                                    related_name='collections',
                                    verbose_name='Related Collection',

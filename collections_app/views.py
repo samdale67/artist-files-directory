@@ -35,7 +35,7 @@ class LatestEntriesFeed(Feed):
 
 
 def home_page(request):
-    collection_images = CollectionImage.objects.select_related('collection').order_by('?')[:16]
+    collection_images = CollectionImage.objects.select_related('collection').order_by('?')[:18]
     template = 'collections_app/home.html'
     context = {'collection_images': collection_images}
 

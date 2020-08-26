@@ -2,9 +2,7 @@
 {% load static %}
 {% load thumbnail %}
 {% block content %}
-
-    <div class="flex-container-content-images">
-
+        <div class="flex-container-content-images">
         <div class="row">
             {% for image in collection_images %}
             <div class="column">
@@ -13,68 +11,120 @@
             </div>
             {% endfor %}
         </div>
+        <div style="flex: 1 1 100%">
+            <label class="caption-home"><strong>^</strong> Above, our robot artist files curators present
+                a random
+                set of
+                images to show the diversity of the directory's collections. <strong>Reload the page to see
+                    a new set of images.</strong></label>
+        </div>
     </div>
-
     <div class="flex-container-content">
-    <div style="flex: 1 1 250px">
+    <div style="flex: 1 1 225px">
 
     <h1 class="home">Why An Artist Files Directory?</h1>
 
        <p>If you are new to artist files, head to <a href="/what-are-artist-files">What Are Artist
-           Files?</a> for a primer.</p>
-       <p>Artist files are among the most valued and heavily used
-           resources in art research facilities. These files often provide critical documentation about
-           well established artists, as well as lesser known artists. Researchers rely on artist files to
-           establish chronologies, flesh out exhibition histories, review stylistic developments, assess
-           the critical reception of artists over time, among many other uses. Also, artist files
-           collections frequently have regional strengths that make them particularly vital repositories
-           for communities. Also, artist files sometimes contain unique objects, such as those highlighted in
-           the <a
-                   href="/collections/11/">New York Public Library's entry</a>. This type of material,
-           recognized by curators as helping to provide yet another angle on an artist, feature them in
-           exhibitions.</p>
+           Files?</a> for a primer, or spend some time at <a href="http://artistfiles.arlisna
+           .org">artistfiles.arlisna.org</a>, a professional resource covering all aspects of artist files.</p>
 
-<blockquote>&#10077;&nbsp;... artist files [are] among the least accessible resources in research
-    collections [and] the single most untapped resource to the broader art research community.&nbsp;&#10078;
-</blockquote>
+        <p>Researchers who know about artist files find them indispensable, yet they continue to
+            be among the least accessible resources in art research collections.   Researchers rely on artist
+            files to establish chronologies, expand exhibition histories,
+            review stylistic developments, and assess the critical reception of artists over time, among
+            many other uses. They provide documentation about well established artists, and even more
+            importantly, capture material on regional and lesser-known artists. Curators value them for
+             special objects such as those highlighted in the <a href="/collections/11/">The New
+                York Public Library's collection</a>, which add dimension to exhibitions.</p>
 
-<p>Ironically, artist files continue to be among the least accessible resources in research collections. The
-    very <a href="/what-are-artist-files">nature</a> of the material, limited staff resources, and lack of
-        technical or administrative support
-have all contributed to this problem ... As a result, it is only the most diligent of
-researchers that will discover these files by searching individual local catalogs or other publicly
-published indexes. In effect, this has made artist files the single most untapped resource to the broader
-    art research community.</p>
+           <blockquote>&#10077;&nbsp;... artist files continue to be among the least accessible resources in
+             art research collections ... &nbsp;&#10078;
+            </blockquote>
+
+            <p>The very <a href="/what-are-artist-files">nature</a> of the material (mainly their typically small size,
+            making itemized cataloging prohibitive for most collectors), lack of representation in union
+            catalogs such as WorldCat, and limited staff resources to manage them in general are
+            chief causes of their low exposure. They are also among the last collections to be digitized due
+                to their
+                physical
+            variety and sheer volume, not to mention copyright challenges.</p>
+
+        <p>This directory aims to help researchers discover these collections. It also helps managers
+            connect with colleagues to learn about different approaches to collecting, provisioning, and
+            preserving these collections. It is also a tool for helping connect institutional collections
+            with private collections. Likewise, the directory helps files with subject concentrations connect
+            with each other.</p>
    </div>
-
         <div class="vertical-line" style="flex: 0 0 1px">
                </div>
 
     <div style="flex: 1 1 300px">
        <h1 class="home">What is the Scope of the Directory?</h1>
-
+                           <a href="http://www.arlisna.org/images/researchreports/artist_files_revealed.pdf"><img src="
+{% static 'graphics/Artist-Files-Revealed-Documentation-and-Access-Cover.jpg' %}" width="160" alt="Artist
+Files Revealed Documentation and Access Cover" style="float: right"></a>
        <p>While the first <cite>Artist Files
                Revealed</cite>
-           <a href="http://www.arlisna.org/images/researchreports/artist_files_revealed.pdf">publication</a> and related (now defunct)
-           online directory focused on institutional collections, the new directory expands coverage by
-           offering access to personal collections of artist files. A number of new access options help
-           researchers find collections by <a href="/collections/browse/subjects/">subjects</a>, <a
+           <a href="http://www.arlisna.org/images/researchreports/artist_files_revealed
+           .pdf">publication</a> (Art Libraries Society of North America, 2009, 2010) and related (now
+           defunct)
+           online directory focused on institutional artist files collections, the new directory expands
+           coverage by offering access to personal collections. The directory
+           will help reveal specialized sets of artist research  material collected by curators,
+           professors, scholars, and private
+           collectors and facilitate connections with institutional collectors. While the directory focuses on printed artist files material, collectors can
+            describe digital content and projects.</p>
+
+           <p>A number of new access
+           options help researchers find collections by <a
+                   href="/collections/browse/subjects/">subject</a>, <a
                    href="/collections/browse/tech_data/">technical data</a> such as special formats,
            physical <a href="/collections/browse/locations">location</a> of the the collection, and even by <a
-                   href="/collectors/browse/collector_types">collector categories</a>. It also provides a
+                   href="/collectors/browse/collector_types">collector categories</a>. Collection images,
+           also new, allow collectors to highlight special items or storage systems. It also provides a
            <a href="/collectors/browse/dealers/">dealer directory</a> for sellers who specialize in artist
-               ephemera.</p>
-        <p>Let's quickly get something out of the way: the directory is <strong>not</strong> a delivery
-           platform for digitized or digital artist files content.</p>
+               ephemera. Quick searches pull together <a
+                       href="/collections/browse/consortia">consortial/shared</a>, <a
+                       href="/collections/browse/digital_collections">digital</a>, and <a
+                       href="/collections/new">new</a> collections.  An <a href="/collections/rss">RSS feed</a> notifies users when a new collection
+               gets added to the directory. And, just for fun, <a
+                       href="/collections/random/">random collection</a> provides a roulette wheel
+               experience.</p>
+
+        <p><strong>A major caveat</strong>: the directory is <strong>not</strong> a delivery
+           platform for digitized or born-digital artist files content. While the the directory allows
+            collectors to describe digital material and projects, this platform is not designed to be a
+            storage or  access system for these collections. Instead, it points researchers
+            <strong>to</strong> these collections.</p>
+
          <hr>
-    <ul class="body">
-       <li class="footnote">Some information on this page based on information from <a href="http://www
-       .arlisna.org/images/researchreports/artist_files_revealed.pdf"><cite>Artist Files Revealed: Documentation
-           and Access</cite></a> by The Artist Files
-    Working Group, ARLIS/NA</cite> (Art Libraries Society of North America, 2009, 2010).</li>
+
+                <div class="database-stats">
+               <strong>Directory Stats</strong>
+             <ul>
+                <li>We're fresh! Directory last updated <strong
+                >{{ last_updated_object.date_saved}}</strong>.</li>
+                <li>Directory currently has <strong
+           >{{ collection_count }}</strong> collection records, <strong
+            >{{ collector_count }}</strong> collector records, and <strong>{{ image_count }}</strong>
+                images.</li>
+                 {% if user.is_authenticated %}<li>Go to <a href="/user/content">user page</a> to maintain
+                    your records.{% else %}</li><li><a href="/login/">Login / New Account</a> to add or
+                     maintain your records.</li>{% endif %}
             </ul>
-    <a href="http://www.arlisna.org/images/researchreports/artist_files_revealed.pdf"><img src="{% static 'graphics/Artist-Files-Revealed-Documentation-and-Access-Cover.jpg' %}" width="175" alt="Artist Files Revealed Documentation and Access Cover"></a>
+            </div>
+{#    <ul class="body">#}
+{#       <li class="footnote">Some information on this page based on information from <a href="http://www#}
+{#       .arlisna.org/images/researchreports/artist_files_revealed.pdf"><cite>Artist Files Revealed: Documentation#}
+{#           and Access</cite></a> by The Artist Files#}
+{#    Working Group, ARLIS/NA</cite> (Art Libraries Society of North America, 2009, 2010).</li>#}
+{#            </ul>#}
+{#    <a href="http://www.arlisna.org/images/researchreports/artist_files_revealed.pdf"><img src="{% static 'graphics/Artist-Files-Revealed-Documentation-and-Access-Cover.jpg' %}" width="175" alt="Artist Files Revealed Documentation and Access Cover"></a>#}
     </div>
+
+
 </div>
+
+
 
 {% endblock %}

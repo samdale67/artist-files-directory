@@ -5,13 +5,13 @@
 
 <h2 class="home">A Resource from the Art Libraries Society of North America, Artist Files Special
 Interest Group</h2>
-
-    <div id="entry-dates-database">
-        {%  if user.is_authenticated  %}
-        <strong>{{ user.first_name }} <div id="heart">&hearts;</div>s Artist Files!</strong><br />
-        <a href="/user/content">Create / Update / Delete</a><br />
-        <a href="{% url 'logout' %}">Log Out</a>
-            {% else %}
-        <a href="{% url 'login' %}">Log In / New Account</a>
-    {% endif %}
-    </div>
+{##}
+{#    <div id="entry-dates-database">#}
+{#        {%  if user.is_authenticated  %}#}
+{#        <strong>{{ user.first_name }} <div id="heart">&hearts;</div>s Artist Files!</strong><br />#}
+{#        <a href="/user/content">Create / Update / Delete</a><br />#}
+{#        <a href="{% url 'logout' %}">Log Out</a>#}
+{#            {% else %}#}
+{#        <a href="{% url 'login' %}">Log In / New Account</a>#}
+{#    {% endif %}#}
+{#    </div>#}

@@ -1,15 +1,27 @@
 {% load static %}
-<div style="flex: .05 .5 260px">
-<a href="/"><img src="{% static 'graphics/Artist-Files-Revealed-logo-blue.svg' %}" class="AFR"></a>
+<div style="flex: .05 .25 260px">
+{#<ul class="navigation-start">#}
+{#    <li><a href="/">Start Page</a></li>#}
+{#</ul>#}
+        <ul class="navigation-login">
+        {%  if user.is_authenticated  %}
+            <li><strong>{{ user.first_name }} <div id="heart">&hearts;</div>s Artist
+                Files!</strong></li>
+            <li><a href="/user/content">Create / Update / Delete</a></li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Log In / New Account</a></li>
+        {% endif %}
+</ul>
 <ul class="navigation">
-    <li><a class="navigation" href="/">Start Page</a></li>
-    <li><strong class="navigation-browse">Browse Collections ...</strong></li>
+    <li><a href="/">Home Page</a></li>
+{#    <li><strong>Browse ...</strong></li>#}
         <ul class="navigation-sub">
-            <li><a href="/collections/browse/all" class="navigation">All Collections</a></li>
-            <li><a href="/collections/browse/locations" class="navigation">Collection Location</a></li>
-            <li><a href="/collectors/browse/collector_types/" class="navigation">Collector Type</a></li>
-            <li><a href="/collections/browse/subjects/" class="navigation">Subject</a></li>
-            <li><a href="/collections/browse/tech_data/" class="navigation">Technical Data</a></li>
+            <li><a href="/collections/browse/all" class="navigation">Browse All Collections</a></li>
+            <li><a href="/collections/browse/locations" class="navigation">Browse Collection Location</a></li>
+            <li><a href="/collectors/browse/collector_types/" class="navigation">Browse Collector Type</a></li>
+            <li><a href="/collections/browse/subjects/" class="navigation">Browse Subject</a></li>
+            <li><a href="/collections/browse/tech_data/" class="navigation">Browse Technical Data</a></li>
         </ul>
 </ul>
 <ul class="navigation">
@@ -21,16 +33,22 @@
 <ul class="navigation">
      <li><a href="/collectors/browse/dealers">Dealer Directory</a></li>
 </ul>
-</ul>
-<ul class="navigation-counts">
-    <li>Directory updated <strong>{{ last_updated_object.date_saved}}</strong></li>
-    <li><strong>{{ collection_count }}</strong> collections and growing!</li>
-    <li><strong><a href="/login/">Login</a></strong> to add yours.</li>
-</ul>
-<ul class="navigation-counts">
+{#<ul class="navigation-counts">#}
+{#    <li>Directory updated <strong>{{ last_updated_object.date_saved}}</strong></li>#}
+{#    <li><strong>{{ collection_count }}</strong> collections and growing!</li>#}
+{#    <li><strong><a href="/login/">Login</a></strong> to add yours.</li>#}
+{#</ul>#}
+<ul class="navigation-new-collections-rss">
     <li><a href="/collections/rss">New Collections Feed</a></li>
 </ul>
 <ul class="navigation-what">
     <li><a href="/what-are-artist-files">What Are Artist Files?</a></li>
+</ul>
+<ul class="navigation">
+<li><a href="http://artistfiles.arlisna.org"><img src="{% static 'graphics/Artist-Files-SIG-logo.svg' %}"
+                                                  class="sig-logo"></a></li>
+
+<li><a href="http://artistfiles.arlisna.org"><label class="caption-logo">The Art Libraries Society of North
+    America, Artist Files Special Interest Group</label></a></li>
 </ul>
 </div>

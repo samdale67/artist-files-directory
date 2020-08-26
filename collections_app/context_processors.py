@@ -1,5 +1,5 @@
 from collectors_app.models import Collector
-from collections_app.models import Collection
+from collections_app.models import Collection, CollectionImage
 
 
 def last_database_update(request):
@@ -15,5 +15,6 @@ def last_database_update(request):
 def navigation_content(request):
     collector_count = Collector.objects.count()
     collection_count = Collection.objects.count()
+    image_count = CollectionImage.objects.count()
 
-    return {'collector_count': collector_count, 'collection_count': collection_count}
+    return {'collector_count': collector_count, 'collection_count': collection_count, 'image_count': image_count}
